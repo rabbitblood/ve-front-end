@@ -1,0 +1,25 @@
+@import "./_partial/general.scss";
+
+.banner {
+  position: relative;
+  margin: auto;
+  margin-top: 1rem;
+  width: 95vw;
+  height: 70vh;
+  background-color: #c7c7c7;
+  cursor: pointer;
+
+  &__explain {
+    background: white;
+    padding: 0.5rem 2rem;
+    position: absolute;
+    bottom: 4rem;
+    right: 1rem;
+  }
+
+  &__title {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
