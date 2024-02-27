@@ -1,7 +1,7 @@
 import { useState, Dispatch, SetStateAction } from "react";
+import { Link } from "react-router-dom";
 import ChooseColor from "./ChooseColor";
-
-type CustomizeState = "color" | "decoration" | "engraving" | "review";
+import "@/css/customize/customize.css";
 
 export type colorProperty = {
   color1: string;
@@ -13,63 +13,70 @@ export type chooseColorParam = {
   setCurrentColor: Dispatch<SetStateAction<colorProperty>>;
 };
 
+type customizeSteps = {
+  "step-name": string;
+  element: JSX.Element;
+};
+
 export default function Customize() {
-  const [customizeState, setCustomizeState] = useState<CustomizeState>("color");
+  const [customizeState, setCustomizeState] = useState<number>(1);
   const [currentColor, setCurrentColor] = useState<colorProperty>({
     color1: "Black",
     color2: "Black",
   } as colorProperty);
 
-  const displayContent = () => {
-    switch (customizeState) {
-      case "color":
-        return (
-          <ChooseColor
-            {...{
-              currentColor,
-              setCurrentColor,
-            }}
-          />
-        );
-      case "decoration":
-        return <div>Decoration</div>;
-      case "engraving":
-        return <div>Engraving</div>;
-      case "review":
-        return <div>Review</div>;
-    }
+  const customizeSteps: { [key: number]: customizeSteps } = {
+    1: {
+      "step-name": "color",
+      element: (
+        <ChooseColor
+          {...{
+            currentColor,
+            setCurrentColor,
+          }}
+        />
+      ),
+    },
+    2: {
+      "step-name": "decoration",
+      element: <>decoration</>,
+    },
+    3: {
+      "step-name": "engraving",
+      element: <>engraving</>,
+    },
+    4: {
+      "step-name": "review",
+      element: <>review</>,
+    },
   };
+
+  function goToStep(step: number) {
+    setCustomizeState(step);
+  }
 
   return (
     <div className="customize">
-      <div className="brand-name">Vé</div>
-      <nav>
-        <li
-          onClick={() => setCustomizeState("color")}
-          className={customizeState === "color" ? "active" : ""}
-        >
-          Step:1 Color
-        </li>
-        <li
-          onClick={() => setCustomizeState("decoration")}
-          className={customizeState === "decoration" ? "active" : ""}
-        >
-          Step:2 Decorations
-        </li>
-        <li
-          onClick={() => setCustomizeState("engraving")}
-          className={customizeState === "engraving" ? "active" : ""}
-        >
-          Step:3 Engraving
-        </li>
-        <li
-          onClick={() => setCustomizeState("review")}
-          className={customizeState === "review" ? "active" : ""}
-        >
-          Step:4 Review
-        </li>
+      <Link to={"/"} className="brand-name">
+        Vé
+      </Link>
+      <nav className="customize-step-nav">
+        {Object.keys(customizeSteps).map((step, index) => (
+          <li
+            key={index}
+            onClick={() => goToStep(parseInt(step))}
+            className={
+              "nav__item " +
+              (customizeState === parseInt(step) ? "active" : "inactive")
+            }
+          >
+            {customizeSteps[parseInt(step)]["step-name"]}
+          </li>
+        ))}
       </nav>
-      <div className="displayContents">{displayContent()}</div>
+      <div className="displayContents">
+        {customizeSteps[customizeState].element}
+      </div>
     </div>
   );
 }
