@@ -1,6 +1,7 @@
 import { useState, Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 import ChooseColor from "./ChooseColor";
+import ChooseDecoration from "./ChooseDecoration";
 import "@/css/customize/customize.css";
 
 export type colorProperty = {
@@ -39,7 +40,7 @@ export default function Customize() {
     },
     2: {
       "step-name": "decoration",
-      element: <>decoration</>,
+      element: <ChooseDecoration />,
     },
     3: {
       "step-name": "engraving",
@@ -62,7 +63,7 @@ export default function Customize() {
   return (
     <div className="customize">
       <Link to={"/"} className="brand-name">
-        Vé
+        <h2>Vé</h2>
       </Link>
       <nav className="customize-step-nav">
         {Object.keys(customizeSteps).map((step, index) => (

@@ -1,0 +1,58 @@
+.choose-deco {
+  .deco-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+
+    .option {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      min-width: 6rem;
+      width: 8rem;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition-duration: 0.5s;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .choose-deco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    width: 90%;
+    margin-bottom: 1rem;
+
+    .deco {
+      cursor: pointer;
+      display: flex;
+      padding: 1rem;
+      width: 100%;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition-duration: 0.5s;
+
+      .deco-img {
+        width: 3rem;
+        height: 3rem;
+        margin-right: 1rem;
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}

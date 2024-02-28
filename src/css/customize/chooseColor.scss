@@ -1,27 +1,5 @@
-@import "../_partial/general";
-
 .choose-color {
-  margin-bottom: 5rem;
-  .model-view-container {
-    .model-view-3d {
-      background-color: rgb(33, 34, 68);
-      min-width: 100%;
-      min-height: 50vh;
-      margin: auto;
-    }
-    .model-info {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-
-  .color-options {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+  .selection-section {
     .color-area {
       display: flex;
       justify-content: center;
@@ -111,22 +89,5 @@
   }
 
   @media (min-width: 768px) {
-    margin-bottom: 1rem;
-    display: grid;
-    grid-template-columns: 1fr 400px;
-
-    .model-view-container {
-      .model-view-3d {
-        background-color: rgb(33, 34, 68);
-        min-width: 90%;
-        min-height: 80vh;
-        margin: auto;
-      }
-      .model-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-    }
   }
 }

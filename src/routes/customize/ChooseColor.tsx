@@ -40,11 +40,11 @@ export default function ChooseColor(param: chooseColorParam) {
 
   return (
     <div className="choose-color">
-      <div className="model-view-container">
+      <div className="display-section">
         <model-viewer
           ref={modelViewer}
           alt="3d model"
-          class="model-view-3d"
+          class="model-display"
           camera-controls
           touch-action="pan-y"
           src={wristBandModel}
@@ -57,7 +57,7 @@ export default function ChooseColor(param: chooseColorParam) {
           <p>Width: 2 cm</p>
         </div>
       </div>
-      <div className="color-options">
+      <div className="selection-section">
         <div className="color-area">
           <div className="area-option">成品搭配</div>
           <div className="area-option">Front</div>
