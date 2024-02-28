@@ -1,8 +1,11 @@
 import { useState, Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
+import "@/css/customize/customize.css";
+
+//display components
 import ChooseColor from "./ChooseColor";
 import ChooseDecoration from "./ChooseDecoration";
-import "@/css/customize/customize.css";
+import ChooseEngraving from "./ChooseEngraving";
 
 export type colorProperty = {
   color1: string;
@@ -44,7 +47,7 @@ export default function Customize() {
     },
     3: {
       "step-name": "engraving",
-      element: <>engraving</>,
+      element: <ChooseEngraving />,
     },
     4: {
       "step-name": "review",

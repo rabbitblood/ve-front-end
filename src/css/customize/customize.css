@@ -115,48 +115,57 @@ body {
 }
 
 .choose-color,
-.choose-deco .choose-engraving {
+.choose-deco,
+.choose-engraving {
   margin-bottom: 5rem;
 }
 .choose-color .display-section .model-display,
-.choose-deco .choose-engraving .display-section .model-display {
+.choose-deco .display-section .model-display,
+.choose-engraving .display-section .model-display {
   background-color: rgb(33, 34, 68);
   min-width: 100%;
   min-height: 50vh;
   margin: auto;
 }
 .choose-color .display-section .model-info,
-.choose-deco .choose-engraving .display-section .model-info {
+.choose-deco .display-section .model-info,
+.choose-engraving .display-section .model-info {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .choose-color .selection-section,
-.choose-deco .choose-engraving .selection-section {
+.choose-deco .selection-section,
+.choose-engraving .selection-section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 @media (min-width: 768px) {
   .choose-color,
-  .choose-deco .choose-engraving {
+  .choose-deco,
+  .choose-engraving {
     margin-bottom: 1rem;
     display: grid;
     grid-template-columns: 1fr 400px;
   }
   .choose-color .display-section,
-  .choose-deco .choose-engraving .display-section {
+  .choose-deco .display-section,
+  .choose-engraving .display-section {
     margin-left: 1rem;
+    margin-right: 1rem;
   }
   .choose-color .display-section .model-view-3d,
-  .choose-deco .choose-engraving .display-section .model-view-3d {
+  .choose-deco .display-section .model-view-3d,
+  .choose-engraving .display-section .model-view-3d {
     background-color: rgb(33, 34, 68);
     min-width: 90%;
     min-height: 80vh;
     margin: auto;
   }
   .choose-color .display-section .model-info,
-  .choose-deco .choose-engraving .display-section .model-info {
+  .choose-deco .display-section .model-info,
+  .choose-engraving .display-section .model-info {
     display: flex;
     flex-direction: column;
     align-items: center;

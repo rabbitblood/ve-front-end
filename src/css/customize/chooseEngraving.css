@@ -1,0 +1,25 @@
+.choose-engraving .selection-section {
+  margin: 1rem;
+}
+.choose-engraving .selection-section .engraving-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.choose-engraving .selection-section .engraving-input-container .engraving-label {
+  font-weight: bold;
+}
+.choose-engraving .selection-section .engraving-input-container .engraving-input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  background-color: silver;
+}
+.choose-engraving .selection-section .engraving-gold-demo,
+.choose-engraving .selection-section .engraving-press-demo {
+  height: 6rem;
+  margin: 2rem 1rem;
+}
+
+/*# sourceMappingURL=chooseEngraving.css.map */

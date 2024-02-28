@@ -53,7 +53,8 @@
 }
 
 .choose-color,
-.choose-deco .choose-engraving {
+.choose-deco,
+.choose-engraving {
   margin-bottom: 5rem;
 
   .display-section {
@@ -83,6 +84,7 @@
 
     .display-section {
       margin-left: 1rem;
+      margin-right: 1rem;
       .model-view-3d {
         background-color: rgb(33, 34, 68);
         min-width: 90%;
