@@ -115,6 +115,7 @@ body {
   padding: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.5);
   width: 90%;
+  margin-bottom: 1rem;
 }
 .choose-color .color-options .choose-color .color {
   cursor: pointer;
@@ -144,15 +145,38 @@ body {
 .choose-color .color-options .choose-color .color:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
+.choose-color .color-options .description {
+  max-width: 100%;
+}
 .choose-color .color-options .description .color-desc {
   color: red;
 }
 .choose-color .color-options .description .images {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 .choose-color .color-options .description .images .image {
   object-fit: cover;
-  margin: 0.2rem;
+  max-width: 5rem;
+}
+@media (min-width: 768px) {
+  .choose-color {
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+  }
+  .choose-color .model-view-container .model-view-3d {
+    background-color: rgb(33, 34, 68);
+    min-width: 90%;
+    min-height: 80vh;
+    margin: auto;
+  }
+  .choose-color .model-view-container .model-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=chooseColor.css.map */

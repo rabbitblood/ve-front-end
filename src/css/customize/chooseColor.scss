@@ -56,6 +56,7 @@
       padding: 1rem;
       border: 1px solid rgba(0, 0, 0, 0.5);
       width: 90%;
+      margin-bottom: 1rem;
 
       .color {
         cursor: pointer;
@@ -91,17 +92,40 @@
       }
     }
     .description {
+      max-width: 100%;
       .color-desc {
         color: red;
       }
 
       .images {
         display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
 
         .image {
           object-fit: cover;
-          margin: 0.2rem;
+          max-width: 5rem;
         }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+
+    .model-view-container {
+      .model-view-3d {
+        background-color: rgb(33, 34, 68);
+        min-width: 90%;
+        min-height: 80vh;
+        margin: auto;
+      }
+      .model-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
     }
   }
