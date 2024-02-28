@@ -1,7 +1,12 @@
+import { useState, useRef } from "react";
 import { colorProperty, chooseColorParam } from "./Customize";
 import "@/css/customize/chooseColor.css";
+import "@google/model-viewer/lib/model-viewer";
+
+import wristBandModel from "@/assets/3d-model/wrist-bands.glb";
 
 export default function ChooseColor(param: chooseColorParam) {
+  //select color
   const { currentColor, setCurrentColor } = param;
   const chooseColorList: colorProperty[] = [
     {
@@ -29,10 +34,22 @@ export default function ChooseColor(param: chooseColorParam) {
     return color.color2 ? `${color.color1}/${color.color2}` : color.color1;
   }
 
+  //3d model
+  const modelViewer = useRef(null);
+
   return (
     <div className="choose-color">
       <div className="model-view-container">
-        <div className="model-view-3d"></div>
+        <model-viewer
+          ref={modelViewer}
+          alt="test"
+          class="model-view-3d"
+          camera-controls
+          touch-action="pan-y"
+          src={wristBandModel}
+          disable-zoom
+          auto-rotate
+        ></model-viewer>
         <div className="model-info">
           <p>Adjustable Length: 30-35 cm</p>
           <p>Thick: 2.5 mm</p>
