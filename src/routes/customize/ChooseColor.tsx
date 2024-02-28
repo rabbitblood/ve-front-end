@@ -26,7 +26,7 @@ export default function ChooseColor(param: chooseColorParam) {
       color2: "Blue",
     },
     {
-      color1: "Black",
+      color1: "purple",
     },
   ];
 
@@ -70,14 +70,29 @@ export default function ChooseColor(param: chooseColorParam) {
                 className="color"
                 onClick={() => setCurrentColor(color)}
               >
+                <div className="color-display">
+                  <div
+                    className="color1"
+                    style={{ backgroundColor: color.color1 }}
+                  ></div>
+                  {color.color2 ? (
+                    <div
+                      className="color2"
+                      style={{ backgroundColor: color.color2 }}
+                    ></div>
+                  ) : (
+                    <div
+                      className="color2"
+                      style={{ backgroundColor: color.color1 }}
+                    ></div>
+                  )}
+                </div>
                 <div className="color-combination">{colorToText(color)}</div>
               </div>
             );
           })}
         </div>
-        <div className="current-color">
-          currentColor: {colorToText(currentColor)}
-        </div>
+        <h2 className="current-color">{colorToText(currentColor)}</h2>
         <div className="description">
           <p>Leather:</p>
           {currentColor && (
@@ -86,7 +101,11 @@ export default function ChooseColor(param: chooseColorParam) {
           {currentColor.color2 && <p>{currentColor.color2} - "Hermas Box"</p>}
           <p>Discription:</p>
           <p>
-            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            xxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <br />
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <br />
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
           </p>
           <p>Pictures:</p>
           <div className="images">
