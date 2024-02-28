@@ -1,0 +1,11 @@
+@import "../_partial/general";
+
+.choose-color {
+  .model-view-container {
+    .model-view-3d {
+      background-color: gray;
+      min-width: 100vw;
+      min-height: 100vh;
+    }
+  }
+}

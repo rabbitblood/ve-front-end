@@ -56,6 +56,14 @@ body {
   cursor: pointer;
 }
 
+.hide {
+  display: none;
+}
+
+.transparent {
+  opacity: 0;
+}
+
 .banner {
   position: relative;
   margin: auto;

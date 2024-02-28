@@ -1,4 +1,5 @@
 import { colorProperty, chooseColorParam } from "./Customize";
+import "@/css/customize/chooseColor.css";
 
 export default function ChooseColor(param: chooseColorParam) {
   const { currentColor, setCurrentColor } = param;
@@ -31,7 +32,7 @@ export default function ChooseColor(param: chooseColorParam) {
   return (
     <div className="choose-color">
       <div className="model-view-container">
-        <div className="3d-model-view"></div>
+        <div className="model-view-3d"></div>
         <div className="model-info">
           <p>Adjustable Length: 30-35 cm</p>
           <p>Thick: 2.5 mm</p>

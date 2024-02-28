@@ -55,6 +55,10 @@ export default function Customize() {
     setCustomizeState(step);
   }
 
+  function getClientWidth() {
+    return window.innerWidth;
+  }
+
   return (
     <div className="customize">
       <Link to={"/"} className="brand-name">
@@ -67,9 +71,12 @@ export default function Customize() {
             onClick={() => goToStep(parseInt(step))}
             className={
               "nav__item " +
-              (customizeState === parseInt(step) ? "current-step" : "")
+              (customizeState === parseInt(step) ? "current-step" : "") +
+              (Math.abs(index + 1 - customizeState) > 1 ? " transparent" : "")
             }
-            style={{ left: `${index * 25}%` }}
+            style={{
+              left: (index + 1 - customizeState) * 150 + getClientWidth() / 2,
+            }}
           >
             {customizeSteps[parseInt(step)]["step-name"]}
           </li>
