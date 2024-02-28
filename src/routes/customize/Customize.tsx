@@ -67,8 +67,9 @@ export default function Customize() {
             onClick={() => goToStep(parseInt(step))}
             className={
               "nav__item " +
-              (customizeState === parseInt(step) ? "active" : "inactive")
+              (customizeState === parseInt(step) ? "current-step" : "")
             }
+            style={{ left: `${index * 25}%` }}
           >
             {customizeSteps[parseInt(step)]["step-name"]}
           </li>

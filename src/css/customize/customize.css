@@ -2,19 +2,19 @@
   position: relative;
   width: 80%;
   margin: auto;
+  height: 5rem;
   padding: 1rem;
 }
 .customize-step-nav .nav__item {
   list-style: none;
-  margin: 1rem;
-  padding: 1rem;
   cursor: pointer;
   display: inline-block;
   transition-duration: 0.5s;
   position: absolute;
 }
-.customize-step-nav .nav__item .current-step {
-  color: #000;
+.customize-step-nav .nav__item.current-step {
+  color: red;
+  font-size: 2rem;
   font-weight: bold;
 }
 
