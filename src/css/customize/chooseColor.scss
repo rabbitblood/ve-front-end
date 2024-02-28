@@ -5,8 +5,9 @@
   .model-view-container {
     .model-view-3d {
       background-color: rgb(33, 34, 68);
-      min-width: 100vw;
+      min-width: 100%;
       min-height: 50vh;
+      margin: auto;
     }
     .model-info {
       display: flex;

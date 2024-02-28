@@ -43,7 +43,7 @@ export default function ChooseColor(param: chooseColorParam) {
       <div className="model-view-container">
         <model-viewer
           ref={modelViewer}
-          alt="test"
+          alt="3d model"
           class="model-view-3d"
           camera-controls
           touch-action="pan-y"
