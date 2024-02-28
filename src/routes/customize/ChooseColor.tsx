@@ -4,6 +4,7 @@ import "@/css/customize/chooseColor.css";
 import "@google/model-viewer/lib/model-viewer";
 
 import wristBandModel from "@/assets/3d-model/wrist-bands.glb";
+import neckBand from "@/assets/neck-band.png";
 
 export default function ChooseColor(param: chooseColorParam) {
   //select color
@@ -96,9 +97,17 @@ export default function ChooseColor(param: chooseColorParam) {
         <div className="description">
           <p>Leather:</p>
           {currentColor && (
-            <p>{currentColor.color1} - "Hermas Terillion Celemance"</p>
+            <p>
+              {currentColor.color1} -{" "}
+              <span className="color-desc">Hermas Terillion Celemance</span>
+            </p>
           )}
-          {currentColor.color2 && <p>{currentColor.color2} - "Hermas Box"</p>}
+          {currentColor.color2 && (
+            <p>
+              {currentColor.color2} -{" "}
+              <span className="color-desc">Hermas Box</span>
+            </p>
+          )}
           <p>Discription:</p>
           <p>
             xxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -109,10 +118,10 @@ export default function ChooseColor(param: chooseColorParam) {
           </p>
           <p>Pictures:</p>
           <div className="images">
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
+            <img className="image" src={neckBand} alt="" />
+            <img className="image" src={neckBand} alt="" />
+            <img className="image" src={neckBand} alt="" />
+            <img className="image" src={neckBand} alt="" />
           </div>
         </div>
       </div>

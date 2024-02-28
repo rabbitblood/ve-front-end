@@ -1,6 +1,7 @@
 @import "../_partial/general";
 
 .choose-color {
+  margin-bottom: 5rem;
   .model-view-container {
     .model-view-3d {
       background-color: rgb(33, 34, 68);
@@ -24,19 +25,21 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1rem;
+      width: 90%;
 
       .area-option {
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 1rem;
         min-width: 6rem;
-        width: 10rem;
+        width: 8rem;
         box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
         cursor: pointer;
         transition-duration: 0.5s;
+        border: 1px solid rgba(0, 0, 0, 0.5);
 
         &:hover {
           background-color: rgba(0, 0, 0, 0.1);
@@ -51,8 +54,7 @@
       justify-content: center;
       padding: 1rem;
       border: 1px solid rgba(0, 0, 0, 0.5);
-      max-width: 800px;
-      min-width: 500px;
+      width: 90%;
 
       .color {
         cursor: pointer;
@@ -84,6 +86,20 @@
 
         &:hover {
           background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+    .description {
+      .color-desc {
+        color: red;
+      }
+
+      .images {
+        display: flex;
+
+        .image {
+          object-fit: cover;
+          margin: 0.2rem;
         }
       }
     }

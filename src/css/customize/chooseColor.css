@@ -64,6 +64,9 @@ body {
   opacity: 0;
 }
 
+.choose-color {
+  margin-bottom: 5rem;
+}
 .choose-color .model-view-container .model-view-3d {
   background-color: rgb(33, 34, 68);
   min-width: 100vw;
@@ -84,19 +87,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  width: 90%;
 }
 .choose-color .color-options .color-area .area-option {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1rem;
   min-width: 6rem;
-  width: 10rem;
+  width: 8rem;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition-duration: 0.5s;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 .choose-color .color-options .color-area .area-option:hover {
   background-color: rgba(0, 0, 0, 0.1);
@@ -108,8 +113,7 @@ body {
   justify-content: center;
   padding: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  max-width: 800px;
-  min-width: 500px;
+  width: 90%;
 }
 .choose-color .color-options .choose-color .color {
   cursor: pointer;
@@ -138,6 +142,16 @@ body {
 }
 .choose-color .color-options .choose-color .color:hover {
   background-color: rgba(0, 0, 0, 0.1);
+}
+.choose-color .color-options .description .color-desc {
+  color: red;
+}
+.choose-color .color-options .description .images {
+  display: flex;
+}
+.choose-color .color-options .description .images .image {
+  object-fit: cover;
+  margin: 0.2rem;
 }
 
 /*# sourceMappingURL=chooseColor.css.map */
