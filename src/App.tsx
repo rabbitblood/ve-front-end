@@ -8,12 +8,18 @@ import cart from "@/assets/cart.png";
 function App() {
   return (
     <>
-      <div className="ad">
-        <p>Free Shiiping 150+ Shop Now</p>
-      </div>
-      <header>
-        <nav className="nav">
-          <div className="brand-name">Vé</div>
+      <header className="header">
+        <div className="ad">
+          <p>Free Shiiping 150+ Shop Now</p>
+        </div>
+
+        <h1 className="brand-name">Vé</h1>
+        <div className="header-groups">
+          <nav className="nav">
+            <div>Categories</div>
+            <div>About Us</div>
+            <div>Contact Us</div>
+          </nav>
           <div className="icons">
             <div>
               <img className="icon" src={user} alt="user" />
@@ -25,13 +31,13 @@ function App() {
               <img className="icon" src={cart} alt="shopping cart" />
             </div>
           </div>
-        </nav>
+        </div>
       </header>
       <main>
         <Link to="/customize">
           <div className="banner">
             <div className="banner__explain">Here to know why we special?</div>
-            <h2 className="banner__title">START YOUR CUSTOMIZE</h2>
+            <div className="banner__title">START YOUR CUSTOMIZE</div>
           </div>
         </Link>
       </main>

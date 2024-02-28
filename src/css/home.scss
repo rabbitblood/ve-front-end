@@ -3,11 +3,15 @@
 .banner {
   position: relative;
   margin: auto;
-  margin-top: 1rem;
-  width: 95vw;
-  height: 70vh;
-  background-color: #c7c7c7;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./../assets/test-banner.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7) sepia(90%);
   cursor: pointer;
+  mix-blend-mode: difference;
 
   &__explain {
     background: white;
@@ -18,8 +22,12 @@
   }
 
   &__title {
+    color: white;
     position: absolute;
+    font-size: 2rem;
     bottom: 1rem;
     right: 1rem;
+    white-space: nowrap;
+    mix-blend-mode: difference;
   }
 }

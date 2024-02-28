@@ -22,7 +22,12 @@ body {
   min-height: 100vh;
 }
 
-.ad {
+header {
+  width: 100vw;
+  z-index: 100;
+  position: fixed;
+}
+header .ad {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,26 +37,39 @@ body {
   text-align: center;
   background: #c7c7c7;
 }
-
-.nav {
+header .brand-name {
+  color: black;
+  position: absolute;
+  font-size: 3rem;
+  font-weight: 300;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -25%);
+  mix-blend-mode: difference;
+}
+header .header-groups {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #f5f5f5;
+  background: rgba(245, 245, 245, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.nav .brand-name {
-  font-size: 3rem;
-  font-weight: 300;
+header .header-groups .nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-.nav .icons {
+header .header-groups .nav .nav-item {
+  cursor: pointer;
+}
+header .header-groups .icons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
-.nav .icons .icon {
+header .header-groups .icons .icon {
   max-width: 2rem;
   cursor: pointer;
 }
