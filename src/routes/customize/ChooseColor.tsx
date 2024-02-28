@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { colorProperty, chooseColorParam } from "./Customize";
 import "@/css/customize/chooseColor.css";
 import "@google/model-viewer/lib/model-viewer";
