@@ -45,7 +45,6 @@ header .brand-name {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -25%);
-  mix-blend-mode: difference;
 }
 header .header-groups {
   display: flex;
@@ -93,7 +92,6 @@ header .header-groups .icons .icon {
   background-position: center;
   filter: brightness(0.7) sepia(90%);
   cursor: pointer;
-  mix-blend-mode: difference;
 }
 .banner__explain {
   background: white;
@@ -109,7 +107,6 @@ header .header-groups .icons .icon {
   bottom: 1rem;
   right: 1rem;
   white-space: nowrap;
-  mix-blend-mode: difference;
 }
 
 /*# sourceMappingURL=home.css.map */

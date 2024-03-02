@@ -45,7 +45,6 @@ header .brand-name {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -25%);
-  mix-blend-mode: difference;
 }
 header .header-groups {
   display: flex;

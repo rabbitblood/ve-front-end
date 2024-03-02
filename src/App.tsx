@@ -10,7 +10,7 @@ function App() {
     <>
       <header className="header">
         <div className="ad">
-          <p>Free Shiiping 150+ Shop Now</p>
+          <p>Free Shipping 150+ Shop Now</p>
         </div>
 
         <h1 className="brand-name">Vé</h1>
