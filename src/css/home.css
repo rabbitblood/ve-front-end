@@ -93,20 +93,44 @@ header .header-groups .icons .icon {
   filter: brightness(0.7) sepia(90%);
   cursor: pointer;
 }
-.banner__explain {
-  background: white;
-  padding: 0.5rem 2rem;
-  position: absolute;
-  bottom: 4rem;
-  right: 1rem;
+
+.customize__title {
+  font-size: 3rem;
+  text-align: center;
+  margin: 2rem 0;
 }
-.banner__title {
-  color: white;
-  position: absolute;
+.customize__products {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+.customize__products .product {
+  position: relative;
+  background-color: beige;
+}
+.customize__products .product__image {
+  width: 25vw;
+  height: 35vw;
+  object-fit: cover;
+}
+.customize__products .product__name {
   font-size: 2rem;
-  bottom: 1rem;
-  right: 1rem;
-  white-space: nowrap;
+  position: absolute;
+  bottom: 5rem;
+  text-align: center;
+  width: 100%;
+}
+
+.introduction {
+  background-color: gray;
+  min-height: 40vh;
+  margin: 2rem 0;
+}
+
+.fresh-stock__title {
+  font-size: 3rem;
+  text-align: center;
+  margin: 2rem 0;
 }
 
 /*# sourceMappingURL=home.css.map */

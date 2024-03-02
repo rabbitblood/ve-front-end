@@ -11,21 +11,54 @@
   background-position: center;
   filter: brightness(0.7) sepia(90%);
   cursor: pointer;
+}
 
-  &__explain {
-    background: white;
-    padding: 0.5rem 2rem;
-    position: absolute;
-    bottom: 4rem;
-    right: 1rem;
+.customize {
+  &__title {
+    font-size: 3rem;
+    text-align: center;
+    margin: 2rem 0;
   }
 
+  &__products {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+
+    .product {
+      position: relative;
+      background-color: beige;
+
+      &__image {
+        width: 25vw;
+        height: 35vw;
+        object-fit: cover;
+      }
+
+      &__name {
+        font-size: 2rem;
+        position: absolute;
+        bottom: 5rem;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.introduction {
+  background-color: gray;
+  min-height: 40vh;
+  margin: 2rem 0;
+}
+
+.fresh-stock {
   &__title {
-    color: white;
-    position: absolute;
-    font-size: 2rem;
-    bottom: 1rem;
-    right: 1rem;
-    white-space: nowrap;
+    font-size: 3rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .products {
   }
 }

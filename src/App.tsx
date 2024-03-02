@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import user from "@/assets/user.png";
 import search from "@/assets/search.png";
 import cart from "@/assets/cart.png";
+import chockerDemo from "@/assets/chocker-demo.webp";
+import braceletDemo from "@/assets/bracelet-demo.webp";
+import collar from "@/assets/collar-demo.webp";
 
 function App() {
   return (
@@ -34,12 +37,91 @@ function App() {
         </div>
       </header>
       <main>
-        <Link to="/customize">
-          <div className="banner">
-            <div className="banner__explain">Here to know why we special?</div>
-            <div className="banner__title">START YOUR CUSTOMIZE</div>
+        <div className="banner"></div>
+
+        <section className="customize">
+          <h2 className="customize__title">START YOUR CUSTOMIZE</h2>
+          <div className="customize__products">
+            <Link to="/customize">
+              <div className="product">
+                <img className="product__image" src={chockerDemo} alt="" />
+                <h3 className="product__name">Chocker</h3>
+              </div>
+            </Link>
+
+            <Link to="/customize">
+              <div className="product">
+                <img className="product__image" src={braceletDemo} alt="" />
+                <h3 className="product__name">Bracelet</h3>
+              </div>
+            </Link>
+
+            <Link to="/customize">
+              <div className="product">
+                <img className="product__image" src={collar} alt="" />
+                <h3 className="product__name">Pet Collar</h3>
+              </div>
+            </Link>
           </div>
-        </Link>
+        </section>
+
+        <section className="introduction">
+          <h2>introduction</h2>
+        </section>
+
+        <section className="fresh-stock">
+          <h2 className="fresh-stock__title">FRESH STOCK</h2>
+          <div className="products">
+            <div className="product">
+              <img className="product__image"></img>
+              <p className="tag">summer best</p>
+              <p className="name">hat</p>
+              <p className="price">123$</p>
+            </div>
+            <div className="product">
+              <img className="product__image"></img>
+              <p className="tag">summer best</p>
+              <p className="name">hat</p>
+              <p className="price">123$</p>
+            </div>
+            <div className="product">
+              <img className="product__image"></img>
+              <p className="tag">summer best</p>
+              <p className="name">hat</p>
+              <p className="price">123$</p>
+            </div>
+            <div className="product">
+              <img className="product__image"></img>
+              <p className="tag">summer best</p>
+              <p className="name">hat</p>
+              <p className="price">123$</p>
+            </div>
+            <div className="product">
+              <img className="product__image"></img>
+              <p className="tag">summer best</p>
+              <p className="name">hat</p>
+              <p className="price">123$</p>
+            </div>
+            <div className="product">
+              <img className="product__image"></img>
+              <p className="tag">summer best</p>
+              <p className="name">hat</p>
+              <p className="price">123$</p>
+            </div>
+            <div className="product">
+              <img className="product__image"></img>
+              <p className="tag">summer best</p>
+              <p className="name">hat</p>
+              <p className="price">123$</p>
+            </div>
+            <div className="product">
+              <img className="product__image"></img>
+              <p className="tag">summer best</p>
+              <p className="name">hat</p>
+              <p className="price">123$</p>
+            </div>
+          </div>
+        </section>
       </main>
       <footer></footer>
     </>
