@@ -20,7 +20,7 @@ export default function Header() {
       console.log("close");
     });
 
-    window.addEventListener("scroll", (e) => {
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
         menuElement.current?.classList.add("scroll");
       } else {
