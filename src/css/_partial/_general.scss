@@ -61,10 +61,15 @@ header {
     display: none;
     position: fixed;
     background-color: sienna;
+    transition-duration: 0.5s;
 
     @media (min-width: 768px) {
       display: block;
       background-color: rgba(255, 255, 255, 0.3);
+
+      &.scroll {
+        background-color: rgba(255, 255, 255, 1);
+      }
     }
 
     &.open {

@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Header() {
   const openMenuButton = useRef<HTMLImageElement>(null);
   const closeMenuButton = useRef<HTMLImageElement>(null);
+  const menuElement = useRef<HTMLDivElement>(null);
   const [headerOpen, setHeaderOpen] = useState(false);
 
   useEffect(() => {
@@ -17,6 +18,14 @@ export default function Header() {
     closeMenuButton.current?.addEventListener("click", () => {
       setHeaderOpen(false);
       console.log("close");
+    });
+
+    window.addEventListener("scroll", (e) => {
+      if (window.scrollY > 0) {
+        menuElement.current?.classList.add("scroll");
+      } else {
+        menuElement.current?.classList.remove("scroll");
+      }
     });
   }, []);
 
@@ -39,7 +48,7 @@ export default function Header() {
         <p>Free Shipping 150+ Shop Now</p>
       </div> */}
 
-      <div className={"menu" + (headerOpen ? " open" : "")}>
+      <div ref={menuElement} className={"menu" + (headerOpen ? " open" : "")}>
         <h1 className="brand-name">Vé</h1>
         <div className="header-group">
           <nav className="nav">
