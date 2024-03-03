@@ -12,14 +12,13 @@ export default function Header() {
   useEffect(() => {
     openMenuButton.current?.addEventListener("click", () => {
       setHeaderOpen(true);
+      console.log("open");
     });
-  }, [openMenuButton]);
-
-  useEffect(() => {
     closeMenuButton.current?.addEventListener("click", () => {
       setHeaderOpen(false);
+      console.log("close");
     });
-  }, [closeMenuButton]);
+  }, []);
 
   return (
     <header className="header">

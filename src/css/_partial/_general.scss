@@ -30,7 +30,6 @@ header {
 
   .open-menu-button,
   .close-menu-button {
-    display: block;
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -61,6 +60,12 @@ header {
   .menu {
     display: none;
     position: fixed;
+    background-color: sienna;
+
+    @media (min-width: 768px) {
+      display: block;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
 
     &.open {
       display: block;
@@ -71,9 +76,14 @@ header {
       position: absolute;
       font-size: 3rem;
       font-weight: 300;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -25%);
+      left: 1rem;
+      top: 1rem;
+
+      @media (min-width: 768px) {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
     .header-group {
@@ -90,12 +100,24 @@ header {
         justify-content: space-between;
         align-items: center;
         padding: 1rem 5rem;
+        height: 5rem;
       }
 
       .nav {
         display: flex;
+        flex-direction: column;
         align-items: center;
+        font-size: 2rem;
+        text-decoration: underline;
         gap: 1rem;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+
+        @media (min-width: 768px) {
+          font-size: 1rem;
+          flex-direction: row;
+          margin: 0;
+        }
 
         .nav-item {
           cursor: pointer;
@@ -109,8 +131,12 @@ header {
         gap: 1rem;
 
         .icon {
-          max-width: 2rem;
+          max-width: 4rem;
           cursor: pointer;
+
+          @media (min-width: 768px) {
+            max-width: 2rem;
+          }
         }
       }
     }

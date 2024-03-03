@@ -21,24 +21,30 @@
   }
 
   &__products {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0;
+    display: block;
 
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem 0;
+    }
     .product {
       position: relative;
-      background-color: beige;
+      margin: 2rem;
 
-      &__image {
+      @media (min-width: 768px) {
         width: 25vw;
         height: 35vw;
+      }
+
+      &__image {
         object-fit: cover;
       }
 
       &__name {
         font-size: 2rem;
         position: absolute;
-        bottom: 5rem;
+        bottom: 2rem;
         text-align: center;
         width: 100%;
       }
@@ -62,8 +68,13 @@
 
   .products {
     display: grid;
-    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
     padding: 0 1rem;
+
+    @media (min-width: 768px) {
+      grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+    }
+
     .product {
       position: relative;
       margin: 0.5rem;
@@ -110,14 +121,21 @@
 
   .inst-feed {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     margin: 2rem 0;
 
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+
     &__image {
       padding: 0.5rem;
-      width: 20vw;
-      height: 20vw;
       object-fit: cover;
+      @media (min-width: 768px) {
+        width: 20vw;
+        height: 20vw;
+      }
     }
   }
 }
