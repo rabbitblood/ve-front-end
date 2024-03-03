@@ -1,44 +1,87 @@
 import { Link } from "react-router-dom";
+import Footer from "@/components/Footer";
+import Header from "./components/Header";
 
 //images
-import user from "@/assets/user.png";
-import search from "@/assets/search.png";
-import cart from "@/assets/cart.png";
 import chockerDemo from "@/assets/chocker-demo.webp";
 import braceletDemo from "@/assets/bracelet-demo.webp";
 import collar from "@/assets/collar-demo.webp";
 
 function App() {
+  const top8FreshStockProducts = [
+    {
+      name: "hat",
+      tag: "summer best",
+      price: "123",
+      src: collar,
+    },
+    {
+      name: "hat",
+      tag: "summer best",
+      price: "123",
+      src: chockerDemo,
+    },
+    {
+      name: "hat",
+      tag: "summer best",
+      price: "123",
+      src: collar,
+    },
+    {
+      name: "hat",
+      tag: "summer best",
+      price: "123",
+      src: braceletDemo,
+    },
+    {
+      name: "hat",
+      tag: "summer best",
+      price: "123",
+      src: chockerDemo,
+    },
+    {
+      name: "hat",
+      tag: "summer best",
+      price: "123",
+      src: braceletDemo,
+    },
+    {
+      name: "hat",
+      tag: "summer best",
+      price: "123",
+      src: collar,
+    },
+    {
+      name: "hat",
+      tag: "summer best",
+      price: "123",
+      src: braceletDemo,
+    },
+  ];
+
+  const top5InstFeed = [
+    {
+      src: collar,
+    },
+    {
+      src: braceletDemo,
+    },
+    {
+      src: chockerDemo,
+    },
+    {
+      src: braceletDemo,
+    },
+    {
+      src: chockerDemo,
+    },
+  ];
+
   return (
     <>
-      <header className="header">
-        <div className="ad">
-          <p>Free Shipping 150+ Shop Now</p>
-        </div>
-
-        <h1 className="brand-name">Vé</h1>
-        <div className="header-groups">
-          <nav className="nav">
-            <div>Categories</div>
-            <div>About Us</div>
-            <div>Contact Us</div>
-          </nav>
-          <div className="icons">
-            <div>
-              <img className="icon" src={user} alt="user" />
-            </div>
-            <div>
-              <img className="icon" src={search} alt="search" />
-            </div>
-            <div>
-              <img className="icon" src={cart} alt="shopping cart" />
-            </div>
-          </div>
-        </div>
-      </header>
       <main>
+        <Header />
         <div className="banner"></div>
-
         <section className="customize">
           <h2 className="customize__title">START YOUR CUSTOMIZE</h2>
           <div className="customize__products">
@@ -72,58 +115,35 @@ function App() {
         <section className="fresh-stock">
           <h2 className="fresh-stock__title">FRESH STOCK</h2>
           <div className="products">
-            <div className="product">
-              <img className="product__image"></img>
-              <p className="tag">summer best</p>
-              <p className="name">hat</p>
-              <p className="price">123$</p>
-            </div>
-            <div className="product">
-              <img className="product__image"></img>
-              <p className="tag">summer best</p>
-              <p className="name">hat</p>
-              <p className="price">123$</p>
-            </div>
-            <div className="product">
-              <img className="product__image"></img>
-              <p className="tag">summer best</p>
-              <p className="name">hat</p>
-              <p className="price">123$</p>
-            </div>
-            <div className="product">
-              <img className="product__image"></img>
-              <p className="tag">summer best</p>
-              <p className="name">hat</p>
-              <p className="price">123$</p>
-            </div>
-            <div className="product">
-              <img className="product__image"></img>
-              <p className="tag">summer best</p>
-              <p className="name">hat</p>
-              <p className="price">123$</p>
-            </div>
-            <div className="product">
-              <img className="product__image"></img>
-              <p className="tag">summer best</p>
-              <p className="name">hat</p>
-              <p className="price">123$</p>
-            </div>
-            <div className="product">
-              <img className="product__image"></img>
-              <p className="tag">summer best</p>
-              <p className="name">hat</p>
-              <p className="price">123$</p>
-            </div>
-            <div className="product">
-              <img className="product__image"></img>
-              <p className="tag">summer best</p>
-              <p className="name">hat</p>
-              <p className="price">123$</p>
-            </div>
+            {top8FreshStockProducts.map((product) => {
+              return (
+                <div className="product">
+                  <img className="product__image" src={product.src}></img>
+                  <p className="product__tag">{product.tag}</p>
+                  <p className="product__name">{product.name}</p>
+                  <p className="product__price">{product.price}$</p>
+                </div>
+              );
+            })}
+          </div>
+          <div className="view-all-product-button-container">
+            <button className="view-all-product-button">
+              view all products
+            </button>
+          </div>
+        </section>
+
+        <section className="follow-inst">
+          <h2 className="follow-inst__title">Follow us on Instagram</h2>
+          <h3 className="follow-inst__sub-title">@FEUILLELUXURY</h3>
+          <div className="inst-feed">
+            {top5InstFeed.map((feed) => {
+              return <img className="inst-feed__image" src={feed.src}></img>;
+            })}
           </div>
         </section>
       </main>
-      <footer></footer>
+      <Footer />
     </>
   );
 }

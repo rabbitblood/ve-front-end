@@ -53,12 +53,71 @@
 }
 
 .fresh-stock {
+  margin: 2rem 0;
   &__title {
-    font-size: 3rem;
+    font-size: 1rem;
     text-align: center;
     margin: 2rem 0;
   }
 
   .products {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+    padding: 0 1rem;
+    .product {
+      position: relative;
+      margin: 0.5rem;
+
+      &__image {
+        width: 100%;
+        height: auto;
+
+        object-fit: cover;
+      }
+
+      &__name {
+      }
+    }
+  }
+
+  .view-all-product-button-container {
+    text-align: center;
+
+    .view-all-product-button {
+      text-transform: uppercase;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      background-color: black;
+      cursor: pointer;
+    }
+  }
+}
+
+.follow-inst {
+  margin: 2rem 0;
+  text-align: center;
+
+  &__title {
+    font-size: 1rem;
+    margin: 2rem 0;
+  }
+
+  &__sub-title {
+    font-size: 1rem;
+    margin: 2rem 0;
+  }
+
+  .inst-feed {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+
+    &__image {
+      padding: 0.5rem;
+      width: 20vw;
+      height: 20vw;
+      object-fit: cover;
+    }
   }
 }
