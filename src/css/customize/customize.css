@@ -27,7 +27,8 @@ header {
   z-index: 100;
   position: fixed;
 }
-header .open-menu-button {
+header .open-menu-button,
+header .close-menu-button {
   display: block;
   position: absolute;
   top: 1rem;
@@ -39,7 +40,8 @@ header .open-menu-button {
   z-index: 1000;
 }
 @media (min-width: 768px) {
-  header .open-menu-button {
+  header .open-menu-button,
+  header .close-menu-button {
     display: none;
   }
 }

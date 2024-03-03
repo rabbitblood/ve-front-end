@@ -28,7 +28,8 @@ header {
   z-index: 100;
   position: fixed;
 
-  .open-menu-button {
+  .open-menu-button,
+  .close-menu-button {
     display: block;
     position: absolute;
     top: 1rem;

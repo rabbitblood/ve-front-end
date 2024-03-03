@@ -115,9 +115,9 @@ function App() {
         <section className="fresh-stock">
           <h2 className="fresh-stock__title">FRESH STOCK</h2>
           <div className="products">
-            {top8FreshStockProducts.map((product) => {
+            {top8FreshStockProducts.map((product, index) => {
               return (
-                <div className="product">
+                <div className="product" key={index}>
                   <img className="product__image" src={product.src}></img>
                   <p className="product__tag">{product.tag}</p>
                   <p className="product__name">{product.name}</p>
@@ -137,8 +137,14 @@ function App() {
           <h2 className="follow-inst__title">Follow us on Instagram</h2>
           <h3 className="follow-inst__sub-title">@FEUILLELUXURY</h3>
           <div className="inst-feed">
-            {top5InstFeed.map((feed) => {
-              return <img className="inst-feed__image" src={feed.src}></img>;
+            {top5InstFeed.map((feed, index) => {
+              return (
+                <img
+                  className="inst-feed__image"
+                  src={feed.src}
+                  key={index}
+                ></img>
+              );
             })}
           </div>
         </section>
