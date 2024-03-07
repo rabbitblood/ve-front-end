@@ -71,8 +71,7 @@
   gap: 1rem;
 }
 .choose-color .selection-section .description .images .image {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   max-width: 5rem;
-}
-
-/*# sourceMappingURL=chooseColor.css.map */
+}/*# sourceMappingURL=chooseColor.css.map */

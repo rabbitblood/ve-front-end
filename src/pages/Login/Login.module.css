@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  vertical-align: middle;
+}
+
+.footer > * {
+  display: inline-block;
+} 
+.footer p {
+  margin: 0 0.5rem 0 0;
+}/*# sourceMappingURL=Login.module.css.map */

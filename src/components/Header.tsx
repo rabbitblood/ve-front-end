@@ -3,6 +3,7 @@ import search from "@/assets/search.png";
 import cart from "@/assets/cart.png";
 import menu from "@/assets/menu.svg";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const openMenuButton = useRef<HTMLImageElement>(null);
@@ -38,12 +39,14 @@ export default function Header() {
         className={"open-menu-button" + (headerOpen ? " hide" : "")}
       />
 
-      <img
-        ref={closeMenuButton}
-        src={menu}
-        alt="close-menu"
-        className={"close-menu-button" + (!headerOpen ? " hide" : "")}
-      />
+      <Link to="/account/login">
+        <img
+          ref={closeMenuButton}
+          src={menu}
+          alt="close-menu"
+          className={"close-menu-button" + (!headerOpen ? " hide" : "")}
+        />
+      </Link>
       {/* <div className="ad">
         <p>Free Shipping 150+ Shop Now</p>
       </div> */}
@@ -58,7 +61,9 @@ export default function Header() {
           </nav>
           <div className="icons">
             <div>
-              <img className="icon" src={user} alt="user" />
+              <Link to="/account/login">
+                <img className="icon" src={user} alt="user" />
+              </Link>
             </div>
             <div>
               <img className="icon" src={search} alt="search" />

@@ -13,13 +13,21 @@ a {
 img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-radius: 0;
 }
 
 header {
@@ -152,6 +160,17 @@ header .menu .header-group .icons .icon {
   }
 }
 
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .footer {
   text-align: center;
   padding: 2rem 0;
@@ -198,7 +217,6 @@ header .menu .header-group .icons .icon {
 .banner {
   position: relative;
   margin: auto;
-  width: 100vw;
   height: 100vh;
   background-image: url(./../assets/test-banner.webp);
   background-repeat: no-repeat;
@@ -234,7 +252,8 @@ header .menu .header-group .icons .icon {
   }
 }
 .customize__products .product__image {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .customize__products .product__name {
   font-size: 2rem;
@@ -275,7 +294,8 @@ header .menu .header-group .icons .icon {
 .fresh-stock .products .product__image {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .fresh-stock .view-all-product-button-container {
   text-align: center;
@@ -314,13 +334,6 @@ header .menu .header-group .icons .icon {
 }
 .follow-inst .inst-feed__image {
   padding: 0.5rem;
-  object-fit: cover;
-}
-@media (min-width: 768px) {
-  .follow-inst .inst-feed__image {
-    width: 20vw;
-    height: 20vw;
-  }
-}
-
-/*# sourceMappingURL=home.css.map */
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=home.css.map */

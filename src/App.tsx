@@ -139,11 +139,11 @@ function App() {
           <div className="inst-feed">
             {top5InstFeed.map((feed, index) => {
               return (
-                <img
-                  className="inst-feed__image"
-                  src={feed.src}
-                  key={index}
-                ></img>
+                <div className="feed-container" key={index}>
+                  <img
+                    className="inst-feed__image"
+                    src={feed.src}/>
+                </div>
               );
             })}
           </div>
