@@ -1,0 +1,53 @@
+.selectContainer {
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #f1f1f1;
+  font-size: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.selectContainer::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:0.5;" d="M 11.058594 5.726562 L 8 8.78125 L 4.941406 5.726562 L 4 6.667969 L 8 10.667969 L 12 6.667969 Z M 11.058594 5.726562 "/></svg>');
+  position: absolute;
+  top: 55%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 16px;
+  pointer-events: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.select:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+.label {
+  position: absolute;
+  opacity: 0;
+  font-size: 0.75rem;
+  background-color: white;
+  top: 0.25rem;
+  left: 0.5rem;
+  pointer-events: none;
+  transition: 0.2s;
+  padding: 0 0.25rem;
+}
+
+.label:has(~ select:not([value=""])) {
+  opacity: 1;
+  top: -0.3rem;
+}
+
+.errorMessage {
+  color: rgb(145, 0, 0);
+  font-size: 0.8rem;
+  text-align: left;
+}/*# sourceMappingURL=Select.module.css.map */

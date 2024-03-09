@@ -1,17 +1,19 @@
 import clsx from "clsx";
 import styles from "./Input.module.css";
 import { useFormContext } from "react-hook-form";
+import { ComponentPropsWithRef } from "react";
 
-type Props = {
+type Props = ComponentPropsWithRef<"input"> & {
   label: string;
   name: string;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+};
 
 export const Input = ({ label, name, className, ...inputProps }: Props) => {
   const {
     register,
     formState: { errors },
   } = useFormContext();
+  console.log("errors", errors);
   const errorMessage = errors[name]?.message as string | undefined;
 
   return (

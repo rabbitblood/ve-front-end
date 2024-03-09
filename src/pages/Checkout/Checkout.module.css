@@ -1,0 +1,29 @@
+.page section {
+  margin-block: 1rem;
+}
+
+.page section h2 {
+  margin-block-end: 1rem;
+}
+
+.page section h4 {
+  color: #6e6e6e;
+}
+
+.orderDetails {
+  padding: 2rem 1.5rem 2rem 0;
+  margin-left: max(50% - 550px, 5%);
+}
+
+@media (min-width: 1000px) {
+  .page {
+    display: flex;
+  }
+  .orderDetails {
+    width: 55%;
+  }
+  .orderSummary {
+    height: 100vh;
+    width: 45%;
+  }
+}/*# sourceMappingURL=Checkout.module.css.map */
