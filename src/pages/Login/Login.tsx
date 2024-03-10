@@ -1,0 +1,49 @@
+import { FormButton } from "@/components/atoms/FormButton/FormButton";
+import { Input } from "@/components/atoms/Input/Input";
+import { AccountLayout } from "@/components/layout/AccountLayout";
+import { Form } from "@/components/organisms/Form/Form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormProvider, useForm } from "react-hook-form";
+import { z } from "zod";
+import styles from "./Login.module.css";
+import { Link } from "react-router-dom";
+
+const LoginSchema = z.object({
+  email: z.string().email(),
+  password: z.string(),
+});
+
+type LoginFormData = z.infer<typeof LoginSchema>; // Add new type
+
+export const Login = () => {
+  const methods = useForm<LoginFormData>({
+    resolver: zodResolver(LoginSchema), // Apply the zodResolver
+  });
+
+  const { handleSubmit } = methods;
+
+  const onSubmit = (data: LoginFormData) => {
+    console.log(data);
+  };
+
+  return (
+    <AccountLayout>
+      <FormProvider {...methods}>
+        <Form
+          header="Login"
+          subheader="Please fill in the information below:"
+          onSubmit={handleSubmit(onSubmit)}
+          className={styles.form}
+        >
+          <Input label="Email" name="email" />
+          <Input label="Password" type="password" name="password" />
+          <FormButton type="submit">Login</FormButton>
+          <div className={styles.footer}>
+            <p>Don't have an account?</p>
+            <Link to="/account/register">Create One</Link>
+          </div>
+        </Form>
+      </FormProvider>
+    </AccountLayout>
+  );
+};

@@ -3,7 +3,6 @@
 .banner {
   position: relative;
   margin: auto;
-  width: 100vw;
   height: 100vh;
   background-image: url(./../assets/test-banner.webp);
   background-repeat: no-repeat;
@@ -132,10 +131,6 @@
     &__image {
       padding: 0.5rem;
       object-fit: cover;
-      @media (min-width: 768px) {
-        width: 20vw;
-        height: 20vw;
-      }
     }
   }
 }
