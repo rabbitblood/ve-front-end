@@ -86,6 +86,11 @@ export default function Customize() {
           </li>
         ))}
       </nav>
+      <div className="nav">
+        <div>Categories</div>
+        <div>About Us</div>
+        <div>Contact Us</div>
+      </div>
       <div className="displayContents">
         {customizeSteps[customizeState].element}
       </div>

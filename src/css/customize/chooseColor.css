@@ -71,7 +71,16 @@
   gap: 1rem;
 }
 .choose-color .selection-section .description .images .image {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   max-width: 5rem;
-}/*# sourceMappingURL=chooseColor.css.map */
+}
+.choose-color .diy-view {
+  padding: 0 2rem;
+  width: 100%;
+}
+.choose-color .diy-view .animal-select,
+.choose-color .diy-view .skin-select {
+  width: 100%;
+}
+
+/*# sourceMappingURL=chooseColor.css.map */

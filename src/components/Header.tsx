@@ -39,20 +39,20 @@ export default function Header() {
         className={"open-menu-button" + (headerOpen ? " hide" : "")}
       />
 
-      <Link to="/account/login">
-        <img
-          ref={closeMenuButton}
-          src={menu}
-          alt="close-menu"
-          className={"close-menu-button" + (!headerOpen ? " hide" : "")}
-        />
-      </Link>
+      <img
+        ref={closeMenuButton}
+        src={menu}
+        alt="close-menu"
+        className={"close-menu-button" + (!headerOpen ? " hide" : "")}
+      />
       {/* <div className="ad">
         <p>Free Shipping 150+ Shop Now</p>
       </div> */}
 
       <div ref={menuElement} className={"menu" + (headerOpen ? " open" : "")}>
-        <h1 className="brand-name">Vé</h1>
+        <Link to={"/"}>
+          <h1 className="brand-name">Vé</h1>
+        </Link>
         <div className="header-group">
           <nav className="nav">
             <div>Categories</div>

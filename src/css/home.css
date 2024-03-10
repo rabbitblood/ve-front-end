@@ -13,8 +13,7 @@ a {
 img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 body {
@@ -162,8 +161,7 @@ header .menu .header-group .icons .icon {
 
 .visually-hidden {
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   height: 1px;
   overflow: hidden;
   position: absolute;
@@ -252,8 +250,7 @@ header .menu .header-group .icons .icon {
   }
 }
 .customize__products .product__image {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .customize__products .product__name {
   font-size: 2rem;
@@ -294,8 +291,7 @@ header .menu .header-group .icons .icon {
 .fresh-stock .products .product__image {
   width: 100%;
   height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .fresh-stock .view-all-product-button-container {
   text-align: center;
@@ -334,6 +330,7 @@ header .menu .header-group .icons .icon {
 }
 .follow-inst .inst-feed__image {
   padding: 0.5rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-}/*# sourceMappingURL=home.css.map */
+  object-fit: cover;
+}
+
+/*# sourceMappingURL=home.css.map */

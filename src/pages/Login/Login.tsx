@@ -7,6 +7,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
 
 const LoginSchema = z.object({
   email: z.string().email(),
@@ -27,23 +28,26 @@ export const Login = () => {
   };
 
   return (
-    <AccountLayout>
-      <FormProvider {...methods}>
-        <Form
-          header="Login"
-          subheader="Please fill in the information below:"
-          onSubmit={handleSubmit(onSubmit)}
-          className={styles.form}
-        >
-          <Input label="Email" name="email" />
-          <Input label="Password" type="password" name="password" />
-          <FormButton type="submit">Login</FormButton>
-          <div className={styles.footer}>
-            <p>Don't have an account?</p>
-            <Link to="/account/register">Create One</Link>
-          </div>
-        </Form>
-      </FormProvider>
-    </AccountLayout>
+    <>
+      <Header />
+      <AccountLayout>
+        <FormProvider {...methods}>
+          <Form
+            header="Login"
+            subheader="Please fill in the information below:"
+            onSubmit={handleSubmit(onSubmit)}
+            className={styles.form}
+          >
+            <Input label="Email" name="email" />
+            <Input label="Password" type="password" name="password" />
+            <FormButton type="submit">Login</FormButton>
+            <div className={styles.footer}>
+              <p>Don't have an account?</p>
+              <Link to="/account/register">Create One</Link>
+            </div>
+          </Form>
+        </FormProvider>
+      </AccountLayout>
+    </>
   );
 };
