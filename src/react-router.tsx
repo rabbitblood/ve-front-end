@@ -4,6 +4,7 @@ import ErrorPage from "@/ErrorPage.jsx";
 import Customize from "@/pages/customize/Customize.tsx";
 import { Register } from "./pages/Register/Register.tsx";
 import { Login } from "./pages/Login/Login.tsx";
+import { Checkout } from "./pages/Checkout/Checkout.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/account/login",
     element: <Login />,
+  },
+  {
+    path: "checkout",
+    element: <Checkout />,
   },
 ]);
 

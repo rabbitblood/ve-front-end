@@ -1,18 +1,23 @@
 import clsx from "clsx";
 import styles from "./Input.module.css";
 import { useFormContext } from "react-hook-form";
+import { ComponentPropsWithRef } from "react";
 
-type Props = {
+type Props = ComponentPropsWithRef<"input"> & {
   label: string;
   name: string;
-} & React.InputHTMLAttributes<HTMLInputElement>;
+};
 
 export const Input = ({ label, name, className, ...inputProps }: Props) => {
   const {
     register,
     formState: { errors },
   } = useFormContext();
-  const errorMessage = errors[name]?.message as string | undefined;
+
+  const paths = name.split(".");
+  const errorMessage = paths.reduce((acc, path) => {
+    return acc?.[path];
+  }, errors)?.message as string | undefined;
 
   return (
     <div className={styles.inputContainer}>

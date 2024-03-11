@@ -1,3 +1,8 @@
+:root {
+  --gray-light: #f0f0f0;
+  --gray-border: #c7c7c7;
+}
+
 //resets
 * {
   margin: 0;
@@ -5,6 +10,9 @@
   box-sizing: border-box;
   font-family: "IM Fell Great Primer", serif;
 }
+
+$gray-light: #f0f0f0;
+$gray-border: #c7c7c7;
 
 a {
   text-decoration: none;
@@ -27,6 +35,7 @@ button {
   border: none;
   background: none;
   border-radius: 0;
+  font-size: 1rem;
 }
 
 //global classes

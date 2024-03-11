@@ -1,0 +1,46 @@
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardLeft {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.imageWrapper {
+  position: relative;
+}
+
+.productImage {
+  width: 54px;
+  height: 54px;
+  border-radius: 4px;
+}
+
+.quantity {
+  position: absolute;
+  min-width: 1.2rem;
+  aspect-ratio: 1/1;
+  line-height: 1;
+  top: -4px;
+  right: -4px;
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+}
+
+.cardLeft h4 {
+  font-size: 1rem;
+}
+
+.cardLeft p {
+  font-size: 0.875rem;
+  color: rgb(119, 119, 119);
+}

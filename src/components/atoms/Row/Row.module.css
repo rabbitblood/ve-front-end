@@ -1,0 +1,9 @@
+.row {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.row > * {
+  flex: 1;
+}/*# sourceMappingURL=Row.module.css.map */

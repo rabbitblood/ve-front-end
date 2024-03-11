@@ -14,11 +14,11 @@ const LoginSchema = z.object({
   password: z.string(),
 });
 
-type LoginFormData = z.infer<typeof LoginSchema>; // Add new type
+type LoginFormData = z.infer<typeof LoginSchema>;
 
 export const Login = () => {
   const methods = useForm<LoginFormData>({
-    resolver: zodResolver(LoginSchema), // Apply the zodResolver
+    resolver: zodResolver(LoginSchema),
   });
 
   const { handleSubmit } = methods;
