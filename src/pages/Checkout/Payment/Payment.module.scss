@@ -18,6 +18,11 @@
   margin: 1.5rem 0 1rem;
 }
 
+.payButton,
+.paypalButton {
+  display: none;
+}
+
 .payButton {
   width: 100%;
   padding: 1rem;
@@ -32,4 +37,11 @@
   background-color: #0079c1;
   color: white;
   margin-top: 1rem;
+}
+
+@media (min-width: 1000px) {
+  .payButton,
+  .paypalButton {
+    display: block;
+  }
 }

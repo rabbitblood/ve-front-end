@@ -17,13 +17,7 @@ export const Checkout = () => {
     },
   });
 
-  const {
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = methods;
-
-  console.log("data", watch(), "error", errors);
+  const { handleSubmit } = methods;
 
   const onSubmit = (data: CheckoutFormData) => {
     console.log(data);

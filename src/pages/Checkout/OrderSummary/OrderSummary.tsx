@@ -56,6 +56,7 @@ export const OrderSummary = ({ className }: Props) => {
 
   return (
     <div className={clsx(styles.orderSummary, className)}>
+      <h3>Order Summary</h3>
       <div className={styles.wrapper}>
         <div className={styles.cartItems}>
           {cartItems.map((item) => (
@@ -87,6 +88,7 @@ export const OrderSummary = ({ className }: Props) => {
           </div>
         </div>
       </div>
+      <button className={styles.payButton}>Pay Now</button>
     </div>
   );
 };
