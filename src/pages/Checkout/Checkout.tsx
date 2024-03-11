@@ -17,24 +17,27 @@ export const Checkout = () => {
     },
   });
 
-  const { handleSubmit, watch } = methods;
+  const {
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = methods;
 
-  const data = watch();
-  console.log("checkout data", data);
+  console.log("data", watch(), "error", errors);
 
   const onSubmit = (data: CheckoutFormData) => {
     console.log(data);
   };
   return (
-    <FormProvider {...methods}>
-      <div className={styles.page}>
+    <div className={styles.page}>
+      <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.orderDetails}>
           <Contact />
           <Delivery />
           <Payment />
         </form>
-        <OrderSummary className={styles.orderSummary} />
-      </div>
-    </FormProvider>
+      </FormProvider>
+      <OrderSummary className={styles.orderSummary} />
+    </div>
   );
 };

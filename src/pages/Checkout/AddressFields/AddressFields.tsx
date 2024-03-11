@@ -25,7 +25,7 @@ export const AddressFields = ({ namePrefix }: Props) => {
         <Input label="City" name={`${namePrefix}.city`} />
         <Select
           label="Province"
-          name="province"
+          name="address.province"
           options={["Ontario", "Quebec", "British Columbia"]}
         />
         <Input label="Postal Code" name={`${namePrefix}.zip`} />

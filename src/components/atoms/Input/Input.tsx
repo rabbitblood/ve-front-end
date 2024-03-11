@@ -13,8 +13,11 @@ export const Input = ({ label, name, className, ...inputProps }: Props) => {
     register,
     formState: { errors },
   } = useFormContext();
-  console.log("errors", errors);
-  const errorMessage = errors[name]?.message as string | undefined;
+
+  const paths = name.split(".");
+  const errorMessage = paths.reduce((acc, path) => {
+    return acc?.[path];
+  }, errors)?.message as string | undefined;
 
   return (
     <div className={styles.inputContainer}>

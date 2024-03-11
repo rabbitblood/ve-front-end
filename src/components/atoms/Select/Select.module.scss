@@ -5,12 +5,12 @@
 .select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #f1f1f1;
+  // border: 1px solid $gray-border;
   font-size: 1rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  // position: relative;
+  transition: border 0.2s;
 }
 
 .selectContainer::after {
@@ -51,4 +51,5 @@
   color: rgb(145, 0, 0);
   font-size: 0.8rem;
   text-align: left;
+  margin-top: 0.25rem;
 }

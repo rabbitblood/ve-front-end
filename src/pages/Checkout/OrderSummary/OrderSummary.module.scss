@@ -1,7 +1,69 @@
 .orderSummary {
   background-color: rgb(223, 223, 223);
   padding: 1rem;
+}
+
+.cartItems {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+}
+
+.form > div:first-child {
+  flex: 1;
+}
+
+.form button {
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  max-height: 41.5px;
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.price > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.total > div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.total .currency {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgb(81, 81, 81);
+}
+
+@media (min-width: 1000px) {
+  .orderSummary {
+    display: flex;
+    padding: 2rem 0 1rem 2rem;
+  }
+
+  .wrapper {
+    margin-right: max(calc(50vw - 530px), 1.5rem);
+    width: 100%;
+  }
 }

@@ -5,7 +5,7 @@
 .input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #f1f1f1;
+  transition: border 0.2s;
   font-size: 1rem;
 }
 
@@ -18,7 +18,7 @@
   position: absolute;
   opacity: 0;
   font-size: 0.75rem;
-  background-color: white;
+  background-image: linear-gradient(to bottom, transparent 32%, white 32%, white 41%, transparent 41%);
   top: 0.25rem;
   left: 0.5rem;
   pointer-events: none;
@@ -40,4 +40,5 @@
   color: rgb(145, 0, 0);
   font-size: 0.8rem;
   text-align: left;
+  margin-top: 0.25rem;
 }/*# sourceMappingURL=Input.module.css.map */

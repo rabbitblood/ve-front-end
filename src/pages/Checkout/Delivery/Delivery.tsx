@@ -64,7 +64,7 @@ export const Delivery = () => {
       />
       <div className={styles.shippingDetails}>
         {needsShipping ? (
-          <AddressFields namePrefix="shipping" />
+          <AddressFields namePrefix="address" />
         ) : (
           <div className={styles.pickup}>
             <h3>Pickup Locations</h3>

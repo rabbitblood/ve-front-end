@@ -60,7 +60,7 @@ export const Payment = () => {
       {shouldShowBillingAddress && (
         <>
           <h3 className={styles.billingTitle}>Billing Address</h3>
-          <AddressFields namePrefix="payment.billing" />
+          <AddressFields namePrefix="address" />
         </>
       )}
       {paymentMethod && paymentMethod === "creditCard" && (
