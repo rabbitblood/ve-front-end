@@ -88,6 +88,15 @@
     }
   }
 
+  .diy-view {
+    padding: 0 2rem;
+    width: 100%;
+    .animal-select,
+    .skin-select {
+      width: 100%;
+    }
+  }
+
   @media (min-width: 768px) {
   }
 }
