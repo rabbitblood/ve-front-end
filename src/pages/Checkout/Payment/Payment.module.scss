@@ -1,7 +1,7 @@
 .creditCard {
   padding: 1rem;
-  // background-color: $gray-light;
-  // border: 1px solid $gray-border;
+  background-color: var(--gray-light);
+  border: 1px solid var(--gray-border);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -9,8 +9,8 @@
 
 .paypal {
   padding: 1rem;
-  // background-color: $gray-light;
-  // border: 1px solid $gray-border;
+  background-color: var(--gray-light);
+  border: 1px solid var(--gray-border);
   text-align: center;
 }
 

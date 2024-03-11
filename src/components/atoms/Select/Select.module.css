@@ -5,6 +5,7 @@
 .select {
   width: 100%;
   padding: 10px;
+  border: 1px solid var(--gray-border);
   font-size: 1rem;
   -webkit-appearance: none;
   -moz-appearance: none;

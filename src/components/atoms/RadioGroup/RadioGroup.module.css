@@ -1,6 +1,6 @@
 .option {
   width: 100%;
-  border: 1px solid #c7c7c7;
+  border: 1px solid var(--gray-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,7 +10,7 @@
 
 .option.active {
   border-color: #000;
-  background-color: #f0f0f0;
+  background-color: var(--gray-light);
 }
 
 .option > div {
@@ -23,7 +23,7 @@
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
-  border: 1px solid #c7c7c7;
+  border: 1px solid var(--gray-border);
   position: relative;
 }
 
