@@ -79,8 +79,8 @@ function App() {
 
   return (
     <>
+      <Header />
       <main>
-        <Header />
         <div className="banner"></div>
         <section className="customize">
           <h2 className="customize__title">START YOUR CUSTOMIZE</h2>
@@ -135,14 +135,12 @@ function App() {
 
         <section className="follow-inst">
           <h2 className="follow-inst__title">Follow us on Instagram</h2>
-          <h3 className="follow-inst__sub-title">@FEUILLELUXURY</h3>
+          <h3 className="follow-inst__sub-title">@Vé</h3>
           <div className="inst-feed">
             {top5InstFeed.map((feed, index) => {
               return (
                 <div className="feed-container" key={index}>
-                  <img
-                    className="inst-feed__image"
-                    src={feed.src}/>
+                  <img className="inst-feed__image" src={feed.src} />
                 </div>
               );
             })}

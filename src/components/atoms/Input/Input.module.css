@@ -26,11 +26,6 @@
   padding: 0 0.25rem;
 }
 
-.label:has(~ input:not(:-moz-placeholder-shown)) {
-  opacity: 1;
-  top: -0.3rem;
-}
-
 .label:has(~ input:not(:placeholder-shown)) {
   opacity: 1;
   top: -0.3rem;
@@ -41,4 +36,6 @@
   font-size: 0.8rem;
   text-align: left;
   margin-top: 0.25rem;
-}/*# sourceMappingURL=Input.module.css.map */
+}
+
+/*# sourceMappingURL=Input.module.css.map */

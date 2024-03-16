@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__container">
         <div className="footer__section">
-          <h3 className="title">Ve</h3>
+          <h3 className="title">Vé</h3>
           <div className="items-group">
             <div className="footer__item">
               <a href="">
@@ -63,7 +63,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="copyright">
-        <p>© 2024 Ve. All Rights Reserved.</p>
+        <p>© 2024 Vé. All Rights Reserved.</p>
       </div>
     </footer>
   );

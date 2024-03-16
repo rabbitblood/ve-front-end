@@ -1,6 +1,6 @@
-import user from "@/assets/user.png";
+//import user from "@/assets/user.png";
 import search from "@/assets/search.png";
-import cart from "@/assets/cart.png";
+//import cart from "@/assets/cart.png";
 import menu from "@/assets/menu.svg";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -55,21 +55,23 @@ export default function Header() {
         </Link>
         <div className="header-group">
           <nav className="nav">
-            <div>Categories</div>
-            <div>About Us</div>
-            <div>Contact Us</div>
+            <Link to={"/products"}>
+              <div>Products</div>
+            </Link>
           </nav>
+
           <div className="icons">
-            <div>
+            {/* <div>
               <Link to="/account/login">
                 <img className="icon" src={user} alt="user" />
               </Link>
             </div>
             <div>
-              <img className="icon" src={search} alt="search" />
-            </div>
-            <div>
               <img className="icon" src={cart} alt="shopping cart" />
+            </div> */}
+
+            <div>
+              <img className="icon" src={search} alt="search" />
             </div>
           </div>
         </div>

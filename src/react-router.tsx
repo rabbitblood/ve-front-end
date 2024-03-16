@@ -1,10 +1,11 @@
 import App from "./App.tsx";
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "@/ErrorPage.jsx";
-import Customize from "@/pages/customize/Customize.tsx";
-import { Register } from "./pages/Register/Register.tsx";
-import { Login } from "./pages/Login/Login.tsx";
-import { Checkout } from "./pages/Checkout/Checkout.tsx";
+import Customize from "@/pages/Customize/Customize.tsx";
+import { Register } from "@/pages/Register/Register.tsx";
+import { Login } from "@/pages/Login/Login.tsx";
+import { Checkout } from "@/pages/Checkout/Checkout.tsx";
+import Products from "@/pages/Products/Products.tsx";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "checkout",
     element: <Checkout />,
+  },
+  {
+    path: "/products",
+    element: <Products />,
   },
 ]);
 
