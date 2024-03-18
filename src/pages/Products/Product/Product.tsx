@@ -5,8 +5,8 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 //images
 import banner from "@/assets/test-banner.webp";
-import chockerDemo from "@/assets/chocker-demo.webp";
-import braceletDemo from "@/assets/bracelet-demo.webp";
+// import chockerDemo from "@/assets/chocker-demo.webp";
+// import braceletDemo from "@/assets/bracelet-demo.webp";
 import collar from "@/assets/collar-demo.webp";
 
 export default function Product() {
@@ -55,6 +55,9 @@ export default function Product() {
           disableSwipe={false}
         />
         <h1>Product:{productid}</h1>
+        <h2>{ProductData.name}</h2>
+        <p>{ProductData.tag}</p>
+        <p>{ProductData.price}</p>
       </div>
     </>
   );
