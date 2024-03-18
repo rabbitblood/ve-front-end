@@ -1,3 +1,6 @@
+import instIcon from "@/assets/social-media-icon/inst.svg";
+import facebookIcon from "@/assets/social-media-icon/facebook.svg";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -6,23 +9,23 @@ export default function Footer() {
           <h3 className="title">Vé</h3>
           <div className="items-group">
             <div className="footer__item">
-              <a href="">
+              <div>
                 565 Howe Street <br />
                 Vancouver, BC V6C 2C2
-              </a>
+              </div>
             </div>
 
             <div className="footer__item">
-              <a href="">
+              <div>
                 Monday - Thusday 12:00 - 18:00 <br />
                 Friday - Sunday & Holidays: 11:00 - 19:00
-              </a>
+              </div>
             </div>
 
             <div className="footer__item">
               <div className="medias">
-                <img src="" alt="inst" />
-                <img src="" alt="facebook" />
+                <img className="media-icon" src={instIcon} alt="inst" />
+                <img className="media-icon" src={facebookIcon} alt="facebook" />
               </div>
             </div>
           </div>

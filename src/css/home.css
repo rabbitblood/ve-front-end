@@ -21,6 +21,21 @@ img {
   object-fit: cover;
 }
 
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1200px) {
+  html {
+    font-size: 20px;
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -176,11 +191,18 @@ header .menu .header-group .icons .icon {
 }
 
 .footer {
+  margin: 0 2rem;
   text-align: center;
   padding: 2rem 0;
 }
+.footer .footer__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .footer .footer__section {
-  margin: 1rem 0;
+  margin: 1rem;
+  justify-self: center;
 }
 .footer .footer__section .title {
   font-size: 2rem;
@@ -193,6 +215,21 @@ header .menu .header-group .icons .icon {
   font-size: 1rem;
   margin: 0.5rem 0;
 }
+.footer .footer__section .items-group .footer__item .medias {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  justify-content: center;
+}
+.footer .footer__section .items-group .footer__item .medias .media-icon {
+  max-width: 2rem;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .footer .footer__section .items-group .footer__item .medias {
+    justify-content: flex-start;
+  }
+}
 .footer .footer__section .subscribe {
   margin: 1rem;
 }
@@ -201,6 +238,11 @@ header .menu .header-group .icons .icon {
   width: 80%;
   margin: 1rem;
 }
+@media (min-width: 768px) {
+  .footer .footer__section .subscribe__input {
+    margin: 1rem 0;
+  }
+}
 .footer .footer__section .subscribe__button {
   padding: 0.5rem;
   width: 80%;
@@ -208,6 +250,19 @@ header .menu .header-group .icons .icon {
   color: white;
   border: none;
   cursor: pointer;
+}
+@media (min-width: 768px) {
+  .footer {
+    text-align: left;
+  }
+  .footer .footer__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .footer .copyright {
+    grid-column: 1/-1;
+    text-align: center;
+  }
 }
 
 .hide {
@@ -220,14 +275,7 @@ header .menu .header-group .icons .icon {
 
 .banner {
   position: relative;
-  margin: auto;
   height: 100vh;
-  background-image: url(./../assets/test-banner.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.7) sepia(90%);
-  cursor: pointer;
 }
 
 .customize__title {

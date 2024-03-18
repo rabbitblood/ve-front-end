@@ -2,14 +2,7 @@
 
 .banner {
   position: relative;
-  margin: auto;
   height: 100vh;
-  background-image: url(./../assets/test-banner.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.7) sepia(90%);
-  cursor: pointer;
 }
 
 .customize {

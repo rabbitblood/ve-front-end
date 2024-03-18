@@ -6,6 +6,7 @@ import { Register } from "@/pages/Register/Register.tsx";
 import { Login } from "@/pages/Login/Login.tsx";
 import { Checkout } from "@/pages/Checkout/Checkout.tsx";
 import Products from "@/pages/Products/Products.tsx";
+import Product from "./pages/Products/Product/Product.tsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/products",
     element: <Products />,
+  },
+  {
+    path: "/products/:productid",
+    element: <Product />,
   },
 ]);
 
