@@ -1,25 +1,29 @@
 //import user from "@/assets/user.png";
 import search from "@/assets/search.png";
 //import cart from "@/assets/cart.png";
-import menu from "@/assets/menu.svg";
-import { useEffect, useRef, useState } from "react";
+// import menu from "@/assets/menu.svg";
+import {
+  useEffect,
+  useRef,
+  // useState
+} from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const openMenuButton = useRef<HTMLImageElement>(null);
-  const closeMenuButton = useRef<HTMLImageElement>(null);
+  // const openMenuButton = useRef<HTMLImageElement>(null);
+  // const closeMenuButton = useRef<HTMLImageElement>(null);
   const menuElement = useRef<HTMLDivElement>(null);
-  const [headerOpen, setHeaderOpen] = useState(false);
+  // const [headerOpen, setHeaderOpen] = useState(false);
 
   useEffect(() => {
-    openMenuButton.current?.addEventListener("click", () => {
-      setHeaderOpen(true);
-      console.log("open");
-    });
-    closeMenuButton.current?.addEventListener("click", () => {
-      setHeaderOpen(false);
-      console.log("close");
-    });
+    // openMenuButton.current?.addEventListener("click", () => {
+    //   setHeaderOpen(true);
+    //   console.log("open");
+    // });
+    // closeMenuButton.current?.addEventListener("click", () => {
+    //   setHeaderOpen(false);
+    //   console.log("close");
+    // });
 
     window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
@@ -32,7 +36,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <img
+      {/* <img
         ref={openMenuButton}
         src={menu}
         alt="open-menu"
@@ -44,12 +48,18 @@ export default function Header() {
         src={menu}
         alt="close-menu"
         className={"close-menu-button" + (!headerOpen ? " hide" : "")}
-      />
+      /> */}
       {/* <div className="ad">
         <p>Free Shipping 150+ Shop Now</p>
       </div> */}
 
-      <div ref={menuElement} className={"menu" + (headerOpen ? " open" : "")}>
+      <div
+        ref={menuElement}
+        className={
+          "menu"
+          //+ ( headerOpen ? " open" : "")
+        }
+      >
         <Link to={"/"}>
           <h1 className="brand-name">Vé</h1>
         </Link>

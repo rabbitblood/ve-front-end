@@ -1,3 +1,6 @@
+.product-page {
+  margin-top: 4rem;
+}
 .product-page .products-container {
   margin: 1rem;
   display: grid;
@@ -50,6 +53,11 @@
   height: 200px;
   object-fit: cover;
   margin-bottom: 1rem;
+}
+.product-page .product-image-container {
+  position: relative;
+  width: 100%;
+  height: 50vh;
 }
 
 /*# sourceMappingURL=Products.css.map */

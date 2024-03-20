@@ -106,6 +106,7 @@ function App() {
       <main>
         <div className="banner">
           <ImageGallery
+            additionalClass="banner"
             items={images}
             showThumbnails={false}
             showFullscreenButton={false}

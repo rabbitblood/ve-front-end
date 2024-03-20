@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import Header from "@/components/Header";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import "@/pages/Products/Products.css";
 
 //images
 import banner from "@/assets/test-banner.webp";
@@ -42,18 +43,21 @@ export default function Product() {
     <>
       <Header />
       <div className="product-page">
-        <ImageGallery
-          items={images}
-          showThumbnails={true}
-          showFullscreenButton={false}
-          showNav={false}
-          showPlayButton={false}
-          showBullets={true}
-          autoPlay={true}
-          slideInterval={5000}
-          infinite={true}
-          disableSwipe={false}
-        />
+        <div className="product-image-container product">
+          <ImageGallery
+            additionalClass="product"
+            items={images}
+            showThumbnails={true}
+            showFullscreenButton={false}
+            showNav={false}
+            showPlayButton={false}
+            showBullets={true}
+            autoPlay={true}
+            slideInterval={5000}
+            infinite={true}
+            disableSwipe={false}
+          />
+        </div>
         <h1>Product:{productid}</h1>
         <h2>{ProductData.name}</h2>
         <p>{ProductData.tag}</p>
