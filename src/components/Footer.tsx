@@ -1,5 +1,6 @@
 import instIcon from "@/assets/social-media-icon/inst.svg";
 import facebookIcon from "@/assets/social-media-icon/facebook.svg";
+import { FormButton } from "./atoms/FormButton/FormButton";
 
 export default function Footer() {
   return (
@@ -61,7 +62,7 @@ export default function Footer() {
               type="text"
               placeholder="Enter your email address"
             />
-            <button className="subscribe__button">Subscribe</button>
+            <FormButton className="subscribe__button">Subscribe</FormButton>
           </form>
         </div>
       </div>

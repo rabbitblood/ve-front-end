@@ -46,4 +46,10 @@
     transform-origin: right center;
     transform: scaleX(0);
   }
+
+  .button:not([disabled]):active {
+    transition-duration: 0s;
+    color: #ffffff;
+    background-color: black;
+  }
 }

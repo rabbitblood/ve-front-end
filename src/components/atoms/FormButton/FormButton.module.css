@@ -45,4 +45,11 @@
     transform-origin: right center;
     transform: scaleX(0);
   }
-}/*# sourceMappingURL=FormButton.module.css.map */
+  .button:not([disabled]):active {
+    transition-duration: 0s;
+    color: #ffffff;
+    background-color: black;
+  }
+}
+
+/*# sourceMappingURL=FormButton.module.css.map */
