@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./OrderSummary.module.css";
 import { CartItem } from "./CartItem/CartItem";
 import clsx from "clsx";

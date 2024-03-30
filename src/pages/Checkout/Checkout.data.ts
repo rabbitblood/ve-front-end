@@ -59,7 +59,15 @@ export const CheckoutSchema = z.object({
       return e;
     })
     .refine(
-      (data) => {
+      (data: {
+        method: string;
+        creditCard?: {
+          number: string;
+          expiry: string;
+          cvv: string;
+          name: string;
+        };
+      }) => {
         if (data.method === "creditCard") {
           return data.creditCard?.number;
         }
@@ -71,7 +79,15 @@ export const CheckoutSchema = z.object({
       }
     )
     .refine(
-      (data) => {
+      (data: {
+        method: string;
+        creditCard?: {
+          number: string;
+          expiry: string;
+          cvv: string;
+          name: string;
+        };
+      }) => {
         if (data.method === "creditCard") {
           return data.creditCard?.expiry;
         }
@@ -83,7 +99,15 @@ export const CheckoutSchema = z.object({
       }
     )
     .refine(
-      (data) => {
+      (data: {
+        method: string;
+        creditCard?: {
+          number: string;
+          expiry: string;
+          cvv: string;
+          name: string;
+        };
+      }) => {
         if (data.method === "creditCard") {
           return data.creditCard?.cvv;
         }
@@ -95,7 +119,15 @@ export const CheckoutSchema = z.object({
       }
     )
     .refine(
-      (data) => {
+      (data: {
+        method: string;
+        creditCard?: {
+          number: string;
+          expiry: string;
+          cvv: string;
+          name: string;
+        };
+      }) => {
         if (data.method === "creditCard") {
           return data.creditCard?.name;
         }

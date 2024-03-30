@@ -16,8 +16,8 @@ export const Input = ({ label, name, className, ...inputProps }: Props) => {
 
   const paths = name.split(".");
   const errorMessage = paths.reduce((acc, path) => {
-    return acc?.[path];
-  }, errors)?.message as string | undefined;
+    return acc?.[Number(path)];
+  }, errors?.message as string | undefined);
 
   return (
     <div className={styles.inputContainer}>

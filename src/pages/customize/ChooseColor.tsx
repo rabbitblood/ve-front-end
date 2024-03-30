@@ -3,8 +3,6 @@ import { colorProperty, chooseColorParam } from "./Customize";
 import "@/css/customize/chooseColor.css";
 import "@google/model-viewer/lib/model-viewer";
 
-import DIYSelectInput from "@/components/atoms/DIYSelectInput/DIYSelectInput";
-
 import wristBandModel from "@/assets/3d-model/wrist-bands.glb";
 import neckBand from "@/assets/neck-band.png";
 
