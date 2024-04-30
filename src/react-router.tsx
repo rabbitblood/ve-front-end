@@ -1,7 +1,7 @@
 import App from "./App.tsx";
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "@/ErrorPage.jsx";
-import Customize from "@/pages/Customize/Customize.tsx";
+//import Customize from "@/pages/Customize/Customize.tsx";
 import { Register } from "@/pages/Register/Register.tsx";
 import { Login } from "@/pages/Login/Login.tsx";
 import { Checkout } from "@/pages/Checkout/Checkout.tsx";
@@ -12,11 +12,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/customize",
-    element: <Customize />,
     errorElement: <ErrorPage />,
   },
   {
