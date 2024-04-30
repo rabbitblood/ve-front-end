@@ -8,6 +8,7 @@ import {
   // useState
 } from "react";
 import { Link } from "react-router-dom";
+import MenuButton from "./atoms/MenuButton/MenuButton";
 
 export default function Header() {
   // const openMenuButton = useRef<HTMLImageElement>(null);
@@ -64,11 +65,12 @@ export default function Header() {
           <h1 className="brand-name">Vé</h1>
         </Link>
         <div className="header-group">
-          <nav className="nav">
+          <MenuButton />
+          {/* <nav className="nav">
             <Link to={"/products"}>
               <div>Products</div>
             </Link>
-          </nav>
+          </nav> */}
 
           <div className="icons">
             {/* <div>

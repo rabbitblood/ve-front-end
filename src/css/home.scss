@@ -3,6 +3,29 @@
 .banner {
   position: relative;
   height: 100vh;
+
+  .banner-text-container {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 3rem;
+    transform: translate(0, -50%);
+    font-weight: 700;
+    mix-blend-mode: difference;
+
+    .title {
+      font-size: 3rem;
+    }
+
+    .sub-title {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+    .desc {
+      margin-top: 3rem;
+      font-size: 1rem;
+    }
+  }
 }
 
 .customize {

@@ -6,7 +6,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "@/css/overwrite/react-image-gallery/react-image-gallery.css";
 
 //images
-import banner from "@/assets/test-banner.webp";
+import banner from "@/assets/test-banner.png";
 import chockerDemo from "@/assets/chocker-demo.webp";
 import braceletDemo from "@/assets/bracelet-demo.webp";
 import collar from "@/assets/collar-demo.webp";
@@ -117,7 +117,13 @@ function App() {
             slideInterval={5000}
             infinite={true}
             disableSwipe={false}
+            //onSlide={(index) => console.log(index)}
           />
+          <div className="banner-text-container">
+            <h2 className="title">Title</h2>
+            <h3 className="sub-title">Sub Title</h3>
+            <p className="desc">-----------------Desc</p>
+          </div>
         </div>
         <section className="customize">
           <h2 className="customize__title">START YOUR CUSTOMIZE</h2>

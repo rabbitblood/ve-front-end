@@ -97,11 +97,14 @@ header .menu .brand-name {
   transform: translate(-50%, -50%);
 }
 header .menu .header-group {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  max-height: 100%;
+  max-width: 100%;
 }
 header .menu .header-group .nav {
   font-size: 1rem;
@@ -218,6 +221,26 @@ header .menu .header-group .icons .icon {
 .banner {
   position: relative;
   height: 100vh;
+}
+.banner .banner-text-container {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 3rem;
+  transform: translate(0, -50%);
+  font-weight: 700;
+  mix-blend-mode: difference;
+}
+.banner .banner-text-container .title {
+  font-size: 3rem;
+}
+.banner .banner-text-container .sub-title {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+.banner .banner-text-container .desc {
+  margin-top: 3rem;
+  font-size: 1rem;
 }
 
 .customize__title {
