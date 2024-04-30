@@ -1,6 +1,6 @@
 .image-gallery.banner {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 4rem);
   overflow-x: hidden;
 
   .image-gallery-content {
@@ -22,12 +22,19 @@
               width: 100%;
               height: 100%;
               object-fit: cover;
+              max-height: unset;
             }
           }
         }
       }
       .image-gallery-bullets {
+        width: 95%;
         bottom: 5vh;
+        right: 5vh;
+
+        .image-gallery-bullets-container {
+          text-align: right;
+        }
       }
     }
   }
