@@ -1,20 +1,14 @@
 //import user from "@/assets/user.png";
-import search from "@/assets/search.png";
-//import cart from "@/assets/cart.png";
+//import search from "@/assets/search.png";
+import cart from "@/assets/cart.png";
 // import menu from "@/assets/menu.svg";
-import {
-  useEffect,
-  useRef,
-  // useState
-} from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import MenuButton from "./atoms/MenuButton/MenuButton";
 
 export default function Header() {
-  // const openMenuButton = useRef<HTMLImageElement>(null);
-  // const closeMenuButton = useRef<HTMLImageElement>(null);
   const menuElement = useRef<HTMLDivElement>(null);
-  // const [headerOpen, setHeaderOpen] = useState(false);
+  const [openNav, setOpenNav] = useState(false);
 
   useEffect(() => {
     // openMenuButton.current?.addEventListener("click", () => {
@@ -37,19 +31,6 @@ export default function Header() {
 
   return (
     <header className="header">
-      {/* <img
-        ref={openMenuButton}
-        src={menu}
-        alt="open-menu"
-        className={"open-menu-button" + (headerOpen ? " hide" : "")}
-      />
-
-      <img
-        ref={closeMenuButton}
-        src={menu}
-        alt="close-menu"
-        className={"close-menu-button" + (!headerOpen ? " hide" : "")}
-      /> */}
       {/* <div className="ad">
         <p>Free Shipping 150+ Shop Now</p>
       </div> */}
@@ -61,32 +42,52 @@ export default function Header() {
           //+ ( headerOpen ? " open" : "")
         }
       >
-        <Link to={"/"}>
-          <h1 className="brand-name">Vé</h1>
-        </Link>
         <div className="header-group">
-          <MenuButton />
-          {/* <nav className="nav">
-            <Link to={"/products"}>
-              <div>Products</div>
-            </Link>
-          </nav> */}
-
+          <MenuButton isOpen={openNav} onClick={() => setOpenNav(!openNav)} />
           <div className="icons">
             {/* <div>
               <Link to="/account/login">
                 <img className="icon" src={user} alt="user" />
               </Link>
-            </div>
+            </div> */}
             <div>
               <img className="icon" src={cart} alt="shopping cart" />
-            </div> */}
-
-            <div>
-              <img className="icon" src={search} alt="search" />
             </div>
-          </div>
+
+            {/* <div>
+              <img className="icon" src={search} alt="search" />
+            </div> */}
+          </div>{" "}
+          <h1 className="brand-name">
+            <Link to={"/"}>Vé </Link>
+          </h1>
         </div>
+
+        <nav className={`nav ${openNav ? "open" : ""}`}>
+          <Link to={"/products"}>
+            <div className="nav-link">Choker</div>
+          </Link>
+
+          <Link to={"/products"}>
+            <div className="nav-link">Bracelet</div>
+          </Link>
+
+          <Link to={"/products"}>
+            <div className="nav-link">Accessories</div>
+          </Link>
+
+          <Link to={"/products"}>
+            <div className="nav-link">All Products</div>
+          </Link>
+
+          <Link to={"/products"}>
+            <div className="nav-link">Our Stories</div>
+          </Link>
+
+          <Link to={"/products"}>
+            <div className="nav-link">Contact Us</div>
+          </Link>
+        </nav>
       </div>
     </header>
   );

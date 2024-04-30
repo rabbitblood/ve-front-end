@@ -2,32 +2,29 @@ import { useEffect, useRef } from "react";
 import style from "./MenuButton.module.css";
 import { useState } from "react";
 
-export default function MenuButton() {
+export default function MenuButton({
+  isOpen,
+  onClick,
+}: {
+  isOpen: boolean;
+  onClick: () => void;
+}) {
   const [menuSize, setMenuSize] = useState(0);
   const menu = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!menu.current) return;
 
-    const size = (menu.current.parentNode as HTMLElement)?.clientHeight;
-    setMenuSize(size);
-  }, []);
+    setMenuSize(100);
 
-  function toggleMenu() {
-    if (!menu.current) return;
-
-    menu.current.classList.toggle(style.opened);
-    menu.current.setAttribute(
-      "aria-expanded",
-      menu.current.classList.contains(style.opened) ? "true" : "false"
-    );
-  }
+    menu.current.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  }, [isOpen]);
 
   return (
     <button
       ref={menu}
-      className={style.menu}
-      onClick={toggleMenu}
+      className={style.menu + (isOpen ? " " + style.opened : "")}
+      onClick={() => onClick()}
       aria-label="Main Menu"
     >
       <svg width={menuSize} height={menuSize} viewBox="0 0 100 100">

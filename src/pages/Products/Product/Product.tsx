@@ -7,7 +7,7 @@ import "./product.css";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
 
 //images
-import banner from "@/assets/test-banner.webp";
+import banner from "@/assets/test-banner.png";
 // import chockerDemo from "@/assets/chocker-demo.webp";
 // import braceletDemo from "@/assets/bracelet-demo.webp";
 import collar from "@/assets/collar-demo.webp";
