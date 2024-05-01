@@ -1,0 +1,84 @@
+.horizontal-move-image-viewer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem;
+  height: 90%;
+  overflow: hidden;
+
+  //total 5 images will be displayed
+  //image 1 will be in the center
+  //image -1 and -2 will be on the left side of image 1
+  //image 2 and 3 will be on the right side of image 1
+  .images {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    pointer-events: none;
+
+    .image {
+      position: absolute;
+      object-fit: cover;
+      transition: 0.5s;
+      opacity: 0;
+
+      &.image-1,
+      &.image--1,
+      &.image-2,
+      &.image--2,
+      &.image-0 {
+        display: block;
+      }
+
+      &.image-1,
+      &.image--1 {
+        z-index: 2;
+        opacity: 0.5;
+      }
+
+      &.image-2,
+      &.image--2 {
+        z-index: 1;
+        opacity: 0.05;
+      }
+
+      &.image-0 {
+        opacity: 1;
+        z-index: 3;
+        transform: translateX(0%) scale(1);
+      }
+
+      &.image-1 {
+        transform: translateX(30%) scale(0.8);
+      }
+      &.image--1 {
+        transform: translateX(-30%) scale(0.8);
+      }
+      &.image-2 {
+        transform: translateX(60%) scale(0.6);
+      }
+      &.image--2 {
+        transform: translateX(-60%) scale(0.6);
+      }
+    }
+  }
+
+  .next-image-click {
+    position: absolute;
+    height: 80%;
+    width: 40%;
+    right: 0;
+    cursor: pointer;
+    z-index: 5;
+  }
+
+  .prev-image-click {
+    position: absolute;
+    height: 80%;
+    width: 40%;
+    left: 0;
+    cursor: pointer;
+    z-index: 5;
+  }
+}

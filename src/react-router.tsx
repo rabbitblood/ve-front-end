@@ -5,8 +5,9 @@ import ErrorPage from "@/ErrorPage.jsx";
 import { Register } from "@/pages/Register/Register.tsx";
 import { Login } from "@/pages/Login/Login.tsx";
 import { Checkout } from "@/pages/Checkout/Checkout.tsx";
-import Products from "@/pages/Products/Products.tsx";
+//import Products from "@/pages/Products/Products.tsx";
 import Product from "./pages/Products/Product/Product.tsx";
+import ProductIntro from "./pages/Products/ProductIntro/Page.tsx";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,8 @@ const router = createBrowserRouter([
     element: <Checkout />,
   },
   {
-    path: "/products",
-    element: <Products />,
+    path: "/products/ProductIntro/:type",
+    element: <ProductIntro />,
   },
   {
     path: "/products/:productid",

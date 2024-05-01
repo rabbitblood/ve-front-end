@@ -44,7 +44,11 @@ html {
   overflow-x: hidden;
 }
 
-body {
+main {
+  flex: 1;
+}
+body,
+#root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -182,6 +186,7 @@ header {
   margin: 0 2rem;
   text-align: center;
   padding: 2rem 0;
+  bottom: 0;
 
   .footer__container {
     display: flex;

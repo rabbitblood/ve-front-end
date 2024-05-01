@@ -64,7 +64,7 @@ export default function Header() {
         </div>
 
         <nav className={`nav ${openNav ? "open" : ""}`}>
-          <Link to={"/products"}>
+          <Link to={"/products/ProductIntro/" + "ttt"}>
             <div className="nav-link">Choker</div>
           </Link>
 
