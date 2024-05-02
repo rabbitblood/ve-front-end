@@ -1,23 +1,26 @@
 import { useParams } from "react-router-dom";
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import IntroSection from "@/components/organisms/IntroSection/IntroSection";
+import productImage from "@/assets/product-image/2 8.png";
+
 export default function ProductIntro() {
   //get param
   const { type } = useParams<{ type: string }>();
 
   const images = [
-    "https://via.placeholder.com/300x500",
-    "https://via.placeholder.com/300x600",
-    "https://via.placeholder.com/300x200",
-    "https://via.placeholder.com/300x300",
-    "https://via.placeholder.com/300x100",
+    productImage,
+    productImage,
+    productImage,
+    productImage,
+    productImage,
+    productImage,
   ];
 
   return (
     <BasicLayout>
       <IntroSection
-        title="Product Intro"
-        subTitle={type ? type : ""}
+        title={type ? type : ""}
+        subTitle="series"
         images={images}
         description={`A minimalist and versatile base design suitable for various occasions and outfits. Crafted from double-sided cowhide, meticulously stitched with elegant wave patterns by skilled craftsmen, ensuring exceptional durability. `}
       />

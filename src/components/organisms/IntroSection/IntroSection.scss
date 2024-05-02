@@ -4,9 +4,9 @@
   align-items: center;
   height: calc(100vh - 3rem);
   width: 100%;
-  background-color: #f5f5f5;
+  background-color: white;
   grid-template-areas: "display" "details";
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2.5fr;
 
   @media (min-width: 768px) {
     display: grid;
@@ -25,14 +25,24 @@
     justify-content: center;
     align-items: center;
 
+    @media screen and (min-width: 768px) {
+      margin: 0;
+      display: block;
+      text-align: start;
+    }
+
     .color-options {
       display: flex;
       gap: 0.5rem;
-      margin: 0.5rem;
       padding: 0.5rem;
       justify-content: center;
       align-items: center;
       grid-area: color;
+
+      @media screen and (min-width: 768px) {
+        margin: 0 1rem;
+        justify-content: start;
+      }
 
       .color-option {
         width: 1.5rem;
@@ -52,27 +62,33 @@
     .info-container {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: start;
       align-items: center;
-      margin: 1rem;
-      padding: 1rem;
+      padding: 0.5rem;
       width: 80%;
 
       @media screen and (min-width: 768px) {
         margin: 0;
         width: 100%;
+        align-items: start;
       }
 
       .title {
         font-size: 2rem;
         font-weight: 700;
-        margin: 1rem;
+        margin: 0 1rem;
       }
 
       .sub-title {
         font-size: 1.5rem;
         font-weight: 500;
-        margin: 1rem;
+        margin: 0 1rem;
+        margin-bottom: 2rem;
+        line-height: 0rem;
+      }
+
+      .price {
+        margin: 0 1rem;
       }
 
       .desc {
