@@ -35,10 +35,12 @@ export default function IntroSection(props: IntroSectionProps) {
             );
           })}
         </div>
-        <h2 className="title">{props.title}</h2>
-        <h3 className="sub-title">{props.subTitle}</h3>
-        <p className="price">{props.description}</p>
-        <p className="desc">{props.description}</p>
+        <div className="info-container">
+          <h2 className="title">{props.title}</h2>
+          <h3 className="sub-title">{props.subTitle}</h3>
+          <p className="price">{"Start From 130CAD / 100USD"}</p>
+          <p className="desc">{props.description}</p>
+        </div>
         <div className="form-button-container">
           <FormButton>Explore More</FormButton>{" "}
         </div>

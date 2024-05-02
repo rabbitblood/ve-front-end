@@ -19,7 +19,7 @@ export default function ProductIntro() {
         title="Product Intro"
         subTitle={type ? type : ""}
         images={images}
-        description="Product Intro"
+        description={`A minimalist and versatile base design suitable for various occasions and outfits. Crafted from double-sided cowhide, meticulously stitched with elegant wave patterns by skilled craftsmen, ensuring exceptional durability. `}
       />
     </BasicLayout>
   );
