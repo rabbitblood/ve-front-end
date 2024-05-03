@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import Header from "./components/Header";
-import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "@/css/overwrite/react-image-gallery/react-image-gallery.css";
+import Banner from "./components/organisms/Banner/Banner";
 
 //images
 import banner from "@/assets/test-banner.png";
 import chockerDemo from "@/assets/chocker-demo.webp";
 import braceletDemo from "@/assets/bracelet-demo.webp";
 import collar from "@/assets/collar-demo.webp";
+import { FormButton } from "./components/atoms/FormButton/FormButton";
 
 function App() {
   const top8FreshStockProducts = [
@@ -81,22 +82,42 @@ function App() {
     },
   ];
 
-  const images = [
+  const slideData = [
     {
       original: banner,
       thumbnail: banner,
+      displayElement: (
+        <div className="banner-text-container">
+          <h2 className="title">Choker</h2>
+          <Link to={"/products/ProductIntro/" + "choker"}>
+            <FormButton>Explore More</FormButton>{" "}
+          </Link>
+        </div>
+      ),
     },
     {
       original: "https://picsum.photos/id/1018/1000/600/",
       thumbnail: "https://picsum.photos/id/1018/250/150/",
+      displayElement: (
+        <div className="banner-text-container">
+          <h2 className="title">Bracelet</h2>
+          <Link to={"/products/ProductIntro/" + "bracelet"}>
+            <FormButton>Explore More</FormButton>{" "}
+          </Link>
+        </div>
+      ),
     },
     {
       original: "https://picsum.photos/id/1015/1000/600/",
       thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
+      displayElement: (
+        <div className="banner-text-container">
+          <h2 className="title">Accessories</h2>
+          <Link to={"/products/ProductIntro/" + "accessories"}>
+            <FormButton>Explore More</FormButton>{" "}
+          </Link>
+        </div>
+      ),
     },
   ];
 
@@ -104,27 +125,7 @@ function App() {
     <>
       <Header />
       <main>
-        <div className="banner">
-          <ImageGallery
-            additionalClass="banner"
-            items={images}
-            showThumbnails={false}
-            showFullscreenButton={false}
-            showNav={false}
-            showPlayButton={false}
-            showBullets={true}
-            autoPlay={true}
-            slideInterval={5000}
-            infinite={true}
-            disableSwipe={false}
-            //onSlide={(index) => console.log(index)}
-          />
-          <div className="banner-text-container">
-            <h2 className="title">Title</h2>
-            <h3 className="sub-title">Sub Title</h3>
-            <p className="desc">-----------------Desc</p>
-          </div>
-        </div>
+        <Banner slideData={slideData} />
         <section className="customize">
           <h2 className="customize__title">START YOUR CUSTOMIZE</h2>
           <div className="customize__products">

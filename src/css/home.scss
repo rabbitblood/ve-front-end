@@ -12,6 +12,12 @@
     transform: translate(0, -50%);
     font-weight: 700;
     mix-blend-mode: difference;
+    transition-duration: 0.2s;
+    opacity: 100;
+
+    &.inactive {
+      opacity: 0;
+    }
 
     .title {
       font-size: 3rem;

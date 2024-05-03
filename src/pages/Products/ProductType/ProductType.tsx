@@ -1,11 +1,11 @@
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import { Link, useParams } from "react-router-dom";
-import ImageGallery from "react-image-gallery";
 import "./ProductType.css";
 import { Products } from "@/data/mockData";
 
 import productImage from "@/assets/product-image/IMG_9822 3.png";
 import productImage2 from "@/assets/product-image/IMG_5577 1.png";
+import Banner from "@/components/organisms/Banner/Banner";
 export default function ProductType() {
   //get param
   const { type, series } = useParams<{ type: string; series: string }>();
@@ -24,28 +24,13 @@ export default function ProductType() {
   return (
     <BasicLayout>
       <div className="product-type-page">
-        <div className="banner">
-          <ImageGallery
-            additionalClass="banner"
-            items={images}
-            showThumbnails={false}
-            showFullscreenButton={false}
-            showNav={false}
-            showPlayButton={false}
-            showBullets={true}
-            autoPlay={true}
-            slideInterval={5000}
-            infinite={true}
-            disableSwipe={false}
-            //onSlide={(index) => console.log(index)}
-          />
-          <a href="#desc" className="banner-pull-button" />
+        <Banner slideData={images}>
           <div className="banner-text-container">
-            <h2 className="title">{type}</h2>
+            <h2 className="title">Title</h2>
             <h3 className="sub-title">Sub Title</h3>
             <p className="desc">-----------------Desc</p>
           </div>
-        </div>
+        </Banner>
         <div id="desc" className="product-type-desc">
           <h2 className="title">GET THE HIGHLIGHTS</h2>
           <p className="t1">

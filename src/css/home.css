@@ -264,6 +264,11 @@ header .menu .icons .icon {
   transform: translate(0, -50%);
   font-weight: 700;
   mix-blend-mode: difference;
+  transition-duration: 0.2s;
+  opacity: 100;
+}
+.banner .banner-text-container.inactive {
+  opacity: 0;
 }
 .banner .banner-text-container .title {
   font-size: 3rem;

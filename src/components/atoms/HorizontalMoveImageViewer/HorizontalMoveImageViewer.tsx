@@ -1,17 +1,20 @@
 import style from "./HorizontalMoveImageViewer.module.css";
 import { useEffect, useRef, useState } from "react";
 
-export default function HorizontalMoveImageViewer({
-  images,
-}: {
+interface HorizontalMoveImageViewerProps
+  extends React.HTMLAttributes<HTMLElement> {
   images: string[];
-}) {
+}
+
+export default function HorizontalMoveImageViewer(
+  props: HorizontalMoveImageViewerProps
+) {
   const imageContainer = useRef<HTMLDivElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   useEffect(() => {
     if (imageContainer.current) {
-      for (let i = 0; i < images.length; i++) {
+      for (let i = 0; i < props.images.length; i++) {
         const image = imageContainer.current.children.item(
           i
         ) as HTMLImageElement;
@@ -31,17 +34,17 @@ export default function HorizontalMoveImageViewer({
         }
       }
     }
-  }, [currentImageIndex, images.length]);
+  }, [currentImageIndex, props.images.length]);
 
   function nextImageHandler() {
-    if (images.length <= 1) return;
-    if (currentImageIndex < images.length - 1) {
+    if (props.images.length <= 1) return;
+    if (currentImageIndex < props.images.length - 1) {
       setCurrentImageIndex(currentImageIndex + 1);
     }
   }
 
   function prevImageHandler() {
-    if (images.length <= 1) return;
+    if (props.images.length <= 1) return;
     if (currentImageIndex > 0) {
       setCurrentImageIndex(currentImageIndex - 1);
     }
@@ -52,7 +55,7 @@ export default function HorizontalMoveImageViewer({
       <div className={style["horizontal-move-image-viewer"]}>
         <div className={style["images"]}>
           <div className={style["image-container"]} ref={imageContainer}>
-            {images.map((image, index) => (
+            {props.images.map((image, index) => (
               <img
                 key={index}
                 src={image}
