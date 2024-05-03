@@ -1,5 +1,5 @@
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ImageGallery from "react-image-gallery";
 import "./ProductType.css";
 import { Products } from "@/data/mockData";
@@ -103,27 +103,35 @@ export default function ProductType() {
             <div className="products">
               {Products.map((product, idx) => {
                 return (
-                  <div key={idx} className="product">
-                    <img className="product-image" src={product.src} alt="" />
-                    <div className="color-options">
-                      {product.colorOptions.map((color, idx) => {
-                        return (
-                          <div
-                            key={idx}
-                            className={"color-option"}
-                            style={{ backgroundColor: color }}
-                          ></div>
-                        );
-                      })}
+                  <Link to={`/products/view/${product.productid}`}>
+                    <div key={idx} className="product">
+                      <img className="product-image" src={product.src} alt="" />
+                      <div className="color-options">
+                        {product.colorOptions.map((color, idx) => {
+                          return (
+                            <div
+                              key={idx}
+                              className={"color-option"}
+                              style={{ backgroundColor: color }}
+                            ></div>
+                          );
+                        })}
+                      </div>
+                      <h3 className="product-name">{product.name}</h3>
+                      <p className="product-base">{product.base}</p>
+                      <p className="product-price">{product.price}</p>
                     </div>
-                    <h3 className="product-name">{product.name}</h3>
-                    <p className="product-base">{product.base}</p>
-                    <p className="product-price">{product.price}</p>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
           </div>
+        </div>
+        <div className="customize-cta">
+          <p>
+            HAVE SOME CUSTOMIZE DESIGN IDEA WITH THIS SERIES ? <br />
+            CONTACT US THROUGH INSTAGRAM OR EMAIL
+          </p>
         </div>
       </div>
     </BasicLayout>

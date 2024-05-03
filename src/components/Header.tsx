@@ -77,14 +77,14 @@ export default function Header() {
           </Link>
 
           <Link to={"/products"}>
-            <div className="nav-link">All Products</div>
+            <div className="">All Products</div>
           </Link>
 
-          <Link to={"/products"}>
+          <Link to={"/"}>
             <div className="nav-link">Our Stories</div>
           </Link>
 
-          <Link to={"/products"}>
+          <Link to={"/"}>
             <div className="nav-link">Contact Us</div>
           </Link>
         </nav>
