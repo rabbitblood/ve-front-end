@@ -12,9 +12,9 @@
   .product-type-page .product-type-desc {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 3rem 3rem 5rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3rem 3rem 5rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 0px 0px;
-    grid-template-areas: "title title title title title title title title title" "t1 t1 t1 t1 t1 . . . ." "t2 t2 t2 t2 t2 t2 t2 . ." "img1 img1 img1 img1 img1 img1 img1 img1 img1" "img1 img1 img1 img1 img1 img1 img1 img1 img1" "t3 t3 t3 t3 t3 img2 img2 img2 img2" "t3 t3 t3 t3 t3 img2 img2 img2 img2" "t3 t3 t3 t3 t3 img2 img2 img2 img2" "img3 img3 img3 img3 img3 img3 t4 t4 t4" "img3 img3 img3 img3 img3 img3 t4 t4 t4" "img3 img3 img3 img3 img3 img3 t4 t4 t4";
+    grid-template-areas: "title title title title title title title title title" "t1 t1 t1 t1 t1 . . . ." "t2 t2 t2 t2 t2 t2 t2 . ." "img1 img1 img1 img1 img1 img1 img1 img1 img1" "img1 img1 img1 img1 img1 img1 img1 img1 img1" "t3 t3 t3 t3 t3 img2 img2 img2 img2" "t3 t3 t3 t3 t3 img2 img2 img2 img2" "img3 img3 img3 img3 img3 img3 t4 t4 t4" "img3 img3 img3 img3 img3 img3 t4 t4 t4" "img3 img3 img3 img3 img3 img3 t4 t4 t4";
   }
   .product-type-page .product-type-desc .title,
   .product-type-page .product-type-desc .t1,
