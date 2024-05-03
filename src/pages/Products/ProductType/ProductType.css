@@ -1,0 +1,161 @@
+.product-type-page {
+  color: white;
+  background-color: black;
+}
+.product-type-page .product-type-desc {
+  padding: 2rem;
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .product-type-page .product-type-desc {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 3rem 3rem 5rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "title title title title title title title title title" "t1 t1 t1 t1 t1 . . . ." "t2 t2 t2 t2 t2 t2 t2 . ." "img1 img1 img1 img1 img1 img1 img1 img1 img1" "img1 img1 img1 img1 img1 img1 img1 img1 img1" "t3 t3 t3 t3 t3 img2 img2 img2 img2" "t3 t3 t3 t3 t3 img2 img2 img2 img2" "t3 t3 t3 t3 t3 img2 img2 img2 img2" "img3 img3 img3 img3 img3 img3 t4 t4 t4" "img3 img3 img3 img3 img3 img3 t4 t4 t4" "img3 img3 img3 img3 img3 img3 t4 t4 t4";
+  }
+  .product-type-page .product-type-desc .title,
+  .product-type-page .product-type-desc .t1,
+  .product-type-page .product-type-desc .t2,
+  .product-type-page .product-type-desc .t3,
+  .product-type-page .product-type-desc .t4,
+  .product-type-page .product-type-desc .img1,
+  .product-type-page .product-type-desc .img2,
+  .product-type-page .product-type-desc .img3 {
+    padding: 2rem;
+  }
+  .product-type-page .product-type-desc .title {
+    grid-area: title;
+  }
+  .product-type-page .product-type-desc .t1 {
+    grid-area: t1;
+  }
+  .product-type-page .product-type-desc .t2 {
+    grid-area: t2;
+  }
+  .product-type-page .product-type-desc .img1 {
+    grid-area: img1;
+  }
+  .product-type-page .product-type-desc .t3 {
+    grid-area: t3;
+  }
+  .product-type-page .product-type-desc .img2 {
+    grid-area: img2;
+  }
+  .product-type-page .product-type-desc .img3 {
+    grid-area: img3;
+  }
+  .product-type-page .product-type-desc .t4 {
+    grid-area: t4;
+  }
+}
+.product-type-page .banner-pull-button {
+  position: absolute;
+  bottom: 10%;
+  right: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 4rem;
+  height: 2rem;
+  transform: translate(50%, 0);
+  cursor: pointer;
+}
+.product-type-page .banner-pull-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 0.5rem solid transparent;
+  border-bottom-color: black;
+  transform: translate(-50%, -50%);
+}
+.product-type-page .products-section {
+  padding: 2rem;
+  background: rgb(239, 237, 237);
+  color: black;
+}
+.product-type-page .products-section .section-name {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.product-type-page .products-section .products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.product-type-page .products-section .products-container .products {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media screen and (min-width: 480px) {
+  .product-type-page .products-section .products-container .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 768px) {
+  .product-type-page .products-section .products-container .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .product-type-page .products-section .products-container .products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.product-type-page .products-section .products-container .products .product {
+  background-color: rgb(217, 212, 212);
+  margin: 0.2rem;
+  min-width: 15rem;
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.5s;
+  padding-bottom: 1rem;
+}
+.product-type-page .products-section .products-container .products .product .product-image {
+  width: 100%;
+  height: 15rem;
+  background-size: cover;
+  background-position: center;
+}
+.product-type-page .products-section .products-container .products .product .product-name {
+  margin: 0.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.product-type-page .products-section .products-container .products .product .product-base {
+  margin: 0.2rem;
+  font-size: 0.5rem;
+  font-weight: bold;
+}
+.product-type-page .products-section .products-container .products .product .product-price {
+  margin: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.product-type-page .products-section .products-container .products .product .color-options {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+.product-type-page .products-section .products-container .products .product .color-options .color-option {
+  cursor: pointer;
+  margin: 0 0.2rem;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  border: 0.1rem solid black;
+}
+
+/*# sourceMappingURL=ProductType.css.map */

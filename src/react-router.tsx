@@ -8,6 +8,7 @@ import { Checkout } from "@/pages/Checkout/Checkout.tsx";
 //import Products from "@/pages/Products/Products.tsx";
 import Product from "./pages/Products/Product/Product.tsx";
 import ProductIntro from "./pages/Products/ProductIntro/Page.tsx";
+import ProductType from "./pages/Products/ProductType/ProductType.tsx";
 
 const router = createBrowserRouter([
   {
@@ -28,9 +29,18 @@ const router = createBrowserRouter([
     element: <Checkout />,
   },
   {
+    path: "/products/:type",
+    element: <ProductType />,
+  },
+  {
+    path: "/products/:type/:series",
+    element: <ProductType />,
+  },
+  {
     path: "/products/ProductIntro/:type",
     element: <ProductIntro />,
   },
+
   {
     path: "/products/:productid",
     element: <Product />,

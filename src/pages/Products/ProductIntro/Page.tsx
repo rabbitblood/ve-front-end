@@ -23,6 +23,7 @@ export default function ProductIntro() {
         subTitle="series"
         images={images}
         description={`A minimalist and versatile base design suitable for various occasions and outfits. Crafted from double-sided cowhide, meticulously stitched with elegant wave patterns by skilled craftsmen, ensuring exceptional durability. `}
+        exploreUrl={`/products/${type}/classic`}
       />
     </BasicLayout>
   );

@@ -1,14 +1,16 @@
 import { HtmlHTMLAttributes, useState } from "react";
 import HorizontalMoveImageViewer from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
 import "./IntroSection.css";
-import ProductData from "@/data/mockData";
+import { ProductData } from "@/data/mockData";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
+import { Link } from "react-router-dom";
 
 interface IntroSectionProps extends HtmlHTMLAttributes<HTMLElement> {
   title: string;
   subTitle: string;
   images: string[];
   description: string;
+  exploreUrl: string;
 }
 
 export default function IntroSection(props: IntroSectionProps) {
@@ -42,7 +44,9 @@ export default function IntroSection(props: IntroSectionProps) {
           <p className="desc">{props.description}</p>
         </div>
         <div className="form-button-container">
-          <FormButton>Explore More</FormButton>{" "}
+          <Link to={props.exploreUrl as string}>
+            <FormButton>Explore More</FormButton>{" "}
+          </Link>
         </div>
       </div>
       {props.children}
