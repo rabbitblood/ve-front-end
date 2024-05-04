@@ -45,7 +45,7 @@ export default function IntroSection(props: IntroSectionProps) {
         </div>
         <div className="form-button-container">
           <Link to={props.exploreUrl as string}>
-            <FormButton>Add to cart</FormButton>{" "}
+            <FormButton>Explore More</FormButton>{" "}
           </Link>
         </div>
       </div>
