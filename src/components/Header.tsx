@@ -5,10 +5,13 @@ import cart from "@/assets/cart.png";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import MenuButton from "./atoms/MenuButton/MenuButton";
+import { useSelector } from "react-redux";
+import { RootState } from "@/lib/redux/store/store";
 
 export default function Header() {
   const menuElement = useRef<HTMLDivElement>(null);
   const [openNav, setOpenNav] = useState(false);
+  const cartAmount = useSelector((state: RootState) => state.cart.items.length);
 
   useEffect(() => {
     // openMenuButton.current?.addEventListener("click", () => {
@@ -50,9 +53,10 @@ export default function Header() {
                 <img className="icon" src={user} alt="user" />
               </Link>
             </div> */}
-            <div>
+            <Link to={"/checkout"}>
               <img className="icon" src={cart} alt="shopping cart" />
-            </div>
+              {cartAmount}
+            </Link>
 
             {/* <div>
               <img className="icon" src={search} alt="search" />

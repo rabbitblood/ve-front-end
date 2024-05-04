@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "@/pages/Products/Products.css";
 import "./product.css";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import HorizontalMoveImageViewer from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
-
+import { useAppDispatch } from "@/lib/redux/store/reduxDispatcher";
+import { addItemToCart } from "@/lib/redux/cartSlice";
 //images
 import banner from "@/assets/test-banner.png";
 // import chockerDemo from "@/assets/chocker-demo.webp";
@@ -12,6 +13,20 @@ import banner from "@/assets/test-banner.png";
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 
 export default function Product() {
+  const { productid } = useParams<{ productid: string }>();
+  const dispatch = useAppDispatch();
+
+  function addItemToCartHandler() {
+    dispatch(
+      addItemToCart({
+        productId: productid as string,
+        amount: 1,
+        productName: "product name",
+        productDesc: "product description",
+      })
+    );
+  }
+
   const images = [
     {
       original: banner,
@@ -55,9 +70,13 @@ export default function Product() {
             </p>
           </div>
           <div className="form-button-container">
-            <Link to="">
-              <FormButton>Add to cart</FormButton>{" "}
-            </Link>
+            <FormButton
+              onClick={() => {
+                addItemToCartHandler();
+              }}
+            >
+              Add to cart
+            </FormButton>{" "}
           </div>
         </div>
       </div>
