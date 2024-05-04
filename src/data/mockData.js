@@ -73,4 +73,28 @@ const Products = [
   },
 ];
 
-export { ProductData, Products };
+const productList = {
+  1: {
+    id: "1",
+    name: "Product 1",
+    description: "This is a description of product 1",
+    image: "https://via.placeholder.com/50",
+    price: 100,
+  },
+  2: {
+    id: "2",
+    name: "Product 2",
+    description: "This is a description of product 2",
+    image: "https://via.placeholder.com/50",
+    price: 200,
+  },
+  3: {
+    id: "3",
+    name: "Product 3",
+    description: "This is a description of product 3",
+    image: "https://via.placeholder.com/50",
+    price: 300,
+  },
+};
+
+export { ProductData, Products, productList };

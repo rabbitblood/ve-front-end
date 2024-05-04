@@ -23,6 +23,8 @@ export default function Product() {
         amount: 1,
         productName: "product name",
         productDesc: "product description",
+        price: 100,
+        imageUrl: "https://picsum.photos/200/300",
       })
     );
   }

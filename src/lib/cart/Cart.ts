@@ -7,8 +7,8 @@ interface CartItem {
   amount: number;
   productName: string;
   productDesc: string;
+  imageUrl: string;
+  price: number;
 }
-
-function addItemToCart() {}
 
 export type { Cart, CartItem };

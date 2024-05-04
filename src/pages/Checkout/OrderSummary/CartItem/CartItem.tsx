@@ -1,34 +1,28 @@
 import styles from "./CartItem.module.css";
+import { CartItem as carItemType } from "@/lib/cart/Cart";
 
-type Props = {
-  product: {
-    id: string;
-    name: string;
-    description: string;
-    image: string;
-    price: number;
-    quantity: number;
-  };
-};
+interface Prop {
+  product: carItemType;
+}
 
-export const CartItem = ({ product }: Props) => {
+export const CartItem = ({ product }: Prop) => {
   return (
     <div className={styles.card}>
       <div className={styles.cardLeft}>
         <div className={styles.imageWrapper}>
-          <div className={styles.quantity}>{product.quantity}</div>
+          <div className={styles.quantity}>{product.amount}</div>
           <img
-            src={product.image}
-            alt={product.name}
+            src={product.imageUrl}
+            alt={product.productName}
             className={styles.productImage}
           />
         </div>
         <div>
-          <h4>{product.name}</h4>
-          <p>{product.description}</p>
+          <h4>{product.productName}</h4>
+          <p>{product.productDesc}</p>
         </div>
       </div>
-      <p>$ {product.price * product.quantity}</p>
+      <p>$ {product.price * product.amount}</p>
     </div>
   );
 };

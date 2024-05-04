@@ -5,29 +5,11 @@ import { Input } from "@/components/atoms/Input/Input";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useAppSelector } from "@/lib/redux/store/reduxDispatcher";
 
 type Props = {
   className: string;
 };
-
-const cartItems = [
-  {
-    id: "1",
-    name: "Product 1",
-    description: "This is a description of product 1",
-    image: "https://via.placeholder.com/50",
-    price: 100,
-    quantity: 1,
-  },
-  {
-    id: "2",
-    name: "Product 2",
-    description: "This is a description of product 2",
-    image: "https://via.placeholder.com/50",
-    price: 200,
-    quantity: 2,
-  },
-];
 
 const CouponSchema = z.object({
   code: z.string().min(1, "Code is required"),
@@ -44,8 +26,10 @@ export const OrderSummary = ({ className }: Props) => {
     console.log(data);
   };
 
+  const cartItems = useAppSelector((state) => state.cart.items);
+
   const subtotal = cartItems.reduce(
-    (acc, item) => acc + item.price * item.quantity,
+    (acc, item) => acc + item.price * item.amount,
     0
   );
 
@@ -59,7 +43,7 @@ export const OrderSummary = ({ className }: Props) => {
       <div className={styles.wrapper}>
         <div className={styles.cartItems}>
           {cartItems.map((item) => (
-            <CartItem key={item.id} product={item} />
+            <CartItem key={item.productId} product={item} />
           ))}
         </div>
         <FormProvider {...methods}>
