@@ -168,6 +168,11 @@ header {
       .icon {
         max-width: 2rem;
         cursor: pointer;
+        transition: 0.2s;
+
+        &.highlight {
+          scale: 1.3;
+        }
       }
     }
   }

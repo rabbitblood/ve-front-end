@@ -1,17 +1,19 @@
 //import user from "@/assets/user.png";
 //import search from "@/assets/search.png";
-import cart from "@/assets/cart.png";
+import cartIcon from "@/assets/cart.png";
 // import menu from "@/assets/menu.svg";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import MenuButton from "./atoms/MenuButton/MenuButton";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store/store";
+import { set } from "react-hook-form";
 
 export default function Header() {
   const menuElement = useRef<HTMLDivElement>(null);
   const [openNav, setOpenNav] = useState(false);
   const cartAmount = useSelector((state: RootState) => state.cart.items.length);
+  const [highlightCart, setHighlightCart] = useState(false);
 
   useEffect(() => {
     // openMenuButton.current?.addEventListener("click", () => {
@@ -30,7 +32,16 @@ export default function Header() {
         menuElement.current?.classList.remove("scroll");
       }
     });
+
+    addEventListener("cartChange", () => cartChangeHandler());
   }, []);
+
+  function cartChangeHandler() {
+    setHighlightCart(true);
+    setTimeout(() => {
+      setHighlightCart(false);
+    }, 200);
+  }
 
   return (
     <header className="header">
@@ -54,7 +65,11 @@ export default function Header() {
               </Link>
             </div> */}
             <Link to={"/checkout"}>
-              <img className="icon" src={cart} alt="shopping cart" />
+              <img
+                className={"icon" + (highlightCart ? " highlight" : "")}
+                src={cartIcon}
+                alt="shopping cart"
+              />
               {cartAmount}
             </Link>
 
