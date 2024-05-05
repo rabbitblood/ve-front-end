@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import MenuButton from "./atoms/MenuButton/MenuButton";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store/store";
-import { set } from "react-hook-form";
 
 export default function Header() {
   const menuElement = useRef<HTMLDivElement>(null);
