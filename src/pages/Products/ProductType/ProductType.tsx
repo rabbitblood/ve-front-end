@@ -88,7 +88,7 @@ export default function ProductType() {
             <div className="products">
               {Products.map((product, idx) => {
                 return (
-                  <Link to={`/products/view/${product.productid}`}>
+                  <Link to={`/products/view/${product.productid}`} key={idx}>
                     <div key={idx} className="product">
                       <img className="product-image" src={product.src} alt="" />
                       <div className="color-options">

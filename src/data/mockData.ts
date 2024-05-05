@@ -5,7 +5,7 @@ const mockProducts: VeProduct[] = [
   {
     productId: "1",
     type: { typenName: "chocker" },
-    series: { SserieName: "pure", type: { typenName: "chocker" } },
+    series: { SerieName: "pure", type: { typenName: "chocker" } },
     name: "product 1",
     price: 100,
     description: "This is a description of product 1",
@@ -20,7 +20,7 @@ const mockProducts: VeProduct[] = [
   {
     productId: "2",
     type: { typenName: "chocker" },
-    series: { SserieName: "classic", type: { typenName: "chocker" } },
+    series: { SerieName: "classic", type: { typenName: "chocker" } },
     name: "Classic Base",
     price: 100,
     description: "This is a description of product 1",
@@ -35,7 +35,7 @@ const mockProducts: VeProduct[] = [
   {
     productId: "3",
     type: { typenName: "chocker" },
-    series: { SserieName: "pure", type: { typenName: "chocker" } },
+    series: { SerieName: "pure", type: { typenName: "chocker" } },
     name: "Classic Base",
     price: 100,
     description: "This is a description of product 1",
@@ -50,7 +50,7 @@ const mockProducts: VeProduct[] = [
   {
     productId: "4",
     type: { typenName: "chocker" },
-    series: { SserieName: "pure", type: { typenName: "chocker" } },
+    series: { SerieName: "pure", type: { typenName: "chocker" } },
     name: "Classic Base",
     price: 100,
     description: "This is a description of product 1",

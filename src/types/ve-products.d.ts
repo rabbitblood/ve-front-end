@@ -4,7 +4,7 @@ declare interface VeProductType {
 
 declare interface VeProductSeries {
   type: VeProductType;
-  SserieName: string | "pure" | "classic";
+  SerieName: string | "pure" | "classic";
 }
 
 declare interface VeProductOptions {

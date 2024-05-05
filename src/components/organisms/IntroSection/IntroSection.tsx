@@ -13,6 +13,7 @@ interface IntroSectionProps extends HtmlHTMLAttributes<HTMLElement> {
   images: string[];
   description: string;
   exploreUrl: string;
+  onImageChange?: (index: number) => void;
 }
 
 export default function IntroSection(props: IntroSectionProps) {
@@ -22,7 +23,10 @@ export default function IntroSection(props: IntroSectionProps) {
   return (
     <section className="introduction-section">
       <div className="display">
-        <HorizontalMoveImageViewer images={props.images} />
+        <HorizontalMoveImageViewer
+          images={props.images}
+          onImageChange={props.onImageChange}
+        />
       </div>
       <div className="details">
         {/* <div className="color-options">
