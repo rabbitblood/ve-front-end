@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 interface HorizontalMoveImageViewerProps
   extends React.HTMLAttributes<HTMLElement> {
   images: string[];
+  onImageChange?: (index: number) => void;
 }
 
 export default function HorizontalMoveImageViewer(
@@ -41,12 +42,18 @@ export default function HorizontalMoveImageViewer(
     if (currentImageIndex < props.images.length - 1) {
       setCurrentImageIndex(currentImageIndex + 1);
     }
+    if (props.onImageChange) {
+      props.onImageChange(currentImageIndex + 1);
+    }
   }
 
   function prevImageHandler() {
     if (props.images.length <= 1) return;
     if (currentImageIndex > 0) {
       setCurrentImageIndex(currentImageIndex - 1);
+    }
+    if (props.onImageChange) {
+      props.onImageChange(currentImageIndex - 1);
     }
   }
 

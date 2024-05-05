@@ -98,11 +98,11 @@ export default function Header() {
             <div className="nav-link">All Products</div>
           </Link>
 
-          <Link to={"/"}>
+          <Link to={"/terms/our-stories"}>
             <div className="nav-link">Our Stories</div>
           </Link>
 
-          <Link to={"/"}>
+          <Link to={"/terms/contact-us"}>
             <div className="nav-link">Contact Us</div>
           </Link>
         </nav>

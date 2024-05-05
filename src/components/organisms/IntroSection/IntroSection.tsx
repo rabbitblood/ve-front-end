@@ -1,7 +1,9 @@
-import { HtmlHTMLAttributes, useState } from "react";
+import {
+  HtmlHTMLAttributes,
+  // useState
+} from "react";
 import HorizontalMoveImageViewer from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
 import "./IntroSection.css";
-import { ProductData } from "@/data/mockData";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import { Link } from "react-router-dom";
 
@@ -14,16 +16,16 @@ interface IntroSectionProps extends HtmlHTMLAttributes<HTMLElement> {
 }
 
 export default function IntroSection(props: IntroSectionProps) {
-  const [selectedColor, setSelectedColor] = useState(
-    ProductData.colorOptions[0]
-  );
+  // const [selectedColor, setSelectedColor] = useState(
+  //   ProductData.colorOptions[0]
+  // );
   return (
     <section className="introduction-section">
       <div className="display">
         <HorizontalMoveImageViewer images={props.images} />
       </div>
       <div className="details">
-        <div className="color-options">
+        {/* <div className="color-options">
           {ProductData.colorOptions.map((color, idx) => {
             return (
               <div
@@ -36,7 +38,7 @@ export default function IntroSection(props: IntroSectionProps) {
               ></div>
             );
           })}
-        </div>
+        </div> */}
         <div className="info-container">
           <h2 className="title">{props.title}</h2>
           <h3 className="sub-title">{props.subTitle}</h3>

@@ -1,6 +1,68 @@
 import collar from "@/assets/collar-demo.webp";
-
 import productImage from "@/assets/product-image/IMG_9822 3.png";
+
+const mockProducts: VeProduct[] = [
+  {
+    productId: "1",
+    type: { typenName: "chocker" },
+    series: { SserieName: "pure", type: { typenName: "chocker" } },
+    name: "product 1",
+    price: 100,
+    description: "This is a description of product 1",
+    images: [productImage],
+    options: {
+      colorOptions: ["#000", "#fff", "#f00"],
+      sizeOptions: ["S", "M", "L"],
+    },
+    tags: ["new arrival", "best seller"],
+    simmilarProducts: [],
+  },
+  {
+    productId: "2",
+    type: { typenName: "chocker" },
+    series: { SserieName: "classic", type: { typenName: "chocker" } },
+    name: "Classic Base",
+    price: 100,
+    description: "This is a description of product 1",
+    images: [productImage],
+    options: {
+      colorOptions: ["#000", "#fff", "#f00"],
+      sizeOptions: ["S", "M", "L"],
+    },
+    tags: ["new arrival", "best seller"],
+    simmilarProducts: [],
+  },
+  {
+    productId: "3",
+    type: { typenName: "chocker" },
+    series: { SserieName: "pure", type: { typenName: "chocker" } },
+    name: "Classic Base",
+    price: 100,
+    description: "This is a description of product 1",
+    images: [productImage],
+    options: {
+      colorOptions: ["#000", "#fff", "#f00"],
+      sizeOptions: ["S", "M", "L"],
+    },
+    tags: ["new arrival", "best seller"],
+    simmilarProducts: [],
+  },
+  {
+    productId: "4",
+    type: { typenName: "chocker" },
+    series: { SserieName: "pure", type: { typenName: "chocker" } },
+    name: "Classic Base",
+    price: 100,
+    description: "This is a description of product 1",
+    images: [productImage],
+    options: {
+      colorOptions: ["#000", "#fff", "#f00"],
+      sizeOptions: [],
+    },
+    tags: ["new arrival", "best seller"],
+    simmilarProducts: [],
+  },
+];
 
 const ProductData = {
   name: "special summer hat for lady",
@@ -97,4 +159,4 @@ const productList = {
   },
 };
 
-export { ProductData, Products, productList };
+export { ProductData, Products, productList, mockProducts };

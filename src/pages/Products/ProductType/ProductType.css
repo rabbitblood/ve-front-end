@@ -7,6 +7,7 @@
   padding-top: 4rem;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(255, 255, 255) 100%);
 }
 @media screen and (min-width: 768px) {
   .product-type-page .product-type-desc {
@@ -74,7 +75,7 @@
 }
 .product-type-page .products-section {
   padding: 2rem;
-  background: rgb(239, 237, 237);
+  background: rgb(255, 255, 255);
   color: black;
 }
 .product-type-page .products-section .section-name {

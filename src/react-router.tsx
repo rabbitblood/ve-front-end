@@ -5,10 +5,13 @@ import ErrorPage from "@/ErrorPage.jsx";
 import { Register } from "@/pages/Register/Register.tsx";
 import { Login } from "@/pages/Login/Login.tsx";
 import { Checkout } from "@/pages/Checkout/Checkout.tsx";
-//import Products from "@/pages/Products/Products.tsx";
+import Products from "@/pages/Products/Products.tsx";
 import Product from "./pages/Products/Product/Product.tsx";
-import ProductIntro from "./pages/Products/ProductIntro/Page.tsx";
+import ProductIntro from "./pages/Products/ProductIntro/ProductIntro.tsx";
 import ProductType from "./pages/Products/ProductType/ProductType.tsx";
+import OurStories from "./pages/Other/OurStories.tsx";
+import ShippingAndReturn from "./pages/Other/ShippingAndReturn.tsx";
+import ContactUs from "./pages/Other/ContactUs.tsx";
 
 const router = createBrowserRouter([
   {
@@ -29,20 +32,46 @@ const router = createBrowserRouter([
     element: <Checkout />,
   },
   {
-    path: "/products/:type",
-    element: <ProductType />,
+    path: "/products",
+    children: [
+      {
+        path: "/products",
+        element: <Products />,
+      },
+      {
+        path: "/products/ProductIntro/:type",
+        element: <ProductIntro />,
+      },
+      {
+        path: "/products/:type",
+        element: <ProductType />,
+      },
+      {
+        path: "/products/:type/:series",
+        element: <ProductType />,
+      },
+      {
+        path: "/products/view/:productid",
+        element: <Product />,
+      },
+    ],
   },
   {
-    path: "/products/:type/:series",
-    element: <ProductType />,
-  },
-  {
-    path: "/products/ProductIntro/:type",
-    element: <ProductIntro />,
-  },
-  {
-    path: "/products/view/:productid",
-    element: <Product />,
+    path: "/terms",
+    children: [
+      {
+        path: "/terms/shipping-and-return",
+        element: <ShippingAndReturn />,
+      },
+      {
+        path: "/terms/our-stories",
+        element: <OurStories />,
+      },
+      {
+        path: "/terms/contact-us",
+        element: <ContactUs />,
+      },
+    ],
   },
 ]);
 

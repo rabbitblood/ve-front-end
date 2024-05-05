@@ -1,0 +1,45 @@
+import { useParams } from "react-router-dom";
+import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import IntroSection from "@/components/organisms/IntroSection/IntroSection";
+import productImage from "@/assets/product-image/2 8.png";
+import { useState } from "react";
+
+export default function ProductIntro() {
+  //get param
+  const { type } = useParams<{ type: string }>();
+  const [serie, setSerie] = useState<VeProductSeries>({
+    SserieName: "classic",
+    type: { typenName: type as string },
+  });
+
+  const changeSerieHandler = (serieName: string) => {
+    setSerie({ ...serie, SserieName: serieName });
+  };
+
+  const seriesDisplay = {
+    classic: {
+      title: "Classic Base",
+      subTitle: "series",
+      description: `A minimalist and versatile base design suitable for various occasions and outfits. Crafted from double-sided cowhide, meticulously stitched with elegant wave patterns by skilled craftsmen, ensuring exceptional durability. `,
+      image: productImage,
+    },
+    pure: {
+      title: "Pure Base",
+      subTitle: "series",
+      description: `A minimalist and versatile base design suitable for various occasions and outfits. Crafted from double-sided cowhide, meticulously stitched with elegant wave patterns by skilled craftsmen, ensuring exceptional durability. `,
+      image: productImage,
+    },
+  };
+
+  return (
+    <BasicLayout>
+      <IntroSection
+        title={type ? type : ""}
+        subTitle="series"
+        images={images}
+        description={`A minimalist and versatile base design suitable for various occasions and outfits. Crafted from double-sided cowhide, meticulously stitched with elegant wave patterns by skilled craftsmen, ensuring exceptional durability. `}
+        exploreUrl={`/products/${type}/classic`}
+      />
+    </BasicLayout>
+  );
+}

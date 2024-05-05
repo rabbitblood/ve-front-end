@@ -3,15 +3,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem;
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 .horizontal-move-image-viewer .images {
   position: relative;
   width: 80%;
-  height: 80%;
+  height: 90%;
   pointer-events: none;
 }
 .horizontal-move-image-viewer .images .image {
