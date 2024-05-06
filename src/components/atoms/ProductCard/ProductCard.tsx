@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
-interface ProductCardProps {
+interface ProductCardProps extends React.HTMLAttributes<HTMLElement> {
   product: VeProduct;
-  idx: number;
 }
 
-export default function ProductCard({ product, idx }: ProductCardProps) {
+export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <Link to={`/products/view/${product.productId}`} key={idx}>
-      <div key={idx} className="product-card">
+    <Link to={`/products/view/${product.productId}`}>
+      <div className="product-card">
         <img className="product-image" src={product.images[0]} alt="" />
         <div className="color-options">
           {product.options.colorOptions.map((color, idx) => {

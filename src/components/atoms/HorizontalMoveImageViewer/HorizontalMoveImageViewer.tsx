@@ -1,5 +1,6 @@
 import style from "./HorizontalMoveImageViewer.module.css";
 import { useEffect, useRef, useState } from "react";
+import arrowIcon from "./arrow.png";
 
 interface HorizontalMoveImageViewerProps
   extends React.HTMLAttributes<HTMLElement> {
@@ -80,7 +81,9 @@ export default function HorizontalMoveImageViewer(
             (props.showArrow ? style["show-arrow"] : "")
           }
           onClick={() => prevImageHandler()}
-        />
+        >
+          <img src={arrowIcon} className={style["arrow"]}></img>
+        </div>
         <div
           className={
             style["next-image-click"] +
@@ -88,7 +91,9 @@ export default function HorizontalMoveImageViewer(
             (props.showArrow ? style["show-arrow"] : "")
           }
           onClick={() => nextImageHandler()}
-        />
+        >
+          <img src={arrowIcon} className={style["arrow"]}></img>
+        </div>
       </div>
     </>
   );

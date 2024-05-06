@@ -72,16 +72,13 @@
     cursor: pointer;
     z-index: 5;
 
-    &.show-arrow::after {
-      content: "";
+    .arrow {
       position: absolute;
       top: 50%;
       right: 1rem;
-      width: 0;
-      height: 0;
-      border: 0.5rem solid transparent;
-      border-bottom-color: black;
-      transform: translate(-50%, -50%) rotate(90deg) scale(2);
+      width: 2rem;
+      height: 2rem;
+      transform: translate(0, -50%);
     }
   }
 
@@ -93,16 +90,13 @@
     cursor: pointer;
     z-index: 5;
 
-    &.show-arrow::after {
-      content: "";
+    .arrow {
       position: absolute;
       top: 50%;
       left: 1rem;
-      width: 0;
-      height: 0;
-      border: 0.5rem solid transparent;
-      border-bottom-color: black;
-      transform: translate(-50%, -50%) rotate(-90deg) scale(2);
+      width: 2rem;
+      height: 2rem;
+      transform: translate(0, -50%) rotate(180deg);
     }
   }
 }

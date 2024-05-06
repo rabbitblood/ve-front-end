@@ -55,16 +55,13 @@
   cursor: pointer;
   z-index: 5;
 }
-.horizontal-move-image-viewer .next-image-click.show-arrow::after {
-  content: "";
+.horizontal-move-image-viewer .next-image-click .arrow {
   position: absolute;
   top: 50%;
   right: 1rem;
-  width: 0;
-  height: 0;
-  border: 0.5rem solid transparent;
-  border-bottom-color: black;
-  transform: translate(-50%, -50%) rotate(90deg) scale(2);
+  width: 2rem;
+  height: 2rem;
+  transform: translate(0, -50%);
 }
 .horizontal-move-image-viewer .prev-image-click {
   position: absolute;
@@ -74,16 +71,13 @@
   cursor: pointer;
   z-index: 5;
 }
-.horizontal-move-image-viewer .prev-image-click.show-arrow::after {
-  content: "";
+.horizontal-move-image-viewer .prev-image-click .arrow {
   position: absolute;
   top: 50%;
   left: 1rem;
-  width: 0;
-  height: 0;
-  border: 0.5rem solid transparent;
-  border-bottom-color: black;
-  transform: translate(-50%, -50%) rotate(-90deg) scale(2);
+  width: 2rem;
+  height: 2rem;
+  transform: translate(0, -50%) rotate(180deg);
 }
 
 /*# sourceMappingURL=HorizontalMoveImageViewer.module.css.map */

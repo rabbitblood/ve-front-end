@@ -118,7 +118,7 @@ export default function ProductType() {
                   );
                 })
                 .map((product, idx) => {
-                  return <ProductCard product={product} idx={idx} />;
+                  return <ProductCard key={idx} product={product} />;
                 })}
             </div>
           </div>
