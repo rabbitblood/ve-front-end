@@ -6,7 +6,7 @@ import { mockProducts } from "@/data/mockData";
 import productImage from "@/assets/product-image/IMG_9822 3.png";
 import productImage2 from "@/assets/product-image/IMG_5577 1.png";
 import Banner from "@/components/organisms/Banner/Banner";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { setNav } from "@/lib/redux/store/navSlice";
 import ProductCard from "@/components/atoms/ProductCard/ProductCard";
@@ -28,6 +28,7 @@ export default function ProductType() {
   //get param
   const { type, series } = useParams<{ type: string; series: string }>();
   const dispatch = useAppDispatch();
+  const descArea = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     dispatch(
@@ -113,7 +114,7 @@ export default function ProductType() {
             <p className="desc">-----------------Desc</p>
           </div>
         </Banner>
-        <div id="desc" className="product-type-desc">
+        <div ref={descArea} id="desc" className="product-type-desc">
           <img
             src={arrowIcon}
             className="to-products-button"
@@ -128,6 +129,7 @@ export default function ProductType() {
                   title={data.title}
                   text={data.text}
                   image={data.image}
+                  parentRef={descArea}
                 />
               );
             } else {
@@ -138,6 +140,7 @@ export default function ProductType() {
                   text={data.text}
                   image={data.image}
                   textRight={data.textRight}
+                  parentRef={descArea}
                 />
               );
             }

@@ -13,11 +13,6 @@
     width: 100%;
     margin: 0.5rem 0;
   }
-
-  .text,
-  .title {
-    mix-blend-mode: difference;
-  }
 }
 
 .text-with-image {
@@ -52,7 +47,6 @@
   }
 
   .text-group {
-    mix-blend-mode: difference;
     grid-area: text;
     .text {
     }

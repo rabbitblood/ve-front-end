@@ -13,10 +13,6 @@
   width: 100%;
   margin: 0.5rem 0;
 }
-.whole-block .text,
-.whole-block .title {
-  mix-blend-mode: difference;
-}
 
 .text-with-image {
   display: flex;
@@ -48,7 +44,6 @@
   grid-area: image;
 }
 .text-with-image .text-group {
-  mix-blend-mode: difference;
   grid-area: text;
 }
 
