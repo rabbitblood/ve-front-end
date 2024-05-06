@@ -1,0 +1,55 @@
+.whole-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 1200px;
+}
+.whole-block .image,
+.whole-block .text,
+.whole-block .title {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+.whole-block .text,
+.whole-block .title {
+  mix-blend-mode: difference;
+}
+
+.text-with-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 1200px;
+}
+@media (min-width: 768px) {
+  .text-with-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    grid-template-areas: "text image";
+  }
+  .text-with-image.text-right {
+    grid-template-areas: "image text";
+  }
+}
+.text-with-image .image,
+.text-with-image .text,
+.text-with-image .title {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+.text-with-image .image {
+  grid-area: image;
+}
+.text-with-image .text-group {
+  mix-blend-mode: difference;
+  grid-area: text;
+}
+
+/*# sourceMappingURL=TextSections.css.map */

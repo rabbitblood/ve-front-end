@@ -81,7 +81,7 @@ const mockProducts: VeProduct[] = [
   },
   {
     productId: "5",
-    type: { typenName: "accessory" },
+    type: { typenName: "accessories" },
     series: { SerieName: "pure", type: { typenName: "chocker" } },
     name: "Classic Base",
     price: 100,
@@ -100,7 +100,7 @@ const mockProducts: VeProduct[] = [
   },
   {
     productId: "6",
-    type: { typenName: "accessory" },
+    type: { typenName: "accessories" },
     series: { SerieName: "classic", type: { typenName: "chocker" } },
     name: "Classic Base",
     price: 100,
@@ -191,7 +191,7 @@ const mockProducts: VeProduct[] = [
   },
   {
     productId: "11",
-    type: { typenName: "accessory" },
+    type: { typenName: "accessories" },
     series: { SerieName: "pure", type: { typenName: "chocker" } },
     name: "Classic Base",
     price: 100,
@@ -210,7 +210,7 @@ const mockProducts: VeProduct[] = [
   },
   {
     productId: "12",
-    type: { typenName: "accessory" },
+    type: { typenName: "accessories" },
     series: { SerieName: "classic", type: { typenName: "chocker" } },
     name: "Classic Base",
     price: 100,
