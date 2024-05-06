@@ -24,9 +24,7 @@ export default function Product() {
   const [currentSize, setCurrentSize] = useState<string>(
     mockProducts[0].options.sizeOptions[0].sizeName ?? ""
   );
-  const [currentCombo, setCurrentCombo] = useState<string>(
-    mockProducts[0].options.comboOptions[0].comboProductId ?? ""
-  );
+  const [currentCombo, setCurrentCombo] = useState<string | null>(null);
   const dispatch = useAppDispatch();
 
   const product = mockProducts.find(
@@ -106,10 +104,12 @@ export default function Product() {
   return (
     <BasicLayout>
       <div className="product-page">
-        <HorizontalMoveImageViewer
-          images={getImageToDisplay()}
-          showArrow={true}
-        />{" "}
+        <div className="display">
+          <HorizontalMoveImageViewer
+            images={getImageToDisplay()}
+            showArrow={true}
+          />{" "}
+        </div>
         <div className="detail">
           <div className="info-container">
             <h2 className="title">{product?.name}</h2>
@@ -127,7 +127,7 @@ export default function Product() {
             {(product?.options.comboOptions.length ?? 0) > 0 && (
               <ComboSelection
                 product={product as VeProduct}
-                currentCombo={currentCombo}
+                currentCombo={currentCombo ?? ""}
                 setCurrentCombo={setCurrentCombo}
               />
             )}
