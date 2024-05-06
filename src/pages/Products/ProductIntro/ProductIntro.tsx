@@ -3,7 +3,9 @@ import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import IntroSection from "@/components/organisms/IntroSection/IntroSection";
 import productImage from "@/assets/product-image/2 8.png";
 import productImage2 from "@/assets/product-image/IMG_9822 3.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
+import { setNav } from "@/lib/redux/store/navSlice";
 
 export default function ProductIntro() {
   //get param
@@ -12,6 +14,21 @@ export default function ProductIntro() {
     SerieName: "classic",
     type: { typenName: type as string },
   });
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(
+      setNav({
+        nav: [
+          { name: "Home", url: "/" },
+          {
+            name: type as string,
+            url: `/products/ProductIntro/${type}`,
+          },
+        ],
+      })
+    );
+  }, [dispatch, type]);
 
   const changeSerieHandler = (index: number) => {
     setSerie({ ...serie, SerieName: seriesDisplay[index].seriesName });

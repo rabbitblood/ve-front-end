@@ -1,14 +1,37 @@
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import { Link, useParams } from "react-router-dom";
 import "./ProductType.css";
-import { Products } from "@/data/mockData";
+import { mockProducts } from "@/data/mockData";
 
 import productImage from "@/assets/product-image/IMG_9822 3.png";
 import productImage2 from "@/assets/product-image/IMG_5577 1.png";
 import Banner from "@/components/organisms/Banner/Banner";
+import { useEffect } from "react";
+import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
+import { setNav } from "@/lib/redux/store/navSlice";
+
 export default function ProductType() {
   //get param
   const { type, series } = useParams<{ type: string; series: string }>();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(
+      setNav({
+        nav: [
+          { name: "Home", url: "/" },
+          {
+            name: type as string,
+            url: `/products/ProductIntro/${type}`,
+          },
+          {
+            name: series as string,
+            url: `/products/${type}/${series}`,
+          },
+        ],
+      })
+    );
+  }, [type, series, dispatch]);
 
   const images = [
     {
@@ -62,7 +85,7 @@ export default function ProductType() {
             </p>
           </div>
           <img className="img2" src={productImage} alt="" />
-          <div className="t4">
+          <div className="t4" style={{ color: "black" }}>
             <p>
               "Exquisite Craftsmanship: The outstanding quality of double-wave
               saddle stitching and leather edge oil polishing"
@@ -86,29 +109,42 @@ export default function ProductType() {
           </h2>
           <div className="products-container">
             <div className="products">
-              {Products.map((product, idx) => {
-                return (
-                  <Link to={`/products/view/${product.productid}`} key={idx}>
-                    <div key={idx} className="product">
-                      <img className="product-image" src={product.src} alt="" />
-                      <div className="color-options">
-                        {product.colorOptions.map((color, idx) => {
-                          return (
-                            <div
-                              key={idx}
-                              className={"color-option"}
-                              style={{ backgroundColor: color }}
-                            ></div>
-                          );
-                        })}
+              {mockProducts
+                .filter((value) => {
+                  return (
+                    value.type.typenName === type &&
+                    value.series.SerieName === series
+                  );
+                })
+                .map((product, idx) => {
+                  return (
+                    <Link to={`/products/view/${product.productId}`} key={idx}>
+                      <div key={idx} className="product">
+                        <img
+                          className="product-image"
+                          src={product.images[0]}
+                          alt=""
+                        />
+                        <div className="color-options">
+                          {product.options.colorOptions.map((color, idx) => {
+                            return (
+                              <div
+                                key={idx}
+                                className={"color-option"}
+                                style={{ backgroundColor: color }}
+                              ></div>
+                            );
+                          })}
+                        </div>
+                        <h3 className="product-name">{product.name}</h3>
+                        <p className="product-base">
+                          {product.series.SerieName}
+                        </p>
+                        <p className="product-price">{product.price}</p>
                       </div>
-                      <h3 className="product-name">{product.name}</h3>
-                      <p className="product-base">{product.base}</p>
-                      <p className="product-price">{product.price}</p>
-                    </div>
-                  </Link>
-                );
-              })}
+                    </Link>
+                  );
+                })}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect } from "react";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Header from "@/components/organisms/Header/Header";
 import { useLocation } from "react-router-dom";
 
 export default function BasicLayout({ children }: PropsWithChildren) {

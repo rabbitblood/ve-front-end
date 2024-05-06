@@ -5,7 +5,7 @@ import { Input } from "@/components/atoms/Input/Input";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useAppSelector } from "@/lib/redux/store/reduxDispatcher";
+import { useAppSelector } from "@/lib/redux/reduxDispatcher";
 
 type Props = {
   className: string;

@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import styles from "./Register.module.css";
-import Header from "@/components/Header";
+import Header from "@/components/organisms/Header/Header";
 
 const RegisterSchema = z.object({
   firstName: z.string().min(2, { message: "First name is too short" }),

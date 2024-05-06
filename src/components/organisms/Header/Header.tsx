@@ -4,15 +4,20 @@ import cartIcon from "@/assets/cart.png";
 // import menu from "@/assets/menu.svg";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import MenuButton from "./atoms/MenuButton/MenuButton";
+import MenuButton from "../../atoms/MenuButton/MenuButton";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store/store";
+import "./Header.css";
+import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
+import { resetNav } from "@/lib/redux/store/navSlice";
 
 export default function Header() {
   const menuElement = useRef<HTMLDivElement>(null);
   const [openNav, setOpenNav] = useState(false);
   const cartAmount = useSelector((state: RootState) => state.cart.items.length);
+  const pageNav = useSelector((state: RootState) => state.nav);
   const [highlightCart, setHighlightCart] = useState(false);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     // openMenuButton.current?.addEventListener("click", () => {
@@ -31,6 +36,10 @@ export default function Header() {
         menuElement.current?.classList.remove("scroll");
       }
     });
+
+    return () => {
+      dispatch(resetNav());
+    };
 
     addEventListener("cartChange", () => cartChangeHandler());
   }, []);
@@ -82,30 +91,83 @@ export default function Header() {
         </div>
 
         <nav className={`nav ${openNav ? "open" : ""}`}>
-          <Link to={"/products/ProductIntro/" + "choker"}>
-            <div className="nav-link">Choker</div>
+          <Link to={"/products/ProductIntro/" + "chocker"}>
+            <div
+              className="nav-link"
+              onClick={() => {
+                setOpenNav(!openNav);
+              }}
+            >
+              Chocker
+            </div>
           </Link>
 
           <Link to={"/products/ProductIntro/" + "bracelet"}>
-            <div className="nav-link">Bracelet</div>
+            <div
+              className="nav-link"
+              onClick={() => {
+                setOpenNav(!openNav);
+              }}
+            >
+              Bracelet
+            </div>
           </Link>
 
           <Link to={"/products/ProductIntro/" + "accessories"}>
-            <div className="nav-link">Accessories</div>
+            <div
+              className="nav-link"
+              onClick={() => {
+                setOpenNav(!openNav);
+              }}
+            >
+              Accessories
+            </div>
           </Link>
 
           <Link to={"/products"}>
-            <div className="nav-link">All Products</div>
+            <div
+              className="nav-link"
+              onClick={() => {
+                setOpenNav(!openNav);
+              }}
+            >
+              All Products
+            </div>
           </Link>
 
           <Link to={"/terms/our-stories"}>
-            <div className="nav-link">Our Stories</div>
+            <div
+              className="nav-link"
+              onClick={() => {
+                setOpenNav(!openNav);
+              }}
+            >
+              Our Stories
+            </div>
           </Link>
 
           <Link to={"/terms/contact-us"}>
-            <div className="nav-link">Contact Us</div>
+            <div
+              className="nav-link"
+              onClick={() => {
+                setOpenNav(!openNav);
+              }}
+            >
+              Contact Us
+            </div>
           </Link>
         </nav>
+      </div>
+      <div className="page-nav">
+        <ul className="page-nav-ul">
+          {pageNav.nav.map((value, idx) => {
+            return (
+              <li key={idx} className="nav-link">
+                <Link to={value.url}>{value.name}</Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </header>
   );

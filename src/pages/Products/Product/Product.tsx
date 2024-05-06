@@ -4,72 +4,68 @@ import "@/pages/Products/Products.css";
 import "./product.css";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import HorizontalMoveImageViewer from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
-import { useAppDispatch } from "@/lib/redux/store/reduxDispatcher";
-import { addItemToCart } from "@/lib/redux/cartSlice";
-//images
-import banner from "@/assets/test-banner.png";
-// import chockerDemo from "@/assets/chocker-demo.webp";
-// import braceletDemo from "@/assets/bracelet-demo.webp";
+import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
+import { addItemToCart } from "@/lib/redux/store/cartSlice";
+
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import { mockProducts } from "@/data/mockData";
+import { useEffect } from "react";
+import { setNav } from "@/lib/redux/store/navSlice";
 
 export default function Product() {
   const { productid } = useParams<{ productid: string }>();
   const dispatch = useAppDispatch();
 
+  const product = mockProducts.find(
+    (product) => product.productId === productid
+  );
+
+  useEffect(() => {
+    dispatch(
+      setNav({
+        nav: [
+          { name: "Home", url: "/" },
+          {
+            name: product?.type.typenName as string,
+            url: `/products/ProductIntro/${product?.type.typenName}`,
+          },
+          {
+            name: product?.series.SerieName as string,
+            url: `/products/${product?.type.typenName}/${product?.series.SerieName}`,
+          },
+          {
+            name: product?.name as string,
+            url: `/products/view/${product?.productId}`,
+          },
+        ],
+      })
+    );
+  }, []);
+
   function addItemToCartHandler() {
+    if (!product) return;
     dispatch(
       addItemToCart({
-        productId: productid as string,
+        productId: product?.productId,
         amount: 1,
-        productName: "product name",
-        productDesc: "product description",
+        productName: product?.name,
+        productDesc: product?.description,
         price: 100,
-        imageUrl: "https://picsum.photos/200/300",
+        imageUrl: product?.images[0],
       })
     );
   }
 
-  const images = [
-    {
-      original: banner,
-      thumbnail: banner,
-    },
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-  ];
-
   return (
     <BasicLayout>
       <div className="product-page">
-        <HorizontalMoveImageViewer
-          images={images.map((image) => image.original)}
-        />{" "}
+        <HorizontalMoveImageViewer images={product?.images ?? []} />{" "}
         <div className="detail">
           <div className="info-container">
-            <h2 className="title">title</h2>
-            <h3 className="sub-title">subTitle</h3>
-            <p className="price">{"Start From 130CAD / 100USD"}</p>
-            <p className="desc">
-              Classic base made by authentic snakeskin with chain and silver
-              cross pendant.
-              <br />
-              +xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              <br />
-              +xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx <br />
-              +xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-              <br />
-              +xxxxxxxxxxxxxxxxxx
-            </p>
+            <h2 className="title">{product?.name}</h2>
+            <h3 className="sub-title">{product?.series.SerieName}</h3>
+            <p className="price">${product?.price}CAD</p>
+            <p className="desc">{product?.description}</p>
           </div>
           <div className="form-button-container">
             <FormButton

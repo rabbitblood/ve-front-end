@@ -7,7 +7,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
-import Header from "@/components/Header";
+import Header from "@/components/organisms/Header/Header";
 
 const LoginSchema = z.object({
   email: z.string().email(),
