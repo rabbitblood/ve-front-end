@@ -75,24 +75,20 @@ export default function HorizontalMoveImageViewer(
           </div>
         </div>
         <div
-          className={
-            style["prev-image-click"] +
-            " " +
-            (props.showArrow ? style["show-arrow"] : "")
-          }
+          className={style["prev-image-click"]}
           onClick={() => prevImageHandler()}
         >
-          <img src={arrowIcon} className={style["arrow"]}></img>
+          {props.showArrow && (
+            <img src={arrowIcon} className={style["arrow"]}></img>
+          )}
         </div>
         <div
-          className={
-            style["next-image-click"] +
-            " " +
-            (props.showArrow ? style["show-arrow"] : "")
-          }
+          className={style["next-image-click"]}
           onClick={() => nextImageHandler()}
         >
-          <img src={arrowIcon} className={style["arrow"]}></img>
+          {props.showArrow && (
+            <img src={arrowIcon} className={style["arrow"]}></img>
+          )}
         </div>
       </div>
     </>

@@ -1,5 +1,5 @@
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./ProductType.css";
 import { mockProducts } from "@/data/mockData";
 
@@ -10,6 +10,8 @@ import { useEffect } from "react";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { setNav } from "@/lib/redux/store/navSlice";
 import ProductCard from "@/components/atoms/ProductCard/ProductCard";
+
+import arrowIcon from "@/assets/icons/arrow.png";
 
 export default function ProductType() {
   //get param
@@ -34,6 +36,11 @@ export default function ProductType() {
     );
   }, [type, series, dispatch]);
 
+  function scrollToProducts() {
+    const element = document.getElementById("products-section");
+    element?.scrollIntoView({ behavior: "smooth" });
+  }
+
   const images = [
     {
       original: productImage,
@@ -56,6 +63,12 @@ export default function ProductType() {
           </div>
         </Banner>
         <div id="desc" className="product-type-desc">
+          <img
+            src={arrowIcon}
+            className="to-products-button"
+            onClick={scrollToProducts}
+          />
+
           <h2 className="title">GET THE HIGHLIGHTS</h2>
           <p className="t1">
             "Irresistible Charm: The captivating texture of TAURILLON LAGUN calf
@@ -104,7 +117,7 @@ export default function ProductType() {
           </div>
           <img className="img3" src={productImage} alt="" />
         </div>
-        <div className="products-section">
+        <div id="products-section" className="products-section">
           <h2 className="section-name">
             {series} Series {type}
           </h2>

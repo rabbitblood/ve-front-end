@@ -3,54 +3,30 @@
   background-color: black;
 }
 .product-type-page .product-type-desc {
+  position: relative;
   padding: 2rem;
   padding-top: 4rem;
   display: flex;
   flex-direction: column;
   background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(255, 255, 255) 100%);
 }
-@media screen and (min-width: 768px) {
-  .product-type-page .product-type-desc {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 3rem 3rem 5rem 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas: "title title title title title title title title title" "t1 t1 t1 t1 t1 . . . ." "t2 t2 t2 t2 t2 t2 t2 . ." "img1 img1 img1 img1 img1 img1 img1 img1 img1" "img1 img1 img1 img1 img1 img1 img1 img1 img1" "t3 t3 t3 t3 t3 img2 img2 img2 img2" "t3 t3 t3 t3 t3 img2 img2 img2 img2" "img3 img3 img3 img3 img3 img3 t4 t4 t4" "img3 img3 img3 img3 img3 img3 t4 t4 t4" "img3 img3 img3 img3 img3 img3 t4 t4 t4";
-  }
-  .product-type-page .product-type-desc .title,
-  .product-type-page .product-type-desc .t1,
-  .product-type-page .product-type-desc .t2,
-  .product-type-page .product-type-desc .t3,
-  .product-type-page .product-type-desc .t4,
-  .product-type-page .product-type-desc .img1,
-  .product-type-page .product-type-desc .img2,
-  .product-type-page .product-type-desc .img3 {
-    padding: 2rem;
-  }
-  .product-type-page .product-type-desc .title {
-    grid-area: title;
-  }
-  .product-type-page .product-type-desc .t1 {
-    grid-area: t1;
-  }
-  .product-type-page .product-type-desc .t2 {
-    grid-area: t2;
-  }
-  .product-type-page .product-type-desc .img1 {
-    grid-area: img1;
-  }
-  .product-type-page .product-type-desc .t3 {
-    grid-area: t3;
-  }
-  .product-type-page .product-type-desc .img2 {
-    grid-area: img2;
-  }
-  .product-type-page .product-type-desc .img3 {
-    grid-area: img3;
-  }
-  .product-type-page .product-type-desc .t4 {
-    grid-area: t4;
-  }
+.product-type-page .product-type-desc .to-products-button {
+  position: sticky;
+  top: 3rem;
+  width: 3rem;
+  height: 6rem;
+  margin: auto;
+  padding: 0.5rem;
+  cursor: pointer;
+  mix-blend-mode: difference;
+  background-color: white;
+  transform: rotate(90deg);
+  transition: 0.2s;
+  border-radius: 1rem;
+  object-fit: contain;
+}
+.product-type-page .product-type-desc .to-products-button:hover {
+  scale: 1.1;
 }
 .product-type-page .banner-pull-button {
   position: absolute;
