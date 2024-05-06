@@ -9,10 +9,14 @@ const mockProducts: VeProduct[] = [
     series: { SerieName: "pure", type: { typenName: "chocker" } },
     name: "product 1",
     price: 100,
-    description: "This is a description of product 1",
+    description: "",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: ["S", "M", "L"],
     },
     tags: ["new arrival", "best seller"],
@@ -22,12 +26,16 @@ const mockProducts: VeProduct[] = [
     productId: "2",
     type: { typenName: "chocker" },
     series: { SerieName: "classic", type: { typenName: "chocker" } },
-    name: "Classic Base",
+    name: "Basic",
     price: 100,
-    description: "This is a description of product 1",
+    description: "",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: ["S", "M", "L"],
     },
     tags: ["new arrival", "best seller"],
@@ -42,7 +50,11 @@ const mockProducts: VeProduct[] = [
     description: "This is a description of product 1",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: ["S", "M", "L"],
     },
     tags: ["new arrival", "best seller"],
@@ -57,7 +69,11 @@ const mockProducts: VeProduct[] = [
     description: "This is a description of product 1",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: [],
     },
     tags: ["new arrival", "best seller"],
@@ -72,7 +88,11 @@ const mockProducts: VeProduct[] = [
     description: "This is a description of product 1",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: ["S", "M", "L"],
     },
     tags: ["new arrival", "best seller"],
@@ -87,7 +107,11 @@ const mockProducts: VeProduct[] = [
     description: "This is a description of product 1",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: ["S", "M", "L"],
     },
     tags: ["new arrival", "best seller"],
@@ -102,7 +126,11 @@ const mockProducts: VeProduct[] = [
     description: "This is a description of product 1",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: ["S", "M", "L"],
     },
     tags: ["new arrival", "best seller"],
@@ -117,7 +145,7 @@ const mockProducts: VeProduct[] = [
     description: "This is a description of product 1",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [],
       sizeOptions: ["S", "M", "L"],
     },
     tags: ["new arrival", "best seller"],
@@ -132,7 +160,11 @@ const mockProducts: VeProduct[] = [
     description: "This is a description of product 1",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: ["S", "M", "L"],
     },
     tags: ["new arrival", "best seller"],
@@ -147,7 +179,11 @@ const mockProducts: VeProduct[] = [
     description: "This is a description of product 1",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: [],
     },
     tags: ["new arrival", "best seller"],
@@ -162,7 +198,11 @@ const mockProducts: VeProduct[] = [
     description: "This is a description of product 1",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: ["S", "M", "L"],
     },
     tags: ["new arrival", "best seller"],
@@ -177,7 +217,11 @@ const mockProducts: VeProduct[] = [
     description: "This is a description of product 1",
     images: [productImage, productImage2],
     options: {
-      colorOptions: ["#000", "#fff", "#f00"],
+      colorOptions: [
+        { color: "#000", images: [productImage, productImage2] },
+        { color: "#fff", images: [productImage, productImage2] },
+        { color: "#f00", images: [productImage, productImage2] },
+      ],
       sizeOptions: ["S", "M", "L"],
     },
     tags: ["new arrival", "best seller"],
@@ -204,7 +248,11 @@ const Products = [
     base: "Classic Base",
     price: "123$",
     src: productImage,
-    colorOptions: ["#000", "#fff", "#f00"],
+    colorOptions: [
+      { color: "#000", images: [productImage, productImage2] },
+      { color: "#fff", images: [productImage, productImage2] },
+      { color: "#f00", images: [productImage, productImage2] },
+    ],
   },
   {
     productid: 2,
@@ -212,7 +260,11 @@ const Products = [
     base: "Classic Base",
     price: "123$",
     src: productImage,
-    colorOptions: ["#000", "#fff", "#f00"],
+    colorOptions: [
+      { color: "#000", images: [productImage, productImage2] },
+      { color: "#fff", images: [productImage, productImage2] },
+      { color: "#f00", images: [productImage, productImage2] },
+    ],
   },
   {
     productid: 3,
@@ -220,7 +272,11 @@ const Products = [
     base: "Classic Base",
     price: "123$",
     src: productImage,
-    colorOptions: ["#000", "#fff", "#f00"],
+    colorOptions: [
+      { color: "#000", images: [productImage, productImage2] },
+      { color: "#fff", images: [productImage, productImage2] },
+      { color: "#f00", images: [productImage, productImage2] },
+    ],
   },
   {
     productid: 4,
@@ -228,7 +284,11 @@ const Products = [
     base: "Classic Base",
     price: "123$",
     src: productImage,
-    colorOptions: ["#000", "#fff", "#f00"],
+    colorOptions: [
+      { color: "#000", images: [productImage, productImage2] },
+      { color: "#fff", images: [productImage, productImage2] },
+      { color: "#f00", images: [productImage, productImage2] },
+    ],
   },
   {
     productid: 5,
@@ -236,7 +296,11 @@ const Products = [
     base: "Classic Base",
     price: "123$",
     src: productImage,
-    colorOptions: ["#000", "#fff", "#f00"],
+    colorOptions: [
+      { color: "#000", images: [productImage, productImage2] },
+      { color: "#fff", images: [productImage, productImage2] },
+      { color: "#f00", images: [productImage, productImage2] },
+    ],
   },
   {
     productid: 6,
@@ -244,7 +308,11 @@ const Products = [
     base: "Classic Base",
     price: "123$",
     src: productImage,
-    colorOptions: ["#000", "#fff", "#f00"],
+    colorOptions: [
+      { color: "#000", images: [productImage, productImage2] },
+      { color: "#fff", images: [productImage, productImage2] },
+      { color: "#f00", images: [productImage, productImage2] },
+    ],
   },
   {
     productid: 7,
@@ -252,7 +320,11 @@ const Products = [
     base: "Classic",
     price: "123$",
     src: productImage,
-    colorOptions: ["#000", "#fff", "#f00"],
+    colorOptions: [
+      { color: "#000", images: [productImage, productImage2] },
+      { color: "#fff", images: [productImage, productImage2] },
+      { color: "#f00", images: [productImage, productImage2] },
+    ],
   },
 ];
 

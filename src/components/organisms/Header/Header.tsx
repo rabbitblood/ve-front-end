@@ -37,9 +37,7 @@ export default function Header() {
       }
     });
 
-    return () => {
-      dispatch(resetNav());
-    };
+    dispatch(resetNav());
 
     addEventListener("cartChange", () => cartChangeHandler());
   }, []);

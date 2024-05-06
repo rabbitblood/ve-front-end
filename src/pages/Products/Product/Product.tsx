@@ -40,7 +40,7 @@ export default function Product() {
         ],
       })
     );
-  }, []);
+  }, [dispatch, product]);
 
   function addItemToCartHandler() {
     if (!product) return;

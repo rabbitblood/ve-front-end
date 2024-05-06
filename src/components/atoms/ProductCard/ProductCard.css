@@ -1,0 +1,59 @@
+.product-card {
+  background-color: rgb(217, 212, 212);
+  margin: 0.2rem;
+  min-width: 15rem;
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.5s;
+  padding-bottom: 1rem;
+  overflow: hidden;
+}
+.product-card:hover {
+  transform: scale(0.95);
+  cursor: alias;
+}
+.product-card .product-image {
+  width: 100%;
+  height: 15rem;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 0.2rem 0.1rem gray;
+}
+.product-card .product-name {
+  margin: 0.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.product-card .product-base {
+  margin: 0.2rem;
+  font-size: 0.5rem;
+  font-weight: bold;
+}
+.product-card .product-desc {
+  margin: 0.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.product-card .product-price {
+  margin: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.product-card .color-options {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+.product-card .color-options .color-option {
+  cursor: pointer;
+  margin: 0 0.2rem;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.1rem solid black;
+  box-shadow: 0 0.2rem 0.1rem 0.05rem rgba(128, 128, 128, 0.5);
+}
+
+/*# sourceMappingURL=ProductCard.css.map */

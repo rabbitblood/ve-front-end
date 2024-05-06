@@ -8,8 +8,13 @@ declare interface VeProductSeries {
 }
 
 declare interface VeProductOptions {
-  colorOptions: string[];
+  colorOptions: colorOption[];
   sizeOptions: string[];
+}
+
+declare interface colorOption {
+  color: string;
+  images: string[];
 }
 
 declare interface VeProduct {

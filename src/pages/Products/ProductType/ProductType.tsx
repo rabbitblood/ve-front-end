@@ -1,5 +1,5 @@
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./ProductType.css";
 import { mockProducts } from "@/data/mockData";
 
@@ -9,6 +9,7 @@ import Banner from "@/components/organisms/Banner/Banner";
 import { useEffect } from "react";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { setNav } from "@/lib/redux/store/navSlice";
+import ProductCard from "@/components/atoms/ProductCard/ProductCard";
 
 export default function ProductType() {
   //get param
@@ -117,33 +118,7 @@ export default function ProductType() {
                   );
                 })
                 .map((product, idx) => {
-                  return (
-                    <Link to={`/products/view/${product.productId}`} key={idx}>
-                      <div key={idx} className="product">
-                        <img
-                          className="product-image"
-                          src={product.images[0]}
-                          alt=""
-                        />
-                        <div className="color-options">
-                          {product.options.colorOptions.map((color, idx) => {
-                            return (
-                              <div
-                                key={idx}
-                                className={"color-option"}
-                                style={{ backgroundColor: color }}
-                              ></div>
-                            );
-                          })}
-                        </div>
-                        <h3 className="product-name">{product.name}</h3>
-                        <p className="product-base">
-                          {product.series.SerieName}
-                        </p>
-                        <p className="product-price">{product.price}</p>
-                      </div>
-                    </Link>
-                  );
+                  return <ProductCard product={product} idx={idx} />;
                 })}
             </div>
           </div>
