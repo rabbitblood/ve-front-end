@@ -27,9 +27,8 @@ export default function WholeBlock(props: Props) {
         <div
           style={{
             color:
-              props.color ?? isHalfWayThroughParentElement()
-                ? "black"
-                : "white",
+              props.color ??
+              (isHalfWayThroughParentElement() ? "black" : "white"),
           }}
         >
           <h2 className="title">{props.title}</h2>

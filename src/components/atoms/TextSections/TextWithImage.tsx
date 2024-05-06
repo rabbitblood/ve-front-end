@@ -29,7 +29,8 @@ export default function TextWithImage(props: Props) {
         className="text-group"
         style={{
           color:
-            props.color ?? isHalfWayThroughParentElement() ? "black" : "white",
+            props.color ??
+            (isHalfWayThroughParentElement() ? "black" : "white"),
         }}
       >
         <h2 className="title">{props.title}</h2>
