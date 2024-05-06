@@ -59,7 +59,10 @@ export default function Product() {
   return (
     <BasicLayout>
       <div className="product-page">
-        <HorizontalMoveImageViewer images={product?.images ?? []} />{" "}
+        <HorizontalMoveImageViewer
+          images={product?.images ?? []}
+          showArrow={true}
+        />{" "}
         <div className="detail">
           <div className="info-container">
             <h2 className="title">{product?.name}</h2>

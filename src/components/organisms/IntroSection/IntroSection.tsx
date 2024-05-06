@@ -26,6 +26,7 @@ export default function IntroSection(props: IntroSectionProps) {
         <HorizontalMoveImageViewer
           images={props.images}
           onImageChange={props.onImageChange}
+          showArrow={true}
         />
       </div>
       <div className="details">

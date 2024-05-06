@@ -5,6 +5,7 @@ interface HorizontalMoveImageViewerProps
   extends React.HTMLAttributes<HTMLElement> {
   images: string[];
   onImageChange?: (index: number) => void;
+  showArrow?: boolean;
 }
 
 export default function HorizontalMoveImageViewer(
@@ -73,11 +74,19 @@ export default function HorizontalMoveImageViewer(
           </div>
         </div>
         <div
-          className={style["prev-image-click"]}
+          className={
+            style["prev-image-click"] +
+            " " +
+            (props.showArrow ? style["show-arrow"] : "")
+          }
           onClick={() => prevImageHandler()}
         />
         <div
-          className={style["next-image-click"]}
+          className={
+            style["next-image-click"] +
+            " " +
+            (props.showArrow ? style["show-arrow"] : "")
+          }
           onClick={() => nextImageHandler()}
         />
       </div>

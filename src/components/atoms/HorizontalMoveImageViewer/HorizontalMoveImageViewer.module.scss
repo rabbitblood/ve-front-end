@@ -71,6 +71,18 @@
     right: 0;
     cursor: pointer;
     z-index: 5;
+
+    &.show-arrow::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      width: 0;
+      height: 0;
+      border: 0.5rem solid transparent;
+      border-bottom-color: black;
+      transform: translate(-50%, -50%) rotate(90deg) scale(2);
+    }
   }
 
   .prev-image-click {
@@ -80,5 +92,17 @@
     left: 0;
     cursor: pointer;
     z-index: 5;
+
+    &.show-arrow::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      width: 0;
+      height: 0;
+      border: 0.5rem solid transparent;
+      border-bottom-color: black;
+      transform: translate(-50%, -50%) rotate(-90deg) scale(2);
+    }
   }
 }

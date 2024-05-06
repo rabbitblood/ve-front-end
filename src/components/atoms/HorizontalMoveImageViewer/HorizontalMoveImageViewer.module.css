@@ -55,6 +55,17 @@
   cursor: pointer;
   z-index: 5;
 }
+.horizontal-move-image-viewer .next-image-click.show-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  width: 0;
+  height: 0;
+  border: 0.5rem solid transparent;
+  border-bottom-color: black;
+  transform: translate(-50%, -50%) rotate(90deg) scale(2);
+}
 .horizontal-move-image-viewer .prev-image-click {
   position: absolute;
   height: 80%;
@@ -62,6 +73,17 @@
   left: 0;
   cursor: pointer;
   z-index: 5;
+}
+.horizontal-move-image-viewer .prev-image-click.show-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  width: 0;
+  height: 0;
+  border: 0.5rem solid transparent;
+  border-bottom-color: black;
+  transform: translate(-50%, -50%) rotate(-90deg) scale(2);
 }
 
 /*# sourceMappingURL=HorizontalMoveImageViewer.module.css.map */
