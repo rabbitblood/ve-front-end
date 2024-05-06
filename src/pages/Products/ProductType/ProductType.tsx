@@ -15,6 +15,7 @@ import WholeBlock from "@/components/atoms/TextSections/WholeBlock";
 import TextWithImage from "@/components/atoms/TextSections/TextWithImage";
 
 import arrowIcon from "@/assets/icons/arrow.png";
+import banner from "@/assets/test-banner.png";
 
 interface DescData {
   type: "WholeBlock" | "TextWithImage";
@@ -53,14 +54,33 @@ export default function ProductType() {
     element?.scrollIntoView({ behavior: "smooth" });
   }
 
-  const images = [
+  const slideData = [
     {
-      original: productImage,
-      thumbnail: productImage,
+      original: banner,
+      thumbnail: banner,
+      displayElement: (
+        <div className="banner-text-container">
+          <h2 className="title">Choker</h2>
+        </div>
+      ),
     },
     {
       original: "https://picsum.photos/id/1018/1000/600/",
       thumbnail: "https://picsum.photos/id/1018/250/150/",
+      displayElement: (
+        <div className="banner-text-container">
+          <h2 className="title">Choker</h2>
+        </div>
+      ),
+    },
+    {
+      original: "https://picsum.photos/id/1015/1000/600/",
+      thumbnail: "https://picsum.photos/id/1015/250/150/",
+      displayElement: (
+        <div className="banner-text-container">
+          <h2 className="title">Choker</h2>
+        </div>
+      ),
     },
   ];
 
@@ -107,13 +127,7 @@ export default function ProductType() {
   return (
     <BasicLayout>
       <div className="product-type-page">
-        <Banner slideData={images}>
-          <div className="banner-text-container">
-            <h2 className="title">Title</h2>
-            <h3 className="sub-title">Sub Title</h3>
-            <p className="desc">-----------------Desc</p>
-          </div>
-        </Banner>
+        <Banner slideData={slideData} />
         <div ref={descArea} id="desc" className="product-type-desc">
           <img
             src={arrowIcon}

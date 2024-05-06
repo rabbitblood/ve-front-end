@@ -1,0 +1,22 @@
+.size-option-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .size-option-container {
+    flex-direction: row;
+  }
+}
+.size-option-container .select-text {
+  font-size: 1rem;
+  font-weight: 100;
+}
+.size-option-container .size-options {
+  min-width: 4rem;
+}
+
+/*# sourceMappingURL=SizeSelection.css.map */

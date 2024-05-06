@@ -1,20 +1,31 @@
 declare interface VeProductType {
-  typenName: string | "chocker" | "bracelet" | "accessory";
+  typenName: string;
 }
 
 declare interface VeProductSeries {
   type: VeProductType;
-  SerieName: string | "pure" | "classic";
+  SerieName: string;
 }
 
 declare interface VeProductOptions {
-  colorOptions: colorOption[];
-  sizeOptions: string[];
+  colorOptions: ColorOption[];
+  sizeOptions: SizeOption[];
+  comboOptions: ComboOption[];
 }
 
-declare interface colorOption {
+declare interface ComboOption {
+  comboProductId: string;
+}
+
+declare interface ColorOption {
   color: string;
   images: string[];
+  additionalPrice: number;
+}
+
+declare interface SizeOption {
+  sizeName: string;
+  additionalPrice: number;
 }
 
 declare interface VeProduct {

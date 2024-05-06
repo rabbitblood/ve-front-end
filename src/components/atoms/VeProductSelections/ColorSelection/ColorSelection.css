@@ -1,0 +1,24 @@
+.color-options {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  grid-area: size;
+}
+.color-options .color-option {
+  cursor: pointer;
+  text-align: center;
+  margin: 0 0.2rem;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.1rem solid black;
+  box-shadow: 0 0.2rem 0.1rem 0.05rem rgba(128, 128, 128, 0.5);
+}
+.color-options .color-option.selected {
+  border: 0.2rem solid black;
+  transform: scale(1.1);
+}
+
+/*# sourceMappingURL=ColorSelection.css.map */

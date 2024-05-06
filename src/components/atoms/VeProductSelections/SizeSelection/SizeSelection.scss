@@ -1,0 +1,21 @@
+.size-option-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  .select-text {
+    font-size: 1rem;
+    font-weight: 100;
+  }
+
+  .size-options {
+    min-width: 4rem;
+  }
+}

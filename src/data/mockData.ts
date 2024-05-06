@@ -13,11 +13,44 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [collar, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, collar],
+          additionalPrice: 0,
+        },
       ],
-      sizeOptions: ["S", "M", "L"],
+      sizeOptions: [
+        {
+          sizeName: "S",
+          additionalPrice: 0,
+        },
+        {
+          sizeName: "M",
+          additionalPrice: 10,
+        },
+        {
+          sizeName: "L",
+          additionalPrice: 50,
+        },
+      ],
+      comboOptions: [
+        {
+          comboProductId: "2",
+        },
+        {
+          comboProductId: "6",
+        },
+      ],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -32,11 +65,37 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
       ],
-      sizeOptions: ["S", "M", "L"],
+      sizeOptions: [
+        {
+          sizeName: "S",
+          additionalPrice: 0,
+        },
+        {
+          sizeName: "M",
+          additionalPrice: 10,
+        },
+        {
+          sizeName: "L",
+          additionalPrice: 50,
+        },
+      ],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -51,11 +110,37 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
       ],
-      sizeOptions: ["S", "M", "L"],
+      sizeOptions: [
+        {
+          sizeName: "S",
+          additionalPrice: 0,
+        },
+        {
+          sizeName: "M",
+          additionalPrice: 10,
+        },
+        {
+          sizeName: "L",
+          additionalPrice: 50,
+        },
+      ],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -70,11 +155,24 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
       ],
       sizeOptions: [],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -89,11 +187,37 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
       ],
-      sizeOptions: ["S", "M", "L"],
+      sizeOptions: [
+        {
+          sizeName: "S",
+          additionalPrice: 0,
+        },
+        {
+          sizeName: "M",
+          additionalPrice: 10,
+        },
+        {
+          sizeName: "L",
+          additionalPrice: 50,
+        },
+      ],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -108,11 +232,37 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
       ],
-      sizeOptions: ["S", "M", "L"],
+      sizeOptions: [
+        {
+          sizeName: "S",
+          additionalPrice: 0,
+        },
+        {
+          sizeName: "M",
+          additionalPrice: 10,
+        },
+        {
+          sizeName: "L",
+          additionalPrice: 50,
+        },
+      ],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -127,11 +277,37 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
       ],
-      sizeOptions: ["S", "M", "L"],
+      sizeOptions: [
+        {
+          sizeName: "S",
+          additionalPrice: 0,
+        },
+        {
+          sizeName: "M",
+          additionalPrice: 10,
+        },
+        {
+          sizeName: "L",
+          additionalPrice: 50,
+        },
+      ],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -146,7 +322,21 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [],
-      sizeOptions: ["S", "M", "L"],
+      sizeOptions: [
+        {
+          sizeName: "S",
+          additionalPrice: 0,
+        },
+        {
+          sizeName: "M",
+          additionalPrice: 10,
+        },
+        {
+          sizeName: "L",
+          additionalPrice: 50,
+        },
+      ],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -161,11 +351,37 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
       ],
-      sizeOptions: ["S", "M", "L"],
+      sizeOptions: [
+        {
+          sizeName: "S",
+          additionalPrice: 0,
+        },
+        {
+          sizeName: "M",
+          additionalPrice: 10,
+        },
+        {
+          sizeName: "L",
+          additionalPrice: 50,
+        },
+      ],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -180,11 +396,24 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
       ],
       sizeOptions: [],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -199,18 +428,44 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
       ],
-      sizeOptions: ["S", "M", "L"],
+      sizeOptions: [
+        {
+          sizeName: "S",
+          additionalPrice: 0,
+        },
+        {
+          sizeName: "M",
+          additionalPrice: 10,
+        },
+        {
+          sizeName: "L",
+          additionalPrice: 50,
+        },
+      ],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
   },
   {
     productId: "12",
-    type: { typenName: "accessories" },
+    type: { typenName: "accessories " },
     series: { SerieName: "classic", type: { typenName: "chocker" } },
     name: "Classic Base",
     price: 100,
@@ -218,11 +473,37 @@ const mockProducts: VeProduct[] = [
     images: [productImage, productImage2],
     options: {
       colorOptions: [
-        { color: "#000", images: [productImage, productImage2] },
-        { color: "#fff", images: [productImage, productImage2] },
-        { color: "#f00", images: [productImage, productImage2] },
+        {
+          color: "#000",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#fff",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
+        {
+          color: "#f00",
+          images: [productImage, productImage2],
+          additionalPrice: 0,
+        },
       ],
-      sizeOptions: ["S", "M", "L"],
+      sizeOptions: [
+        {
+          sizeName: "S",
+          additionalPrice: 0,
+        },
+        {
+          sizeName: "M",
+          additionalPrice: 10,
+        },
+        {
+          sizeName: "L",
+          additionalPrice: 50,
+        },
+      ],
+      comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
     simmilarProducts: [],
@@ -237,7 +518,21 @@ const ProductData = {
   star: 4,
   reviews: 124,
   colorOptions: ["red", "blue", "green"],
-  sizeOptions: ["S", "M", "L"],
+  sizeOptions: [
+    {
+      sizeName: "S",
+      additionalPrice: 0,
+    },
+    {
+      sizeName: "M",
+      additionalPrice: 10,
+    },
+    {
+      sizeName: "L",
+      additionalPrice: 50,
+    },
+  ],
+  comboOptions: [],
   originalPrice: 226,
 };
 

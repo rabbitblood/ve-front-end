@@ -9,11 +9,24 @@ import { addItemToCart } from "@/lib/redux/store/cartSlice";
 
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import { mockProducts } from "@/data/mockData";
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { setNav } from "@/lib/redux/store/navSlice";
+import ColorSelection from "@/components/atoms/VeProductSelections/ColorSelection/ColorSelection";
+import SizeSelection from "@/components/atoms/VeProductSelections/SizeSelection/SizeSelection";
+import ComboSelection from "@/components/atoms/VeProductSelections/ComboSelection/ComboSelection";
+import { getProductById } from "@/lib/VeProduct/VeproductUtil";
 
 export default function Product() {
   const { productid } = useParams<{ productid: string }>();
+  const [currentColor, setCurrentColor] = useState<string>(
+    mockProducts[0].options.colorOptions[0].color ?? ""
+  );
+  const [currentSize, setCurrentSize] = useState<string>(
+    mockProducts[0].options.sizeOptions[0].sizeName ?? ""
+  );
+  const [currentCombo, setCurrentCombo] = useState<string>(
+    mockProducts[0].options.comboOptions[0].comboProductId ?? ""
+  );
   const dispatch = useAppDispatch();
 
   const product = mockProducts.find(
@@ -50,24 +63,75 @@ export default function Product() {
         amount: 1,
         productName: product?.name,
         productDesc: product?.description,
-        price: 100,
+        price: product.price,
         imageUrl: product?.images[0],
       })
     );
   }
 
+  function getImageToDisplay(): string[] {
+    if (product?.options.colorOptions?.length ?? 0 > 0) {
+      const colorOption = product?.options.colorOptions.find(
+        (color) => color.color === currentColor
+      );
+      if (colorOption) {
+        return colorOption.images;
+      }
+    }
+
+    if (product) {
+      return product.images;
+    } else {
+      return [];
+    }
+  }
+
+  const getCalculatedPrice = useCallback(() => {
+    let price = product?.price ?? 0;
+
+    const colorOption = product?.options.colorOptions.find(
+      (color) => color.color === currentColor
+    );
+    const sizeOption = product?.options.sizeOptions.find(
+      (size) => size.sizeName === currentSize
+    );
+
+    if (colorOption) price += colorOption.additionalPrice;
+    if (sizeOption) price += sizeOption.additionalPrice;
+    if (currentCombo) price += getProductById(currentCombo)?.price ?? 0;
+
+    return price;
+  }, [product, currentColor, currentSize, currentCombo]);
+
   return (
     <BasicLayout>
       <div className="product-page">
         <HorizontalMoveImageViewer
-          images={product?.images ?? []}
+          images={getImageToDisplay()}
           showArrow={true}
         />{" "}
         <div className="detail">
           <div className="info-container">
             <h2 className="title">{product?.name}</h2>
             <h3 className="sub-title">{product?.series.SerieName}</h3>
-            <p className="price">${product?.price}CAD</p>
+            <ColorSelection
+              product={product as VeProduct}
+              currentColor={currentColor}
+              setCurrentColor={setCurrentColor}
+            />
+            <SizeSelection
+              product={product as VeProduct}
+              currentSize={currentSize}
+              setCurrentSize={setCurrentSize}
+            />
+            {(product?.options.comboOptions.length ?? 0) > 0 && (
+              <ComboSelection
+                product={product as VeProduct}
+                currentCombo={currentCombo}
+                setCurrentCombo={setCurrentCombo}
+              />
+            )}
+            <p className="price">${getCalculatedPrice()} CAD</p>
             <p className="desc">{product?.description}</p>
           </div>
           <div className="form-button-container">

@@ -71,7 +71,7 @@
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  align-items: center;
+  align-items: start;
   grid-template-columns: repeat(1, 1fr);
 }
 @media screen and (min-width: 480px) {

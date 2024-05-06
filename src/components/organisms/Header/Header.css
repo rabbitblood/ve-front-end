@@ -116,5 +116,8 @@
   font-weight: 100;
   list-style-type: square;
 }
+.header .page-nav .page-nav-ul .nav-link:hover {
+  text-decoration: underline;
+}
 
 /*# sourceMappingURL=Header.css.map */
