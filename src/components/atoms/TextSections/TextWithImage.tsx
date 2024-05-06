@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./TextSections.css";
 
 interface Props {
@@ -12,12 +12,25 @@ interface Props {
 
 export default function TextWithImage(props: Props) {
   const block = useRef<HTMLDivElement>(null);
+  const [halfwayParent, setHalfwayParent] = useState(false);
 
+  useEffect(() => {
+    isHalfWayThroughParentElement();
+  }, [isHalfWayThroughParentElement, props.parentRef]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function isHalfWayThroughParentElement() {
-    if (!props.parentRef?.current || !block.current) return false;
-    return (
-      block.current?.offsetTop > props.parentRef?.current?.clientHeight / 2
-    );
+    if (!props.parentRef?.current || !block.current) {
+      setTimeout(() => {
+        isHalfWayThroughParentElement();
+      }, 1000);
+      setHalfwayParent(false);
+    } else {
+      setHalfwayParent(
+        block.current.offsetTop >
+          (props.parentRef?.current?.clientHeight ?? 0) / 2
+      );
+    }
   }
 
   return (
@@ -28,9 +41,7 @@ export default function TextWithImage(props: Props) {
       <div
         className="text-group"
         style={{
-          color:
-            props.color ??
-            (isHalfWayThroughParentElement() ? "black" : "white"),
+          color: props.color ?? (halfwayParent ? "black" : "white"),
         }}
       >
         <h2 className="title">{props.title}</h2>
