@@ -80,24 +80,30 @@ export const OrderSummary = ({ className }: Props) => {
           <button className={styles.payButton}>Pay Now</button>
         </div>
       </div>
-      <div className={styles.simmilarProducts}>
-        <h3>People also bought:</h3>
-        <div className={styles.simmilarProductsWrapper}>
-          {simmilarProducts.map((product, key) => (
-            <Link to={`/products/view/${product.productId}`} key={key}>
-              <div key={key} className={styles.simmilarProduct}>
-                <img
-                  className={styles.simmilarProductImage}
-                  src={product.images[0]}
-                  alt={product.name}
-                />
-                <h5 className={styles.simmilarProductTitle}>{product.name}</h5>
-                <p className={styles.simmilarProductPrice}>{product.price}$</p>
-              </div>
-            </Link>
-          ))}
+      {simmilarProducts.length > 0 && (
+        <div className={styles.simmilarProducts}>
+          <h3>People also bought:</h3>
+          <div className={styles.simmilarProductsWrapper}>
+            {simmilarProducts.map((product, key) => (
+              <Link to={`/products/view/${product.productId}`} key={key}>
+                <div key={key} className={styles.simmilarProduct}>
+                  <img
+                    className={styles.simmilarProductImage}
+                    src={product.images[0]}
+                    alt={product.name}
+                  />
+                  <h5 className={styles.simmilarProductTitle}>
+                    {product.name}
+                  </h5>
+                  <p className={styles.simmilarProductPrice}>
+                    {product.price}$
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

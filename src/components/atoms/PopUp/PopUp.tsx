@@ -3,10 +3,10 @@ import { useAppDispatch, useAppSelector } from "@/lib/redux/reduxDispatcher";
 import { closePopUp } from "@/lib/redux/store/popUpSlice";
 
 //icons
-import xIcon from "@/assets/x-icon.svg";
-import successIcon from "@/assets/pop-up-success-icon.svg";
-import peidingIcon from "@/assets/pop-up-pending-icon.svg";
-import warningIcon from "@/assets/pop-up-warning-icon.svg";
+import xIcon from "./x-icon.svg";
+import successIcon from "./pop-up-success-icon.svg";
+import peidingIcon from "./pop-up-pending-icon.svg";
+import warningIcon from "./pop-up-warning-icon.svg";
 
 interface PopUpProps extends React.HTMLProps<HTMLDivElement> {}
 

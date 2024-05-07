@@ -3,6 +3,7 @@ import styles from "./CartItem.module.css";
 import { modifyItemQuantity } from "@/lib/redux/store/cartSlice";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { useRef } from "react";
+
 interface Prop {
   product: VeCartItem;
 }

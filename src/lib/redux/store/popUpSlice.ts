@@ -1,8 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
-interface PopUpState {
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+export interface PopUpState {
   isOpen: boolean;
   title: string;
-  message: string;
+  message: string | JSX.Element;
   info: "normal" | "error" | "success" | "warning" | "pending";
 }
 
@@ -15,9 +16,16 @@ const initialState = {
 
 const popUpSlice = createSlice({
   name: "popUp",
-  initialState,
+  initialState: initialState,
   reducers: {
-    openPopUp: (state, action) => {
+    openPopUp: (
+      state,
+      action: PayloadAction<{
+        title: string;
+        message: string | JSX.Element;
+        info: "normal" | "error" | "success" | "warning" | "pending";
+      }>
+    ) => {
       state.isOpen = true;
       state.title = action.payload.title;
       state.message = action.payload.message;

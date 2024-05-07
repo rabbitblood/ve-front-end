@@ -154,6 +154,14 @@ button {
   opacity: 0;
 }
 
+.clickable {
+  transition: 0.2s;
+  cursor: pointer;
+}
+.clickable:hover {
+  scale: 1.1;
+}
+
 .banner {
   position: relative;
   height: 100vh;

@@ -154,6 +154,14 @@ button {
   opacity: 0;
 }
 
+.clickable {
+  transition: 0.2s;
+  cursor: pointer;
+}
+.clickable:hover {
+  scale: 1.1;
+}
+
 .customize .customize-step-nav {
   position: relative;
   margin: auto;
