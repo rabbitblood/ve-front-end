@@ -1,5 +1,4 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import "underscore";
 
 const onCartChange = new Event("cartChange");
 
