@@ -25,9 +25,10 @@
   }
   .orderSummary {
     background-color: rgb(223, 223, 223);
-    height: 100vh;
+    height: min-content;
     width: 45%;
-    top: 0;
+    top: 5rem;
+    position: sticky;
   }
 }
 

@@ -48,8 +48,6 @@ const cartSlice = createSlice({
 
       if (action.payload.newAmount < 1) {
         state.items.map((item) => {
-          console.log(item);
-          console.log(action.payload.cartItem);
           if (
             JSON.stringify(item) === JSON.stringify(action.payload.cartItem)
           ) {

@@ -53,7 +53,7 @@ const mockProducts: VeProduct[] = [
       ],
     },
     tags: ["new arrival", "best seller"],
-    simmilarProducts: [],
+    simmilarProducts: ["8", "3"],
   },
   {
     productId: "2",
@@ -98,7 +98,7 @@ const mockProducts: VeProduct[] = [
       comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
-    simmilarProducts: [],
+    simmilarProducts: ["8", "3"],
   },
   {
     productId: "3",
@@ -143,7 +143,7 @@ const mockProducts: VeProduct[] = [
       comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
-    simmilarProducts: [],
+    simmilarProducts: ["8", "3"],
   },
   {
     productId: "4",
@@ -175,7 +175,7 @@ const mockProducts: VeProduct[] = [
       comboOptions: [],
     },
     tags: ["new arrival", "best seller"],
-    simmilarProducts: [],
+    simmilarProducts: ["8", "3"],
   },
   {
     productId: "5",

@@ -6,6 +6,11 @@ import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppSelector } from "@/lib/redux/reduxDispatcher";
+import {
+  getAllSimmilarProducts,
+  getProductById,
+} from "@/lib/VeProduct/VeproductUtil";
+import { Link } from "react-router-dom";
 
 type Props = {
   className: string;
@@ -27,8 +32,9 @@ export const OrderSummary = ({ className }: Props) => {
   };
 
   const cartItems = useAppSelector((state) => state.cart.items);
-
-  console.log(cartItems);
+  const simmilarProducts = getAllSimmilarProducts(
+    cartItems.map((item) => getProductById(item.productId) as VeProduct)
+  );
 
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.amount,
@@ -71,9 +77,27 @@ export const OrderSummary = ({ className }: Props) => {
               <p>$ {subtotal + shipping + subtotal * taxRate}</p>
             </div>
           </div>
+          <button className={styles.payButton}>Pay Now</button>
         </div>
       </div>
-      <button className={styles.payButton}>Pay Now</button>
+      <div className={styles.simmilarProducts}>
+        <h3>People also bought:</h3>
+        <div className={styles.simmilarProductsWrapper}>
+          {simmilarProducts.map((product, key) => (
+            <Link to={`/products/view/${product.productId}`} key={key}>
+              <div key={key} className={styles.simmilarProduct}>
+                <img
+                  className={styles.simmilarProductImage}
+                  src={product.images[0]}
+                  alt={product.name}
+                />
+                <h5 className={styles.simmilarProductTitle}>{product.name}</h5>
+                <p className={styles.simmilarProductPrice}>{product.price}$</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
