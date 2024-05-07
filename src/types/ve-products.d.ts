@@ -38,5 +38,21 @@ declare interface VeProduct {
   images: string[];
   options: VeProductOptions;
   tags: string[];
-  simmilarProducts: VeProduct[];
+  simmilarProducts: string[];
+}
+
+declare interface VeCartItem {
+  productId: string;
+  amount: number;
+  productName: string;
+  productDesc: string;
+  price: number;
+  imageUrl: string;
+  color: string;
+  size: string;
+  comboId: string;
+}
+
+declare interface VeCart {
+  items: VeCartItem[];
 }

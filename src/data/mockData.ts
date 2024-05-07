@@ -14,17 +14,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [collar, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, collar],
           additionalPrice: 0,
         },
@@ -66,17 +66,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
@@ -111,17 +111,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
@@ -156,17 +156,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
@@ -188,17 +188,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
@@ -233,17 +233,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
@@ -278,17 +278,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
@@ -352,17 +352,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
@@ -397,17 +397,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
@@ -429,17 +429,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
@@ -474,17 +474,17 @@ const mockProducts: VeProduct[] = [
     options: {
       colorOptions: [
         {
-          color: "#000",
+          color: "black",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#fff",
+          color: "white",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
         {
-          color: "#f00",
+          color: "red",
           images: [productImage, productImage2],
           additionalPrice: 0,
         },
@@ -544,9 +544,9 @@ const Products = [
     price: "123$",
     src: productImage,
     colorOptions: [
-      { color: "#000", images: [productImage, productImage2] },
-      { color: "#fff", images: [productImage, productImage2] },
-      { color: "#f00", images: [productImage, productImage2] },
+      { color: "black", images: [productImage, productImage2] },
+      { color: "white", images: [productImage, productImage2] },
+      { color: "red", images: [productImage, productImage2] },
     ],
   },
   {
@@ -556,9 +556,9 @@ const Products = [
     price: "123$",
     src: productImage,
     colorOptions: [
-      { color: "#000", images: [productImage, productImage2] },
-      { color: "#fff", images: [productImage, productImage2] },
-      { color: "#f00", images: [productImage, productImage2] },
+      { color: "black", images: [productImage, productImage2] },
+      { color: "white", images: [productImage, productImage2] },
+      { color: "red", images: [productImage, productImage2] },
     ],
   },
   {
@@ -568,9 +568,9 @@ const Products = [
     price: "123$",
     src: productImage,
     colorOptions: [
-      { color: "#000", images: [productImage, productImage2] },
-      { color: "#fff", images: [productImage, productImage2] },
-      { color: "#f00", images: [productImage, productImage2] },
+      { color: "black", images: [productImage, productImage2] },
+      { color: "white", images: [productImage, productImage2] },
+      { color: "red", images: [productImage, productImage2] },
     ],
   },
   {
@@ -580,9 +580,9 @@ const Products = [
     price: "123$",
     src: productImage,
     colorOptions: [
-      { color: "#000", images: [productImage, productImage2] },
-      { color: "#fff", images: [productImage, productImage2] },
-      { color: "#f00", images: [productImage, productImage2] },
+      { color: "black", images: [productImage, productImage2] },
+      { color: "white", images: [productImage, productImage2] },
+      { color: "red", images: [productImage, productImage2] },
     ],
   },
   {
@@ -592,9 +592,9 @@ const Products = [
     price: "123$",
     src: productImage,
     colorOptions: [
-      { color: "#000", images: [productImage, productImage2] },
-      { color: "#fff", images: [productImage, productImage2] },
-      { color: "#f00", images: [productImage, productImage2] },
+      { color: "black", images: [productImage, productImage2] },
+      { color: "white", images: [productImage, productImage2] },
+      { color: "red", images: [productImage, productImage2] },
     ],
   },
   {
@@ -604,9 +604,9 @@ const Products = [
     price: "123$",
     src: productImage,
     colorOptions: [
-      { color: "#000", images: [productImage, productImage2] },
-      { color: "#fff", images: [productImage, productImage2] },
-      { color: "#f00", images: [productImage, productImage2] },
+      { color: "black", images: [productImage, productImage2] },
+      { color: "white", images: [productImage, productImage2] },
+      { color: "red", images: [productImage, productImage2] },
     ],
   },
   {
@@ -616,9 +616,9 @@ const Products = [
     price: "123$",
     src: productImage,
     colorOptions: [
-      { color: "#000", images: [productImage, productImage2] },
-      { color: "#fff", images: [productImage, productImage2] },
-      { color: "#f00", images: [productImage, productImage2] },
+      { color: "black", images: [productImage, productImage2] },
+      { color: "white", images: [productImage, productImage2] },
+      { color: "red", images: [productImage, productImage2] },
     ],
   },
 ];

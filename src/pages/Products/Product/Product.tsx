@@ -61,8 +61,11 @@ export default function Product() {
         amount: 1,
         productName: product?.name,
         productDesc: product?.description,
-        price: product.price,
+        price: getCalculatedPrice(),
         imageUrl: product?.images[0],
+        color: currentColor,
+        size: currentSize,
+        comboId: currentCombo ?? "",
       })
     );
   }

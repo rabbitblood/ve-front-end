@@ -1,8 +1,8 @@
+import { getProductById } from "@/lib/VeProduct/VeproductUtil";
 import styles from "./CartItem.module.css";
-import { CartItem as carItemType } from "@/lib/cart/Cart";
 
 interface Prop {
-  product: carItemType;
+  product: VeCartItem;
 }
 
 export const CartItem = ({ product }: Prop) => {
@@ -18,7 +18,12 @@ export const CartItem = ({ product }: Prop) => {
           />
         </div>
         <div>
-          <h4>{product.productName}</h4>
+          <h4>
+            {product.productName} - {product.color} - {product.size} - (
+            {product.comboId &&
+              "Combo With" + (getProductById(product.comboId)?.name ?? "")}
+            )
+          </h4>
           <p>{product.productDesc}</p>
         </div>
       </div>
