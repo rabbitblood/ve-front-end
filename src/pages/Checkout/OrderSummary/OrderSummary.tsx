@@ -28,6 +28,8 @@ export const OrderSummary = ({ className }: Props) => {
 
   const cartItems = useAppSelector((state) => state.cart.items);
 
+  console.log(cartItems);
+
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.amount,
     0
@@ -42,8 +44,8 @@ export const OrderSummary = ({ className }: Props) => {
       <h3>Order Summary</h3>
       <div className={styles.wrapper}>
         <div className={styles.cartItems}>
-          {cartItems.map((item) => (
-            <CartItem key={item.productId} product={item} />
+          {cartItems.map((item, key) => (
+            <CartItem key={key} product={item} />
           ))}
         </div>
         <FormProvider {...methods}>

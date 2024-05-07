@@ -32,17 +32,41 @@ const cartSlice = createSlice({
     },
     removeItemFromCart: (state, action: PayloadAction<VeCartItem>) => {
       dispatchEvent(onCartChange);
-      state.items = state.items.filter(
-        (item) => item.productId !== action.payload.productId
-      );
+
+      state.items.map((item) => {
+        if (JSON.stringify(item) === JSON.stringify(action.payload)) {
+          state.items.splice(state.items.indexOf(item), 1);
+          return;
+        }
+      });
     },
-    modifyItemQuantity: (state, action: PayloadAction<VeCartItem>) => {
+    modifyItemQuantity: (
+      state,
+      action: PayloadAction<{ cartItem: VeCartItem; newAmount: number }>
+    ) => {
       dispatchEvent(onCartChange);
-      const item = state.items.find(
-        (item) => item.productId === action.payload.productId
-      );
-      if (item) {
-        item.amount = action.payload.amount;
+
+      if (action.payload.newAmount < 1) {
+        state.items.map((item) => {
+          console.log(item);
+          console.log(action.payload.cartItem);
+          if (
+            JSON.stringify(item) === JSON.stringify(action.payload.cartItem)
+          ) {
+            state.items.splice(state.items.indexOf(item), 1);
+
+            return;
+          }
+        });
+      } else {
+        state.items.map((item) => {
+          if (
+            JSON.stringify(item) === JSON.stringify(action.payload.cartItem)
+          ) {
+            item.amount = action.payload.newAmount;
+            return;
+          }
+        });
       }
     },
     clearCart: (state) => {
@@ -52,6 +76,11 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItemToCart } = cartSlice.actions;
+export const {
+  addItemToCart,
+  removeItemFromCart,
+  modifyItemQuantity,
+  clearCart,
+} = cartSlice.actions;
 
 export default cartSlice;

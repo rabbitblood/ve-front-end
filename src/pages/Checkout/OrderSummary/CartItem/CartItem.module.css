@@ -22,7 +22,9 @@
 
 .quantity {
   position: absolute;
+  text-align: center;
   min-width: 1.2rem;
+  max-width: 1.2rem;
   aspect-ratio: 1/1;
   line-height: 1;
   top: -4px;
@@ -33,7 +35,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.5;
+  cursor: pointer;
+}
+.quantity::-webkit-inner-spin-button, .quantity::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .cardLeft h4 {
@@ -43,4 +49,6 @@
 .cardLeft p {
   font-size: 0.875rem;
   color: rgb(119, 119, 119);
-}/*# sourceMappingURL=CartItem.module.css.map */
+}
+
+/*# sourceMappingURL=CartItem.module.css.map */

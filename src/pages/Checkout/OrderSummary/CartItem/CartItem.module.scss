@@ -22,7 +22,9 @@
 
 .quantity {
   position: absolute;
+  text-align: center;
   min-width: 1.2rem;
+  max-width: 1.2rem;
   aspect-ratio: 1/1;
   line-height: 1;
   top: -4px;
@@ -33,7 +35,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.5;
+  cursor: pointer;
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
 
 .cardLeft h4 {
