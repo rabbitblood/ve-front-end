@@ -53,6 +53,7 @@ export const Payment = () => {
       <Controller
         name="payment.method"
         control={control}
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         render={({ field: { ref, ...props } }) => (
           <RadioGroup options={paymentOptions} {...props} />
         )}

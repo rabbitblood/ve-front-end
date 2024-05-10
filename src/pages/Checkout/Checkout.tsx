@@ -7,6 +7,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { CheckoutFormData, CheckoutSchema } from "./Checkout.data";
 import { zodResolver } from "@hookform/resolvers/zod";
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import { CheckoutForm } from "@/components/Stripe/RequestPaymentButton/RequestPaymentButton";
 
 export const Checkout = () => {
   const methods = useForm<CheckoutFormData>({
@@ -38,6 +39,7 @@ export const Checkout = () => {
         </FormProvider>
         <OrderSummary className={styles.orderSummary} />
       </div>
+      <CheckoutForm></CheckoutForm>
     </BasicLayout>
   );
 };
