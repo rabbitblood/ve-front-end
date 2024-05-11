@@ -70,7 +70,7 @@ export default function Header() {
                 <img className="icon" src={user} alt="user" />
               </Link>
             </div> */}
-            <Link to={"/checkout"}>
+            <Link to={"/checkout/order-summary"}>
               <img
                 className={"icon" + (highlightCart ? " highlight" : "")}
                 src={cartIcon}
