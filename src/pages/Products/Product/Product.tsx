@@ -8,29 +8,39 @@ import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { addItemToCart } from "@/lib/redux/store/cartSlice";
 
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
-import { mockProducts } from "@/data/mockData";
 import { useCallback, useEffect, useState } from "react";
 import { setNav } from "@/lib/redux/store/navSlice";
 import ColorSelection from "@/components/atoms/VeProductSelections/ColorSelection/ColorSelection";
 import SizeSelection from "@/components/atoms/VeProductSelections/SizeSelection/SizeSelection";
 import ComboSelection from "@/components/atoms/VeProductSelections/ComboSelection/ComboSelection";
 import { getProductById } from "@/lib/VeProduct/VeproductUtil";
+import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
 // import { openPopUp } from "@/lib/redux/store/popUpSlice";
 
 export default function Product() {
+  const [product, setProduct] = useState<VeProduct>();
   const { productid } = useParams<{ productid: string }>();
-  const [currentColor, setCurrentColor] = useState<string>(
-    mockProducts[0].options.colorOptions[0].color ?? ""
-  );
-  const [currentSize, setCurrentSize] = useState<string>(
-    mockProducts[0].options.sizeOptions[0].sizeName ?? ""
-  );
+  const [currentColor, setCurrentColor] = useState<string>("");
+  const [currentSize, setCurrentSize] = useState<string>("");
   const [currentCombo, setCurrentCombo] = useState<string | null>(null);
   const dispatch = useAppDispatch();
 
-  const product = mockProducts.find(
-    (product) => product.productId === productid
-  );
+  useEffect(() => {
+    getAllProductsAsVeProducts().then((data) => {
+      const product: VeProduct = data.find(
+        (product: VeProduct) => product.productId === productid
+      );
+      setProduct(product);
+
+      product.options.colorOptions.length > 0
+        ? setCurrentColor(product.options.colorOptions[0].color)
+        : "";
+
+      product.options.sizeOptions.length > 0
+        ? setCurrentSize(product.options.sizeOptions[0].sizeName)
+        : "";
+    });
+  }, []);
 
   useEffect(() => {
     dispatch(
@@ -38,12 +48,12 @@ export default function Product() {
         nav: [
           { name: "Home", url: "/" },
           {
-            name: product?.type.typenName as string,
-            url: `/products/ProductIntro/${product?.type.typenName}`,
+            name: product?.type.typeName as string,
+            url: `/products/ProductIntro/${product?.type.typeName}`,
           },
           {
             name: product?.series.SerieName as string,
-            url: `/products/${product?.type.typenName}/${product?.series.SerieName}`,
+            url: `/products/${product?.type.typeName}/${product?.series.SerieName}`,
           },
           {
             name: product?.name as string,
@@ -108,7 +118,7 @@ export default function Product() {
       const colorOption = product?.options.colorOptions.find(
         (color) => color.color === currentColor
       );
-      if (colorOption) {
+      if (colorOption && colorOption.images) {
         return colorOption.images;
       }
     }
@@ -130,8 +140,10 @@ export default function Product() {
       (size) => size.sizeName === currentSize
     );
 
-    if (colorOption) price += colorOption.additionalPrice;
-    if (sizeOption) price += sizeOption.additionalPrice;
+    if (colorOption && colorOption.additionalPrice)
+      price += colorOption.additionalPrice;
+    if (sizeOption && sizeOption.additionalPrice)
+      price += sizeOption.additionalPrice;
     if (currentCombo) price += getProductById(currentCombo)?.price ?? 0;
 
     return price;
@@ -150,23 +162,33 @@ export default function Product() {
           <div className="info-container">
             <h2 className="title">{product?.name}</h2>
             <h3 className="sub-title">{product?.series.SerieName}</h3>
-            <ColorSelection
-              product={product as VeProduct}
-              currentColor={currentColor}
-              setCurrentColor={setCurrentColor}
-            />
-            <SizeSelection
-              product={product as VeProduct}
-              currentSize={currentSize}
-              setCurrentSize={setCurrentSize}
-            />
-            {(product?.options.comboOptions.length ?? 0) > 0 && (
-              <ComboSelection
-                product={product as VeProduct}
-                currentCombo={currentCombo ?? ""}
-                setCurrentCombo={setCurrentCombo}
-              />
-            )}
+            {product &&
+              product.options.colorOptions &&
+              product.options.colorOptions.length > 0 && (
+                <ColorSelection
+                  product={product as VeProduct}
+                  currentColor={currentColor}
+                  setCurrentColor={setCurrentColor}
+                />
+              )}
+            {product &&
+              product.options.sizeOptions &&
+              product.options.sizeOptions.length > 0 && (
+                <SizeSelection
+                  product={product as VeProduct}
+                  currentSize={currentSize}
+                  setCurrentSize={setCurrentSize}
+                />
+              )}
+            {product &&
+              product.options.comboOptions &&
+              product.options.comboOptions.length > 0 && (
+                <ComboSelection
+                  product={product as VeProduct}
+                  currentCombo={currentCombo ?? ""}
+                  setCurrentCombo={setCurrentCombo}
+                />
+              )}
             <p className="price">${getCalculatedPrice()} CAD</p>
             <p className="desc">{product?.description}</p>
           </div>

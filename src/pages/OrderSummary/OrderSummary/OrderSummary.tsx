@@ -20,6 +20,8 @@ import {
   VeTaxRate,
 } from "@/lib/VeProduct/VeConstants";
 
+import React from "react";
+
 interface Props extends React.HtmlHTMLAttributes<HTMLDivElement> {}
 
 // const CouponSchema = z.object({
@@ -53,13 +55,14 @@ export const OrderSummary = (props: Props) => {
           </div>
           <div className={styles.price}>
             <div>
-              <span>Subtotal</span> <p>$ {subtotal}</p>
+              <span>Subtotal</span> <p>$ {subtotal.toFixed(2)}</p>
             </div>
             <div>
-              <span>Shipping</span> <p>$ {VeShippingFee}</p>
+              <span>Shipping</span> <p>$ {VeShippingFee.toFixed(2)}</p>
             </div>
             <div>
-              <span>Estimated Tax</span> <p>$ {subtotal * VeTaxRate}</p>
+              <span>Estimated Tax</span>{" "}
+              <p>$ {(subtotal * VeTaxRate).toFixed(2)}</p>
             </div>
             <div className={styles.total}>
               <span>Total</span>{" "}
@@ -67,7 +70,7 @@ export const OrderSummary = (props: Props) => {
                 <span className={styles.currency}>
                   {VeDefaultCurrency.toUpperCase()}
                 </span>
-                <p>$ {total}</p>
+                <p>$ {total.toFixed(2)}</p>
               </div>
             </div>
             <Link to={`/checkout`}>

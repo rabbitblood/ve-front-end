@@ -1,5 +1,5 @@
 declare interface VeProductType {
-  typenName: string;
+  typeName: string;
 }
 
 declare interface VeProductSeries {

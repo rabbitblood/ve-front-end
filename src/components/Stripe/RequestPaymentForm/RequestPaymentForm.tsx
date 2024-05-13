@@ -1,14 +1,19 @@
-import { useEffect } from "react";
 import {
   useStripe,
   useElements,
   PaymentElement,
   AddressElement,
   LinkAuthenticationElement,
+  ElementsConsumer,
 } from "@stripe/react-stripe-js";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
+import { StripeLinkAuthenticationElementChangeEvent } from "@stripe/stripe-js";
+import { postServerData } from "@/lib/VeProduct/retrieveServerData";
+import { useState } from "react";
+
 interface RequestPaymentButtonProps {
   clientSecret: string;
+  paymentIntentId: string;
 }
 
 export const RequestPaymentForm = (
@@ -17,36 +22,62 @@ export const RequestPaymentForm = (
 ) => {
   const stripe = useStripe();
   const elements = useElements();
-
-  useEffect(() => {}, [elements]);
+  const [email, setEmail] = useState<string>("");
+  async function handleEmailChange(
+    e: StripeLinkAuthenticationElementChangeEvent
+  ) {
+    setEmail(e.value.email);
+  }
 
   const handlePaymentRequest = async (
     e: React.MouseEvent<HTMLButtonElement>
   ) => {
-    console.log(elements);
+    let paymentIntentId = "";
     e.preventDefault();
     if (stripe && elements) {
-      console.log("confirming payment");
-      const result = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-          return_url: "http://localhost:3000",
-        },
-      });
-      console.log(result);
+      await stripe
+        .confirmPayment({
+          elements,
+          confirmParams: {
+            return_url: `https://localhost:5173/checkout/success?client_secret=${props.clientSecret}&paymentid=${props.paymentIntentId}`,
+          },
+          redirect: "if_required",
+        })
+        .then((res) => {
+          paymentIntentId = res.paymentIntent?.id ?? "";
+          //update payment intent with email
+          postServerData("/stripe/update-pay", {
+            paymentIntentId: res.paymentIntent?.id,
+            receipt_email: email,
+          }).then((data) => {
+            if (data.error) {
+              alert(data.error);
+              window.location.href = "/checkout";
+              return;
+            } else {
+              window.location.href = `/checkout/success?paymentid=${paymentIntentId}`;
+            }
+          });
+        });
     }
   };
 
   return (
-    <form>
-      <LinkAuthenticationElement />
-      <AddressElement
-        options={{
-          mode: "shipping",
-        }}
-      />
-      <PaymentElement options={{ business: { name: "Ve" } }} />
-      <FormButton onClick={(e) => handlePaymentRequest(e)}>submit</FormButton>
-    </form>
+    <ElementsConsumer>
+      {() => (
+        <form>
+          <LinkAuthenticationElement onChange={(e) => handleEmailChange(e)} />
+          <AddressElement
+            options={{
+              mode: "shipping",
+            }}
+          />
+          <PaymentElement options={{ business: { name: "Ve" } }} />
+          <FormButton onClick={(e) => handlePaymentRequest(e)}>
+            submit
+          </FormButton>
+        </form>
+      )}
+    </ElementsConsumer>
   );
 };

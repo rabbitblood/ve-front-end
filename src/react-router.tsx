@@ -13,6 +13,7 @@ import OurStories from "./pages/Other/OurStories.tsx";
 import ShippingAndReturn from "./pages/Other/ShippingAndReturn.tsx";
 import ContactUs from "./pages/Other/ContactUs.tsx";
 import { OrderSummary } from "./pages/OrderSummary/OrderSummary/OrderSummary.tsx";
+import PaymentSuccess from "./pages/Checkout/PaymentSuccessPage/PamentSuccess.tsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/checkout/order-summary",
         element: <OrderSummary />,
+      },
+      {
+        path: "/checkout/success",
+        element: <PaymentSuccess />,
       },
     ],
   },

@@ -111,7 +111,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link to={"/products/ProductIntro/" + "accessories"}>
+          <Link to={"/products/ProductIntro/" + "accessory"}>
             <div
               className="nav-link"
               onClick={() => {

@@ -1,29 +1,36 @@
-import { useParams } from "react-router-dom";
-import { useStripe } from "@stripe/react-stripe-js";
-import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
+import { clearCart } from "@/lib/redux/store/cartSlice";
+import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import { useEffect, useState } from "react";
+import { getServerData } from "@/lib/VeProduct/retrieveServerData";
 
 export default function PaymentSuccess() {
-  const apiUrl = import.meta.env.VITE_API_URL;
-  const { paymentId } = useParams<{ paymentId: string }>();
-  const stripe = useStripe();
+  const dispatch = useAppDispatch();
+  const [searchParams] = useSearchParams();
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [paymentData, setPaymentData] = useState<any>({});
 
   useEffect(() => {
-    fetch(`${apiUrl}/stripe/get-payment-data-by-id?paymentid=${paymentId}`, {
-      mode: "cors",
-      method: "GET",
-    })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-      });
-  }, [stripe, paymentId, apiUrl]);
+    getServerData(
+      "/stripe/get-payment-data-by-id?paymentid=" +
+        searchParams.get("paymentid")
+    ).then((data) => {
+      console.log(data);
+      setPaymentData(data);
+    });
+  }, [searchParams]);
+
+  useEffect(() => {
+    dispatch(clearCart());
+  }, [dispatch]);
 
   return (
-    <div>
-      <h1>Payment Success</h1>
-      <p>Payment ID: {paymentId}</p>
-    </div>
+    <BasicLayout>
+      <div>
+        <h1>Payment Success</h1>
+        <p>Receipt will be send to your email: {paymentData.receipt_email}</p>
+      </div>
+    </BasicLayout>
   );
 }

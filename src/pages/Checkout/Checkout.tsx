@@ -14,6 +14,7 @@ export const Checkout = () => {
   const cart = useAppSelector((state) => state.cart);
   const apiUrl = import.meta.env.VITE_API_URL;
   const [clientSecret, setClientSecret] = useState<string>("");
+  const [paymentIntentId, setPaymentIntentId] = useState<string>("");
 
   useEffect(() => {
     fetch(`${apiUrl}/stripe/init-pay`, {
@@ -31,6 +32,7 @@ export const Checkout = () => {
       })
       .then((data) => {
         setClientSecret(data.client_secret);
+        setPaymentIntentId(data.payment_intent_id);
       });
   }, [apiUrl, cart]);
 
@@ -45,12 +47,13 @@ export const Checkout = () => {
             <div className={styles.page}>
               <h1>Checkout</h1>
               <p>
-                total: {calculateCartTotalWithFeeAndTax(cart)}{" "}
+                total: {calculateCartTotalWithFeeAndTax(cart).toFixed(2)}{" "}
                 {VeDefaultCurrency.toUpperCase()}
               </p>
               {clientSecret && (
                 <RequestPaymentForm
                   clientSecret={clientSecret}
+                  paymentIntentId={paymentIntentId}
                 ></RequestPaymentForm>
               )}
             </div>

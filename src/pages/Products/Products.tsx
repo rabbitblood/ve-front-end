@@ -1,100 +1,35 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/organisms/Header/Header";
-
 //images
-import chockerDemo from "@/assets/chocker-demo.webp";
-import braceletDemo from "@/assets/bracelet-demo.webp";
-import collar from "@/assets/collar-demo.webp";
-
+import "./ProductType/ProductType.css";
 import "./Products.css";
-import { Link } from "react-router-dom";
+import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import ProductCard from "@/components/atoms/ProductCard/ProductCard";
+import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
+import { useEffect, useState } from "react";
 
 export default function Products() {
-  const Products = [
-    {
-      productid: 1,
-      name: "hat",
-      tag: ["summer best", "featured", "new", "sale", "best seller"],
-      price: "123",
-      src: collar,
-    },
-    {
-      productid: 2,
-      name: "hat",
-      tag: ["summer best"],
-      price: "123",
-      src: chockerDemo,
-    },
-    {
-      productid: 3,
-      name: "hat",
-      tag: ["summer best", "featured"],
-      price: "123",
-      src: collar,
-    },
-    {
-      productid: 4,
-      name: "hat",
-      tag: ["summer best"],
-      price: "123",
-      src: braceletDemo,
-    },
-    {
-      productid: 5,
-      name: "hat",
-      tag: ["summer best", "featured"],
-      price: "123",
-      src: chockerDemo,
-    },
-    {
-      productid: 6,
-      name: "hat",
-      tag: ["summer best"],
-      price: "123",
-      src: braceletDemo,
-    },
-    {
-      productid: 7,
-      name: "hat",
-      tag: ["summer best"],
-      price: "123",
-      src: collar,
-    },
-    {
-      productid: 8,
-      name: "hat",
-      tag: ["summer best", "featured"],
-      price: "123",
-      src: braceletDemo,
-    },
-  ];
+  const [products, setProducts] = useState<VeProduct[]>([]);
+
+  useEffect(() => {
+    getAllProductsAsVeProducts().then((data) => {
+      setProducts(data);
+    });
+  }, []);
 
   return (
-    <>
-      <Header />
-      <main className="product-page">
-        <div className="products-container">
-          {Products.map((product, index) => (
-            <div key={index} className="product">
-              <Link to={"/products/" + product.productid}>
-                <img className="image" src={product.src} alt="product" />
-              </Link>
-              <div className="desc-section">
-                <h3 className="name">{product.name}</h3>
-                <div className="tags">
-                  {product.tag.map((tag, index) => (
-                    <span key={index} className="tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <p className="price">{product.price}$</p>
+    <BasicLayout>
+      {products && (
+        <div className="product-type-page">
+          <div id="products-section" className="products-section">
+            <div className="products-container">
+              <div className="products">
+                {products.map((product, idx) => {
+                  return <ProductCard key={idx} product={product} />;
+                })}
               </div>
             </div>
-          ))}
+          </div>
         </div>
-      </main>
-      <Footer />
-    </>
+      )}
+    </BasicLayout>
   );
 }

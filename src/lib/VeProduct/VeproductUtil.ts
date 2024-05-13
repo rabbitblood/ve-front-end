@@ -6,7 +6,7 @@ function getProductById(productId: string): VeProduct | undefined {
 }
 
 function getProductsByType(type: string): VeProduct[] {
-  return mockProducts.filter((product) => product.type.typenName === type);
+  return mockProducts.filter((product) => product.type.typeName === type);
 }
 
 function getProductsBySeries(series: string): VeProduct[] {
@@ -14,8 +14,14 @@ function getProductsBySeries(series: string): VeProduct[] {
 }
 
 function getAllSimmilarProducts(productList: VeProduct[]) {
+  if (!productList) {
+    return [];
+  }
   const simmilarProducts: VeProduct[] = [];
   productList.forEach((product) => {
+    if (!product || !product.simmilarProducts) {
+      return;
+    }
     product.simmilarProducts.forEach((productId) => {
       const simmilarProduct = getProductById(productId);
       if (simmilarProduct && !simmilarProducts.includes(simmilarProduct)) {

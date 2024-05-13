@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./ProductCard.css";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import React from "react";
 import ColorSelection from "@/components/atoms/VeProductSelections/ColorSelection/ColorSelection";
 interface ProductCardProps extends React.HTMLAttributes<HTMLElement> {
@@ -14,10 +14,24 @@ export default function ProductCard({ product }: ProductCardProps) {
       : ""
   );
 
+  const getDisplayImage = useCallback(() => {
+    if (product.options.colorOptions.length > 0) {
+      const colorOption = product.options.colorOptions.find(
+        (option) => option.color === currentColor
+      );
+
+      if (colorOption && colorOption.images?.length > 0) {
+        return colorOption.images[0];
+      }
+    }
+
+    return product.images[0];
+  }, [currentColor, product]);
+
   return (
     <div className="product-card">
       <Link to={`/products/view/${product.productId}`}>
-        <img className="product-image" src={product.images[0]} alt="" />
+        <img className="product-image" src={getDisplayImage()} alt="" />
       </Link>
       <ColorSelection
         product={product}
