@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import store from "./lib/redux/store/store";
 
 import PopUp from "./components/atoms/PopUp/PopUp";
+//import LoadingScreen from "./components/atoms/LoadingScreen/LoadingScreen";
 
 builder.init(import.meta.env.VITE_BUILDER_IO_API_KEY);
 

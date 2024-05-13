@@ -154,59 +154,61 @@ export default function Product() {
 
   return (
     <BasicLayout>
-      <div className="product-page">
-        <div className="display">
-          <HorizontalMoveImageViewer
-            ref={imageGallery}
-            images={getImageToDisplay()}
-            showArrow={true}
-          />{" "}
-        </div>
-        <div className="detail">
-          <div className="info-container">
-            <h2 className="title">{product?.name}</h2>
-            <h3 className="sub-title">{product?.series.SerieName}</h3>
-            {product &&
-              product.options.colorOptions &&
-              product.options.colorOptions.length > 0 && (
-                <ColorSelection
-                  product={product as VeProduct}
-                  currentColor={currentColor}
-                  setCurrentColor={setCurrentColor}
-                />
-              )}
-            {product &&
-              product.options.sizeOptions &&
-              product.options.sizeOptions.length > 0 && (
-                <SizeSelection
-                  product={product as VeProduct}
-                  currentSize={currentSize}
-                  setCurrentSize={setCurrentSize}
-                />
-              )}
-            {product &&
-              product.options.comboOptions &&
-              product.options.comboOptions.length > 0 && (
-                <ComboSelection
-                  product={product as VeProduct}
-                  currentCombo={currentCombo ?? ""}
-                  setCurrentCombo={setCurrentCombo}
-                />
-              )}
-            <p className="price">${getCalculatedPrice()} CAD</p>
-            <p className="desc">{product?.description}</p>
+      {
+        <div className="product-page">
+          <div className="display">
+            <HorizontalMoveImageViewer
+              ref={imageGallery}
+              images={getImageToDisplay()}
+              showArrow={true}
+            />{" "}
           </div>
-          <div className="form-button-container">
-            <FormButton
-              onClick={() => {
-                addItemToCartHandler();
-              }}
-            >
-              Add to cart
-            </FormButton>{" "}
+          <div className="detail">
+            <div className="info-container">
+              <h2 className="title">{product?.name}</h2>
+              <h3 className="sub-title">{product?.series.SerieName}</h3>
+              {product &&
+                product.options.colorOptions &&
+                product.options.colorOptions.length > 0 && (
+                  <ColorSelection
+                    product={product as VeProduct}
+                    currentColor={currentColor}
+                    setCurrentColor={setCurrentColor}
+                  />
+                )}
+              {product &&
+                product.options.sizeOptions &&
+                product.options.sizeOptions.length > 0 && (
+                  <SizeSelection
+                    product={product as VeProduct}
+                    currentSize={currentSize}
+                    setCurrentSize={setCurrentSize}
+                  />
+                )}
+              {product &&
+                product.options.comboOptions &&
+                product.options.comboOptions.length > 0 && (
+                  <ComboSelection
+                    product={product as VeProduct}
+                    currentCombo={currentCombo ?? ""}
+                    setCurrentCombo={setCurrentCombo}
+                  />
+                )}
+              <p className="price">${getCalculatedPrice()} CAD</p>
+              <p className="desc">{product?.description}</p>
+            </div>
+            <div className="form-button-container">
+              <FormButton
+                onClick={() => {
+                  addItemToCartHandler();
+                }}
+              >
+                Add to cart
+              </FormButton>{" "}
+            </div>
           </div>
         </div>
-      </div>
+      }
     </BasicLayout>
   );
 
