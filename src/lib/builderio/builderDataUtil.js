@@ -17,7 +17,9 @@ async function getAllProducts() {
 
 async function getAllProductsAsVeProducts() {
   const builderProducts = await getAllProducts();
+  console.log(builderProducts);
   const VeProducts = builderProductsToVeProducts(builderProducts);
+  console.log(VeProducts);
 
   return VeProducts;
 }
@@ -27,12 +29,12 @@ function builderProductsToVeProducts(builderProduct) {
     return {
       productId: product.product.productId,
       type: {
-        typeName: product.product.type,
+        typeName: product.product.type.typeName,
       },
       series: {
-        SerieName: product.product.series,
+        SerieName: product.product.series.seriesName,
         type: {
-          typeName: product.product.type,
+          typeName: product.product.type.typeName,
         },
       },
       name: product.product.productName,

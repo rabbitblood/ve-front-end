@@ -19,10 +19,9 @@ import {
   VeShippingFee,
   VeTaxRate,
 } from "@/lib/VeProduct/VeConstants";
+import { HTMLAttributes } from "react";
 
-import React from "react";
-
-interface Props extends React.HtmlHTMLAttributes<HTMLDivElement> {}
+interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 // const CouponSchema = z.object({
 //   code: z.string().min(1, "Code is required"),
