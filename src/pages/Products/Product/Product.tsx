@@ -8,7 +8,7 @@ import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { addItemToCart } from "@/lib/redux/store/cartSlice";
 
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { setNav } from "@/lib/redux/store/navSlice";
 import ColorSelection from "@/components/atoms/VeProductSelections/ColorSelection/ColorSelection";
 import SizeSelection from "@/components/atoms/VeProductSelections/SizeSelection/SizeSelection";
@@ -16,6 +16,7 @@ import ComboSelection from "@/components/atoms/VeProductSelections/ComboSelectio
 import { getProductById } from "@/lib/VeProduct/VeproductUtil";
 import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
 // import { openPopUp } from "@/lib/redux/store/popUpSlice";
+import { HorizontalMoveImageViewerRef } from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
 
 export default function Product() {
   const [product, setProduct] = useState<VeProduct>();
@@ -23,6 +24,7 @@ export default function Product() {
   const [currentColor, setCurrentColor] = useState<string>("");
   const [currentSize, setCurrentSize] = useState<string>("");
   const [currentCombo, setCurrentCombo] = useState<string | null>(null);
+  const imageGallery = useRef<HorizontalMoveImageViewerRef>(null);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -114,6 +116,7 @@ export default function Product() {
   }
 
   function getImageToDisplay(): string[] {
+    imageGallery.current?.current?.backToInitialPosition();
     if (product?.options.colorOptions?.length ?? 0 > 0) {
       const colorOption = product?.options.colorOptions.find(
         (color) => color.color === currentColor
@@ -154,6 +157,7 @@ export default function Product() {
       <div className="product-page">
         <div className="display">
           <HorizontalMoveImageViewer
+            ref={imageGallery}
             images={getImageToDisplay()}
             showArrow={true}
           />{" "}

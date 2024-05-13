@@ -1,5 +1,11 @@
 import style from "./HorizontalMoveImageViewer.module.css";
-import { useEffect, useRef, useState } from "react";
+import {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 import arrowIcon from "./arrow.png";
 import { useSwipeable } from "react-swipeable";
 
@@ -10,9 +16,13 @@ interface HorizontalMoveImageViewerProps
   showArrow?: boolean;
 }
 
-export default function HorizontalMoveImageViewer(
-  props: HorizontalMoveImageViewerProps
-) {
+export interface HorizontalMoveImageViewerRef
+  extends React.RefObject<{ backToInitialPosition: () => void }> {}
+
+const HorizontalMoveImageViewer = forwardRef<
+  HorizontalMoveImageViewerRef,
+  HorizontalMoveImageViewerProps
+>((props, ref) => {
   const imageContainer = useRef<HTMLDivElement>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const swipeHandlers = useSwipeable({
@@ -35,6 +45,12 @@ export default function HorizontalMoveImageViewer(
       image.style.transform = ``;
     },
   });
+
+  useImperativeHandle(ref, () => ({
+    current: {
+      backToInitialPosition: backToInitialPosition,
+    },
+  }));
 
   useEffect(() => {
     if (imageContainer.current && props.images) {
@@ -80,6 +96,10 @@ export default function HorizontalMoveImageViewer(
     }
   }
 
+  function backToInitialPosition() {
+    setCurrentImageIndex(0);
+  }
+
   return (
     <>
       <div className={style["horizontal-move-image-viewer"]} {...swipeHandlers}>
@@ -115,4 +135,6 @@ export default function HorizontalMoveImageViewer(
       </div>
     </>
   );
-}
+});
+
+export default HorizontalMoveImageViewer;

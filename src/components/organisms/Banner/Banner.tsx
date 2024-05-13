@@ -8,7 +8,7 @@ interface SlideData {
 }
 
 interface BannerProps extends HtmlHTMLAttributes<HTMLElement> {
-  slideData: SlideData[];
+  slideData?: SlideData[];
 }
 
 export default function Banner(props: BannerProps) {
@@ -24,29 +24,33 @@ export default function Banner(props: BannerProps) {
     setDisplayingElement(false);
   }
   return (
-    <div className="banner">
-      <ImageGallery
-        additionalClass="banner"
-        items={props.slideData}
-        showThumbnails={false}
-        showFullscreenButton={false}
-        showNav={false}
-        showPlayButton={false}
-        showBullets={true}
-        autoPlay={true}
-        slideInterval={5000}
-        infinite={true}
-        disableSwipe={false}
-        onBeforeSlide={() => beforeChangeHandler()}
-        onSlide={(index) => changeSlideHandler(index)}
-      />
-      <div
-        className={`banner-text-container ${
-          displayingElement ? "" : "inactive"
-        }`}
-      >
-        {props.slideData[currentSlideIndex].displayElement}
-      </div>
-    </div>
+    <>
+      {props.slideData && props.slideData.length > 0 && (
+        <div className="banner">
+          <ImageGallery
+            additionalClass="banner"
+            items={props.slideData}
+            showThumbnails={false}
+            showFullscreenButton={false}
+            showNav={false}
+            showPlayButton={false}
+            showBullets={true}
+            autoPlay={true}
+            slideInterval={5000}
+            infinite={true}
+            disableSwipe={false}
+            onBeforeSlide={() => beforeChangeHandler()}
+            onSlide={(index: number) => changeSlideHandler(index)}
+          />
+          <div
+            className={`banner-text-container ${
+              displayingElement ? "" : "inactive"
+            }`}
+          >
+            {props.slideData[currentSlideIndex].displayElement}
+          </div>
+        </div>
+      )}
+    </>
   );
 }

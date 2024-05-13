@@ -2,8 +2,6 @@ import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import { useParams } from "react-router-dom";
 import "./ProductType.css";
 
-import productImage from "@/assets/product-image/IMG_9822 3.png";
-import productImage2 from "@/assets/product-image/IMG_5577 1.png";
 import Banner from "@/components/organisms/Banner/Banner";
 import { useEffect, useRef, useState } from "react";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
@@ -14,17 +12,12 @@ import WholeBlock from "@/components/atoms/TextSections/WholeBlock";
 import TextWithImage from "@/components/atoms/TextSections/TextWithImage";
 
 import arrowIcon from "@/assets/icons/arrow.png";
-import banner from "@/assets/test-banner.png";
 
-import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
-
-interface DescData {
-  type: "WholeBlock" | "TextWithImage";
-  title?: string;
-  text?: string;
-  image?: string;
-  textRight?: boolean;
-}
+import {
+  getAllProductsAsVeProducts,
+  getDataByName,
+} from "@/lib/builderio/builderDataUtil";
+import { VeAllTypeInfo } from "@/types/builderio";
 
 export default function ProductType() {
   //get param
@@ -32,6 +25,16 @@ export default function ProductType() {
   const dispatch = useAppDispatch();
   const descArea = useRef<HTMLDivElement>(null);
   const [products, setProducts] = useState<VeProduct[]>([]);
+
+  const [typeInfo, setTypeInfo] = useState<VeAllTypeInfo>();
+
+  console.log(typeInfo);
+
+  useEffect(() => {
+    getDataByName("all-product-type-info").then((data) => {
+      setTypeInfo(data);
+    });
+  }, []);
 
   useEffect(() => {
     getAllProductsAsVeProducts().then((data) => {
@@ -62,75 +65,56 @@ export default function ProductType() {
     element?.scrollIntoView({ behavior: "smooth" });
   }
 
-  const slideData = [
-    {
-      original: banner,
-      thumbnail: banner,
+  const slideData = typeInfo?.typeInfos
+    ?.find(
+      (typeInfo) =>
+        typeInfo.typeInfo.type.typeName.toLowerCase() === type?.toLowerCase()
+    )
+    ?.typeInfo.seriesInfo?.find(
+      (seriesInfo) =>
+        seriesInfo.series.seriesName.toLowerCase() === series?.toLowerCase()
+    )
+    ?.seriesFeatureImages?.map((image) => ({
+      original: image.image,
+      thumbnail: image.image,
       displayElement: (
         <div className="banner-text-container">
-          <h2 className="title">Choker</h2>
+          <h2 className="title">{series}</h2>
         </div>
       ),
-    },
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-      displayElement: (
-        <div className="banner-text-container">
-          <h2 className="title">Choker</h2>
-        </div>
-      ),
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-      displayElement: (
-        <div className="banner-text-container">
-          <h2 className="title">Choker</h2>
-        </div>
-      ),
-    },
-  ];
+    }));
 
-  const descData: DescData[] = [
-    {
-      type: "WholeBlock",
-      title:
-        '"Irresistible Charm: The captivating texture of TAURILLON LAGUN calf leather"',
-      text: `TAURILLON LAGUN calf leather, sourced from the REMY CARRIAT factory
-      in France, is the preferred material for Hermès Picotin and Lindy
-      bags. This full-grain leather, tanned with mineral substances,
-      boasts a consistently even surface treatment, preserving its soft
-      and silky feel. Hand polishing brings out its natural luster,
-      showcasing exquisite texture and elegant quality that is simply
-      irresistible.`,
-    },
-    {
-      type: "WholeBlock",
-      image: productImage2,
-    },
-    {
-      type: "TextWithImage",
-      title:
-        '"Resilient Breathability: Providing comfortable assurance for everyday wear with three-year calf leather"',
-      text: `Selected for its distinct texture and delicate pores, the three-year calf leather offers high breathability, making it ideal for daily wear. This premium material boasts excellent tear resistance and flexibility, ensuring unrestricted comfort for your daily outfits.`,
-      image: productImage2,
-    },
-    {
-      type: "TextWithImage",
-      title:
-        '"Exquisite Craftsmanship: The outstanding quality of double-wave saddle stitching and leather edge oil polishing"',
-      text: `We employ the double-wave saddle stitching technique to guarantee
-      the exceptional durability of our products, ensuring unparalleled
-      quality. This craftsmanship enhances the product's strength and
-      durability, making it suitable for long-term wear. Additionally,
-      each product undergoes manual leather edge oil treatment and
-      polishing, fortifying the edges to prevent damage and
-      significantly extending the product's lifespan.`,
-      image: productImage,
-      textRight: true,
-    },
-  ];
+  const descData =
+    typeInfo?.typeInfos
+      ?.find(
+        (typeInfo) =>
+          typeInfo.typeInfo.type.typeName.toLowerCase() === type?.toLowerCase()
+      )
+      ?.typeInfo.seriesInfo?.find(
+        (seriesInfo) =>
+          seriesInfo.series.seriesName.toLowerCase() === series?.toLowerCase()
+      )
+      ?.descriptionPageSections?.map((section) => {
+        if (!section || !section.textSections) {
+          return null;
+        }
+        if (section.textSections.secionType === "WholeSection") {
+          return {
+            type: "WholeSection",
+            title: section.textSections.title,
+            text: section.textSections.paragraph,
+            image: section.textSections.image,
+          };
+        } else {
+          return {
+            type: "TextWithImage",
+            title: section.textSections.title,
+            text: section.textSections.paragraph,
+            image: section.textSections.image,
+            textRight: section.textSections.swapTextAndImagePosition,
+          };
+        }
+      }) ?? [];
 
   return (
     <BasicLayout>
@@ -144,7 +128,10 @@ export default function ProductType() {
           />
           <h1>GET THE HIGHLIGHTS</h1>
           {descData.map((data, idx) => {
-            if (data.type === "WholeBlock") {
+            if (!data) {
+              return null;
+            }
+            if (data.type === "WholeSection") {
               return (
                 <WholeBlock
                   key={idx}

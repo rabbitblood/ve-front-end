@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import IntroSection from "@/components/organisms/IntroSection/IntroSection";
-import productImage from "@/assets/product-image/2 8.png";
-import productImage2 from "@/assets/product-image/IMG_9822 3.png";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { setNav } from "@/lib/redux/store/navSlice";
+import { getDataByName } from "@/lib/builderio/builderDataUtil";
+import { VeAllTypeInfo } from "@/types/builderio";
 
 export default function ProductIntro() {
   //get param
@@ -15,6 +15,13 @@ export default function ProductIntro() {
     type: { typeName: type as string },
   });
   const dispatch = useAppDispatch();
+  const [typeInfo, setTypeInfo] = useState<VeAllTypeInfo>();
+
+  useEffect(() => {
+    getDataByName("all-product-type-info").then((data) => {
+      setTypeInfo(data);
+    });
+  }, []);
 
   useEffect(() => {
     dispatch(
@@ -34,22 +41,17 @@ export default function ProductIntro() {
     setSerie({ ...serie, SerieName: seriesDisplay[index].seriesName });
   };
 
-  const seriesDisplay = [
-    {
-      seriesName: "classic",
-      title: "Classic Base",
-      subTitle: "series",
-      description: `A minimalist and versatile base design suitable for various occasions and outfits. Crafted from double-sided cowhide, meticulously stitched with elegant wave patterns by skilled craftsmen, ensuring exceptional durability. `,
-      image: productImage,
-    },
-    {
-      seriesName: "pure",
-      title: "Pure Base",
-      subTitle: "series",
-      description: `very pure and simple `,
-      image: productImage2,
-    },
-  ];
+  const seriesDisplay =
+    typeInfo?.typeInfos
+      ?.find(
+        (typeInfo) =>
+          typeInfo.typeInfo.type.typeName.toLowerCase() === type?.toLowerCase()
+      )
+      ?.typeInfo.seriesInfo?.map((seriesInfo) => ({
+        seriesName: seriesInfo.series.seriesName,
+        description: seriesInfo.serieShortDescription,
+        image: seriesInfo.seriesFeatureImages?.[0].image ?? "",
+      })) ?? [];
 
   return (
     <BasicLayout>

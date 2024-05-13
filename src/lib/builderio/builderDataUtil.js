@@ -17,9 +17,9 @@ async function getAllProducts() {
 
 async function getAllProductsAsVeProducts() {
   const builderProducts = await getAllProducts();
-  console.log(builderProducts);
+  //console.log(builderProducts);
   const VeProducts = builderProductsToVeProducts(builderProducts);
-  console.log(VeProducts);
+  //console.log(VeProducts);
 
   return VeProducts;
 }
