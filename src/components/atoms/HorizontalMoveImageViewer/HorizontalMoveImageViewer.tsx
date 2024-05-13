@@ -76,6 +76,10 @@ const HorizontalMoveImageViewer = forwardRef<
     }
   }, [currentImageIndex, props.images]);
 
+  useEffect(() => {
+    backToInitialPosition();
+  }, [props.images.length]);
+
   function nextImageHandler() {
     if (props.images.length <= 1) return;
     if (currentImageIndex < props.images.length - 1) {
