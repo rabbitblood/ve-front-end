@@ -12,7 +12,7 @@ export default function ProductIntro() {
   const { type } = useParams<{ type: string }>();
   const [serie, setSerie] = useState<VeProductSeries>({
     SerieName: "classic",
-    type: { typenName: type as string },
+    type: { typeName: type as string },
   });
   const dispatch = useAppDispatch();
 

@@ -57,8 +57,7 @@ export const CartItem = ({ product }: Prop) => {
           <h4>
             {product.productName} - {product.color} - {product.size}
             {product.comboId &&
-              " - (Combo With" +
-                (getProductById(product.comboId)?.name + ")" ?? "")}
+              " - (Combo With" + (getProductById(product.comboId)?.name + ")")}
           </h4>
           <p>{product.productDesc}</p>
         </div>

@@ -37,7 +37,7 @@ export default function HorizontalMoveImageViewer(
   });
 
   useEffect(() => {
-    if (imageContainer.current) {
+    if (imageContainer.current && props.images) {
       for (let i = 0; i < props.images.length; i++) {
         const image = imageContainer.current.children.item(
           i
@@ -58,7 +58,7 @@ export default function HorizontalMoveImageViewer(
         }
       }
     }
-  }, [currentImageIndex, props.images.length]);
+  }, [currentImageIndex, props.images]);
 
   function nextImageHandler() {
     if (props.images.length <= 1) return;
@@ -85,14 +85,15 @@ export default function HorizontalMoveImageViewer(
       <div className={style["horizontal-move-image-viewer"]} {...swipeHandlers}>
         <div className={style["images"]}>
           <div className={style["image-container"]} ref={imageContainer}>
-            {props.images.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt="product"
-                className={style["image"]}
-              />
-            ))}
+            {props.images &&
+              props.images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt="product"
+                  className={style["image"]}
+                />
+              ))}
           </div>
         </div>
         <div

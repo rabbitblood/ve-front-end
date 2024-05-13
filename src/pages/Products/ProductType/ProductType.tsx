@@ -1,12 +1,11 @@
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import { useParams } from "react-router-dom";
 import "./ProductType.css";
-import { mockProducts } from "@/data/mockData";
 
 import productImage from "@/assets/product-image/IMG_9822 3.png";
 import productImage2 from "@/assets/product-image/IMG_5577 1.png";
 import Banner from "@/components/organisms/Banner/Banner";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { setNav } from "@/lib/redux/store/navSlice";
 import ProductCard from "@/components/atoms/ProductCard/ProductCard";
@@ -16,6 +15,8 @@ import TextWithImage from "@/components/atoms/TextSections/TextWithImage";
 
 import arrowIcon from "@/assets/icons/arrow.png";
 import banner from "@/assets/test-banner.png";
+
+import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
 
 interface DescData {
   type: "WholeBlock" | "TextWithImage";
@@ -30,6 +31,13 @@ export default function ProductType() {
   const { type, series } = useParams<{ type: string; series: string }>();
   const dispatch = useAppDispatch();
   const descArea = useRef<HTMLDivElement>(null);
+  const [products, setProducts] = useState<VeProduct[]>([]);
+
+  useEffect(() => {
+    getAllProductsAsVeProducts().then((data) => {
+      setProducts(data);
+    });
+  }, []);
 
   useEffect(() => {
     dispatch(
@@ -166,16 +174,21 @@ export default function ProductType() {
           </h2>
           <div className="products-container">
             <div className="products">
-              {mockProducts
-                .filter((value) => {
-                  return (
-                    value.type.typenName === type &&
-                    value.series.SerieName === series
-                  );
-                })
-                .map((product, idx) => {
-                  return <ProductCard key={idx} product={product} />;
-                })}
+              {products &&
+                type &&
+                series &&
+                products
+                  .filter((value) => {
+                    return (
+                      value.type.typeName.toLowerCase() ===
+                        type.toLowerCase() &&
+                      value.series.SerieName.toLowerCase() ===
+                        series.toLowerCase()
+                    );
+                  })
+                  .map((product, idx) => {
+                    return <ProductCard key={idx} product={product} />;
+                  })}
             </div>
           </div>
         </div>

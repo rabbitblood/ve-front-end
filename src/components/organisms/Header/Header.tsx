@@ -70,7 +70,7 @@ export default function Header() {
                 <img className="icon" src={user} alt="user" />
               </Link>
             </div> */}
-            <Link to={"/checkout"}>
+            <Link to={"/checkout/order-summary"}>
               <img
                 className={"icon" + (highlightCart ? " highlight" : "")}
                 src={cartIcon}
@@ -111,7 +111,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link to={"/products/ProductIntro/" + "accessories"}>
+          <Link to={"/products/ProductIntro/" + "accessory"}>
             <div
               className="nav-link"
               onClick={() => {
