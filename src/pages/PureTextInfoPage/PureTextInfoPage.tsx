@@ -3,9 +3,10 @@ import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { setNav } from "@/lib/redux/store/navSlice";
 import builder, { BuilderComponent } from "@builder.io/react";
 import { useEffect, useState } from "react";
-//import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function PureTextInfoPage() {
+  const { pagename } = useParams<{ pagename: string }>();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -14,8 +15,8 @@ export default function PureTextInfoPage() {
         nav: [
           { name: "Home", url: "/" },
           {
-            name: window.location.pathname,
-            url: `/info${window.location.pathname}`,
+            name: pagename ?? "",
+            url: `${window.location.pathname}`,
           },
         ],
       })
