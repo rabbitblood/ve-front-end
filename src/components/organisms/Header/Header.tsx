@@ -133,7 +133,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link to={"/terms/our-stories"}>
+          <Link to={"/info/our-stories"}>
             <div
               className="nav-link"
               onClick={() => {
@@ -144,7 +144,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link to={"/terms/contact-us"}>
+          <Link to={"/info/contact-us"}>
             <div
               className="nav-link"
               onClick={() => {
