@@ -9,11 +9,9 @@ import Products from "@/pages/Products/Products.tsx";
 import Product from "./pages/Products/Product/Product.tsx";
 import ProductIntro from "./pages/Products/ProductIntro/ProductIntro.tsx";
 import ProductType from "./pages/Products/ProductType/ProductType.tsx";
-import OurStories from "./pages/Other/OurStories.tsx";
-import ShippingAndReturn from "./pages/Other/ShippingAndReturn.tsx";
-import ContactUs from "./pages/Other/ContactUs.tsx";
 import { OrderSummary } from "./pages/OrderSummary/OrderSummary/OrderSummary.tsx";
 import PaymentSuccess from "./pages/Checkout/PaymentSuccessPage/PamentSuccess.tsx";
+import PureTextInfoPage from "./pages/PureTextInfoPage/PureTextInfoPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -72,21 +70,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/terms",
-    children: [
-      {
-        path: "/terms/shipping-and-return",
-        element: <ShippingAndReturn />,
-      },
-      {
-        path: "/terms/our-stories",
-        element: <OurStories />,
-      },
-      {
-        path: "/terms/contact-us",
-        element: <ContactUs />,
-      },
-    ],
+    path: "/info/:pagename",
+    element: <PureTextInfoPage />,
   },
 ]);
 
