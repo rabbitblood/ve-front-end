@@ -11,7 +11,7 @@ export default function PureTextInfoPage() {
   useEffect(() => {
     builder
       .get("custom-page", {
-        url: "https://vestudio.ca/info/return-and-refund",
+        url: window.location.pathname,
       })
       .promise()
       .then((data) => {
