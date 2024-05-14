@@ -1,10 +1,26 @@
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
+import { setNav } from "@/lib/redux/store/navSlice";
 import builder, { BuilderComponent } from "@builder.io/react";
 import { useEffect, useState } from "react";
 //import { useParams } from "react-router-dom";
 
 export default function PureTextInfoPage() {
-  //const { pagename } = useParams<{ pagename: string }>();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(
+      setNav({
+        nav: [
+          { name: "Home", url: "/" },
+          {
+            name: window.location.pathname,
+            url: `/info${window.location.pathname}`,
+          },
+        ],
+      })
+    );
+  }, [dispatch]);
 
   const [builderContentJson, setBuilderContentJson] = useState(null);
 
