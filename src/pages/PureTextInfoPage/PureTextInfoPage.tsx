@@ -21,11 +21,11 @@ export default function PureTextInfoPage() {
   }, []);
 
   return (
-    builderContentJson && (
-      <BasicLayout>
-        {pagename}
+    <BasicLayout>
+      {pagename}
+      {builderContentJson && (
         <BuilderComponent model="custom-page" content={builderContentJson} />
-      </BasicLayout>
-    )
+      )}
+    </BasicLayout>
   );
 }
