@@ -1,10 +1,10 @@
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import builder, { BuilderComponent } from "@builder.io/react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 
 export default function PureTextInfoPage() {
-  const { pagename } = useParams<{ pagename: string }>();
+  //const { pagename } = useParams<{ pagename: string }>();
 
   const [builderContentJson, setBuilderContentJson] = useState(null);
 
@@ -22,7 +22,6 @@ export default function PureTextInfoPage() {
 
   return (
     <BasicLayout>
-      {pagename}
       {builderContentJson && (
         <BuilderComponent model="custom-page" content={builderContentJson} />
       )}
