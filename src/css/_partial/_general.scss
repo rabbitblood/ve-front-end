@@ -79,6 +79,10 @@ button {
   padding: 2rem 0;
   bottom: 0;
 
+  a {
+    text-decoration: underline;
+  }
+
   .footer__container {
     display: flex;
     flex-direction: column;
@@ -148,7 +152,8 @@ button {
 
     .footer__container {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      align-items: baseline;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     .copyright {
