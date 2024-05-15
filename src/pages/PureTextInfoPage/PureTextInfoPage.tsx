@@ -21,7 +21,7 @@ export default function PureTextInfoPage() {
         ],
       })
     );
-  }, [dispatch]);
+  }, [dispatch, pagename]);
 
   const [builderContentJson, setBuilderContentJson] = useState(null);
 
@@ -35,7 +35,7 @@ export default function PureTextInfoPage() {
         console.log(data);
         setBuilderContentJson(data);
       });
-  }, []);
+  }, [pagename]);
 
   return (
     <BasicLayout>
