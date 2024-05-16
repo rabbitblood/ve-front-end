@@ -38,12 +38,12 @@ export const Checkout = () => {
 
   return (
     <>
-      {clientSecret && (
-        <CheckOutFromContainer
-          className={styles.checkout}
-          clientSecret={clientSecret}
-        >
-          <BasicLayout>
+      <BasicLayout>
+        {(clientSecret && (
+          <CheckOutFromContainer
+            className={styles.checkout}
+            clientSecret={clientSecret}
+          >
             <div className={styles.page}>
               <h1>Checkout</h1>
               <p>
@@ -57,9 +57,9 @@ export const Checkout = () => {
                 ></RequestPaymentForm>
               )}
             </div>
-          </BasicLayout>
-        </CheckOutFromContainer>
-      )}
+          </CheckOutFromContainer>
+        )) || <div>loading...</div>}
+      </BasicLayout>
     </>
   );
 };
