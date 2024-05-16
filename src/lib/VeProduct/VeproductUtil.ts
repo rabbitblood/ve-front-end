@@ -1,5 +1,5 @@
 import { mockProducts } from "@/data/mockData";
-import { VeShippingFee, VeTaxRate } from "./VeConstants";
+import { getStoreData } from "../builderio/builderDataUtil";
 
 function getProductById(productId: string): VeProduct | undefined {
   return mockProducts.find((product) => product.productId === productId);
@@ -42,15 +42,16 @@ function calculateCartTotal(cartItems: VeCart) {
   return total;
 }
 
-function calculateCartTotalWithFeeAndTax(cartItems: VeCart) {
+async function calculateCartTotalWithFeeAndTax(cartItems: VeCart) {
+  const storeData = await getStoreData();
   let total = 0;
 
   cartItems.items.forEach((item) => {
     total += item.price * item.amount;
   });
 
-  total *= 1 + VeTaxRate;
-  total += VeShippingFee;
+  total *= 1 + storeData.taxRate;
+  total += storeData.shippingFee;
 
   return total;
 }

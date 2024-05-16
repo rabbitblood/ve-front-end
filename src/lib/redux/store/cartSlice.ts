@@ -16,7 +16,10 @@ const cartSlice = createSlice({
       dispatchEvent(onCartChange);
       if (
         state.items.find((item) => {
-          return JSON.stringify(item) === JSON.stringify(action.payload);
+          return (
+            JSON.stringify({ ...item, amount: 1 }) ===
+            JSON.stringify({ ...action.payload, amount: 1 })
+          );
         })
       ) {
         state.items = state.items.map((item) => {
