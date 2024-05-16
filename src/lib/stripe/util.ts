@@ -1,6 +1,5 @@
 import { loadStripe } from "@stripe/stripe-js";
-const stripePublicKey =
-  "pk_test_51PDwmZArIwdh3r3DfE4t6y3pCEgxGtjglSl7GBQVPcmXz5QKZbbyDKGT8trgeFBkbZfvjOBjB0MdgoXoq04GJ39d00MdtwUpCE";
+const stripePublicKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY as string;
 
 const stripePromise = loadStripe(stripePublicKey);
 
