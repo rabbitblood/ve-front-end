@@ -12,18 +12,18 @@
       .image-gallery-swipe {
         width: 100%;
         height: 100%;
-        .image-gallery-slides {
+      }
+      .image-gallery-slides {
+        width: 100%;
+        height: 100%;
+        .image-gallery-slide {
           width: 100%;
           height: 100%;
-          .image-gallery-slide {
+          .image-gallery-image {
             width: 100%;
             height: 100%;
-            .image-gallery-image {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-              max-height: unset;
-            }
+            object-fit: cover;
+            max-height: unset;
           }
         }
       }

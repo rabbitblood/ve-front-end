@@ -89,8 +89,14 @@ export default function ProductIntro() {
       {typeInfo && seriesDisplay && (
         <IntroSection
           ref={imageGallery}
-          title={serie ? serie.SerieName : ""}
-          subTitle="series"
+          title={
+            serie
+              ? serie.SerieName !== "None"
+                ? serie.SerieName
+                : type?.toUpperCase() ?? ""
+              : ""
+          }
+          subTitle={serie.SerieName !== "None" ? "Series" : ""}
           images={seriesDisplay.map((serie) => serie.image)}
           description={
             seriesDisplay.find(

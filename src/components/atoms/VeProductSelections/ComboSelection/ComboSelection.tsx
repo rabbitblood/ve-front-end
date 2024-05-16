@@ -9,6 +9,7 @@ interface Prop {
 
 export default function ComboSelection(prop: Prop) {
   const { product, currentCombo, setCurrentCombo } = prop;
+  console.log(product);
   return (
     <div className="combo-selection">
       <h2 className="combo-title">Combo with</h2>

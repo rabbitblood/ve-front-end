@@ -17,7 +17,7 @@ import {
   getAllProductsAsVeProducts,
   getDataByName,
 } from "@/lib/builderio/builderDataUtil";
-import { VeAllTypeInfo } from "@/types/builderio";
+import { SeriesInfoEntity, TypeInfo, VeAllTypeInfo } from "@/types/builderio";
 
 export default function ProductType() {
   //get param
@@ -26,15 +26,33 @@ export default function ProductType() {
   const descArea = useRef<HTMLDivElement>(null);
   const [products, setProducts] = useState<VeProduct[]>([]);
 
-  const [typeInfo, setTypeInfo] = useState<VeAllTypeInfo>();
-
-  console.log(typeInfo);
+  //const [typeInfo, setTypeInfo] = useState<VeAllTypeInfo>();
+  const [currentTypeInfo, setCurrentTypeInfo] = useState<TypeInfo>();
+  const [currentSeriesInfo, setCurrentSeriesInfo] =
+    useState<SeriesInfoEntity>();
 
   useEffect(() => {
     getDataByName("all-product-type-info").then((data) => {
-      setTypeInfo(data);
+      //setTypeInfo(data);
+
+      const currentType = (data as VeAllTypeInfo).typeInfos?.find(
+        (typeInfo) => {
+          return (
+            typeInfo.typeInfo.type.typeName.toLowerCase() ===
+            type?.toLowerCase()
+          );
+        }
+      )?.typeInfo;
+      setCurrentTypeInfo(currentType);
+
+      const currentSeries = currentType?.seriesInfo?.find((seriesInfo) => {
+        return (
+          seriesInfo.series.seriesName.toLowerCase() === series?.toLowerCase()
+        );
+      });
+      setCurrentSeriesInfo(currentSeries);
     });
-  }, []);
+  }, [series, type]);
 
   useEffect(() => {
     getAllProductsAsVeProducts().then((data) => {
@@ -52,7 +70,7 @@ export default function ProductType() {
             url: `/products/ProductIntro/${type}`,
           },
           {
-            name: series as string,
+            name: (series !== "None" ? series : type) as string,
             url: `/products/${type}/${series}`,
           },
         ],
@@ -65,56 +83,38 @@ export default function ProductType() {
     element?.scrollIntoView({ behavior: "smooth" });
   }
 
-  const slideData = typeInfo?.typeInfos
-    ?.find(
-      (typeInfo) =>
-        typeInfo.typeInfo.type.typeName.toLowerCase() === type?.toLowerCase()
-    )
-    ?.typeInfo.seriesInfo?.find(
-      (seriesInfo) =>
-        seriesInfo.series.seriesName.toLowerCase() === series?.toLowerCase()
-    )
-    ?.seriesFeatureImages?.map((image) => ({
-      original: image.image,
-      thumbnail: image.image,
-      displayElement: (
-        <div className="banner-text-container">
-          <h2 className="title">{series}</h2>
-        </div>
-      ),
-    }));
+  const slideData = currentSeriesInfo?.seriesFeatureImages?.map((image) => ({
+    original: image.image,
+    thumbnail: image.image,
+    displayElement: (
+      <div className="banner-text-container">
+        <h2 className="title">{series !== "None" ? series : ""}</h2>
+      </div>
+    ),
+  }));
 
   const descData =
-    typeInfo?.typeInfos
-      ?.find(
-        (typeInfo) =>
-          typeInfo.typeInfo.type.typeName.toLowerCase() === type?.toLowerCase()
-      )
-      ?.typeInfo.seriesInfo?.find(
-        (seriesInfo) =>
-          seriesInfo.series.seriesName.toLowerCase() === series?.toLowerCase()
-      )
-      ?.descriptionPageSections?.map((section) => {
-        if (!section || !section.textSections) {
-          return null;
-        }
-        if (section.textSections.secionType === "WholeSection") {
-          return {
-            type: "WholeSection",
-            title: section.textSections.title,
-            text: section.textSections.paragraph,
-            image: section.textSections.image,
-          };
-        } else {
-          return {
-            type: "TextWithImage",
-            title: section.textSections.title,
-            text: section.textSections.paragraph,
-            image: section.textSections.image,
-            textRight: section.textSections.swapTextAndImagePosition,
-          };
-        }
-      }) ?? [];
+    currentSeriesInfo?.descriptionPageSections?.map((section) => {
+      if (!section || !section.textSections) {
+        return null;
+      }
+      if (section.textSections.secionType === "WholeSection") {
+        return {
+          type: "WholeSection",
+          title: section.textSections.title,
+          text: section.textSections.paragraph,
+          image: section.textSections.image,
+        };
+      } else {
+        return {
+          type: "TextWithImage",
+          title: section.textSections.title,
+          text: section.textSections.paragraph,
+          image: section.textSections.image,
+          textRight: section.textSections.swapTextAndImagePosition,
+        };
+      }
+    }) ?? [];
 
   return (
     <BasicLayout>
@@ -126,7 +126,16 @@ export default function ProductType() {
             className="to-products-button"
             onClick={scrollToProducts}
           />
-          <h1>GET THE HIGHLIGHTS</h1>
+          <div
+            style={{ textAlign: "center", maxWidth: "800px", margin: "auto" }}
+          >
+            <h1>
+              {currentSeriesInfo?.series.seriesName !== "None" &&
+                currentSeriesInfo?.series.seriesName + " series "}
+              {currentTypeInfo?.type.typeName}
+            </h1>
+            <p>{currentSeriesInfo?.serieShortDescription}</p>
+          </div>
           {descData.map((data, idx) => {
             if (!data) {
               return null;

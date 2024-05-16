@@ -120,22 +120,26 @@ const HorizontalMoveImageViewer = forwardRef<
               ))}
           </div>
         </div>
-        <div
-          className={style["prev-image-click"]}
-          onClick={() => prevImageHandler()}
-        >
-          {props.showArrow && (
-            <img src={arrowIcon} className={style["arrow"]}></img>
-          )}
-        </div>
-        <div
-          className={style["next-image-click"]}
-          onClick={() => nextImageHandler()}
-        >
-          {props.showArrow && (
-            <img src={arrowIcon} className={style["arrow"]}></img>
-          )}
-        </div>
+        {currentImageIndex != 0 && (
+          <div
+            className={style["prev-image-click"]}
+            onClick={() => prevImageHandler()}
+          >
+            {props.showArrow && (
+              <img src={arrowIcon} className={style["arrow"]}></img>
+            )}
+          </div>
+        )}
+        {currentImageIndex != props.images.length - 1 && (
+          <div
+            className={style["next-image-click"]}
+            onClick={() => nextImageHandler()}
+          >
+            {props.showArrow && (
+              <img src={arrowIcon} className={style["arrow"]}></img>
+            )}
+          </div>
+        )}
       </div>
     </>
   );

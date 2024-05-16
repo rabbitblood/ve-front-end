@@ -42,7 +42,7 @@ export default function Product() {
         ? setCurrentSize(product.options.sizeOptions[0].sizeName)
         : "";
     });
-  }, []);
+  }, [productid]);
 
   useEffect(() => {
     dispatch(
@@ -54,7 +54,9 @@ export default function Product() {
             url: `/products/ProductIntro/${product?.type.typeName}`,
           },
           {
-            name: product?.series.SerieName as string,
+            name: (product?.series.SerieName !== "None"
+              ? product?.series.SerieName
+              : product?.type.typeName) as string,
             url: `/products/${product?.type.typeName}/${product?.series.SerieName}`,
           },
           {
@@ -205,6 +207,7 @@ export default function Product() {
               >
                 Add to cart
               </FormButton>{" "}
+              <p>Preorder. Approximately 30 days arrive</p>
             </div>
           </div>
         </div>
