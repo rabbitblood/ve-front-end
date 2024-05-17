@@ -84,9 +84,23 @@ export default function Header() {
             </div> */}
           </div>{" "}
           <h1 className="brand-name">
-            <Link to={"/"}>Vé </Link>
+            <Link to={"/"}>VÉ </Link>
           </h1>
         </div>
+
+        {pageNav && pageNav.nav.length > 0 && (
+          <div className="page-nav">
+            <ul className="page-nav-ul">
+              {pageNav.nav.map((value, idx) => {
+                return (
+                  <li key={idx} className="nav-link">
+                    <Link to={value.url}>{value.name}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
 
         <nav className={`nav ${openNav ? "open" : ""}`}>
           <Link to={"/products/ProductIntro/" + "chocker"}>
@@ -155,17 +169,6 @@ export default function Header() {
             </div>
           </Link>
         </nav>
-      </div>
-      <div className="page-nav">
-        <ul className="page-nav-ul">
-          {pageNav.nav.map((value, idx) => {
-            return (
-              <li key={idx} className="nav-link">
-                <Link to={value.url}>{value.name}</Link>
-              </li>
-            );
-          })}
-        </ul>
       </div>
     </header>
   );
