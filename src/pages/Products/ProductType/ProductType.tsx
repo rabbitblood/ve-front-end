@@ -166,7 +166,7 @@ export default function ProductType() {
         </div>
         <div id="products-section" className="products-section">
           <h2 className="section-name">
-            {series} Series {type}
+            {series !== "None" ? `${series} Series` : ""} {type}
           </h2>
           <div className="products-container">
             <div className="products">
@@ -188,12 +188,12 @@ export default function ProductType() {
             </div>
           </div>
         </div>
-        <div className="customize-cta">
+        {/* <div className="customize-cta">
           <p>
             HAVE SOME CUSTOMIZE DESIGN IDEA WITH THIS SERIES ? <br />
             CONTACT US THROUGH INSTAGRAM OR EMAIL
           </p>
-        </div>
+        </div> */}
       </div>
     </BasicLayout>
   );
