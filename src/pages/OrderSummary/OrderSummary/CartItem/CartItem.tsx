@@ -3,16 +3,25 @@ import styles from "./CartItem.module.css";
 import { modifyItemQuantity } from "@/lib/redux/store/cartSlice";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { HTMLAttributes, useEffect, useRef, useState } from "react";
+import { useAppSelector } from "@/lib/redux/reduxDispatcher";
 
 interface Prop extends HTMLAttributes<HTMLDivElement> {
   product: VeCartItem;
-  key?: number;
 }
 
 export const CartItem = (props: Prop) => {
   const itemAmountInput = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
   const [comboProduct, setComboProduct] = useState<VeProduct | null>(null);
+  const cart = useAppSelector((state) => state.cart);
+
+  useEffect(() => {
+    if (itemAmountInput.current) {
+      itemAmountInput.current.value = cart.items
+        .find((item) => JSON.stringify(item) === JSON.stringify(props.product))
+        ?.amount.toString() as string;
+    }
+  }, [cart.items, props.product]);
 
   useEffect(() => {
     if (props.product.comboId) {
@@ -32,7 +41,7 @@ export const CartItem = (props: Prop) => {
   }
 
   return (
-    <div className={styles.card} key={props.key}>
+    <div className={styles.card}>
       <div className={styles.cardLeft}>
         <div className={styles.imageWrapper}>
           <input

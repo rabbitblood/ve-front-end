@@ -245,9 +245,8 @@ export default function Product() {
             <div className="extra-images">
               {product?.images.map((image, idx) => {
                 return (
-                  <div className="extra-image-container">
+                  <div className="extra-image-container" key={idx}>
                     <img
-                      key={idx}
                       src={image}
                       alt={product?.name}
                       className="extra-image"

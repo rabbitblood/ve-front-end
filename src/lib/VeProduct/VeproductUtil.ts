@@ -14,6 +14,8 @@ async function getProductById(
 }
 
 async function getSimmilarProducts(product: VeProduct) {
+  if (!product.simmilarProducts) return [];
+
   const simmilarProducts: VeProduct[] = [];
   const simmilarProductIds: string[] = [];
 
