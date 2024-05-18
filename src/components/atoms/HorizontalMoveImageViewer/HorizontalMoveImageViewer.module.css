@@ -62,6 +62,18 @@
   width: 2rem;
   height: 2rem;
   transform: translate(0, -50%);
+  animation: next-arrow-idle 1s infinite;
+}
+@keyframes next-arrow-idle {
+  0% {
+    transform: translate(0, -50%);
+  }
+  50% {
+    transform: translate(0, -50%) translateX(0.5rem);
+  }
+  100% {
+    transform: translate(0, -50%);
+  }
 }
 .horizontal-move-image-viewer .prev-image-click {
   position: absolute;
@@ -78,6 +90,18 @@
   width: 2rem;
   height: 2rem;
   transform: translate(0, -50%) rotate(180deg);
+  animation: prev-arrow-idle 1s infinite;
+}
+@keyframes prev-arrow-idle {
+  0% {
+    transform: translate(0, -50%) rotate(180deg);
+  }
+  50% {
+    transform: translate(0, -50%) translateX(0.5rem) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, -50%) rotate(180deg);
+  }
 }
 
 /*# sourceMappingURL=HorizontalMoveImageViewer.module.css.map */
