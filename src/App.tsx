@@ -30,6 +30,24 @@ function App() {
                 </Link>
               </div>
             ),
+            renderItem:
+              item.assetType === "mp4" &&
+              (() => {
+                return (
+                  <video
+                    className=""
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                    src={item.slideImage}
+                    autoPlay
+                    muted
+                    loop
+                  />
+                );
+              }),
           };
         })
       );

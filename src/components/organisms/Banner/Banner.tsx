@@ -5,6 +5,7 @@ interface SlideData {
   original: string;
   thumbnail: string;
   displayElement?: JSX.Element;
+  renderItem?: () => JSX.Element;
 }
 
 interface BannerProps extends HtmlHTMLAttributes<HTMLElement> {
@@ -23,6 +24,7 @@ export default function Banner(props: BannerProps) {
   function beforeChangeHandler() {
     setDisplayingElement(false);
   }
+
   return (
     <>
       {props.slideData && props.slideData.length > 0 && (
@@ -36,7 +38,7 @@ export default function Banner(props: BannerProps) {
             showPlayButton={false}
             showBullets={true}
             autoPlay={true}
-            slideInterval={5000}
+            slideInterval={99999999}
             infinite={true}
             disableSwipe={false}
             onBeforeSlide={() => beforeChangeHandler()}

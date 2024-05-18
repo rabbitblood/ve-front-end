@@ -179,21 +179,28 @@ button {
   color: white;
   position: absolute;
   top: 50%;
-  left: 3rem;
+  left: 1rem;
   transform: translate(0, -50%);
   font-weight: 700;
   mix-blend-mode: difference;
   transition-duration: 0.2s;
   opacity: 100;
+  width: 80vw;
+}
+@media (min-width: 768px) {
+  .banner .banner-text-container {
+    left: 3rem;
+    width: 30vw;
+  }
 }
 .banner .banner-text-container.inactive {
   opacity: 0;
 }
 .banner .banner-text-container .title {
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 .banner .banner-text-container .sub-title {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 300;
 }
 .banner .banner-text-container .desc {
