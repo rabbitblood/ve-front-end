@@ -30,6 +30,11 @@ export default function Footer() {
               <Link to={"/info/return-and-refund"}>Return and Refund</Link>
             </div>
           </div>
+          <div className="items-group">
+            <div className="footer__item">
+              <Link to={"/info/customize"}>Customize</Link>
+            </div>
+          </div>
         </div>
 
         <div className="footer__section">
