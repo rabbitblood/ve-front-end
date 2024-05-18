@@ -5,6 +5,7 @@ import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import ProductCard from "@/components/atoms/ProductCard/ProductCard";
 import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
 import { useEffect, useState } from "react";
+import CardContainer from "@/components/layout/CardContainerLayout/CardContainerLayout";
 
 export default function Products() {
   const [products, setProducts] = useState<VeProduct[]>([]);
@@ -20,13 +21,11 @@ export default function Products() {
       {products && (
         <div className="product-type-page">
           <div id="products-section" className="products-section">
-            <div className="products-container">
-              <div className="products">
-                {products.map((product, idx) => {
-                  return <ProductCard key={idx} product={product} />;
-                })}
-              </div>
-            </div>
+            <CardContainer>
+              {products.map((product, idx) => {
+                return <ProductCard key={idx} product={product} />;
+              })}
+            </CardContainer>
           </div>
         </div>
       )}

@@ -39,6 +39,7 @@ async function getAllSimmilarProducts(productList: VeProduct[]) {
   const simmilarProductIds: string[] = [];
 
   for (const product of productList) {
+    if (!product.simmilarProducts) continue;
     for (const simPId of product.simmilarProducts) {
       simmilarProductIds.push(simPId.similarProductId);
     }

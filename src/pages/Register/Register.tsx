@@ -1,6 +1,6 @@
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import { Input } from "@/components/atoms/Input/Input";
-import { AccountLayout } from "@/components/layout/AccountLayout";
+import { AccountLayout } from "@/components/layout/AccountLayout/AccountLayout";
 import { Form } from "@/components/organisms/Form/Form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";

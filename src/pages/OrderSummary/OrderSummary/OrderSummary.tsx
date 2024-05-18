@@ -16,6 +16,8 @@ import { Link } from "react-router-dom";
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import { getStoreData } from "@/lib/builderio/builderDataUtil";
 import { HTMLAttributes, useEffect, useState } from "react";
+import CardContainer from "@/components/layout/CardContainerLayout/CardContainerLayout";
+
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 // const CouponSchema = z.object({
@@ -55,7 +57,7 @@ export const OrderSummary = (props: Props) => {
       });
     }
     getSimProducts();
-  }, []);
+  }, [cart.items]);
 
   useEffect(() => {
     calculateCartTotal(cart).then((total) => {
@@ -108,7 +110,7 @@ export const OrderSummary = (props: Props) => {
             {simmilarProducts.length > 0 && (
               <div className={styles.simmilarProducts}>
                 <h3>People also bought:</h3>
-                <div className={styles.simmilarProductsWrapper}>
+                <CardContainer>
                   {simmilarProducts.map((product, key) => (
                     <Link to={`/products/view/${product.productId}`} key={key}>
                       <div key={key} className={styles.simmilarProduct}>
@@ -126,7 +128,7 @@ export const OrderSummary = (props: Props) => {
                       </div>
                     </Link>
                   ))}
-                </div>
+                </CardContainer>
               </div>
             )}
           </div>

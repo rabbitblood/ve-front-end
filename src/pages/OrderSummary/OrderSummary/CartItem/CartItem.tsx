@@ -2,36 +2,37 @@ import { getProductById } from "@/lib/VeProduct/VeproductUtil";
 import styles from "./CartItem.module.css";
 import { modifyItemQuantity } from "@/lib/redux/store/cartSlice";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
-import { useEffect, useRef, useState } from "react";
+import { HTMLAttributes, useEffect, useRef, useState } from "react";
 
-interface Prop {
+interface Prop extends HTMLAttributes<HTMLDivElement> {
   product: VeCartItem;
+  key?: number;
 }
 
-export const CartItem = ({ product }: Prop) => {
+export const CartItem = (props: Prop) => {
   const itemAmountInput = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
   const [comboProduct, setComboProduct] = useState<VeProduct | null>(null);
 
   useEffect(() => {
-    if (product.comboId) {
-      getProductById(product.comboId).then((combo) => {
+    if (props.product.comboId) {
+      getProductById(props.product.comboId).then((combo) => {
         setComboProduct(combo as VeProduct);
       });
     }
-  }, [product.comboId]);
+  }, [props.product.comboId]);
 
   function modifyItemQuantityHandler(amount: number) {
     dispatch(
       modifyItemQuantity({
-        cartItem: product,
+        cartItem: props.product,
         newAmount: amount,
       })
     );
   }
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} key={props.key}>
       <div className={styles.cardLeft}>
         <div className={styles.imageWrapper}>
           <input
@@ -39,40 +40,43 @@ export const CartItem = ({ product }: Prop) => {
             type="number"
             step={1}
             className={styles.quantity}
-            defaultValue={product.amount.toString()}
+            defaultValue={props.product.amount.toString()}
             onKeyDown={(e) => {
               if (e.key === "e" || e.key === "+" || e.key === "-") {
                 e.preventDefault();
               }
               if (e.key === "Enter") {
-                modifyItemQuantityHandler(
-                  Number(itemAmountInput.current?.value) ?? 0
-                );
+                e.stopPropagation();
+                e.preventDefault();
+                e.currentTarget.blur();
               }
             }}
-            onBlur={() => {
+            onBlurCapture={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
               modifyItemQuantityHandler(
                 Number(itemAmountInput.current?.value) ?? 0
               );
             }}
           />
           <img
-            src={product.imageUrl}
-            alt={product.productName}
+            src={props.product.imageUrl}
+            alt={props.product.productName}
             className={styles.productImage}
           />
         </div>
         <div>
           <h4>
-            {product.productName}
-            {product.color ? ` - ${product.color}` : ""}
-            {product.size ? ` - ${product.size}` : ""}
-            {product.comboId && " - (Combo With " + (comboProduct?.name + ")")}
+            {props.product.productName}
+            {props.product.color ? ` - ${props.product.color}` : ""}
+            {props.product.size ? ` - ${props.product.size}` : ""}
+            {props.product.comboId &&
+              " - (Combo With " + (comboProduct?.name + ")")}
           </h4>
-          <p>{product.productDesc}</p>
+          <p>{props.product.productDesc}</p>
         </div>
       </div>
-      <p>$ {product.price * product.amount}</p>
+      <p>$ {props.product.price * props.product.amount}</p>
     </div>
   );
 };
