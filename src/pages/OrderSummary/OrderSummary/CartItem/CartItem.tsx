@@ -2,7 +2,7 @@ import { getProductById } from "@/lib/VeProduct/VeproductUtil";
 import styles from "./CartItem.module.css";
 import { modifyItemQuantity } from "@/lib/redux/store/cartSlice";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Prop {
   product: VeCartItem;
@@ -11,6 +11,15 @@ interface Prop {
 export const CartItem = ({ product }: Prop) => {
   const itemAmountInput = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
+  const [comboProduct, setComboProduct] = useState<VeProduct | null>(null);
+
+  useEffect(() => {
+    if (product.comboId) {
+      getProductById(product.comboId).then((combo) => {
+        setComboProduct(combo as VeProduct);
+      });
+    }
+  }, [product.comboId]);
 
   function modifyItemQuantityHandler(amount: number) {
     dispatch(
@@ -55,9 +64,10 @@ export const CartItem = ({ product }: Prop) => {
         </div>
         <div>
           <h4>
-            {product.productName} - {product.color} - {product.size}
-            {product.comboId &&
-              " - (Combo With" + (getProductById(product.comboId)?.name + ")")}
+            {product.productName}
+            {product.color ? ` - ${product.color}` : ""}
+            {product.size ? ` - ${product.size}` : ""}
+            {product.comboId && " - (Combo With " + (comboProduct?.name + ")")}
           </h4>
           <p>{product.productDesc}</p>
         </div>

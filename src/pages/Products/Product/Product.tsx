@@ -56,7 +56,7 @@ export default function Product() {
       setProduct(product);
 
       product.options.colorOptions.length > 0
-        ? setCurrentColor(product.options.colorOptions[0].color)
+        ? setCurrentColor(product.options.colorOptions[0].colorName)
         : "";
 
       product.options.sizeOptions.length > 0
@@ -148,7 +148,7 @@ export default function Product() {
     imageGallery.current?.current?.backToInitialPosition();
     if (product?.options.colorOptions?.length ?? 0 > 0) {
       const colorOption = product?.options.colorOptions.find(
-        (color) => color.color === currentColor
+        (color) => color.colorName === currentColor
       );
       if (colorOption && colorOption.images) {
         return colorOption.images;

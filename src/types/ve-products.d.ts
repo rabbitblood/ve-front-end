@@ -18,6 +18,7 @@ declare interface ComboOption {
 }
 
 declare interface ColorOption {
+  colorName: string;
   color: string;
   images: string[];
   additionalPrice: number;

@@ -49,6 +49,7 @@ function builderProductsToVeProducts(builderProduct) {
           //eslint-disable-next-line @typescript-eslint/no-explicit-any
           product.product.colorOptions?.map((colorOption) => {
             return {
+              colorName: colorOption.colorName,
               color: colorOption.colorPicker,
               images:
                 //eslint-disable-next-line @typescript-eslint/no-explicit-any

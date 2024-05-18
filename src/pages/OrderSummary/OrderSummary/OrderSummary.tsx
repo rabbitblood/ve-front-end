@@ -57,13 +57,13 @@ export const OrderSummary = (props: Props) => {
     getSimProducts();
 
     calculateCartTotal(cart).then((total) => {
-      setSubtotal(total);
+      setSubtotal(total as number);
     });
   }, []);
 
   useEffect(() => {
     calculateCartTotalWithFeeAndTax(cart).then((total) => {
-      setTotal(total);
+      setTotal(total as number);
     });
   }, [cart]);
 

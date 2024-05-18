@@ -19,7 +19,10 @@ async function getAllSimmilarProducts(productList: VeProduct[]) {
     const simmilarProduct = await getProductById(product.productId);
     if (
       simmilarProduct &&
-      !simmilarProducts.find((p) => p.productId === simmilarProduct.productId)
+      !simmilarProducts.find(
+        (p) => p.productId === simmilarProduct.productId
+      ) &&
+      !productList.find((p) => p.productId === simmilarProduct.productId)
     ) {
       simmilarProducts.push(simmilarProduct);
     }
@@ -28,39 +31,60 @@ async function getAllSimmilarProducts(productList: VeProduct[]) {
   return simmilarProducts;
 }
 
-async function calculateCartTotal(cartItems: VeCart) {
+async function calculateCartTotal(cartItems: VeCart): Promise<number> {
   const products = (await getAllProductsAsVeProducts()) as VeProduct[];
   let total = 0;
 
-  cartItems.items.forEach((item) => {
+  for (const item of cartItems.items) {
     const product = products.find(
       (product) => product.productId === item.productId
     );
-    if (!product) return;
+    if (!product) return 0;
     total += product.price * item.amount;
-  });
+    total +=
+      product.options.colorOptions.find(
+        (color) => color.colorName === item.color
+      )?.additionalPrice ?? 0;
+    total +=
+      product.options.sizeOptions.find((size) => size.sizeName === item.size)
+        ?.additionalPrice ?? 0;
+    const comboProduct = await getProductById(item.comboId);
+    total += comboProduct?.price ?? 0;
+  }
 
   return total;
 }
 
-async function calculateCartTotalWithFeeAndTax(cartItems: VeCart) {
+async function calculateCartTotalWithFeeAndTax(
+  cartItems: VeCart
+): Promise<number> {
   const products = (await getAllProductsAsVeProducts()) as VeProduct[];
   const storeData = await getStoreData();
 
   let total = 0;
 
-  cartItems.items.forEach((item) => {
+  for (const item of cartItems.items) {
     const product = products.find(
       (product) => product.productId === item.productId
     );
-    if (!product) return;
+    if (!product) return 0;
     total += product.price * item.amount;
-  });
+    total +=
+      product.options.colorOptions.find(
+        (color) => color.colorName === item.color
+      )?.additionalPrice ?? 0;
+
+    total +=
+      product.options.sizeOptions.find((size) => size.sizeName === item.size)
+        ?.additionalPrice ?? 0;
+    const comboProduct = await getProductById(item.comboId);
+    total += comboProduct?.price ?? 0;
+  }
 
   total *= 1 + storeData.taxRate;
   total += storeData.shippingFee;
 
-  return Math.round(total);
+  return total;
 }
 
 async function cartItemToString(cartItem: VeCartItem) {

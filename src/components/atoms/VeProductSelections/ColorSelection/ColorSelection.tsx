@@ -15,11 +15,11 @@ export default function ColorSelection(prop: Props) {
             key={idx}
             className={
               "color-option" +
-              (prop.currentColor === color.color ? " selected" : "")
+              (prop.currentColor === color.colorName ? " selected" : "")
             }
             style={{ backgroundColor: color.color }}
             onClick={() => {
-              prop.setCurrentColor(color.color);
+              prop.setCurrentColor(color.colorName);
             }}
           ></div>
         );
