@@ -13,6 +13,27 @@ async function getProductById(
   return product;
 }
 
+async function getSimmilarProducts(product: VeProduct) {
+  const simmilarProducts: VeProduct[] = [];
+  const simmilarProductIds: string[] = [];
+
+  for (const simPId of product.simmilarProducts) {
+    simmilarProductIds.push(simPId.similarProductId);
+  }
+
+  for (const product of simmilarProductIds) {
+    const simmilarProduct = await getProductById(product);
+    if (
+      simmilarProduct &&
+      !simmilarProducts.find((p) => p.productId === simmilarProduct.productId)
+    ) {
+      simmilarProducts.push(simmilarProduct);
+    }
+  }
+
+  return simmilarProducts;
+}
+
 async function getAllSimmilarProducts(productList: VeProduct[]) {
   const simmilarProducts: VeProduct[] = [];
   const simmilarProductIds: string[] = [];
@@ -121,6 +142,7 @@ async function cartToString(cart: VeCart) {
 
 export {
   getProductById,
+  getSimmilarProducts,
   getAllSimmilarProducts,
   calculateCartTotal,
   calculateCartTotalWithFeeAndTax,

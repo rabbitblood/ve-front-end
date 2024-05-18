@@ -42,6 +42,7 @@ declare interface VeProduct {
   simmilarProducts: SimmilarProducts[];
   isPreorder: boolean;
 }
+
 declare interface SimmilarProducts {
   similarProductId: string;
 }

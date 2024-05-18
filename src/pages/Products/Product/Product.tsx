@@ -13,10 +13,15 @@ import { setNav } from "@/lib/redux/store/navSlice";
 import ColorSelection from "@/components/atoms/VeProductSelections/ColorSelection/ColorSelection";
 import SizeSelection from "@/components/atoms/VeProductSelections/SizeSelection/SizeSelection";
 import ComboSelection from "@/components/atoms/VeProductSelections/ComboSelection/ComboSelection";
-import { getProductById } from "@/lib/VeProduct/VeproductUtil";
+import {
+  getProductById,
+  getSimmilarProducts,
+} from "@/lib/VeProduct/VeproductUtil";
 import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
 // import { openPopUp } from "@/lib/redux/store/popUpSlice";
 import { HorizontalMoveImageViewerRef } from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
+import ProductCard from "@/components/atoms/ProductCard/ProductCard";
+import arrowImage from "@/assets/icons/arrow.svg";
 
 export default function Product() {
   const [product, setProduct] = useState<VeProduct>();
@@ -25,8 +30,16 @@ export default function Product() {
   const [currentSize, setCurrentSize] = useState<string>("");
   const [currentCombo, setCurrentCombo] = useState<string | null>(null);
   const [calculatedPrice, setCalculatedPrice] = useState<number>(0);
+  const [simmilarProducts, setSimmilarProducts] = useState<VeProduct[]>([]);
   const imageGallery = useRef<HorizontalMoveImageViewerRef>(null);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    product &&
+      getSimmilarProducts(product).then((data) => {
+        setSimmilarProducts(data);
+      });
+  }, [product]);
 
   const getCalculatedPrice = useCallback(async () => {
     let price = product?.price ?? 0;
@@ -165,168 +178,99 @@ export default function Product() {
   return (
     <BasicLayout>
       {
-        <div className="product-page">
-          <div className="display">
-            <HorizontalMoveImageViewer
-              ref={imageGallery}
-              images={getImageToDisplay()}
-              showArrow={true}
-            />{" "}
-          </div>
-          <div className="detail">
-            <div className="info-container">
-              <h2 className="title">{product?.name}</h2>
-              <h3 className="sub-title">{product?.series.SerieName}</h3>
-              {product &&
-                product.options.colorOptions &&
-                product.options.colorOptions.length > 0 && (
-                  <ColorSelection
-                    product={product as VeProduct}
-                    currentColor={currentColor}
-                    setCurrentColor={setCurrentColor}
-                  />
-                )}
-              {product &&
-                product.options.sizeOptions &&
-                product.options.sizeOptions.length > 0 && (
-                  <SizeSelection
-                    product={product as VeProduct}
-                    currentSize={currentSize}
-                    setCurrentSize={setCurrentSize}
-                  />
-                )}
-              {product &&
-                product.options.comboOptions &&
-                product.options.comboOptions.length > 0 && (
-                  <ComboSelection
-                    product={product as VeProduct}
-                    currentCombo={currentCombo ?? ""}
-                    setCurrentCombo={setCurrentCombo}
-                  />
-                )}
-              <p className="desc">{product?.description}</p>
+        <>
+          <div className="product-page">
+            <div className="display">
+              <HorizontalMoveImageViewer
+                ref={imageGallery}
+                images={getImageToDisplay()}
+                showArrow={true}
+              />{" "}
             </div>
-            <p className="price">${calculatedPrice} CAD</p>
-            <div className="form-button-container">
-              <FormButton
-                onClick={() => {
-                  addItemToCartHandler();
-                }}
-              >
-                Add to cart
-              </FormButton>{" "}
-              {product?.isPreorder && (
-                <p>Preorder. Approximately 30 days arrive</p>
+            <div className="detail">
+              <div className="info-container">
+                <h2 className="title">{product?.name}</h2>
+                <h3 className="sub-title">{product?.series.SerieName}</h3>
+                {product &&
+                  product.options.colorOptions &&
+                  product.options.colorOptions.length > 0 && (
+                    <ColorSelection
+                      product={product as VeProduct}
+                      currentColor={currentColor}
+                      setCurrentColor={setCurrentColor}
+                    />
+                  )}
+                {product &&
+                  product.options.sizeOptions &&
+                  product.options.sizeOptions.length > 0 && (
+                    <SizeSelection
+                      product={product as VeProduct}
+                      currentSize={currentSize}
+                      setCurrentSize={setCurrentSize}
+                    />
+                  )}
+                {product &&
+                  product.options.comboOptions &&
+                  product.options.comboOptions.length > 0 && (
+                    <ComboSelection
+                      product={product as VeProduct}
+                      currentCombo={currentCombo ?? ""}
+                      setCurrentCombo={setCurrentCombo}
+                    />
+                  )}
+                <p className="desc">{product?.description}</p>
+              </div>
+              <p className="price">${calculatedPrice} CAD</p>
+              <div className="form-button-container">
+                <FormButton
+                  onClick={() => {
+                    addItemToCartHandler();
+                  }}
+                >
+                  Add to cart
+                </FormButton>{" "}
+                {product?.isPreorder && (
+                  <p>Preorder. Approximately 30 days arrive</p>
+                )}
+              </div>
+            </div>
+            <a href="#product-additional-info-section">
+              <img className="more-arrow" src={arrowImage} alt="" />
+            </a>
+          </div>
+          <div
+            id="product-additional-info-section"
+            className="product-additional-info-section"
+          >
+            <div className="extra-images">
+              {product?.images.map((image, idx) => {
+                return (
+                  <div className="extra-image-container">
+                    <img
+                      key={idx}
+                      src={image}
+                      alt={product?.name}
+                      className="extra-image"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            <div className="simmilar-products">
+              {simmilarProducts.length > 0 && (
+                <>
+                  <h2>people also bought:</h2>
+                  <div className="sim-product-container">
+                    {simmilarProducts.map((product, key) => (
+                      <ProductCard key={key} product={product} />
+                    ))}
+                  </div>
+                </>
               )}
             </div>
           </div>
-        </div>
+        </>
       }
     </BasicLayout>
   );
-
-  // return (
-  //   <>
-  //     <Header />
-  //     <div className="product-page">
-  //       <div className="product-image-container product">
-  //         <ImageGallery
-  //           additionalClass="product"
-  //           items={images}
-  //           showThumbnails={true}
-  //           showFullscreenButton={false}
-  //           showNav={false}
-  //           showPlayButton={false}
-  //           showBullets={true}
-  //           autoPlay={true}
-  //           slideInterval={5000}
-  //           infinite={true}
-  //           disableSwipe={false}
-  //         />
-  //       </div>
-  //       <section className="product-description-section">
-  //         <h1 className="hide">Product:{productid}</h1>
-
-  //         {/* name */}
-  //         <h2 className="product-name">{ProductData.name}</h2>
-
-  //         {/** tags */}
-  //         <div className="tags">
-  //           {ProductData.tag.map((value, idx) => {
-  //             return (
-  //               <span key={idx} className="tag">
-  //                 {value}
-  //               </span>
-  //             );
-  //           })}
-  //         </div>
-
-  //         {/** stars */}
-  //         <div className="stars">
-  //           {[1, 2, 3, 4, 5].map((star) => (
-  //             <span key={star} className="star">
-  //               {ProductData.star >= star ? "★" : "☆"}
-  //             </span>
-  //           ))}
-  //           <span className="reviews">({ProductData.reviews} reviews)</span>
-  //         </div>
-
-  //         {/** price */}
-  //         <div className="price-container">
-  //           <span className="price">${ProductData.price}</span>
-  //           {ProductData.originalPrice && (
-  //             <span className="original-price">
-  //               {ProductData.originalPrice}
-  //             </span>
-  //           )}
-  //         </div>
-
-  //         {/** color options */}
-  //         <div className="color">
-  //           <h2 className="option-name">Available Colors</h2>
-  //           <div className="color-options">
-  //             {ProductData.colorOptions.map((color, idx) => {
-  //               return (
-  //                 <div
-  //                   key={idx}
-  //                   className={
-  //                     "color-option" +
-  //                     (selectedColor === color ? " selected" : "")
-  //                   }
-  //                   style={{ backgroundColor: color }}
-  //                   onClick={() => setSelectedColor(color)}
-  //                 ></div>
-  //               );
-  //             })}
-  //           </div>
-  //         </div>
-
-  //         {/** size options */}
-  //         <div className="size">
-  //           <h2 className="option-name">Available Sizes</h2>
-  //           <div className="size-options">
-  //             {ProductData.sizeOptions.map((size, idx) => {
-  //               return (
-  //                 <div
-  //                   key={idx}
-  //                   className={
-  //                     "size-option" + (selectedSize === size ? " selected" : "")
-  //                   }
-  //                   onClick={() => setSelectedSize(size)}
-  //                 >
-  //                   {size}
-  //                 </div>
-  //               );
-  //             })}
-  //           </div>
-  //         </div>
-
-  //         <div className="buy-button">
-  //           <FormButton>Purchase Now</FormButton>
-  //         </div>
-  //       </section>
-  //     </div>
-  //     <Footer />
-  //   </>
-  // );
 }
