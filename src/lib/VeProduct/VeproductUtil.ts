@@ -15,8 +15,16 @@ async function getProductById(
 
 async function getAllSimmilarProducts(productList: VeProduct[]) {
   const simmilarProducts: VeProduct[] = [];
+  const simmilarProductIds: string[] = [];
+
   for (const product of productList) {
-    const simmilarProduct = await getProductById(product.productId);
+    for (const simPId of product.simmilarProducts) {
+      simmilarProductIds.push(simPId.similarProductId);
+    }
+  }
+
+  for (const product of simmilarProductIds) {
+    const simmilarProduct = await getProductById(product);
     if (
       simmilarProduct &&
       !simmilarProducts.find(

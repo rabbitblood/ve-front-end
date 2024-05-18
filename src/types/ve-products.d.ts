@@ -39,8 +39,11 @@ declare interface VeProduct {
   images: string[];
   options: VeProductOptions;
   tags: string[];
-  simmilarProducts: string[];
+  simmilarProducts: SimmilarProducts[];
   isPreorder: boolean;
+}
+declare interface SimmilarProducts {
+  similarProductId: string;
 }
 
 declare interface VeCartItem {
