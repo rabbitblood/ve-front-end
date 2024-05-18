@@ -11,7 +11,7 @@ import ProductCard from "@/components/atoms/ProductCard/ProductCard";
 import WholeBlock from "@/components/atoms/TextSections/WholeBlock";
 import TextWithImage from "@/components/atoms/TextSections/TextWithImage";
 
-import arrowIcon from "@/assets/icons/arrow.png";
+import arrowIcon from "@/assets/icons/arrow.svg";
 
 import {
   getAllProductsAsVeProducts,

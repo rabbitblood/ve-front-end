@@ -14,6 +14,8 @@ export default function ProductCard({ product }: ProductCardProps) {
       : ""
   );
 
+  const [hoverCard, setHoverCard] = useState<boolean>(false);
+
   const getDisplayImage = useCallback(() => {
     if (product.options.colorOptions.length > 0) {
       const colorOption = product.options.colorOptions.find(
@@ -21,17 +23,25 @@ export default function ProductCard({ product }: ProductCardProps) {
       );
 
       if (colorOption && colorOption.images?.length > 0) {
-        return colorOption.images[0];
+        return colorOption.images[
+          hoverCard && colorOption.images?.length > 1 ? 1 : 0
+        ];
       }
     }
 
-    return product.images[0];
-  }, [currentColor, product]);
+    return product.images[hoverCard && product.images.length > 1 ? 1 : 0];
+  }, [currentColor, hoverCard, product.images, product.options.colorOptions]);
 
   return (
     <div className="product-card">
       <Link to={`/products/view/${product.productId}`}>
-        <img className="product-image" src={getDisplayImage()} alt="" />
+        <img
+          className="product-image"
+          src={getDisplayImage()}
+          alt=""
+          onMouseEnter={() => setHoverCard(true)}
+          onMouseLeave={() => setHoverCard(false)}
+        />
       </Link>
       <ColorSelection
         product={product}

@@ -19,15 +19,15 @@
       top: 3rem;
       width: 3rem;
       height: 6rem;
-      margin: auto;
-      padding: 0.5rem;
+      padding: 1rem;
       cursor: pointer;
       mix-blend-mode: difference;
       background-color: white;
       transform: rotate(90deg);
       transition: 0.2s;
-      border-radius: 1rem;
+      border-radius: 0.5rem;
       object-fit: contain;
+      right: 0;
 
       &:hover {
         scale: 1.1;

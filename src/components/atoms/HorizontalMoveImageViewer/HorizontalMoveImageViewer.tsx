@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from "react";
-import arrowIcon from "./arrow.png";
+import arrowIcon from "./arrow.svg";
 import { useSwipeable } from "react-swipeable";
 
 interface HorizontalMoveImageViewerProps
