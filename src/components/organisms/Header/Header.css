@@ -85,7 +85,7 @@
   background-color: var(--gray-light);
 }
 .header .menu .nav.open {
-  transform: translate(0, -2rem);
+  transform: translate(0, 0);
 }
 .header .menu .icons {
   display: flex;
@@ -106,6 +106,7 @@
   background-color: white;
   display: block;
   width: 100%;
+  z-index: 2;
 }
 .header .page-nav .page-nav-ul {
   display: flex;

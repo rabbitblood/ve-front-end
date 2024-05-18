@@ -91,7 +91,7 @@
       }
 
       &.open {
-        transform: translate(0, -2rem);
+        transform: translate(0, 0);
       }
     }
 
@@ -118,6 +118,7 @@
     background-color: white;
     display: block;
     width: 100%;
+    z-index: 2;
     .page-nav-ul {
       display: flex;
       margin: 0 1rem;
