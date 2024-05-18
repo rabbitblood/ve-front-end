@@ -39,6 +39,7 @@ declare interface VeProduct {
   options: VeProductOptions;
   tags: string[];
   simmilarProducts: string[];
+  isPreorder: boolean;
 }
 
 declare interface VeCartItem {

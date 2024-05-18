@@ -72,7 +72,7 @@ function builderProductsToVeProducts(builderProduct) {
           //eslint-disable-next-line @typescript-eslint/no-explicit-any
           (comboOption) => {
             return {
-              comboProductId: comboOption.comboProductId,
+              comboProductId: comboOption.comboId,
             };
           }
         ),

@@ -24,8 +24,29 @@ export default function Product() {
   const [currentColor, setCurrentColor] = useState<string>("");
   const [currentSize, setCurrentSize] = useState<string>("");
   const [currentCombo, setCurrentCombo] = useState<string | null>(null);
+  const [calculatedPrice, setCalculatedPrice] = useState<number>(0);
   const imageGallery = useRef<HorizontalMoveImageViewerRef>(null);
   const dispatch = useAppDispatch();
+
+  const getCalculatedPrice = useCallback(async () => {
+    let price = product?.price ?? 0;
+
+    const colorOption = product?.options.colorOptions.find(
+      (color) => color.color === currentColor
+    );
+    const sizeOption = product?.options.sizeOptions.find(
+      (size) => size.sizeName === currentSize
+    );
+
+    if (colorOption && colorOption.additionalPrice)
+      price += colorOption.additionalPrice;
+    if (sizeOption && sizeOption.additionalPrice)
+      price += sizeOption.additionalPrice;
+    if (currentCombo)
+      price += ((await getProductById(currentCombo)) as VeProduct)?.price ?? 0;
+
+    return price;
+  }, [product, currentColor, currentSize, currentCombo]);
 
   useEffect(() => {
     getAllProductsAsVeProducts().then((data) => {
@@ -43,6 +64,12 @@ export default function Product() {
         : "";
     });
   }, [productid]);
+
+  useEffect(() => {
+    getCalculatedPrice().then((price) => {
+      setCalculatedPrice(price);
+    });
+  }, [getCalculatedPrice, product]);
 
   useEffect(() => {
     dispatch(
@@ -77,7 +104,7 @@ export default function Product() {
         amount: 1,
         productName: product?.name,
         productDesc: product?.description,
-        price: getCalculatedPrice(),
+        price: calculatedPrice,
         imageUrl: product?.images[0],
         color: currentColor,
         size: currentSize,
@@ -135,25 +162,6 @@ export default function Product() {
     }
   }
 
-  const getCalculatedPrice = useCallback(() => {
-    let price = product?.price ?? 0;
-
-    const colorOption = product?.options.colorOptions.find(
-      (color) => color.color === currentColor
-    );
-    const sizeOption = product?.options.sizeOptions.find(
-      (size) => size.sizeName === currentSize
-    );
-
-    if (colorOption && colorOption.additionalPrice)
-      price += colorOption.additionalPrice;
-    if (sizeOption && sizeOption.additionalPrice)
-      price += sizeOption.additionalPrice;
-    if (currentCombo) price += getProductById(currentCombo)?.price ?? 0;
-
-    return price;
-  }, [product, currentColor, currentSize, currentCombo]);
-
   return (
     <BasicLayout>
       {
@@ -196,9 +204,9 @@ export default function Product() {
                     setCurrentCombo={setCurrentCombo}
                   />
                 )}
-              <p className="price">${getCalculatedPrice()} CAD</p>
               <p className="desc">{product?.description}</p>
             </div>
+            <p className="price">${calculatedPrice} CAD</p>
             <div className="form-button-container">
               <FormButton
                 onClick={() => {
@@ -207,7 +215,9 @@ export default function Product() {
               >
                 Add to cart
               </FormButton>{" "}
-              <p>Preorder. Approximately 30 days arrive</p>
+              {product?.isPreorder && (
+                <p>Preorder. Approximately 30 days arrive</p>
+              )}
             </div>
           </div>
         </div>

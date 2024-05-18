@@ -30,10 +30,9 @@ export const OrderSummary = (props: Props) => {
   // });
 
   const [total, setTotal] = useState<number>(0);
+  const [simmilarProducts, setSimmilarProducts] = useState<VeProduct[]>([]);
+  const [subtotal, setSubtotal] = useState<number>(0);
   const cart = useAppSelector((state) => state.cart);
-  const simmilarProducts = getAllSimmilarProducts(
-    cart.items.map((item) => getProductById(item.productId) as VeProduct)
-  );
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [storeData, setStoreData] = useState<any>(null);
 
@@ -41,9 +40,27 @@ export const OrderSummary = (props: Props) => {
     getStoreData().then((data) => {
       setStoreData(data);
     });
+
+    async function getSimProducts() {
+      const allCartProducts = [];
+
+      for (const item of cart.items) {
+        const product = await getProductById(item.productId);
+        if (product) {
+          allCartProducts.push(product);
+        }
+      }
+      getAllSimmilarProducts(allCartProducts).then((products) => {
+        setSimmilarProducts(products);
+      });
+    }
+    getSimProducts();
+
+    calculateCartTotal(cart).then((total) => {
+      setSubtotal(total);
+    });
   }, []);
 
-  const subtotal = calculateCartTotal(cart);
   useEffect(() => {
     calculateCartTotalWithFeeAndTax(cart).then((total) => {
       setTotal(total);
