@@ -17,6 +17,7 @@
   font-size: 1.5rem;
   width: 2rem;
   height: 2rem;
+  z-index: 100;
   cursor: pointer;
 }
 .pop-up .pop-up-type-img {
@@ -51,6 +52,15 @@
 .pop-up .pop-up-container .pop-up-content .pop-up-text {
   padding: 0.5rem;
   font-size: 1rem;
+}
+.pop-up.normal .pop-up-container {
+  grid-template-columns: 100%;
+}
+.pop-up.normal .pop-up-container .pop-up-content {
+  padding: 1rem;
+}
+.pop-up.normal .pop-up-type-img {
+  display: none;
 }
 .pop-up.warning .pop-up-container {
   border-color: orange;

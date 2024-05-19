@@ -14,3 +14,15 @@
     font-size: 1rem;
   }
 }
+
+.combo-learn-more {
+  line-height: 0;
+  font-size: 0.8rem;
+  color: #666;
+  text-decoration: underline;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 1rem;
+  }
+}

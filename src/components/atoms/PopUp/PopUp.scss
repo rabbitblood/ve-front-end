@@ -17,6 +17,7 @@
     font-size: 1.5rem;
     width: 2rem;
     height: 2rem;
+    z-index: 100;
     cursor: pointer;
   }
 
@@ -60,6 +61,15 @@
 
   &.normal {
     .pop-up-container {
+      grid-template-columns: 100%;
+
+      .pop-up-content {
+        padding: 1rem;
+      }
+    }
+
+    .pop-up-type-img {
+      display: none;
     }
   }
 

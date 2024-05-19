@@ -129,37 +129,6 @@ export default function Product() {
         comboId: currentCombo ?? "",
       })
     );
-
-    // dispatch(
-    //   openPopUp({
-    //     title: "Item added to cart.",
-    //     message: (
-    //       <>
-    //         <h2>People also bought:</h2>
-    //         <div>
-    //           {product.simmilarProducts.map((productId) => {
-    //             const simmilarProduct = getProductById(productId);
-    //             if (simmilarProduct) {
-    //               return (
-    //                 <a href={`/products/view/${productId}`} key={productId}>
-    //                   <div className="product-card">
-    //                     <img
-    //                       className="product-image"
-    //                       src={simmilarProduct.images[0]}
-    //                       alt={simmilarProduct.name}
-    //                     />
-    //                     <p className="product-name">{simmilarProduct.name}</p>
-    //                   </div>
-    //                 </a>
-    //               );
-    //             }
-    //           })}
-    //         </div>
-    //       </>
-    //     ),
-    //     info: "success",
-    //   })
-    // );
   }
 
   function getImageToDisplay(): string[] {
