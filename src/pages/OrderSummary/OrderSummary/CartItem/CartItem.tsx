@@ -4,6 +4,7 @@ import { modifyItemQuantity } from "@/lib/redux/store/cartSlice";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { HTMLAttributes, useEffect, useRef, useState } from "react";
 import { useAppSelector } from "@/lib/redux/reduxDispatcher";
+import xIcon from "@/assets/icons/x.svg";
 
 interface Prop extends HTMLAttributes<HTMLDivElement> {
   product: VeCartItem;
@@ -40,6 +41,15 @@ export const CartItem = (props: Prop) => {
     );
   }
 
+  function removeItemHandler() {
+    dispatch(
+      modifyItemQuantity({
+        cartItem: props.product,
+        newAmount: 0,
+      })
+    );
+  }
+
   return (
     <div className={styles.card}>
       <div className={styles.cardLeft}>
@@ -68,6 +78,11 @@ export const CartItem = (props: Prop) => {
               );
             }}
           />
+          <img
+            src={xIcon}
+            className={styles.removeButton}
+            onClick={removeItemHandler}
+          ></img>
           <img
             src={props.product.imageUrl}
             alt={props.product.productName}
