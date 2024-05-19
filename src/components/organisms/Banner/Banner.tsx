@@ -1,7 +1,7 @@
 import { HtmlHTMLAttributes, useState } from "react";
 import ImageGallery from "react-image-gallery";
 
-interface SlideData {
+export interface SlideData {
   original: string;
   thumbnail: string;
   displayElement?: JSX.Element;

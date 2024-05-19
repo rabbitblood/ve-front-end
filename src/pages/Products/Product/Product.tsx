@@ -34,6 +34,7 @@ export default function Product() {
   const imageGallery = useRef<HorizontalMoveImageViewerRef>(null);
   const dispatch = useAppDispatch();
 
+  console.log(product);
   useEffect(() => {
     product &&
       getSimmilarProducts(product).then((data) => {
@@ -47,16 +48,20 @@ export default function Product() {
     const colorOption = product?.options.colorOptions.find(
       (color) => color.color === currentColor
     );
+
     const sizeOption = product?.options.sizeOptions.find(
       (size) => size.sizeName === currentSize
     );
 
-    if (colorOption && colorOption.additionalPrice)
+    if (colorOption && colorOption.additionalPrice) {
       price += colorOption.additionalPrice;
-    if (sizeOption && sizeOption.additionalPrice)
+    }
+    if (sizeOption && sizeOption.additionalPrice) {
       price += sizeOption.additionalPrice;
-    if (currentCombo)
+    }
+    if (currentCombo) {
       price += ((await getProductById(currentCombo)) as VeProduct)?.price ?? 0;
+    }
 
     return price;
   }, [product, currentColor, currentSize, currentCombo]);

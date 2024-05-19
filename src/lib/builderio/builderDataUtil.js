@@ -80,6 +80,8 @@ function builderProductsToVeProducts(builderProduct) {
       },
       tags: [],
       simmilarProducts: product.product.similarProducts,
+      isPreorder: product.product.isPreorder,
+      isFeaturedProduct: product.product.isFeaturedProduct,
     };
   });
 
