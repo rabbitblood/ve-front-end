@@ -2,7 +2,7 @@
 
 .banner {
   position: relative;
-  height: 100vh;
+  height: 98vh;
 
   .banner-text-container {
     color: white;
@@ -10,8 +10,6 @@
     top: 50%;
     left: 1rem;
     transform: translate(0, -50%);
-    font-weight: 700;
-    mix-blend-mode: difference;
     transition-duration: 0.2s;
     opacity: 100;
     width: 80vw;
@@ -27,6 +25,8 @@
 
     .title {
       font-size: 1.5rem;
+      font-weight: 100;
+      padding: 1rem 0;
     }
 
     .sub-title {

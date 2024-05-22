@@ -1,4 +1,3 @@
-import instIcon from "@/assets/social-media-icon/inst.svg";
 // import facebookIcon from "@/assets/social-media-icon/facebook.svg";
 // import { FormButton } from "./atoms/FormButton/FormButton";
 import { Link } from "react-router-dom";
@@ -52,15 +51,6 @@ export default function Footer() {
             <div className="footer__item">
               <Link to={"/info/contact-us"}>Instagram and email</Link>
             </div>
-
-            <div className="footer__item">
-              <div className="medias">
-                <img className="media-icon" src={instIcon} alt="inst" />
-                {
-                  //<img className="media-icon" src={facebookIcon} alt="facebook" />
-                }
-              </div>
-            </div>
           </div>
         </div>
 
@@ -78,6 +68,13 @@ export default function Footer() {
             <FormButton className="subscribe__button">Subscribe</FormButton>
           </form>
         </div> */}
+      </div>
+      <div className="brand-name-container">
+        <h1>
+          <Link className="brand-name" to={"/"}>
+            VÉ{" "}
+          </Link>
+        </h1>
       </div>
       <div className="copyright">
         <p>© 2024 Vé. All Rights Reserved.</p>

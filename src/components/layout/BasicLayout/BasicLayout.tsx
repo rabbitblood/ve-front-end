@@ -1,9 +1,14 @@
-import { PropsWithChildren, useEffect } from "react";
+import { HTMLAttributes, useEffect } from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/organisms/Header/Header";
 import { useLocation } from "react-router-dom";
 
-export default function BasicLayout({ children }: PropsWithChildren) {
+interface Props extends HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+  noFooter?: boolean;
+}
+
+export default function BasicLayout({ children, noFooter = false }: Props) {
   const location = useLocation();
 
   useEffect(() => {
@@ -14,7 +19,7 @@ export default function BasicLayout({ children }: PropsWithChildren) {
     <>
       <Header />
       <main>{children}</main>
-      <Footer />
+      {noFooter ? "" : <Footer />}
     </>
   );
 }

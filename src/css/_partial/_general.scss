@@ -77,10 +77,31 @@ button {
 }
 
 .footer {
-  margin: 0 2rem;
+  border-top: black solid 1px;
+  padding: 0 2rem;
   text-align: center;
   padding: 2rem 0;
   bottom: 0;
+  font-weight: 100;
+  margin-top: 2rem;
+
+  .copyright {
+    font-size: 0.5rem;
+    font-weight: 500;
+  }
+  .brand-name-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .brand-name {
+      font-size: 2rem;
+      font-weight: 100;
+      text-decoration: none !important;
+    }
+  }
 
   a {
     text-decoration: underline;
@@ -97,7 +118,8 @@ button {
     justify-self: center;
 
     .title {
-      font-size: 2rem;
+      font-size: 1.5rem;
+      font-weight: 100;
       margin: 1rem 0;
     }
 
@@ -105,7 +127,7 @@ button {
       margin: 1rem 0;
 
       .footer__item {
-        font-size: 1rem;
+        font-size: 0.6rem;
         margin: 0.5rem 0;
 
         .medias {

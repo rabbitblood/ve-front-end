@@ -16,7 +16,7 @@
       .cta-title {
         font-size: 2rem;
         display: inline;
-        font-weight: 700;
+        font-weight: 100;
       }
 
       .cta-sub-title {
@@ -39,8 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-    background-color: #f5f5f5;
+    padding: 2rem 0;
 
     .cta-section-row {
       position: relative;
@@ -73,26 +72,27 @@
         grid-area: text;
         width: 100%;
         padding: 0 2rem;
+        margin: auto;
+        max-width: 350px;
 
         .cta-title {
           display: block;
           font-size: 2rem;
-          font-weight: 700;
         }
 
         .cta-sub-title {
           display: block;
           line-height: 0;
-          font-size: 1rem;
+          font-size: 0.8rem;
           font-weight: 500;
           margin-bottom: 1rem;
         }
 
         .cta-desc {
           display: block;
-          font-size: 2rem;
+          font-size: 1.2rem;
           font-weight: 100;
-          margin-bottom: 1rem;
+          margin: 2rem 0;
         }
       }
     }

@@ -17,6 +17,7 @@ export default function Header() {
   const cartAmount = useSelector((state: RootState) => state.cart.items.length);
   const pageNav = useSelector((state: RootState) => state.nav);
   const [highlightCart, setHighlightCart] = useState(false);
+  const [isScroll, setIsScroll] = useState(false);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -31,9 +32,9 @@ export default function Header() {
 
     window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
-        menuElement.current?.classList.add("scroll");
+        setIsScroll(true);
       } else {
-        menuElement.current?.classList.remove("scroll");
+        setIsScroll(false);
       }
     });
 
@@ -57,10 +58,7 @@ export default function Header() {
 
       <div
         ref={menuElement}
-        className={
-          "menu"
-          //+ ( headerOpen ? " open" : "")
-        }
+        className={`menu ${openNav ? "open" : ""} ${isScroll && "scroll"}`}
       >
         <div className="header-group">
           <MenuButton isOpen={openNav} onClick={() => setOpenNav(!openNav)} />

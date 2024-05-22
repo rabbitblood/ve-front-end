@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 3rem);
+  height: calc(100vh - 5rem);
   width: 100%;
   background-color: white;
   grid-template-areas: "display" "details";
@@ -13,8 +13,9 @@
     display: grid;
     flex-direction: row;
     justify-content: space-between;
-    height: calc(100vh - 3rem);
+    height: calc(100vh - 6rem);
     grid-template-areas: "details display";
+    padding: 0 2rem;
   }
 }
 .introduction-section .details {
@@ -25,10 +26,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 350px;
+  margin: auto;
 }
 @media screen and (min-width: 768px) {
   .introduction-section .details {
-    margin: 0;
     display: block;
     text-align: start;
   }
@@ -75,8 +77,8 @@
   }
 }
 .introduction-section .details .info-container .title {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 100;
   margin: 0 1rem;
 }
 .introduction-section .details .info-container .sub-title {
@@ -84,15 +86,19 @@
   font-weight: 100;
   margin: 0 1rem;
   margin-bottom: 2rem;
-  line-height: 1rem;
+  line-height: 0;
 }
 .introduction-section .details .info-container .price {
   margin: 0 1rem;
 }
 .introduction-section .details .info-container .desc {
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 0.8rem;
+  font-weight: 300;
   margin: 1rem;
+}
+.introduction-section .details .info-container .desc .first-letter {
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 .introduction-section .details .form-button-container {
   margin: 1rem;

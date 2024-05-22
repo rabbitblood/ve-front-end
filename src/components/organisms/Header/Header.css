@@ -1,6 +1,5 @@
 .header {
   position: relative;
-  height: 3rem;
   width: 100%;
   z-index: 100;
 }
@@ -26,20 +25,21 @@
   background-color: rgb(255, 255, 255);
   width: 100%;
   transition: 0.5s;
-  height: 3rem;
+  height: 4rem;
   z-index: 1;
 }
 .header .menu.scroll {
   position: fixed;
 }
-.header .menu.open {
-  display: block;
+.header .menu.open .page-nav {
+  opacity: 0;
 }
 .header .menu .brand-name {
+  font-size: 3.3rem;
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 0;
+  transform: translate(-50%, 0);
   font-family: "Oranienbaum";
   font-weight: 100;
 }
@@ -70,7 +70,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 50%;
     padding: 0%;
     font-size: 0.7rem;
   }
@@ -94,34 +94,42 @@
   gap: 1rem;
 }
 .header .menu .icons .icon {
-  max-width: 2rem;
+  max-width: 1.8rem;
   cursor: pointer;
   transition: 0.2s;
 }
 .header .menu .icons .icon.highlight {
   scale: 1.3;
 }
-.header .page-nav {
-  position: relative;
-  background-color: white;
+.header .menu .page-nav {
+  position: absolute;
   display: block;
   width: 100%;
+  font-family: "Antic Didone", serif;
   z-index: 2;
+  transition: 0.5s;
+  transform: translate(0, -100%);
 }
-.header .page-nav .page-nav-ul {
+.header .menu .page-nav .page-nav-ul {
   display: flex;
-  margin: 0 1rem;
+  margin: 0 2rem;
 }
-.header .page-nav .page-nav-ul .nav-link {
+.header .menu .page-nav .page-nav-ul .nav-link {
+  text-align: left;
+  text-transform: capitalize;
   flex-basis: 1;
-  margin: 0 1rem;
-  padding: 0;
+  padding: 0 0.5rem;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 100;
+  font-size: 0.8rem;
+  font-weight: 200;
   list-style-type: square;
+  list-style-position: inside;
 }
-.header .page-nav .page-nav-ul .nav-link:hover {
+.header .menu .page-nav .page-nav-ul .nav-link:first-child {
+  list-style-type: none;
+  margin: 0;
+}
+.header .menu .page-nav .page-nav-ul .nav-link:hover {
   text-decoration: underline;
 }
 

@@ -22,6 +22,9 @@ interface IntroSectionProps extends HtmlHTMLAttributes<HTMLElement> {
 
 const IntroSection = forwardRef(
   (props: IntroSectionProps, ref: LegacyRef<HorizontalMoveImageViewerRef>) => {
+    //first letter of desc will be another font
+    const firstLetter = props.description.charAt(0);
+    const rest = props.description.slice(1);
     return (
       <section className="introduction-section">
         <div className="display">
@@ -50,7 +53,10 @@ const IntroSection = forwardRef(
           <div className="info-container">
             <h2 className="title">{props.title}</h2>
             <h3 className="sub-title">{props.subTitle}</h3>
-            <p className="desc">{props.description}</p>
+            <p className="desc">
+              <span className="first-letter">{firstLetter}</span>
+              {rest}
+            </p>
           </div>
           <div className="form-button-container">
             <Link to={props.exploreUrl as string}>

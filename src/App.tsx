@@ -93,7 +93,8 @@ function App() {
           style={{
             margin: "auto",
             textAlign: "center",
-            marginBottom: "2rem",
+            marginBottom: "3rem",
+            fontWeight: "100",
           }}
         >
           New Collections

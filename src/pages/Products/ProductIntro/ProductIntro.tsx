@@ -85,7 +85,7 @@ export default function ProductIntro() {
   }, [dispatch, type]);
 
   return (
-    <BasicLayout>
+    <BasicLayout noFooter>
       {typeInfo && seriesDisplay && (
         <IntroSection
           ref={imageGallery}
