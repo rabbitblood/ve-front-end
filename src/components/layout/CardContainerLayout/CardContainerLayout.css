@@ -1,55 +1,31 @@
 .products-container {
-  margin: 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1rem;
-  margin-top: 10vh;
-}
-.products-container .product .desc-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-.products-container .product .desc-section .name {
-  display: inline-block;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0.5rem;
-}
-.products-container .product .desc-section .price {
-  font-family: Courier, monospace;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin: 0 0.5rem;
-}
-.products-container .product .desc-section .tags {
-  text-transform: capitalize;
   display: flex;
-  justify-content: flex-start;
-  align-items: baseline;
-  flex-wrap: wrap;
-  margin-left: 0.5rem;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 3;
-}
-.products-container .product .desc-section .tags .tag {
-  display: inline-block;
-  padding: 0.2rem 0.5rem;
-  margin: 0.1rem;
-  background-color: rgba(254, 148, 148, 0.318);
-  border: 1px solid rgba(254, 148, 148, 0.5);
-  border-radius: 0.5rem;
-  font-size: 0.7rem;
-  font-weight: 500;
-  height: 1.5rem;
-}
-.products-container .product .image {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  margin-bottom: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.products-container .products {
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: start;
+  grid-template-columns: repeat(1, 1fr);
+}
+@media screen and (min-width: 700px) {
+  .products-container .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1100px) {
+  .products-container .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1640px) {
+  .products-container .products {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /*# sourceMappingURL=CardContainerLayout.css.map */

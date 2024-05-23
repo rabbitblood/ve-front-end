@@ -3,12 +3,13 @@ import "./ColorSelection.css";
 interface Props {
   product: VeProduct;
   currentColor: string;
+  className?: string;
   setCurrentColor: (color: string) => void;
 }
 
 export default function ColorSelection(prop: Props) {
   return (
-    <div className="color-options">
+    <div className={`color-options ${prop.className}`}>
       {prop.product.options.colorOptions.map((color, idx) => {
         return (
           <div

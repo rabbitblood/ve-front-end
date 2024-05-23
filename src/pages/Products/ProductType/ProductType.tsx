@@ -18,6 +18,7 @@ import {
   getDataByName,
 } from "@/lib/builderio/builderDataUtil";
 import { SeriesInfoEntity, TypeInfo, VeAllTypeInfo } from "@/types/builderio";
+import CardContainer from "@/components/layout/CardContainerLayout/CardContainerLayout";
 
 export default function ProductType() {
   //get param
@@ -168,25 +169,22 @@ export default function ProductType() {
           <h2 className="section-name">
             {series !== "None" ? `${series} Series` : ""} {type}
           </h2>
-          <div className="products-container">
-            <div className="products">
-              {products &&
-                type &&
-                series &&
-                products
-                  .filter((value) => {
-                    return (
-                      value.type.typeName.toLowerCase() ===
-                        type.toLowerCase() &&
-                      value.series.SerieName.toLowerCase() ===
-                        series.toLowerCase()
-                    );
-                  })
-                  .map((product, idx) => {
-                    return <ProductCard key={idx} product={product} />;
-                  })}
-            </div>
-          </div>
+          <CardContainer>
+            {products &&
+              type &&
+              series &&
+              products
+                .filter((value) => {
+                  return (
+                    value.type.typeName.toLowerCase() === type.toLowerCase() &&
+                    value.series.SerieName.toLowerCase() ===
+                      series.toLowerCase()
+                  );
+                })
+                .map((product, idx) => {
+                  return <ProductCard key={idx} product={product} />;
+                })}
+          </CardContainer>
         </div>
         {/* <div className="customize-cta">
           <p>

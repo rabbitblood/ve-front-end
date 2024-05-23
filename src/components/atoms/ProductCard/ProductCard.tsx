@@ -8,18 +8,18 @@ interface ProductCardProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const [currentColor, setCurrentColor] = useState<string>(
+  const [currentColor, setCurrentColor] = useState<string | undefined>(
     product.options.colorOptions.length > 0
       ? product.options.colorOptions[0].color
-      : ""
+      : undefined
   );
 
   const [hoverCard, setHoverCard] = useState<boolean>(false);
 
   const getDisplayImage = useCallback(() => {
-    if (product.options.colorOptions.length > 0) {
+    if (currentColor) {
       const colorOption = product.options.colorOptions.find(
-        (option) => option.color === currentColor
+        (option) => option.colorName === currentColor
       );
 
       if (colorOption && colorOption.images?.length > 0) {
@@ -34,7 +34,10 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div className="product-card">
-      <Link to={`/products/view/${product.productId}`}>
+      <Link
+        className="product-image-container"
+        to={`/products/view/${product.productId}`}
+      >
         <img
           className="product-image"
           src={getDisplayImage()}
@@ -43,17 +46,20 @@ export default function ProductCard({ product }: ProductCardProps) {
           onMouseLeave={() => setHoverCard(false)}
         />
       </Link>
-      <ColorSelection
-        product={product}
-        currentColor={currentColor}
-        setCurrentColor={setCurrentColor}
-      />
-      <h3 className="product-name">{product.name}</h3>
-      <p className="product-base">
-        {product.series.SerieName !== "None" ? product.series.SerieName : ""}
-      </p>
-      <p className="product-desc">{product.description}</p>
-      <p className="product-price">{product.price}$</p>
+      <div className="info">
+        <ColorSelection
+          className="color-select"
+          product={product}
+          currentColor={currentColor ?? ""}
+          setCurrentColor={setCurrentColor}
+        />
+        <h3 className="product-name">{product.name}</h3>
+        <p className="product-base">
+          {product.series.SerieName !== "None" ? product.series.SerieName : ""}
+        </p>
+        <p className="product-desc">{product.description}</p>
+        <p className="product-price">{product.price} CAD</p>
+      </div>
     </div>
   );
 }
