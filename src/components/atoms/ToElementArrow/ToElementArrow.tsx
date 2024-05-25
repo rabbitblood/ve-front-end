@@ -13,13 +13,12 @@ export default function ToElementArrow({
   ...props
 }: ToElementArrowProps) {
   return (
-    <div className={`to-products-button ${position}`}>
+    <div
+      className={`to-products-button ${position}`}
+      onClick={() => scrollToElement(props.toElementId)}
+    >
       {props.buttonText && <p className="text">{props.buttonText}</p>}
-      <img
-        className="arrow-icon"
-        src={arrowIcon}
-        onClick={() => scrollToElement(props.toElementId)}
-      />
+      <img className="arrow-icon" src={arrowIcon} />
     </div>
   );
 }
