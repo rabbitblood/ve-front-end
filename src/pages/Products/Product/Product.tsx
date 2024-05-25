@@ -12,23 +12,23 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { setNav } from "@/lib/redux/store/navSlice";
 import ColorSelection from "@/components/atoms/VeProductSelections/ColorSelection/ColorSelection";
 import SizeSelection from "@/components/atoms/VeProductSelections/SizeSelection/SizeSelection";
-import ComboSelection from "@/components/atoms/VeProductSelections/ComboSelection/ComboSelection";
+// import ComboSelection from "@/components/atoms/VeProductSelections/ComboSelection/ComboSelection";
 import {
-  getProductById,
+  //getProductById,
   getSimmilarProducts,
 } from "@/lib/VeProduct/VeproductUtil";
 import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
 // import { openPopUp } from "@/lib/redux/store/popUpSlice";
 import { HorizontalMoveImageViewerRef } from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
-import ProductCard from "@/components/atoms/ProductCard/ProductCard";
-import arrowImage from "@/assets/icons/arrow.svg";
+// import ProductCard from "@/components/atoms/ProductCard/ProductCard";
+// import arrowImage from "@/assets/icons/arrow.svg";
 
 export default function Product() {
   const [product, setProduct] = useState<VeProduct>();
   const { productid } = useParams<{ productid: string }>();
   const [currentColor, setCurrentColor] = useState<string>("");
   const [currentSize, setCurrentSize] = useState<string>("");
-  const [currentCombo, setCurrentCombo] = useState<string | null>(null);
+  // const [currentCombo, setCurrentCombo] = useState<string | null>(null);
   const [calculatedPrice, setCalculatedPrice] = useState<number>(0);
   const [simmilarProducts, setSimmilarProducts] = useState<VeProduct[]>([]);
   const imageGallery = useRef<HorizontalMoveImageViewerRef>(null);
@@ -59,12 +59,12 @@ export default function Product() {
     if (sizeOption && sizeOption.additionalPrice) {
       price += sizeOption.additionalPrice;
     }
-    if (currentCombo) {
-      price += ((await getProductById(currentCombo)) as VeProduct)?.price ?? 0;
-    }
+    // if (currentCombo) {
+    //   price += ((await getProductById(currentCombo)) as VeProduct)?.price ?? 0;
+    // }
 
     return price;
-  }, [product, currentColor, currentSize, currentCombo]);
+  }, [product, currentColor, currentSize]);
 
   useEffect(() => {
     getAllProductsAsVeProducts().then((data) => {
@@ -126,7 +126,8 @@ export default function Product() {
         imageUrl: product?.images[0],
         color: currentColor,
         size: currentSize,
-        comboId: currentCombo ?? "",
+        // comboId: currentCombo ?? "",
+        comboId: "",
       })
     );
   }
@@ -155,25 +156,38 @@ export default function Product() {
         <>
           <div className="product-page">
             <div className="display">
-              <HorizontalMoveImageViewer
-                ref={imageGallery}
-                images={getImageToDisplay()}
-                showArrow={true}
-              />{" "}
+              {getImageToDisplay().map((image, idx) => {
+                return (
+                  <img
+                    className="image"
+                    src={image}
+                    alt={product?.name}
+                    key={idx}
+                  />
+                );
+              })}
             </div>
             <div className="detail">
               <div className="info-container">
                 <h2 className="title">{product?.name}</h2>
-                <h3 className="sub-title">{product?.series.SerieName}</h3>
-                {product &&
-                  product.options.colorOptions &&
-                  product.options.colorOptions.length > 0 && (
-                    <ColorSelection
-                      product={product as VeProduct}
-                      currentColor={currentColor}
-                      setCurrentColor={setCurrentColor}
-                    />
-                  )}
+                <h3 className="sub-title">
+                  {product?.series.SerieName !== "None"
+                    ? product?.series.SerieName
+                    : ""}
+                </h3>
+
+                <div className="color-section">
+                  {product &&
+                    product.options.colorOptions &&
+                    product.options.colorOptions.length > 0 && (
+                      <ColorSelection
+                        product={product as VeProduct}
+                        currentColor={currentColor}
+                        setCurrentColor={setCurrentColor}
+                      />
+                    )}
+                </div>
+
                 {product &&
                   product.options.sizeOptions &&
                   product.options.sizeOptions.length > 0 && (
@@ -183,7 +197,8 @@ export default function Product() {
                       setCurrentSize={setCurrentSize}
                     />
                   )}
-                {product &&
+
+                {/* {product &&
                   product.options.comboOptions &&
                   product.options.comboOptions.length > 0 && (
                     <ComboSelection
@@ -191,28 +206,29 @@ export default function Product() {
                       currentCombo={currentCombo ?? ""}
                       setCurrentCombo={setCurrentCombo}
                     />
-                  )}
+                  )} */}
+
+                <p className="price">{calculatedPrice} CAD</p>
                 <p className="desc">{product?.description}</p>
-              </div>
-              <p className="price">${calculatedPrice} CAD</p>
-              <div className="form-button-container">
-                <FormButton
-                  onClick={() => {
-                    addItemToCartHandler();
-                  }}
-                >
-                  Add to cart
-                </FormButton>{" "}
-                {product?.isPreorder && (
-                  <p>Preorder. Approximately 30 days arrive</p>
-                )}
+                <div className="form-button-container">
+                  <FormButton
+                    onClick={() => {
+                      addItemToCartHandler();
+                    }}
+                  >
+                    Add to cart
+                  </FormButton>{" "}
+                  {product?.isPreorder && (
+                    <p>Preorder. Approximately 30 days arrive</p>
+                  )}
+                </div>
               </div>
             </div>
-            <a href="#product-additional-info-section">
+            {/* <a href="#product-additional-info-section">
               <img className="more-arrow" src={arrowImage} alt="" />
-            </a>
+            </a> */}
           </div>
-          <div
+          {/* <div
             id="product-additional-info-section"
             className="product-additional-info-section"
           >
@@ -241,7 +257,7 @@ export default function Product() {
                 </>
               )}
             </div>
-          </div>
+          </div> */}
         </>
       }
     </BasicLayout>

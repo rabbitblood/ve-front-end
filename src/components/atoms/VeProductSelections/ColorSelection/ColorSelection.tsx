@@ -9,7 +9,7 @@ interface Props {
 
 export default function ColorSelection(prop: Props) {
   return (
-    <div className={`color-options ${prop.className}`}>
+    <div className={`color-options ${prop.className ?? ""}`}>
       {prop.product.options.colorOptions.map((color, idx) => {
         return (
           <div

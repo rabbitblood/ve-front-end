@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   z-index: 100;
+  padding-bottom: 4rem;
 }
 .header .open-menu-button,
 .header .close-menu-button {
@@ -20,7 +21,7 @@
   z-index: 1000;
 }
 .header .menu {
-  position: relative;
+  position: absolute;
   display: block;
   background-color: rgb(255, 255, 255);
   width: 100%;

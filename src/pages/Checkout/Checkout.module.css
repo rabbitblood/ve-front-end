@@ -16,8 +16,7 @@
 
 @media (min-width: 1000px) {
   .page {
-    margin: auto;
-    max-width: 800px;
+    display: flex;
   }
   .orderDetails {
     width: 55%;

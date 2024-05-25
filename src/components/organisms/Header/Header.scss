@@ -2,11 +2,13 @@
   position: relative;
   width: 100%;
   z-index: 100;
+  padding-bottom: 4rem;
 
   .open-menu-button,
   .close-menu-button {
     display: none;
   }
+
   .ad {
     position: absolute;
     display: flex;
@@ -21,7 +23,7 @@
   }
 
   .menu {
-    position: relative;
+    position: absolute;
     display: block;
     background-color: rgba(255, 255, 255, 1);
     width: 100%;
@@ -127,6 +129,7 @@
       .page-nav-ul {
         display: flex;
         margin: 0 2rem;
+
         .nav-link {
           text-align: left;
           text-transform: capitalize;
