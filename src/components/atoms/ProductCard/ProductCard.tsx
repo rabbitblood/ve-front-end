@@ -10,7 +10,7 @@ interface ProductCardProps extends React.HTMLAttributes<HTMLElement> {
 export default function ProductCard({ product }: ProductCardProps) {
   const [currentColor, setCurrentColor] = useState<string | undefined>(
     product.options.colorOptions.length > 0
-      ? product.options.colorOptions[0].color
+      ? product.options.colorOptions[0].colorName
       : undefined
   );
 

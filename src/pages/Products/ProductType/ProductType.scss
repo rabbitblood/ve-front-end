@@ -1,39 +1,5 @@
 .product-type-page {
   color: white;
-  background-color: black;
-
-  .product-type-desc {
-    position: relative;
-    padding: 2rem;
-    padding-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(
-      180deg,
-      rgb(0, 0, 0) 0%,
-      rgba(255, 255, 255, 1) 100%
-    );
-
-    .to-products-button {
-      position: sticky;
-      top: 3rem;
-      width: 3rem;
-      height: 6rem;
-      padding: 1rem;
-      cursor: pointer;
-      mix-blend-mode: difference;
-      background-color: white;
-      transform: rotate(90deg);
-      transition: 0.2s;
-      border-radius: 0.5rem;
-      object-fit: contain;
-      right: 0;
-
-      &:hover {
-        scale: 1.1;
-      }
-    }
-  }
 
   .banner-pull-button {
     position: absolute;

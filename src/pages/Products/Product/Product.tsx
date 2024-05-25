@@ -3,7 +3,6 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import "@/pages/Products/Products.css";
 import "./product.css";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
-import HorizontalMoveImageViewer from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { addItemToCart } from "@/lib/redux/store/cartSlice";
 

@@ -7,6 +7,7 @@
   grid-area: size;
 
   .color-option {
+    position: relative;
     cursor: pointer;
     text-align: center;
     margin: 0 0.2rem;
@@ -16,8 +17,15 @@
     border: 1px solid black;
 
     &.selected {
-      border: 2px solid black;
-      transform: scale(1.1);
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: black;
+      }
     }
   }
 }

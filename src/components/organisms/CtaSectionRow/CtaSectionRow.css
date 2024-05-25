@@ -16,8 +16,9 @@
 }
 .cta-section-row-container .cta-section-row .cta-text-area .cta-sub-title {
   font-size: 1rem;
-  display: inline;
+  line-height: 0;
   font-weight: 100;
+  margin-bottom: 0.5rem;
 }
 .cta-section-row-container .cta-section-row .cta-text-area .cta-desc {
   display: none;
