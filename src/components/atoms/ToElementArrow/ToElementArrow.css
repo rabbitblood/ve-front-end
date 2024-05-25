@@ -1,0 +1,52 @@
+.to-products-button {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1rem 1.5rem;
+  position: sticky;
+  top: 5rem;
+  width: 8rem;
+  height: 3rem;
+  padding: 0.2rem;
+  cursor: pointer;
+  background-color: white;
+  transition: 0.2s;
+  border-radius: 0.4rem;
+  border: 2px solid black;
+  right: 0;
+  z-index: 2;
+}
+.to-products-button .text {
+  color: black;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+}
+.to-products-button .arrow-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: rotate(90deg);
+}
+.to-products-button.left {
+  left: 0;
+  right: auto;
+}
+.to-products-button.right {
+  right: 0;
+  left: auto;
+}
+.to-products-button.center {
+  right: 50%;
+  left: auto;
+}
+.to-products-button:hover {
+  background-color: black;
+}
+.to-products-button:hover .text {
+  color: white;
+}
+.to-products-button:hover .arrow-icon {
+  filter: invert(1);
+}
+
+/*# sourceMappingURL=ToElementArrow.css.map */

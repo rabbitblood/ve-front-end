@@ -205,3 +205,14 @@ button {
     scale: 1.1;
   }
 }
+
+.paragraph {
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin: 1rem;
+
+  .first-letter {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+}

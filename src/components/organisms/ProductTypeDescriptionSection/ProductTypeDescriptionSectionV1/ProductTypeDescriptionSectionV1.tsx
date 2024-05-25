@@ -7,6 +7,7 @@ import arrowIcon from "@/assets/icons/arrow.svg";
 import { useEffect, useRef, useState } from "react";
 import { SeriesInfoEntity, TypeInfo, VeAllTypeInfo } from "@/types/builderio";
 import { getDataByName } from "@/lib/builderio/builderDataUtil";
+import { scrollToElement } from "@/lib/util/inPageNavUtil";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   type: string;
@@ -67,17 +68,12 @@ export default function ProductTypeDescriptionSectionV1(props: Props) {
       }
     }) ?? [];
 
-  function scrollToProducts() {
-    const element = document.getElementById("products-section");
-    element?.scrollIntoView({ behavior: "smooth" });
-  }
-
   return (
     <div ref={descArea} id="desc" className="product-type-desc">
       <img
         src={arrowIcon}
         className="to-products-button"
-        onClick={scrollToProducts}
+        onClick={() => scrollToElement("products-section")}
       />
       <div style={{ textAlign: "center", maxWidth: "800px", margin: "auto" }}>
         <h1>

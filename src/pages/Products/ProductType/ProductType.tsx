@@ -16,6 +16,8 @@ import {
 import { SeriesInfoEntity, VeAllTypeInfo } from "@/types/builderio";
 import CardContainer from "@/components/layout/CardContainerLayout/CardContainerLayout";
 
+import ToElementArrow from "@/components/atoms/ToElementArrow/ToElementArrow";
+
 export default function ProductType() {
   //get param
   const { type, series } = useParams<{ type: string; series: string }>();
@@ -87,6 +89,7 @@ export default function ProductType() {
       <div className="product-type-page">
         <Banner slideData={slideData} />
         <div id="products-section" className="products-section">
+          <ToElementArrow toElementId="desc" buttonText="To Feature" />
           <h2 className="section-name">
             {series !== "None" ? `${series} Series` : ""} {type}
           </h2>

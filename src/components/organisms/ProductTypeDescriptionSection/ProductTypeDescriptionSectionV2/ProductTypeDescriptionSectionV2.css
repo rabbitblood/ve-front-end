@@ -1,5 +1,10 @@
 .product-type-desc {
   display: flex;
+  flex-direction: column;
+}
+.product-type-desc .desc-title {
+  color: black;
+  text-align: center;
 }
 
 /*# sourceMappingURL=ProductTypeDescriptionSectionV2.css.map */

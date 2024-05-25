@@ -191,6 +191,16 @@ button {
   scale: 1.1;
 }
 
+.paragraph {
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin: 1rem;
+}
+.paragraph .first-letter {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
 .customize .customize-step-nav {
   position: relative;
   margin: auto;

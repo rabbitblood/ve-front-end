@@ -1,5 +1,7 @@
 .whole-block {
+  color: black;
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -10,16 +12,19 @@
 .whole-block .image,
 .whole-block .text,
 .whole-block .title {
+  color: black;
   width: 100%;
   margin: 0.5rem 0;
 }
 
 .text-with-image {
+  color: black;
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2rem auto;
+  margin: 1rem auto;
   width: 100%;
   max-width: 1200px;
 }
@@ -27,8 +32,11 @@
   .text-with-image {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
     grid-template-areas: "text image";
+    margin: 0 auto;
+  }
+  .text-with-image .text-group {
+    padding: 2rem;
   }
   .text-with-image.text-right {
     grid-template-areas: "image text";
@@ -37,6 +45,7 @@
 .text-with-image .image,
 .text-with-image .text,
 .text-with-image .title {
+  color: black;
   width: 100%;
   margin: 0.5rem 0;
 }
@@ -45,6 +54,12 @@
 }
 .text-with-image .text-group {
   grid-area: text;
+}
+.text-with-image .text-group .text {
+  font-weight: 300;
+}
+.text-with-image .text-group .title {
+  font-weight: 100;
 }
 
 /*# sourceMappingURL=TextSections.css.map */

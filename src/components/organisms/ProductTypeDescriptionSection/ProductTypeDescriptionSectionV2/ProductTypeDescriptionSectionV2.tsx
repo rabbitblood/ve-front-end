@@ -3,9 +3,8 @@ import "./ProductTypeDescriptionSectionV2.css";
 import WholeBlock from "@/components/atoms/TextSections/WholeBlock";
 import TextWithImage from "@/components/atoms/TextSections/TextWithImage";
 
-import arrowIcon from "@/assets/icons/arrow.svg";
 import { useEffect, useRef, useState } from "react";
-import { SeriesInfoEntity, TypeInfo, VeAllTypeInfo } from "@/types/builderio";
+import { SeriesInfoEntity, VeAllTypeInfo } from "@/types/builderio";
 import { getDataByName } from "@/lib/builderio/builderDataUtil";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,8 +14,6 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 export default function ProductTypeDescriptionSectionV1(props: Props) {
   const descArea = useRef<HTMLDivElement>(null);
-  const [currentTypeInfo, setCurrentTypeInfo] = useState<TypeInfo>();
-
   const [currentSeriesInfo, setCurrentSeriesInfo] =
     useState<SeriesInfoEntity>();
 
@@ -32,7 +29,6 @@ export default function ProductTypeDescriptionSectionV1(props: Props) {
           );
         }
       )?.typeInfo;
-      setCurrentTypeInfo(currentType);
 
       const currentSeries = currentType?.seriesInfo?.find((seriesInfo) => {
         return (
@@ -67,53 +63,41 @@ export default function ProductTypeDescriptionSectionV1(props: Props) {
       }
     }) ?? [];
 
-  function scrollToProducts() {
-    const element = document.getElementById("products-section");
-    element?.scrollIntoView({ behavior: "smooth" });
-  }
-
   return (
-    <div ref={descArea} id="desc" className="product-type-desc">
-      <img
-        src={arrowIcon}
-        className="to-products-button"
-        onClick={scrollToProducts}
-      />
-      <div style={{ textAlign: "center", maxWidth: "800px", margin: "auto" }}>
-        <h1>
-          {currentSeriesInfo?.series.seriesName !== "None" &&
-            currentSeriesInfo?.series.seriesName + " series "}
-          {currentTypeInfo?.type.typeName}
-        </h1>
+    <div ref={descArea} id="desc" className="product-type-desc" {...props}>
+      <div>
+        <h1 className="desc-title">Features</h1>
         <p>{currentSeriesInfo?.serieShortDescription}</p>
       </div>
-      {descData.map((data, idx) => {
-        if (!data) {
-          return null;
-        }
-        if (data.type === "WholeSection") {
-          return (
-            <WholeBlock
-              key={idx}
-              title={data.title}
-              text={data.text}
-              image={data.image}
-              parentRef={descArea}
-            />
-          );
-        } else {
-          return (
-            <TextWithImage
-              key={idx}
-              title={data.title}
-              text={data.text}
-              image={data.image}
-              textRight={data.textRight}
-              parentRef={descArea}
-            />
-          );
-        }
-      })}
+      <div>
+        {descData.map((data, idx) => {
+          if (!data) {
+            return null;
+          }
+          if (data.type === "WholeSection") {
+            return (
+              <WholeBlock
+                key={idx}
+                title={data.title}
+                text={data.text}
+                image={data.image}
+                parentRef={descArea}
+              />
+            );
+          } else {
+            return (
+              <TextWithImage
+                key={idx}
+                title={data.title}
+                text={data.text}
+                image={data.image}
+                textRight={data.textRight}
+                parentRef={descArea}
+              />
+            );
+          }
+        })}
+      </div>
     </div>
   );
 }
