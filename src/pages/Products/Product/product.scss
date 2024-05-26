@@ -187,7 +187,7 @@
       justify-content: start;
       align-items: center;
       padding: 0.5rem;
-      width: 90%;
+      width: 100%;
 
       @media screen and (min-width: 768px) {
         position: sticky;
@@ -198,20 +198,28 @@
       }
 
       .title {
+        align-self: start;
         font-size: 2rem;
         font-weight: 700;
         margin: 0 1rem;
       }
 
       .sub-title {
-        font-size: 1.5rem;
+        align-self: start;
+        font-size: 1rem;
         font-weight: 500;
         margin: 0 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         line-height: 1rem;
       }
 
+      .color-section {
+        align-self: start;
+        margin-bottom: 1rem;
+      }
+
       .price {
+        align-self: start;
         margin: 0 1rem;
       }
 
@@ -224,7 +232,8 @@
 
     .form-button-container {
       margin: 1rem;
-      width: 80%;
+      margin-bottom: 3rem;
+      width: calc(100% - 2rem);
     }
   }
 }

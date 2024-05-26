@@ -16,6 +16,9 @@ import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
 // import { openPopUp } from "@/lib/redux/store/popUpSlice";
 import { HorizontalMoveImageViewerRef } from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
 import Banner from "@/components/organisms/Banner/Banner";
+import CardContainer from "@/components/layout/CardContainerLayout/CardContainerLayout";
+import { getSimmilarProducts } from "@/lib/VeProduct/VeproductUtil";
+import ProductCard from "@/components/atoms/ProductCard/ProductCard";
 // import ProductCard from "@/components/atoms/ProductCard/ProductCard";
 // import arrowImage from "@/assets/icons/arrow.svg";
 
@@ -26,17 +29,17 @@ export default function Product() {
   const [currentSize, setCurrentSize] = useState<string>("");
   // const [currentCombo, setCurrentCombo] = useState<string | null>(null);
   const [calculatedPrice, setCalculatedPrice] = useState<number>(0);
-  //const [simmilarProducts, setSimmilarProducts] = useState<VeProduct[]>([]);
+  const [simmilarProducts, setSimmilarProducts] = useState<VeProduct[]>([]);
   const imageGallery = useRef<HorizontalMoveImageViewerRef>(null);
   const dispatch = useAppDispatch();
   const isMobile = useIsMobile();
 
-  // useEffect(() => {
-  //   product &&
-  //     getSimmilarProducts(product).then((data) => {
-  //       setSimmilarProducts(data);
-  //     });
-  // }, [product]);
+  useEffect(() => {
+    product &&
+      getSimmilarProducts(product).then((data) => {
+        setSimmilarProducts(data);
+      });
+  }, [product]);
 
   const getCalculatedPrice = useCallback(async () => {
     let price = product?.price ?? 0;
@@ -233,6 +236,17 @@ export default function Product() {
                     <p>Preorder. Approximately 30 days arrive</p>
                   )}
                 </div>
+                {isMobile && (
+                  <div>
+                    <h2>people also bought:</h2>
+                    <CardContainer>
+                      {simmilarProducts.length > 0 &&
+                        simmilarProducts.map((product, key) => (
+                          <ProductCard key={key} product={product} />
+                        ))}
+                    </CardContainer>
+                  </div>
+                )}
               </div>
             </div>
             {/* <a href="#product-additional-info-section">

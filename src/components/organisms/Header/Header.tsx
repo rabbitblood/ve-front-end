@@ -10,6 +10,7 @@ import { RootState } from "@/lib/redux/store/store";
 import "./Header.css";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { resetNav } from "@/lib/redux/store/navSlice";
+import { useIsMobile } from "@/hooks/pageUtil";
 
 export default function Header() {
   const menuElement = useRef<HTMLDivElement>(null);
@@ -18,6 +19,7 @@ export default function Header() {
   const pageNav = useSelector((state: RootState) => state.nav);
   const [highlightCart, setHighlightCart] = useState(false);
   const [isScroll, setIsScroll] = useState(false);
+  const isMobile = useIsMobile();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -86,7 +88,7 @@ export default function Header() {
           </h1>
         </div>
 
-        {pageNav && pageNav.nav.length > 0 && (
+        {pageNav && !isMobile && pageNav.nav.length > 0 && (
           <div className="page-nav">
             <ul className="page-nav-ul">
               {pageNav.nav.map((value, idx) => {
