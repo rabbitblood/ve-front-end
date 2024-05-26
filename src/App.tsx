@@ -9,8 +9,10 @@ import { getDataByName } from "./lib/builderio/builderDataUtil";
 import { useEffect, useState } from "react";
 import CtaSectionRow from "./components/organisms/CtaSectionRow/CtaSectionRow";
 import textImg from "@/assets/chocker-demo.webp";
+import { useIsMobile } from "./hooks/pageUtil";
 
 function App() {
+  const isMobile = useIsMobile();
   const [slideData, setSlideData] = useState();
 
   useEffect(() => {
@@ -43,6 +45,7 @@ function App() {
                       height: "100%",
                       objectFit: "cover",
                     }}
+                    controls={isMobile}
                     autoPlay
                     muted
                     loop
