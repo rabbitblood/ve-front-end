@@ -50,8 +50,8 @@ function App() {
                     muted
                     loop
                     playsInline
-                    webkit-playsinline
-                    x-webkit-airplay
+                    webkit-playsinline="true"
+                    x-webkit-airplay="true"
                     x5-video-player-type="h5"
                     x5-video-player-fullscreen="true"
                     x5-video-orientation="portrait"
