@@ -1,5 +1,6 @@
 import { HtmlHTMLAttributes, useState } from "react";
 import ImageGallery from "react-image-gallery";
+import "./Banner.css";
 
 export interface SlideData {
   original: string;
@@ -10,9 +11,15 @@ export interface SlideData {
 
 interface BannerProps extends HtmlHTMLAttributes<HTMLElement> {
   slideData?: SlideData[];
+  fullScreen?: boolean;
+  bulletType?: "normal" | "bottomLine";
 }
 
-export default function Banner(props: BannerProps) {
+export default function Banner({
+  fullScreen = true,
+  bulletType = "normal",
+  ...props
+}: BannerProps) {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [displayingElement, setDisplayingElement] = useState<boolean>(true);
 
@@ -28,7 +35,7 @@ export default function Banner(props: BannerProps) {
   return (
     <>
       {props.slideData && props.slideData.length > 0 && (
-        <div className="banner">
+        <div className={`banner ${fullScreen ? "" : "parent-size"}`}>
           <ImageGallery
             additionalClass="banner"
             items={props.slideData}
@@ -36,7 +43,7 @@ export default function Banner(props: BannerProps) {
             showFullscreenButton={false}
             showNav={false}
             showPlayButton={false}
-            showBullets={true}
+            showBullets={bulletType === "normal"}
             autoPlay={true}
             slideInterval={99999999}
             infinite={true}
@@ -51,6 +58,18 @@ export default function Banner(props: BannerProps) {
           >
             {props.slideData[currentSlideIndex].displayElement}
           </div>
+          {bulletType === "bottomLine" && (
+            <div className="bottom-line-bullets">
+              {props.slideData.map((_, index) => (
+                <div
+                  key={index}
+                  className={`bullet ${
+                    currentSlideIndex === index ? "active" : ""
+                  }`}
+                ></div>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </>

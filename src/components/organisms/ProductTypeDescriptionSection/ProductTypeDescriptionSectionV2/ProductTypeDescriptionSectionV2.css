@@ -1,9 +1,9 @@
 .product-type-desc {
+  color: black;
   display: flex;
   flex-direction: column;
 }
 .product-type-desc .desc-title {
-  color: black;
   text-align: center;
 }
 

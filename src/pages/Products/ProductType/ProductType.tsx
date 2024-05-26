@@ -17,6 +17,7 @@ import { SeriesInfoEntity, VeAllTypeInfo } from "@/types/builderio";
 import CardContainer from "@/components/layout/CardContainerLayout/CardContainerLayout";
 
 import ToElementArrow from "@/components/atoms/ToElementArrow/ToElementArrow";
+import { StringToUppercasedFirstLetterParagraphElement } from "@/lib/util/paragraphUtil";
 
 export default function ProductType() {
   //get param
@@ -92,7 +93,14 @@ export default function ProductType() {
           <ToElementArrow toElementId="desc" buttonText="To Feature" />
           <h2 className="section-name">
             {series !== "None" ? `${series} Series` : ""} {type}
-          </h2>
+          </h2>{" "}
+          {currentSeriesInfo && (
+            <StringToUppercasedFirstLetterParagraphElement
+              str={currentSeriesInfo?.serieShortDescription as string}
+              spanClassName="first-letter"
+              elementClassName="paragraph text"
+            />
+          )}
           <CardContainer>
             {products &&
               type &&

@@ -67,7 +67,6 @@ export default function ProductTypeDescriptionSectionV1(props: Props) {
     <div ref={descArea} id="desc" className="product-type-desc" {...props}>
       <div>
         <h1 className="desc-title">Features</h1>
-        <p>{currentSeriesInfo?.serieShortDescription}</p>
       </div>
       <div>
         {descData.map((data, idx) => {

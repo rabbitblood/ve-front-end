@@ -5,20 +5,17 @@ import "./product.css";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { addItemToCart } from "@/lib/redux/store/cartSlice";
-
+import { useIsMobile } from "@/hooks/pageUtil";
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { setNav } from "@/lib/redux/store/navSlice";
 import ColorSelection from "@/components/atoms/VeProductSelections/ColorSelection/ColorSelection";
 import SizeSelection from "@/components/atoms/VeProductSelections/SizeSelection/SizeSelection";
 // import ComboSelection from "@/components/atoms/VeProductSelections/ComboSelection/ComboSelection";
-import {
-  //getProductById,
-  getSimmilarProducts,
-} from "@/lib/VeProduct/VeproductUtil";
 import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
 // import { openPopUp } from "@/lib/redux/store/popUpSlice";
 import { HorizontalMoveImageViewerRef } from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
+import Banner from "@/components/organisms/Banner/Banner";
 // import ProductCard from "@/components/atoms/ProductCard/ProductCard";
 // import arrowImage from "@/assets/icons/arrow.svg";
 
@@ -29,17 +26,17 @@ export default function Product() {
   const [currentSize, setCurrentSize] = useState<string>("");
   // const [currentCombo, setCurrentCombo] = useState<string | null>(null);
   const [calculatedPrice, setCalculatedPrice] = useState<number>(0);
-  const [simmilarProducts, setSimmilarProducts] = useState<VeProduct[]>([]);
+  //const [simmilarProducts, setSimmilarProducts] = useState<VeProduct[]>([]);
   const imageGallery = useRef<HorizontalMoveImageViewerRef>(null);
   const dispatch = useAppDispatch();
+  const isMobile = useIsMobile();
 
-  console.log(product);
-  useEffect(() => {
-    product &&
-      getSimmilarProducts(product).then((data) => {
-        setSimmilarProducts(data);
-      });
-  }, [product]);
+  // useEffect(() => {
+  //   product &&
+  //     getSimmilarProducts(product).then((data) => {
+  //       setSimmilarProducts(data);
+  //     });
+  // }, [product]);
 
   const getCalculatedPrice = useCallback(async () => {
     let price = product?.price ?? 0;
@@ -154,18 +151,33 @@ export default function Product() {
       {
         <>
           <div className="product-page">
-            <div className="display">
-              {getImageToDisplay().map((image, idx) => {
-                return (
-                  <img
-                    className="image"
-                    src={image}
-                    alt={product?.name}
-                    key={idx}
-                  />
-                );
-              })}
-            </div>
+            {isMobile ? (
+              <div className="display">
+                <Banner
+                  fullScreen={false}
+                  bulletType="bottomLine"
+                  slideData={
+                    product?.images.map((image) => ({
+                      original: image,
+                      thumbnail: image,
+                    })) ?? []
+                  }
+                />
+              </div>
+            ) : (
+              <div className="display">
+                {getImageToDisplay().map((image, idx) => {
+                  return (
+                    <img
+                      className="image"
+                      src={image}
+                      alt={product?.name}
+                      key={idx}
+                    />
+                  );
+                })}
+              </div>
+            )}
             <div className="detail">
               <div className="info-container">
                 <h2 className="title">{product?.name}</h2>

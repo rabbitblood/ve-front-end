@@ -1,45 +1,5 @@
 @import "./_partial/general.scss";
 
-.banner {
-  position: relative;
-  height: 98vh;
-
-  .banner-text-container {
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: translate(0, -50%);
-    transition-duration: 0.2s;
-    opacity: 100;
-    width: 80vw;
-
-    @media (min-width: 768px) {
-      left: 3rem;
-      width: 30vw;
-    }
-
-    &.inactive {
-      opacity: 0;
-    }
-
-    .title {
-      font-size: 1.5rem;
-      font-weight: 100;
-      padding: 1rem 0;
-    }
-
-    .sub-title {
-      font-size: 1rem;
-      font-weight: 300;
-    }
-    .desc {
-      margin-top: 3rem;
-      font-size: 1rem;
-    }
-  }
-}
-
 .customize {
   &__title {
     font-size: 3rem;

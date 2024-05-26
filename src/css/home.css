@@ -201,43 +201,6 @@ button {
   font-weight: 300;
 }
 
-.banner {
-  position: relative;
-  height: 98vh;
-}
-.banner .banner-text-container {
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 1rem;
-  transform: translate(0, -50%);
-  transition-duration: 0.2s;
-  opacity: 100;
-  width: 80vw;
-}
-@media (min-width: 768px) {
-  .banner .banner-text-container {
-    left: 3rem;
-    width: 30vw;
-  }
-}
-.banner .banner-text-container.inactive {
-  opacity: 0;
-}
-.banner .banner-text-container .title {
-  font-size: 1.5rem;
-  font-weight: 100;
-  padding: 1rem 0;
-}
-.banner .banner-text-container .sub-title {
-  font-size: 1rem;
-  font-weight: 300;
-}
-.banner .banner-text-container .desc {
-  margin-top: 3rem;
-  font-size: 1rem;
-}
-
 .customize__title {
   font-size: 3rem;
   text-align: center;
