@@ -43,12 +43,13 @@ function App() {
                       height: "100%",
                       objectFit: "cover",
                     }}
-                    src={item.slideImage}
                     autoPlay
                     muted
                     loop
                     playsInline
-                  />
+                  >
+                    <source src={item.slideImage} type="video/mp4" />
+                  </video>
                 );
               }),
           };
