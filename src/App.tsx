@@ -47,6 +47,7 @@ function App() {
                     autoPlay
                     muted
                     loop
+                    playsInline
                   />
                 );
               }),
