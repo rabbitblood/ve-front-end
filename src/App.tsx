@@ -38,27 +38,35 @@ function App() {
               item.assetType === "mp4" &&
               (() => {
                 return (
-                  <video
-                    className=""
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                    controls={isMobile}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    webkit-playsinline="true"
-                    x-webkit-airplay="true"
-                    x5-video-player-type="h5"
-                    x5-video-player-fullscreen="true"
-                    x5-video-orientation="portrait"
-                    poster={textImg}
-                  >
-                    <source src={item.slideImage} type="video/mp4" />
-                  </video>
+                  <>
+                    <video
+                      className=""
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                      controls={isMobile}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      webkit-playsinline="true"
+                      x-webkit-airplay="true"
+                      x5-video-player-type="h5"
+                      x5-video-player-fullscreen="true"
+                      x5-video-orientation="portrait"
+                      poster={textImg}
+                    >
+                      <source src={item.slideImage} type="video/mp4" />
+                    </video>
+                    <script>
+                      {`
+                      var video = document.querySelector('video');
+                      video.play();
+                    `}
+                    </script>
+                  </>
                 );
               }),
           };
