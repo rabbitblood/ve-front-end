@@ -47,6 +47,8 @@ function App() {
                     muted
                     loop
                     playsInline
+                    webkit-playsinline
+                    x-webkit-airplay
                   >
                     <source src={item.slideImage} type="video/mp4" />
                   </video>
