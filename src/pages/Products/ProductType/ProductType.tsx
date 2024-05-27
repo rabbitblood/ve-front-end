@@ -78,11 +78,11 @@ export default function ProductType() {
   const slideData = currentSeriesInfo?.seriesFeatureImages?.map((image) => ({
     original: image.image,
     thumbnail: image.image,
-    displayElement: (
-      <div className="banner-text-container">
-        <h2 className="title">{series !== "None" ? series : ""}</h2>
-      </div>
-    ),
+    // displayElement: (
+    //   <div className="banner-text-container">
+    //     <h2 className="title">{series !== "None" ? series : ""}</h2>
+    //   </div>
+    // ),
   }));
 
   return (
@@ -90,7 +90,11 @@ export default function ProductType() {
       <div className="product-type-page">
         <Banner slideData={slideData} />
         <div id="products-section" className="products-section">
-          <ToElementArrow toElementId="desc" buttonText="To Feature" />
+          <ToElementArrow
+            position="right"
+            toElementId="desc"
+            buttonText="To Feature"
+          />
           <h2 className="section-name">
             {series !== "None" ? `${series} Series` : ""} {type}
           </h2>{" "}
