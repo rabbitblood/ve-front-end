@@ -28,11 +28,22 @@
     padding: 2rem;
     background: rgb(255, 255, 255);
     color: black;
-    .section-name {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      text-align: center;
+
+    .section-desc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .section-name {
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .section-desc-text {
+        max-width: 500px;
+      }
     }
   }
 

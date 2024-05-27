@@ -27,11 +27,19 @@
   background: rgb(255, 255, 255);
   color: black;
 }
-.product-type-page .products-section .section-name {
+.product-type-page .products-section .section-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.product-type-page .products-section .section-desc .section-name {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 1rem;
   text-align: center;
+}
+.product-type-page .products-section .section-desc .section-desc-text {
+  max-width: 500px;
 }
 .product-type-page .customize-cta {
   padding: 2rem;

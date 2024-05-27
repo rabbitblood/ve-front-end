@@ -90,37 +90,45 @@ export default function ProductType() {
       <div className="product-type-page">
         <Banner slideData={slideData} />
         <div id="products-section" className="products-section">
-          <ToElementArrow
-            position="right"
-            toElementId="desc"
-            buttonText="To Feature"
-          />
-          <h2 className="section-name">
-            {series !== "None" ? `${series} Series` : ""} {type}
-          </h2>{" "}
-          {currentSeriesInfo && (
-            <StringToUppercasedFirstLetterParagraphElement
-              str={currentSeriesInfo?.serieShortDescription as string}
-              spanClassName="first-letter"
-              elementClassName="paragraph text"
+          <div className="section-desc">
+            <h2 className="section-name">
+              {series !== "None" ? `${series} Series` : ""} {type}
+            </h2>{" "}
+            <div className="section-desc-text">
+              {currentSeriesInfo && (
+                <StringToUppercasedFirstLetterParagraphElement
+                  str={currentSeriesInfo?.serieShortDescription as string}
+                  spanClassName="first-letter"
+                  elementClassName="paragraph text"
+                />
+              )}
+            </div>
+          </div>
+          <div>
+            {" "}
+            <ToElementArrow
+              position="right"
+              toElementId="desc"
+              buttonText="To Feature"
             />
-          )}
-          <CardContainer>
-            {products &&
-              type &&
-              series &&
-              products
-                .filter((value) => {
-                  return (
-                    value.type.typeName.toLowerCase() === type.toLowerCase() &&
-                    value.series.SerieName.toLowerCase() ===
-                      series.toLowerCase()
-                  );
-                })
-                .map((product, idx) => {
-                  return <ProductCard key={idx} product={product} />;
-                })}
-          </CardContainer>
+            <CardContainer>
+              {products &&
+                type &&
+                series &&
+                products
+                  .filter((value) => {
+                    return (
+                      value.type.typeName.toLowerCase() ===
+                        type.toLowerCase() &&
+                      value.series.SerieName.toLowerCase() ===
+                        series.toLowerCase()
+                    );
+                  })
+                  .map((product, idx) => {
+                    return <ProductCard key={idx} product={product} />;
+                  })}
+            </CardContainer>
+          </div>
         </div>
 
         <ProductTypeDescriptionSectionV2
