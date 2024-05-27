@@ -2,65 +2,101 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.cardLeft {
-  display: flex;
   gap: 1rem;
-  align-items: center;
-}
 
-.imageWrapper {
-  position: relative;
-}
-
-.productImage {
-  width: 54px;
-  height: 54px;
-  border-radius: 4px;
-}
-
-.quantity {
-  position: absolute;
-  text-align: center;
-  min-width: 1.2rem;
-  max-width: 1.2rem;
-  aspect-ratio: 1/1;
-  line-height: 1;
-  top: -0.3rem;
-  right: -0.3rem;
-  background-color: black;
-  color: white;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  &::-webkit-inner-spin-button,
-  &::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 15rem 1fr 2rem 4rem 3rem;
+    grid-template-areas: "image desc quantity price remove";
   }
-}
 
-.cardLeft h4 {
-  font-size: 1rem;
-}
+  .imageWrapper {
+    grid-area: image;
+    position: relative;
 
-.cardLeft p {
-  font-size: 0.875rem;
-  color: rgb(119, 119, 119);
-}
+    .productImage {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.2rem;
 
-.removeButton {
-  position: absolute;
-  background-color: red;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  width: 1.2rem;
-  height: 1.2rem;
-  bottom: 0;
-  right: -0.3rem;
-  border: solid 0.1rem black;
+      @media screen and (min-width: 768px) {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  .desc {
+    grid-area: desc;
+
+    h4 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: rgb(119, 119, 119);
+    }
+  }
+
+  .quantity {
+    grid-area: quantity;
+    position: absolute;
+    text-align: center;
+    min-width: 1.2rem;
+    max-width: 1.2rem;
+    aspect-ratio: 1/1;
+    line-height: 1;
+    top: -0.3rem;
+    right: -0.3rem;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      justify-self: center;
+      position: relative;
+      text-align: center;
+      top: unset;
+      right: unset;
+      border-radius: 0;
+      color: black;
+      text-decoration: underline;
+      //remove background color
+      background-color: unset;
+      border: unset;
+    }
+  }
+  .price {
+    grid-area: price;
+    font-size: 1rem;
+  }
+
+  .removeButton {
+    position: absolute;
+    background-color: red;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 1.2rem;
+    height: 1.2rem;
+    bottom: 0;
+    right: -0.3rem;
+    border: solid 0.1rem black;
+  }
+
+  .delete-button {
+    grid-area: remove;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

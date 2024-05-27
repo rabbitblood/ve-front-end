@@ -4,13 +4,15 @@ import { modifyItemQuantity } from "@/lib/redux/store/cartSlice";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { HTMLAttributes, useEffect, useRef, useState } from "react";
 import { useAppSelector } from "@/lib/redux/reduxDispatcher";
-import xIcon from "@/assets/icons/x.svg";
+// import xIcon from "@/assets/icons/x.svg";
+import { useIsMobile } from "@/hooks/pageUtil";
 
 interface Prop extends HTMLAttributes<HTMLDivElement> {
   product: VeCartItem;
 }
 
 export const CartItem = (props: Prop) => {
+  const isMobile = useIsMobile();
   const itemAmountInput = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
   const [comboProduct, setComboProduct] = useState<VeProduct | null>(null);
@@ -52,8 +54,8 @@ export const CartItem = (props: Prop) => {
 
   return (
     <div className={styles.card}>
-      <div className={styles.cardLeft}>
-        <div className={styles.imageWrapper}>
+      <div className={styles.imageWrapper}>
+        {isMobile && (
           <input
             ref={itemAmountInput}
             type="number"
@@ -78,29 +80,67 @@ export const CartItem = (props: Prop) => {
               );
             }}
           />
-          <img
+        )}
+        {/* <img
             src={xIcon}
             className={styles.removeButton}
             onClick={removeItemHandler}
-          ></img>
-          <img
-            src={props.product.imageUrl}
-            alt={props.product.productName}
-            className={styles.productImage}
-          />
+          ></img> */}
+        <img
+          src={props.product.imageUrl}
+          alt={props.product.productName}
+          className={styles.productImage}
+        />
+        {isMobile && (
+          <div className={styles["delete-button"]} onClick={removeItemHandler}>
+            Delete
+          </div>
+        )}
+      </div>{" "}
+      {!isMobile && (
+        <div className={styles["delete-button"]} onClick={removeItemHandler}>
+          Delete
         </div>
-        <div>
-          <h4>
-            {props.product.productName}
-            {props.product.color ? ` - ${props.product.color}` : ""}
-            {props.product.size ? ` - ${props.product.size}` : ""}
-            {props.product.comboId &&
-              " - (Combo With " + (comboProduct?.name + ")")}
-          </h4>
-          <p>{props.product.productDesc}</p>
-        </div>
+      )}
+      <div className={styles["desc"]}>
+        <h4>
+          {props.product.productName}
+          {props.product.color ? ` - ${props.product.color}` : ""}
+          {props.product.size ? ` - ${props.product.size}` : ""}
+          {props.product.comboId &&
+            " - (Combo With " + (comboProduct?.name + ")")}
+        </h4>
+        <p>{props.product.productDesc}</p>
       </div>
-      <p>$ {props.product.price * props.product.amount}</p>
+      {!isMobile && (
+        <input
+          ref={itemAmountInput}
+          type="number"
+          step={1}
+          className={styles.quantity}
+          defaultValue={props.product.amount.toString()}
+          onKeyDown={(e) => {
+            if (e.key === "e" || e.key === "+" || e.key === "-") {
+              e.preventDefault();
+            }
+            if (e.key === "Enter") {
+              e.stopPropagation();
+              e.preventDefault();
+              e.currentTarget.blur();
+            }
+          }}
+          onBlurCapture={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            modifyItemQuantityHandler(
+              Number(itemAmountInput.current?.value) ?? 0
+            );
+          }}
+        />
+      )}
+      <p className={styles["price"]}>
+        ${props.product.price * props.product.amount}
+      </p>
     </div>
   );
 };

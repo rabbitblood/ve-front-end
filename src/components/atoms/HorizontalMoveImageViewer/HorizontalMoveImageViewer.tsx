@@ -17,7 +17,10 @@ interface HorizontalMoveImageViewerProps
 }
 
 export interface HorizontalMoveImageViewerRef
-  extends React.RefObject<{ backToInitialPosition: () => void }> {}
+  extends React.RefObject<{
+    backToInitialPosition: () => void;
+    ToPosition: (index: number) => void;
+  }> {}
 
 const HorizontalMoveImageViewer = forwardRef<
   HorizontalMoveImageViewerRef,
@@ -49,6 +52,7 @@ const HorizontalMoveImageViewer = forwardRef<
   useImperativeHandle(ref, () => ({
     current: {
       backToInitialPosition: backToInitialPosition,
+      ToPosition: ToPosition,
     },
   }));
 
@@ -102,6 +106,10 @@ const HorizontalMoveImageViewer = forwardRef<
 
   function backToInitialPosition() {
     setCurrentImageIndex(0);
+  }
+
+  function ToPosition(index: number) {
+    setCurrentImageIndex(index);
   }
 
   return (

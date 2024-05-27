@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
 import IntroSection from "@/components/organisms/IntroSection/IntroSection";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -9,19 +9,21 @@ import { VeAllTypeInfo } from "@/types/builderio";
 import { HorizontalMoveImageViewerRef } from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
 
 export default function ProductIntro() {
-  //get param
+  //get url param
+  const [searchParams] = useSearchParams();
+
   const { type } = useParams<{ type: string }>();
   const [serie, setSerie] = useState<VeProductSeries>({
-    SerieName: "classic",
+    SerieName: "",
     type: { typeName: type as string },
   });
   const dispatch = useAppDispatch();
   const [typeInfo, setTypeInfo] = useState<VeAllTypeInfo>();
   const [seriesDisplay, setSeriesDisplay] =
     useState<{ seriesName: string; description: string; image: string }[]>();
-
   const imageGallery = useRef<HorizontalMoveImageViewerRef>(null);
 
+  //usecallbacks
   const changeSerieHandler = useCallback(
     (index: number) => {
       if (!seriesDisplay || !seriesDisplay[index]) return;
@@ -42,14 +44,34 @@ export default function ProductIntro() {
   useEffect(() => {
     getDataByName("all-product-type-info").then((data) => {
       setTypeInfo(data);
-      changeSerieHandler(0);
     });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    changeSerieHandler(0);
-  }, [changeSerieHandler, seriesDisplay]);
+    //check if the serie is in the seriesDisplay,
+    //timeout to wait for the initial render of the component
+    setTimeout(() => {
+      if (!seriesDisplay) return;
+      if (!imageGallery.current) return;
+
+      const serieIndex = seriesDisplay.findIndex(
+        (serieDisplay) =>
+          serieDisplay.seriesName.toLowerCase() ===
+          searchParams.get("serie")?.toLowerCase()
+      );
+
+      if (serieIndex !== -1) {
+        changeSerieHandler(serieIndex);
+        if (imageGallery.current?.current) {
+          imageGallery.current.current.ToPosition(serieIndex);
+        }
+      } else {
+        changeSerieHandler(0);
+      }
+    }, 100);
+  }, [changeSerieHandler, searchParams, seriesDisplay, type]);
 
   useEffect(() => {
     if (!typeInfo || !type) return;

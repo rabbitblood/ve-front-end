@@ -236,14 +236,13 @@ export default function Product() {
                     <p>Preorder. Approximately 30 days arrive</p>
                   )}
                 </div>
-                {isMobile && (
+                {isMobile && simmilarProducts.length > 0 && (
                   <div>
                     <h2>people also bought:</h2>
                     <CardContainer>
-                      {simmilarProducts.length > 0 &&
-                        simmilarProducts.map((product, key) => (
-                          <ProductCard key={key} product={product} />
-                        ))}
+                      {simmilarProducts.map((product, key) => (
+                        <ProductCard key={key} product={product} />
+                      ))}
                     </CardContainer>
                   </div>
                 )}

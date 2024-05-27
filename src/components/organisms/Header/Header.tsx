@@ -71,12 +71,14 @@ export default function Header() {
               </Link>
             </div> */}
             <Link to={"/checkout/order-summary"}>
-              <img
-                className={"icon" + (highlightCart ? " highlight" : "")}
-                src={cartIcon}
-                alt="shopping cart"
-              />
-              {cartAmount}
+              <div className="icon-container">
+                <img
+                  className={"icon" + (highlightCart ? " highlight" : "")}
+                  src={cartIcon}
+                  alt="shopping cart"
+                />
+                <span className="cart-amount">{cartAmount}</span>
+              </div>
             </Link>
 
             {/* <div>

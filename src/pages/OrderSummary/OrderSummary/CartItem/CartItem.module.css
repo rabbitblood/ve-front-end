@@ -2,25 +2,42 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.cardLeft {
-  display: flex;
   gap: 1rem;
-  align-items: center;
 }
-
-.imageWrapper {
+@media screen and (min-width: 768px) {
+  .card {
+    display: grid;
+    grid-template-columns: 15rem 1fr 2rem 4rem 3rem;
+    grid-template-areas: "image desc quantity price remove";
+  }
+}
+.card .imageWrapper {
+  grid-area: image;
   position: relative;
 }
-
-.productImage {
-  width: 54px;
-  height: 54px;
-  border-radius: 4px;
+.card .imageWrapper .productImage {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.2rem;
 }
-
-.quantity {
+@media screen and (min-width: 768px) {
+  .card .imageWrapper .productImage {
+    width: 100%;
+    height: auto;
+  }
+}
+.card .desc {
+  grid-area: desc;
+}
+.card .desc h4 {
+  font-size: 1rem;
+}
+.card .desc p {
+  font-size: 0.875rem;
+  color: rgb(119, 119, 119);
+}
+.card .quantity {
+  grid-area: quantity;
   position: absolute;
   text-align: center;
   min-width: 1.2rem;
@@ -31,27 +48,35 @@
   right: -0.3rem;
   background-color: black;
   color: white;
-  border-radius: 50px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
-.quantity::-webkit-inner-spin-button, .quantity::-webkit-outer-spin-button {
+.card .quantity::-webkit-inner-spin-button, .card .quantity::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-.cardLeft h4 {
+@media screen and (min-width: 768px) {
+  .card .quantity {
+    justify-self: center;
+    position: relative;
+    text-align: center;
+    top: unset;
+    right: unset;
+    border-radius: 0;
+    color: black;
+    text-decoration: underline;
+    background-color: unset;
+    border: unset;
+  }
+}
+.card .price {
+  grid-area: price;
   font-size: 1rem;
 }
-
-.cardLeft p {
-  font-size: 0.875rem;
-  color: rgb(119, 119, 119);
-}
-
-.removeButton {
+.card .removeButton {
   position: absolute;
   background-color: red;
   border: none;
@@ -62,6 +87,12 @@
   bottom: 0;
   right: -0.3rem;
   border: solid 0.1rem black;
+}
+.card .delete-button {
+  grid-area: remove;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=CartItem.module.css.map */
