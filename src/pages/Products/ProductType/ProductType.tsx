@@ -89,28 +89,27 @@ export default function ProductType() {
     <BasicLayout>
       <div className="product-type-page">
         <Banner slideData={slideData} />
-        <div id="products-section" className="products-section">
-          <div className="section-desc">
-            <h2 className="section-name">
-              {series !== "None" ? `${series} Series` : ""} {type}
-            </h2>{" "}
-            <div className="section-desc-text">
-              {currentSeriesInfo && (
-                <StringToUppercasedFirstLetterParagraphElement
-                  str={currentSeriesInfo?.serieShortDescription as string}
-                  spanClassName="first-letter"
-                  elementClassName="paragraph text"
-                />
-              )}
-            </div>
-          </div>
-          <div>
-            {" "}
-            <ToElementArrow
-              position="right"
-              toElementId="desc"
-              buttonText="To Feature"
-            />
+        <div>
+          <ToElementArrow
+            position="right"
+            toElementId="desc"
+            buttonText="To Feature"
+          />
+          <div id="products-section" className="products-section">
+            <div className="section-desc">
+              <h2 className="section-name">
+                {series !== "None" ? `${series} Series` : ""} {type}
+              </h2>{" "}
+              <div className="section-desc-text">
+                {currentSeriesInfo && (
+                  <StringToUppercasedFirstLetterParagraphElement
+                    str={currentSeriesInfo?.serieShortDescription as string}
+                    spanClassName="first-letter"
+                    elementClassName="paragraph text"
+                  />
+                )}
+              </div>
+            </div>{" "}
             <CardContainer>
               {products &&
                 type &&
@@ -130,7 +129,6 @@ export default function ProductType() {
             </CardContainer>
           </div>
         </div>
-
         <ProductTypeDescriptionSectionV2
           type={type as string}
           series={series as string}

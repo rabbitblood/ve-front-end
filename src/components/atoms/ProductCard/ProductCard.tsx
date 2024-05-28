@@ -13,8 +13,14 @@ export default function ProductCard({ product }: ProductCardProps) {
       ? product.options.colorOptions[0].colorName
       : undefined
   );
-
   const [hoverCard, setHoverCard] = useState<boolean>(false);
+
+  const getProductName = useCallback(() => {
+    if (product.options.colorOptions.length > 0) {
+      return `${currentColor}`;
+    }
+    return product.name;
+  }, [product.options.colorOptions.length, product.name, currentColor]);
 
   const getDisplayImage = useCallback(() => {
     if (currentColor) {
@@ -53,9 +59,11 @@ export default function ProductCard({ product }: ProductCardProps) {
           currentColor={currentColor ?? ""}
           setCurrentColor={setCurrentColor}
         />
-        <h3 className="product-name">{product.name}</h3>
+        <h3 className="product-name">{getProductName()}</h3>
         <p className="product-base">
-          {product.series.SerieName !== "None" ? product.series.SerieName : ""}
+          {product.series.SerieName !== "None"
+            ? `${product.series.SerieName} series`
+            : ""}
         </p>
         <p className="product-desc">{product.description}</p>
         <p className="product-price">{product.price} CAD</p>

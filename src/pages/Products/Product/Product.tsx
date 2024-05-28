@@ -41,6 +41,14 @@ export default function Product() {
       });
   }, [product]);
 
+  const getProductName = useCallback(() => {
+    if (!product) return "";
+    if (product.options.colorOptions.length > 0) {
+      return `${currentColor}`;
+    }
+    return product.name;
+  }, [product, currentColor]);
+
   const getCalculatedPrice = useCallback(async () => {
     let price = product?.price ?? 0;
 
@@ -183,10 +191,10 @@ export default function Product() {
             )}
             <div className="detail">
               <div className="info-container">
-                <h2 className="title">{product?.name}</h2>
+                <h2 className="title">{getProductName()}</h2>
                 <h3 className="sub-title">
                   {product?.series.SerieName !== "None"
-                    ? product?.series.SerieName
+                    ? `${product?.series.SerieName} series`
                     : ""}
                 </h3>
 
