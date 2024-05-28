@@ -50,6 +50,7 @@
   margin: 0.5rem 0;
 }
 .text-with-image .image {
+  aspect-ratio: 7/5;
   grid-area: image;
 }
 .text-with-image .text-group {
@@ -57,9 +58,10 @@
 }
 .text-with-image .text-group .text {
   font-weight: 300;
-  font-size: 0.6rem;
+  font-size: 0.5rem;
 }
 .text-with-image .text-group .title {
+  font-size: 1.5rem;
   font-weight: 100;
 }
 
