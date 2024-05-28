@@ -4,17 +4,19 @@ import "./ToElementArrow.css";
 
 interface ToElementArrowProps {
   toElementId: string;
-  position?: "left" | "right" | "center";
+  horizontalPosition?: "left" | "right" | "h-center";
+  verticalPosition?: "top" | "bottom" | "v-center";
   buttonText?: string;
 }
 
 export default function ToElementArrow({
-  position = "left",
+  horizontalPosition = "left",
+  verticalPosition = "top",
   ...props
 }: ToElementArrowProps) {
   return (
     <div
-      className={`to-products-button ${position}`}
+      className={`to-products-button ${horizontalPosition} ${verticalPosition}`}
       onClick={() => scrollToElement(props.toElementId)}
     >
       {props.buttonText && <p className="text">{props.buttonText}</p>}

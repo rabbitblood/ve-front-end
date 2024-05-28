@@ -36,9 +36,25 @@
     left: 100%;
   }
 
-  &.center {
+  &.h-center {
     left: 50%;
     transform: translate(-50%, 0);
+  }
+
+  &.top {
+    top: 0;
+  }
+
+  &.v-center {
+    top: 50%;
+  }
+
+  &.bottom {
+    top: 90%;
+  }
+
+  &.h-center.bottom {
+    top: 90%;
   }
 
   &:hover {

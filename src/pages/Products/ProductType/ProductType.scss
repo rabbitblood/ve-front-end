@@ -23,37 +23,38 @@
       transform: translate(-50%, -50%);
     }
   }
+  .section-before-feature {
+    position: relative;
+    .products-section {
+      padding: 2rem;
+      background: rgb(255, 255, 255);
+      color: black;
 
-  .products-section {
-    padding: 2rem;
-    background: rgb(255, 255, 255);
-    color: black;
-
-    .section-desc {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-weight: 100;
-
-      .section-name {
-        font-size: 2rem;
+      .section-desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         font-weight: 100;
-        text-align: center;
-      }
 
-      .section-desc-text {
-        text-align: center;
-        max-width: 900px;
-        padding-bottom: 7rem;
+        .section-name {
+          font-size: 2rem;
+          font-weight: 100;
+          text-align: center;
+        }
 
-        .paragraph {
-          margin: 0;
+        .section-desc-text {
+          text-align: center;
+          max-width: 900px;
+          padding-bottom: 7rem;
+
+          .paragraph {
+            margin: 0;
+          }
         }
       }
     }
   }
-
   .customize-cta {
     padding: 2rem;
     background-color: gray;

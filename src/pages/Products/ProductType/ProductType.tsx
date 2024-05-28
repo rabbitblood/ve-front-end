@@ -19,7 +19,10 @@ import CardContainer from "@/components/layout/CardContainerLayout/CardContainer
 import ToElementArrow from "@/components/atoms/ToElementArrow/ToElementArrow";
 import { StringToUppercasedFirstLetterParagraphElement } from "@/lib/util/paragraphUtil";
 
+import { useIsMobile } from "@/hooks/pageUtil";
+
 export default function ProductType() {
+  const isMobile = useIsMobile();
   //get param
   const { type, series } = useParams<{ type: string; series: string }>();
   const dispatch = useAppDispatch();
@@ -89,9 +92,10 @@ export default function ProductType() {
     <BasicLayout>
       <div className="product-type-page">
         <Banner slideData={slideData} />
-        <div>
+        <div className="section-before-feature">
           <ToElementArrow
-            position="right"
+            horizontalPosition={isMobile ? "h-center" : "right"}
+            verticalPosition={isMobile ? "bottom" : "top"}
             toElementId="desc"
             buttonText="To Feature"
           />

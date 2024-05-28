@@ -32,9 +32,21 @@
 .to-products-button.right {
   left: 100%;
 }
-.to-products-button.center {
+.to-products-button.h-center {
   left: 50%;
   transform: translate(-50%, 0);
+}
+.to-products-button.top {
+  top: 0;
+}
+.to-products-button.v-center {
+  top: 50%;
+}
+.to-products-button.bottom {
+  top: 90%;
+}
+.to-products-button.h-center.bottom {
+  top: 90%;
 }
 .to-products-button:hover {
   background-color: black;
