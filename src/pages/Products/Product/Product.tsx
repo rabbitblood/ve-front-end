@@ -210,16 +210,6 @@ export default function Product() {
                     )}
                 </div>
 
-                {product &&
-                  product.options.sizeOptions &&
-                  product.options.sizeOptions.length > 0 && (
-                    <SizeSelection
-                      product={product as VeProduct}
-                      currentSize={currentSize}
-                      setCurrentSize={setCurrentSize}
-                    />
-                  )}
-
                 {/* {product &&
                   product.options.comboOptions &&
                   product.options.comboOptions.length > 0 && (
@@ -232,6 +222,21 @@ export default function Product() {
 
                 <p className="price">{calculatedPrice} CAD</p>
                 <p className="desc">{product?.description}</p>
+
+                {(product &&
+                  product.options.sizeOptions &&
+                  product.options.sizeOptions.length > 0 && (
+                    <SizeSelection
+                      product={product as VeProduct}
+                      currentSize={currentSize}
+                      setCurrentSize={setCurrentSize}
+                    />
+                  )) || (
+                  <p className="size-detail">
+                    Size: 8.5cm x 5cm x 2cm (length x width x height)
+                  </p>
+                )}
+
                 <div className="form-button-container">
                   <FormButton
                     onClick={() => {
@@ -241,7 +246,9 @@ export default function Product() {
                     Add to cart
                   </FormButton>{" "}
                   {product?.isPreorder && (
-                    <p>Preorder. Approximately 30 days arrive</p>
+                    <p className="preorder-text">
+                      Preorder. Approximately 10 days in stock
+                    </p>
                   )}
                 </div>
                 {isMobile && simmilarProducts.length > 0 && (

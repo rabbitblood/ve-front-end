@@ -1,6 +1,6 @@
 .product-page {
   position: relative;
-  margin: 0;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,17 +16,22 @@
   }
 }
 .product-page .display {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
   height: 60vh;
   width: 100%;
 }
 @media (min-width: 768px) {
   .product-page .display {
     height: unset;
+    aspect-ratio: 16/9;
   }
 }
 .product-page .display .image {
-  height: 90vh;
-  width: 100%;
+  height: 90%;
+  aspect-ratio: 16/9;
+  width: 90%;
   object-fit: cover;
 }
 .product-page .product-image-container.product {
@@ -162,13 +167,14 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  padding: 0.5rem;
+  padding: 3rem;
   width: 100%;
+  max-width: 450px;
 }
 @media screen and (min-width: 768px) {
   .product-page .detail .info-container {
     position: sticky;
-    top: 6rem;
+    top: 11rem;
     margin: 0;
     width: 100%;
     align-items: start;
@@ -176,35 +182,49 @@
 }
 .product-page .detail .info-container .title {
   align-self: start;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0 1rem;
+  font-size: 2.5rem;
+  font-weight: 100;
 }
 .product-page .detail .info-container .sub-title {
   align-self: start;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  margin: 0 1rem;
   margin-bottom: 1rem;
-  line-height: 1rem;
+  line-height: 0;
+  padding-left: 0.2rem;
 }
 .product-page .detail .info-container .color-section {
   align-self: start;
-  margin-bottom: 1rem;
+  margin: 0;
+  padding: 0;
+}
+.product-page .detail .info-container .color-section .color-options {
+  padding: 0;
 }
 .product-page .detail .info-container .price {
+  font-size: 0.8rem;
+  margin-top: 1rem;
   align-self: start;
-  margin: 0 1rem;
 }
 .product-page .detail .info-container .desc {
-  font-size: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.6rem;
   font-weight: 400;
-  margin: 1rem;
+}
+.product-page .detail .size-detail {
+  margin: 0.5rem 0;
+  font-size: 0.5rem;
+  align-self: start;
+  margin-bottom: 2rem;
 }
 .product-page .detail .form-button-container {
-  margin: 1rem;
+  justify-self: start;
   margin-bottom: 3rem;
   width: calc(100% - 2rem);
+}
+.product-page .detail .form-button-container .preorder-text {
+  font-size: 0.6rem;
+  font-weight: 500;
 }
 
 .more-arrow {
