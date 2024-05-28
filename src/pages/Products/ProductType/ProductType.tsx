@@ -98,7 +98,7 @@ export default function ProductType() {
           <div id="products-section" className="products-section">
             <div className="section-desc">
               <h2 className="section-name">
-                {series !== "None" ? `${series} Series` : ""} {type}
+                {series !== "None" ? `The ${series} Series` : ""}
               </h2>{" "}
               <div className="section-desc-text">
                 {currentSeriesInfo && (
@@ -127,6 +127,16 @@ export default function ProductType() {
                     return <ProductCard key={idx} product={product} />;
                   })}
             </CardContainer>
+          </div>
+          <div className="middle-banner-container">
+            <video
+              autoPlay
+              loop
+              muted
+              className="middle-banner"
+              src={currentSeriesInfo?.middleBannerShow}
+              poster={currentSeriesInfo?.middleBannerShow}
+            ></video>
           </div>
         </div>
         <ProductTypeDescriptionSectionV2

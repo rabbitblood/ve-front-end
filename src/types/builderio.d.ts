@@ -14,6 +14,7 @@ export interface SeriesInfoEntity {
   series: Series;
   seriesFeatureImages?: SeriesFeatureImagesEntity[] | null;
   descriptionPageSections?: (DescriptionPageSectionsEntity | null)[] | null;
+  middleBannerShow: string;
 }
 export interface Series {
   seriesName: string;

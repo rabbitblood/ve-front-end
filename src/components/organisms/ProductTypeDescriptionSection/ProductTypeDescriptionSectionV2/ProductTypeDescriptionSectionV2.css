@@ -4,6 +4,7 @@
   flex-direction: column;
 }
 .product-type-desc .desc-title {
+  margin: 2rem;
   text-align: center;
 }
 

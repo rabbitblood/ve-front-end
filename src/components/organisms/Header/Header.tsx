@@ -105,14 +105,14 @@ export default function Header() {
         )}
 
         <nav className={`nav ${openNav ? "open" : ""}`}>
-          <Link to={"/products/ProductIntro/" + "chocker"}>
+          <Link to={"/products/ProductIntro/" + "choker"}>
             <div
               className="nav-link"
               onClick={() => {
                 setOpenNav(!openNav);
               }}
             >
-              Chocker
+              Choker
             </div>
           </Link>
 
