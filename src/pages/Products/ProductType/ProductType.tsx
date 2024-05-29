@@ -8,7 +8,7 @@ import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { setNav } from "@/lib/redux/store/navSlice";
 import ProductCard from "@/components/atoms/ProductCard/ProductCard";
 import ProductTypeDescriptionSectionV2 from "@/components/organisms/ProductTypeDescriptionSection/ProductTypeDescriptionSectionV2/ProductTypeDescriptionSectionV2";
-
+import { motion } from "framer-motion";
 import {
   getAllProductsAsVeProducts,
   getDataByName,
@@ -23,14 +23,26 @@ import { useIsMobile } from "@/hooks/pageUtil";
 
 export default function ProductType() {
   const isMobile = useIsMobile();
-  //get param
   const { type, series } = useParams<{ type: string; series: string }>();
   const dispatch = useAppDispatch();
   const [products, setProducts] = useState<VeProduct[]>([]);
-
   //const [typeInfo, setTypeInfo] = useState<VeAllTypeInfo>();
   const [currentSeriesInfo, setCurrentSeriesInfo] =
     useState<SeriesInfoEntity>();
+
+  //framer animations
+  const descSectionAnimationVariant = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.5,
+        duration: 0.5,
+      },
+    },
+  };
 
   useEffect(() => {
     getDataByName("all-product-type-info").then((data) => {
@@ -100,7 +112,12 @@ export default function ProductType() {
             buttonText="To Feature"
           />
           <div id="products-section" className="products-section">
-            <div className="section-desc">
+            <motion.div
+              className="section-desc"
+              variants={descSectionAnimationVariant}
+              initial="hidden"
+              whileInView={descSectionAnimationVariant.visible}
+            >
               <h2 className="section-name">
                 {series !== "None" ? `The ${series} Series` : ""}
               </h2>{" "}
@@ -113,7 +130,7 @@ export default function ProductType() {
                   />
                 )}
               </div>
-            </div>{" "}
+            </motion.div>{" "}
             <CardContainer>
               {products &&
                 type &&
