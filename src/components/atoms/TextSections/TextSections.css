@@ -9,13 +9,6 @@
   width: 100%;
   max-width: 1200px;
 }
-.whole-block .image,
-.whole-block .text,
-.whole-block .title {
-  color: black;
-  width: 100%;
-  margin: 0.5rem 0;
-}
 
 .text-with-image {
   color: black;
@@ -42,6 +35,10 @@
     grid-template-areas: "image text";
   }
 }
+
+.whole-block .image,
+.whole-block .text,
+.whole-block .title,
 .text-with-image .image,
 .text-with-image .text,
 .text-with-image .title {
@@ -49,20 +46,35 @@
   width: 100%;
   margin: 0.5rem 0;
 }
+.whole-block .image,
 .text-with-image .image {
   aspect-ratio: 7/5;
   grid-area: image;
 }
+.whole-block .text-group,
 .text-with-image .text-group {
   grid-area: text;
 }
+.whole-block .text-group .text,
 .text-with-image .text-group .text {
+  line-height: 1rem;
   font-weight: 300;
   font-size: 0.5rem;
 }
+.whole-block .text-group .title,
 .text-with-image .text-group .title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 100;
+}
+.whole-block .image,
+.whole-block .text,
+.whole-block .title,
+.text-with-image .image,
+.text-with-image .text,
+.text-with-image .title {
+  color: black;
+  width: 100%;
+  margin: 0.5rem 0;
 }
 
 /*# sourceMappingURL=TextSections.css.map */

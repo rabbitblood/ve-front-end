@@ -15,7 +15,7 @@ export default function WholeBlock(props: Props) {
       {props.image ? (
         <img className="image" src={props.image} />
       ) : (
-        <div>
+        <div className="text-group">
           <h2 className="title">{props.title}</h2>
           <StringToUppercasedFirstLetterParagraphElement
             str={props.text ?? ""}

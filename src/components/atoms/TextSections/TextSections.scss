@@ -8,14 +8,6 @@
   margin: 2rem auto;
   width: 100%;
   max-width: 1200px;
-
-  .image,
-  .text,
-  .title {
-    color: black;
-    width: 100%;
-    margin: 0.5rem 0;
-  }
 }
 
 .text-with-image {
@@ -43,7 +35,9 @@
       grid-template-areas: "image text";
     }
   }
-
+}
+.whole-block,
+.text-with-image {
   .image,
   .text,
   .title {
@@ -60,12 +54,20 @@
   .text-group {
     grid-area: text;
     .text {
+      line-height: 1rem;
       font-weight: 300;
       font-size: 0.5rem;
     }
     .title {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 100;
     }
+  }
+  .image,
+  .text,
+  .title {
+    color: black;
+    width: 100%;
+    margin: 0.5rem 0;
   }
 }

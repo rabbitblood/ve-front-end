@@ -96,6 +96,7 @@ export default function Header() {
               {pageNav.nav.map((value, idx) => {
                 return (
                   <li key={idx} className="nav-link">
+                    <div className="custom-marker">■</div>
                     <Link to={value.url}>{value.name}</Link>
                   </li>
                 );

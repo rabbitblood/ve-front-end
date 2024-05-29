@@ -82,7 +82,7 @@ export default function ProductType() {
             url: `/products/ProductIntro/${type}`,
           },
           {
-            name: (series !== "None" ? series : type) as string,
+            name: (series !== "None" ? `The ${series} Series` : type) as string,
             url: `/products/${type}/${series}`,
           },
         ],
