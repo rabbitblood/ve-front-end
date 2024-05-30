@@ -1,10 +1,15 @@
 .banner {
   position: relative;
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 12rem);
   margin-bottom: 1rem;
 }
 .banner.parent-size {
   height: 100%;
+}
+@media (min-width: 768px) {
+  .banner {
+    height: calc(100vh - 5rem);
+  }
 }
 .banner .banner-text-container {
   color: white;

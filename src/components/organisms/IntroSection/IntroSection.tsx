@@ -54,19 +54,19 @@ const IntroSection = forwardRef(
       },
     };
 
-    const detailChildrenAnimationVariant = {
-      hidden: {
-        opacity: 0,
-        transform: "translateX(-100px)",
-      },
-      visible: {
-        opacity: 1,
-        transform: "translateX(0px)",
-        transition: {
-          staggerChildren: 0.6,
-        },
-      },
-    };
+    // const detailChildrenAnimationVariant = {
+    //   hidden: {
+    //     opacity: 0,
+    //     transform: "translateX(-100px)",
+    //   },
+    //   visible: {
+    //     opacity: 1,
+    //     transform: "translateX(0px)",
+    //     transition: {
+    //       staggerChildren: 0.6,
+    //     },
+    //   },
+    // };
 
     return (
       <section className="introduction-section">
@@ -91,21 +91,22 @@ const IntroSection = forwardRef(
         >
           <motion.div
             className="info-container"
-            variants={detailChildrenAnimationVariant}
+            //variants={detailChildrenAnimationVariant}
           >
             <motion.h2
               className="title"
-              variants={detailChildrenAnimationVariant}
+              //variants={detailChildrenAnimationVariant}
             >
               {props.title}
             </motion.h2>
             <motion.h3
               className="sub-title"
-              variants={detailChildrenAnimationVariant}
+              //variants={detailChildrenAnimationVariant}
             >
               {props.subTitle}
             </motion.h3>
-            <motion.div variants={detailChildrenAnimationVariant}>
+            <motion.div //variants={detailChildrenAnimationVariant}
+            >
               <StringToUppercasedFirstLetterParagraphElement
                 str={props.description}
                 elementClassName="paragraph desc"
@@ -115,7 +116,7 @@ const IntroSection = forwardRef(
           </motion.div>
           <motion.div
             className="form-button-container"
-            variants={detailChildrenAnimationVariant}
+            //variants={detailChildrenAnimationVariant}
           >
             <Link to={props.exploreUrl as string}>
               <FormButton>Explore More</FormButton>{" "}

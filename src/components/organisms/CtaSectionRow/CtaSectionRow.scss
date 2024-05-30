@@ -4,6 +4,12 @@
     position: relative;
 
     .cta-image-container {
+      height: 70vh;
+
+      @media screen and (min-width: 768px) {
+        height: unset;
+      }
+
       .cta-image {
       }
     }
@@ -36,7 +42,7 @@
     }
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,12 +106,14 @@
   }
 
   &.swap {
-    .cta-section-row {
-      grid-template-columns: 1fr 2fr;
-      grid-template-areas: "text image";
+    @media screen and (min-width: 768px) {
+      .cta-section-row {
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: "text image";
 
-      .cta-text-area {
-        right: 0;
+        .cta-text-area {
+          right: 0;
+        }
       }
     }
   }

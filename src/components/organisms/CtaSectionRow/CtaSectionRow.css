@@ -4,6 +4,14 @@
 .cta-section-row-container .cta-section-row {
   position: relative;
 }
+.cta-section-row-container .cta-section-row .cta-image-container {
+  height: 70vh;
+}
+@media screen and (min-width: 768px) {
+  .cta-section-row-container .cta-section-row .cta-image-container {
+    height: unset;
+  }
+}
 .cta-section-row-container .cta-section-row .cta-text-area {
   position: absolute;
   bottom: 0;
@@ -26,7 +34,7 @@
 .cta-section-row-container .cta-section-row .cta-text-area .button-container {
   max-width: 100%;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .cta-section-row-container {
     display: flex;
     justify-content: center;
@@ -83,12 +91,14 @@
     margin: 2rem 0;
   }
 }
-.cta-section-row-container.swap .cta-section-row {
-  grid-template-columns: 1fr 2fr;
-  grid-template-areas: "text image";
-}
-.cta-section-row-container.swap .cta-section-row .cta-text-area {
-  right: 0;
+@media screen and (min-width: 768px) {
+  .cta-section-row-container.swap .cta-section-row {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "text image";
+  }
+  .cta-section-row-container.swap .cta-section-row .cta-text-area {
+    right: 0;
+  }
 }
 
 /*# sourceMappingURL=CtaSectionRow.css.map */
