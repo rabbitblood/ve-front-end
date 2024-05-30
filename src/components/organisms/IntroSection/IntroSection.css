@@ -97,6 +97,7 @@
 @media screen and (min-width: 768px) {
   .introduction-section .details .info-container .sub-title {
     margin: 0 1rem;
+    margin-bottom: 2rem;
   }
 }
 .introduction-section .details .info-container .price {

@@ -24,6 +24,39 @@
       transform: translate(-50%, -50%);
     }
   }
+
+  .section-desc {
+    color: black;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+
+    .section-name {
+      font-size: 1.3rem;
+      font-weight: 100;
+      text-align: center;
+    }
+
+    .section-desc-text {
+      font-family: "hahmlet";
+      font-size: 1rem;
+      font-weight: 100;
+      text-align: center;
+      max-width: 900px;
+      margin-top: 0.5rem;
+
+      .paragraph {
+        line-height: 1.5rem;
+        margin: 0;
+      }
+    }
+  }
+
   .section-before-feature {
     position: relative;
 
@@ -36,40 +69,6 @@
       position: relative;
       background: rgb(255, 255, 255);
       color: black;
-
-      .section-desc {
-        padding: 0 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-weight: 100;
-
-        .section-name {
-          font-size: 1.3rem;
-          font-weight: 100;
-          text-align: center;
-        }
-
-        .section-desc-text {
-          font-family: "hahmlet";
-          font-size: 1rem;
-          font-weight: 100;
-          text-align: center;
-          max-width: 900px;
-          margin-top: 0.5rem;
-          padding-bottom: 3rem;
-
-          @media screen and (min-width: 768px) {
-            padding-bottom: 7rem;
-          }
-
-          .paragraph {
-            line-height: 1.5rem;
-            margin: 0;
-          }
-        }
-      }
     }
   }
   .customize-cta {

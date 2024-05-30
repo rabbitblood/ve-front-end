@@ -23,6 +23,34 @@
   border-bottom-color: black;
   transform: translate(-50%, -50%);
 }
+.product-type-page .section-desc {
+  color: black;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 100;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.product-type-page .section-desc .section-name {
+  font-size: 1.3rem;
+  font-weight: 100;
+  text-align: center;
+}
+.product-type-page .section-desc .section-desc-text {
+  font-family: "hahmlet";
+  font-size: 1rem;
+  font-weight: 100;
+  text-align: center;
+  max-width: 900px;
+  margin-top: 0.5rem;
+}
+.product-type-page .section-desc .section-desc-text .paragraph {
+  line-height: 1.5rem;
+  margin: 0;
+}
 .product-type-page .section-before-feature {
   position: relative;
 }
@@ -34,37 +62,6 @@
   position: relative;
   background: rgb(255, 255, 255);
   color: black;
-}
-.product-type-page .section-before-feature .products-section .section-desc {
-  padding: 0 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-weight: 100;
-}
-.product-type-page .section-before-feature .products-section .section-desc .section-name {
-  font-size: 1.3rem;
-  font-weight: 100;
-  text-align: center;
-}
-.product-type-page .section-before-feature .products-section .section-desc .section-desc-text {
-  font-family: "hahmlet";
-  font-size: 1rem;
-  font-weight: 100;
-  text-align: center;
-  max-width: 900px;
-  margin-top: 0.5rem;
-  padding-bottom: 3rem;
-}
-@media screen and (min-width: 768px) {
-  .product-type-page .section-before-feature .products-section .section-desc .section-desc-text {
-    padding-bottom: 7rem;
-  }
-}
-.product-type-page .section-before-feature .products-section .section-desc .section-desc-text .paragraph {
-  line-height: 1.5rem;
-  margin: 0;
 }
 .product-type-page .customize-cta {
   padding: 2rem;

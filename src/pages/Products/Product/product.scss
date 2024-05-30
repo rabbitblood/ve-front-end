@@ -262,8 +262,11 @@
       .price {
         grid-area: price;
         font-size: 0.8rem;
-        margin-top: 1rem;
         align-self: start;
+
+        @media screen and (min-width: 768px) {
+          margin-top: 1rem;
+        }
       }
 
       .desc {
@@ -271,10 +274,12 @@
         margin-top: 0.5rem;
         font-size: 0.6rem;
         font-weight: 400;
+        min-height: 8vh;
       }
     }
 
     .size-detail {
+      color: gray;
       grid-area: size;
       margin: 0.5rem 0;
       font-size: 0.5rem;
@@ -297,6 +302,7 @@
       .preorder-text {
         font-size: 0.6rem;
         font-weight: 500;
+        color: gray;
       }
     }
   }

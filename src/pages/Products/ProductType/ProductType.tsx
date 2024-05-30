@@ -103,7 +103,29 @@ export default function ProductType() {
     <BasicLayout>
       <div className="product-type-page">
         <Banner slideData={slideData} />
+        <motion.div
+          className="section-desc"
+          variants={descSectionAnimationVariant}
+          initial="hidden"
+          whileInView={descSectionAnimationVariant.visible}
+        >
+          <h2 className="section-name">
+            {series !== "None"
+              ? `The ${series} Series`
+              : type?.toUpperCase() ?? ""}
+          </h2>{" "}
+          <div className="section-desc-text">
+            {currentSeriesInfo && (
+              <StringToUppercasedFirstLetterParagraphElement
+                str={currentSeriesInfo?.serieShortDescription as string}
+                spanClassName="first-letter"
+                elementClassName="paragraph text"
+              />
+            )}
+          </div>
+        </motion.div>{" "}
         <div className="section-before-feature">
+          {" "}
           <ToElementArrow
             horizontalPosition={isMobile ? "h-center" : "right"}
             verticalPosition={isMobile ? "bottom" : "top"}
@@ -111,25 +133,7 @@ export default function ProductType() {
             buttonText="To Feature"
           />
           <div id="products-section" className="products-section">
-            <motion.div
-              className="section-desc"
-              variants={descSectionAnimationVariant}
-              initial="hidden"
-              whileInView={descSectionAnimationVariant.visible}
-            >
-              <h2 className="section-name">
-                {series !== "None" ? `The ${series} Series` : ""}
-              </h2>{" "}
-              <div className="section-desc-text">
-                {currentSeriesInfo && (
-                  <StringToUppercasedFirstLetterParagraphElement
-                    str={currentSeriesInfo?.serieShortDescription as string}
-                    spanClassName="first-letter"
-                    elementClassName="paragraph text"
-                  />
-                )}
-              </div>
-            </motion.div>{" "}
+            {" "}
             <CardContainer>
               {products &&
                 type &&
