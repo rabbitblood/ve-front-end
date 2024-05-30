@@ -24,13 +24,20 @@
     }
   }
   .section-before-feature {
+    padding-top: 2rem;
     position: relative;
+
+    .to-products-button {
+      top: 5rem;
+    }
+
     .products-section {
-      padding: 2rem;
+      position: relative;
       background: rgb(255, 255, 255);
       color: black;
 
       .section-desc {
+        padding: 0 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
