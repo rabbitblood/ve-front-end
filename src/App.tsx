@@ -110,9 +110,8 @@ function App() {
         {slideData && <Banner slideData={slideData} />}
         <h1
           style={{
-            margin: "auto",
             textAlign: "center",
-            marginBottom: "3rem",
+            margin: "2rem 0",
             fontWeight: "100",
           }}
         >

@@ -1,7 +1,6 @@
 .banner {
   position: relative;
   height: calc(100vh - 12rem);
-  margin-bottom: 1rem;
 }
 .banner.parent-size {
   height: 100%;
