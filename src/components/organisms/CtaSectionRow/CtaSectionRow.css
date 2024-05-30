@@ -39,7 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem 0;
+    margin-bottom: 4rem;
   }
   .cta-section-row-container .cta-section-row {
     position: relative;
