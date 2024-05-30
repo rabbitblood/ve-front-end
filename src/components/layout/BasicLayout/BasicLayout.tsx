@@ -1,5 +1,5 @@
 import { HTMLAttributes, useEffect } from "react";
-import Footer from "@/components/Footer";
+import Footer from "@/components/organisms/Footer/Footer";
 import Header from "@/components/organisms/Header/Header";
 import { useLocation } from "react-router-dom";
 

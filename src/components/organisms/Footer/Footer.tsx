@@ -1,6 +1,7 @@
 // import facebookIcon from "@/assets/social-media-icon/facebook.svg";
 // import { FormButton } from "./atoms/FormButton/FormButton";
 import { Link } from "react-router-dom";
+import "./Footer.css";
 
 export default function Footer() {
   return (

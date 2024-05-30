@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Footer from "@/components/Footer";
+import Footer from "@/components/organisms/Footer/Footer";
 import Header from "./components/organisms/Header/Header";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "@/css/overwrite/react-image-gallery/react-image-gallery.css";
