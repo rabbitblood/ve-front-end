@@ -136,8 +136,13 @@
   list-style-type: none;
 }
 .header .menu .page-nav .page-nav-ul .nav-link .custom-marker {
+  background-image: url("https://imageio.forbes.com/specials-images/imageserve/5ed6636cdd5d320006caf841/The-Blackout-Tuesday-movement-is-causing-Instagram-feeds-to-turn-black-/960x0.jpg?format=jpg&width=1440");
+  object-fit: cover;
+  object-position: center;
   display: inline;
   position: absolute;
+  height: 0.2rem;
+  width: 0.2rem;
   top: 50%;
   left: -0.25rem;
   font-size: 0.5rem;
