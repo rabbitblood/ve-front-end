@@ -56,7 +56,11 @@
           text-align: center;
           max-width: 900px;
           margin-top: 0.5rem;
-          padding-bottom: 7rem;
+          padding-bottom: 3rem;
+
+          @media screen and (min-width: 768px) {
+            padding-bottom: 7rem;
+          }
 
           .paragraph {
             line-height: 1.5rem;

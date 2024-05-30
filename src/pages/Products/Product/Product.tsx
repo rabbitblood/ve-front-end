@@ -232,9 +232,7 @@ export default function Product() {
                       setCurrentSize={setCurrentSize}
                     />
                   )) || (
-                  <p className="size-detail">
-                    Size: 8.5cm x 5cm x 2cm (length x width x height)
-                  </p>
+                  <p className="size-detail">{product?.sizeDescription}</p>
                 )}
 
                 <div className="form-button-container">
