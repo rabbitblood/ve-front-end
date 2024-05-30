@@ -189,7 +189,7 @@
 
     .info-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
       grid-template-areas: "name color" "serie serie" "price price" "buy-button buy-button" "desc desc" "size size";
       flex-direction: column;
       justify-content: center;
@@ -215,7 +215,7 @@
       .title {
         grid-area: name;
         align-self: start;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 100;
       }
 
@@ -248,8 +248,8 @@
           }
 
           .color-option {
-            width: 2rem;
-            height: 2rem;
+            width: 1rem;
+            height: 1rem;
 
             @media screen and (min-width: 768px) {
               width: 1rem;
@@ -271,10 +271,13 @@
 
       .desc {
         grid-area: desc;
-        margin-top: 0.5rem;
-        font-size: 0.6rem;
-        font-weight: 400;
-        min-height: 8vh;
+        font-size: 0.8rem;
+        font-weight: 500;
+        min-height: 5vh;
+
+        @media screen and (min-width: 768px) {
+          margin-top: 0.5rem;
+        }
       }
     }
 
