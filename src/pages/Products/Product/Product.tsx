@@ -251,17 +251,19 @@ export default function Product() {
                     </p>
                   )}
                 </div>
-                {isMobile && simmilarProducts.length > 0 && (
-                  <div>
-                    <h2>people also bought:</h2>
-                    <CardContainer>
-                      {simmilarProducts.map((product, key) => (
-                        <ProductCard key={key} product={product} />
-                      ))}
-                    </CardContainer>
-                  </div>
-                )}
               </div>
+            </div>{" "}
+            <div>
+              {isMobile && simmilarProducts.length > 0 && (
+                <div>
+                  <h2>people also bought:</h2>
+                  <CardContainer>
+                    {simmilarProducts.map((product, key) => (
+                      <ProductCard key={key} product={product} />
+                    ))}
+                  </CardContainer>
+                </div>
+              )}
             </div>
             {/* <a href="#product-additional-info-section">
               <img className="more-arrow" src={arrowImage} alt="" />

@@ -156,6 +156,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  height: 50vh;
 }
 @media screen and (min-width: 768px) {
   .product-page .detail {
@@ -163,29 +164,39 @@
   }
 }
 .product-page .detail .info-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "name color" "serie serie" "price price" "buy-button buy-button" "desc desc" "size size";
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  padding: 3rem;
   width: 100%;
-  max-width: 450px;
+  padding: 1rem;
 }
 @media screen and (min-width: 768px) {
   .product-page .detail .info-container {
+    align-items: center;
+    justify-content: start;
+    grid-template-columns: unset;
+    grid-template-areas: unset;
+    display: flex;
     position: sticky;
     top: 11rem;
     margin: 0;
     width: 100%;
+    padding: 3rem;
     align-items: start;
+    max-width: 450px;
   }
 }
 .product-page .detail .info-container .title {
+  grid-area: name;
   align-self: start;
   font-size: 2.5rem;
   font-weight: 100;
 }
 .product-page .detail .info-container .sub-title {
+  grid-area: serie;
   align-self: start;
   font-size: 0.8rem;
   font-weight: 500;
@@ -194,33 +205,66 @@
   padding-left: 0.2rem;
 }
 .product-page .detail .info-container .color-section {
-  align-self: start;
+  grid-area: color;
+  align-self: center;
   margin: 0;
   padding: 0;
 }
+@media screen and (min-width: 768px) {
+  .product-page .detail .info-container .color-section {
+    align-self: flex-start;
+  }
+}
 .product-page .detail .info-container .color-section .color-options {
   padding: 0;
+  justify-content: flex-end;
+}
+@media screen and (min-width: 768px) {
+  .product-page .detail .info-container .color-section .color-options {
+    align-self: flex-start;
+  }
+}
+.product-page .detail .info-container .color-section .color-options .color-option {
+  width: 2rem;
+  height: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .product-page .detail .info-container .color-section .color-options .color-option {
+    width: 1rem;
+    height: 1rem;
+  }
 }
 .product-page .detail .info-container .price {
+  grid-area: price;
   font-size: 0.8rem;
   margin-top: 1rem;
   align-self: start;
 }
 .product-page .detail .info-container .desc {
+  grid-area: desc;
   margin-top: 0.5rem;
   font-size: 0.6rem;
   font-weight: 400;
 }
 .product-page .detail .size-detail {
+  grid-area: size;
   margin: 0.5rem 0;
   font-size: 0.5rem;
   align-self: start;
   margin-bottom: 2rem;
 }
 .product-page .detail .form-button-container {
+  grid-area: buy-button;
   justify-self: start;
-  margin-bottom: 3rem;
-  width: calc(100% - 2rem);
+  margin: 1rem 0;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .product-page .detail .form-button-container {
+    width: calc(100% - 2rem);
+    margin: unset;
+    margin-bottom: 3rem;
+  }
 }
 .product-page .detail .form-button-container .preorder-text {
   font-size: 0.6rem;
