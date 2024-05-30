@@ -108,15 +108,7 @@ function App() {
       <Header />
       <main>
         {slideData && <Banner slideData={slideData} />}
-        <h1
-          style={{
-            textAlign: "center",
-            margin: "2rem 0",
-            fontWeight: "100",
-          }}
-        >
-          New Collections
-        </h1>
+        <h1 className="new-collection-section-title">New Collections</h1>
         <CtaSectionRow {...ctaData[0]} />
         <CtaSectionRow {...ctaData[1]} />
         <CtaSectionRow {...ctaData[2]} />
