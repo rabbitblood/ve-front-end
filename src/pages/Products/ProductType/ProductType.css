@@ -24,7 +24,6 @@
   transform: translate(-50%, -50%);
 }
 .product-type-page .section-before-feature {
-  padding-top: 2rem;
   position: relative;
 }
 .product-type-page .section-before-feature .to-products-button {
@@ -45,11 +44,14 @@
   font-weight: 100;
 }
 .product-type-page .section-before-feature .products-section .section-desc .section-name {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 100;
   text-align: center;
 }
 .product-type-page .section-before-feature .products-section .section-desc .section-desc-text {
+  font-family: "hahmlet";
+  font-size: 1rem;
+  font-weight: 100;
   text-align: center;
   max-width: 900px;
   margin-top: 0.5rem;

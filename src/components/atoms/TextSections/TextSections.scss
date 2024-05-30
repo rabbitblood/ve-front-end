@@ -5,7 +5,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2rem auto;
   width: 100%;
   max-width: 1200px;
 }
@@ -17,7 +16,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 1rem auto;
   width: 100%;
   max-width: 1200px;
 
@@ -44,7 +42,6 @@
   .title {
     color: black;
     width: 100%;
-    margin: 0.5rem 0;
   }
 
   .image {
@@ -54,7 +51,7 @@
 
   .text-group {
     grid-area: text;
-    padding: 0 2rem;
+    padding: 2rem;
     .text {
       line-height: 1rem;
       font-weight: 300;
