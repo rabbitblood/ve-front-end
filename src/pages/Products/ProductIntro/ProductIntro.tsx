@@ -114,7 +114,7 @@ export default function ProductIntro() {
           title={
             serie
               ? serie.SerieName !== "None"
-                ? serie.SerieName
+                ? `${serie.SerieName}`
                 : type?.toUpperCase() ?? ""
               : ""
           }

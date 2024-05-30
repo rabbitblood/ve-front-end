@@ -1,7 +1,8 @@
 .product-card {
+  color: black;
   position: relative;
   margin: 0.2rem;
-  min-width: 20rem;
+  min-width: 10rem;
   max-width: 25rem;
   display: flex;
   flex-direction: column;

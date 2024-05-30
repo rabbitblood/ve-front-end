@@ -151,9 +151,16 @@ export default function ProductType() {
           </div>
           <div className="middle-banner-container">
             <video
+              controls={isMobile}
               autoPlay
-              loop
               muted
+              loop
+              playsInline
+              webkit-playsinline="true"
+              x-webkit-airplay="true"
+              x5-video-player-type="h5"
+              x5-video-player-fullscreen="true"
+              x5-video-orientation="portrait"
               className="middle-banner"
               src={currentSeriesInfo?.middleBannerShow}
               poster={currentSeriesInfo?.middleBannerShow}

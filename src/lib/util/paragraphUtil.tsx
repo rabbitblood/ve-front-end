@@ -5,8 +5,8 @@ interface Props {
 }
 
 function StringToUppercasedFirstLetterParagraphElement(props: Props) {
-  const firstLetter = props.str.charAt(0).toUpperCase();
-  const rest = props.str.slice(1);
+  const firstLetter = props.str.trim().charAt(0).toUpperCase();
+  const rest = props.str.trim().slice(1);
 
   return (
     <p className={props.elementClassName}>

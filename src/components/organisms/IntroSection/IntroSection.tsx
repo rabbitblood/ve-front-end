@@ -12,6 +12,7 @@ import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import { Link } from "react-router-dom";
 import { StringToUppercasedFirstLetterParagraphElement } from "@/lib/util/paragraphUtil";
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/pageUtil";
 
 interface IntroSectionProps extends HtmlHTMLAttributes<HTMLElement> {
   title: string;
@@ -25,6 +26,7 @@ interface IntroSectionProps extends HtmlHTMLAttributes<HTMLElement> {
 const IntroSection = forwardRef(
   (props: IntroSectionProps, ref: LegacyRef<HorizontalMoveImageViewerRef>) => {
     //framer animations
+    const isMobile = useIsMobile();
     const displaySectionAnimationVariant = {
       hidden: {
         opacity: 0,
@@ -93,18 +95,35 @@ const IntroSection = forwardRef(
             className="info-container"
             //variants={detailChildrenAnimationVariant}
           >
-            <motion.h2
-              className="title"
-              //variants={detailChildrenAnimationVariant}
-            >
-              {props.title}
-            </motion.h2>
-            <motion.h3
-              className="sub-title"
-              //variants={detailChildrenAnimationVariant}
-            >
-              {props.subTitle}
-            </motion.h3>
+            {isMobile ? (
+              <motion.h2
+                className="title"
+                //variants={detailChildrenAnimationVariant}
+              >
+                {props.title}
+                <motion.h3
+                  className="sub-title"
+                  //variants={detailChildrenAnimationVariant}
+                >
+                  {props.subTitle}
+                </motion.h3>
+              </motion.h2>
+            ) : (
+              <>
+                <motion.h2
+                  className="title"
+                  //variants={detailChildrenAnimationVariant}
+                >
+                  {props.title}
+                </motion.h2>
+                <motion.h3
+                  className="sub-title"
+                  //variants={detailChildrenAnimationVariant}
+                >
+                  {props.subTitle}
+                </motion.h3>
+              </>
+            )}
             <motion.div //variants={detailChildrenAnimationVariant}
             >
               <StringToUppercasedFirstLetterParagraphElement
