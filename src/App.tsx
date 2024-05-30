@@ -11,6 +11,9 @@ import CtaSectionRow from "./components/organisms/CtaSectionRow/CtaSectionRow";
 import textImg from "@/assets/chocker-demo.webp";
 import { useIsMobile } from "./hooks/pageUtil";
 
+//test image
+import testCtaImage from "@/assets/testFiles/testCTA.jpg";
+
 function App() {
   const isMobile = useIsMobile();
   const [slideData, setSlideData] = useState();
@@ -82,7 +85,7 @@ function App() {
       description:
         "A Clean, Simple, Luxe, Versatile, Minimalist, All-Occasion Elegance series",
       buttonText: "Explore the series",
-      img: textImg,
+      img: testCtaImage,
     },
     {
       title: "Classic",

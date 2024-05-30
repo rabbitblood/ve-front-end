@@ -42,6 +42,7 @@ declare interface VeProduct {
   simmilarProducts: SimmilarProducts[];
   isPreorder: boolean;
   isFeaturedProduct: boolean;
+  sizeDescription: string;
 }
 
 declare interface SimmilarProducts {

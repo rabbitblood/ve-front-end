@@ -82,6 +82,7 @@ function builderProductsToVeProducts(builderProduct) {
       simmilarProducts: product.product.similarProducts,
       isPreorder: product.product.isPreorder,
       isFeaturedProduct: product.product.isFeaturedProduct,
+      sizeDescription: product.product.sizeDescription,
     };
   });
 
