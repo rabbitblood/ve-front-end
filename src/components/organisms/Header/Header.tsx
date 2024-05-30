@@ -91,7 +91,7 @@ export default function Header() {
         </div>
 
         {pageNav && !isMobile && pageNav.nav.length > 0 && (
-          <div className="page-nav">
+          <div className="page-nav" style={pageNav.additionalStyles}>
             <ul className="page-nav-ul">
               {pageNav.nav.map((value, idx) => {
                 return (

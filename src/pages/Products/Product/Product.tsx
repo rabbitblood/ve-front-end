@@ -116,6 +116,9 @@ export default function Product() {
             url: `/products/view/${product?.productId}`,
           },
         ],
+        additionalStyles: {
+          transform: "translateY(0)",
+        },
       })
     );
   }, [dispatch, product]);
