@@ -54,6 +54,7 @@
 .whole-block .text-group,
 .text-with-image .text-group {
   grid-area: text;
+  padding: 0 2rem;
 }
 .whole-block .text-group .text,
 .text-with-image .text-group .text {

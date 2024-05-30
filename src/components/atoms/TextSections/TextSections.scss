@@ -36,6 +36,7 @@
     }
   }
 }
+
 .whole-block,
 .text-with-image {
   .image,
@@ -53,6 +54,7 @@
 
   .text-group {
     grid-area: text;
+    padding: 0 2rem;
     .text {
       line-height: 1rem;
       font-weight: 300;
@@ -63,6 +65,7 @@
       font-weight: 100;
     }
   }
+
   .image,
   .text,
   .title {
