@@ -47,7 +47,7 @@ export default function Products() {
   return (
     <BasicLayout>
       {products && (
-        <div className="product-type-page product-page">
+        <div className="product-type-page products-page">
           <Banner slideData={slideData}></Banner>
           <h1 className="page-title">All Products</h1>
           <div id="products-section" className="products-section">
