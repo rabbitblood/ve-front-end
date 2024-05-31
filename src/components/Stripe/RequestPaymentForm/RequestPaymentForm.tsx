@@ -10,6 +10,7 @@ import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import { StripeLinkAuthenticationElementChangeEvent } from "@stripe/stripe-js";
 import { postServerData } from "@/lib/VeProduct/retrieveServerData";
 import { useState } from "react";
+import style from "./RequestPaymentForm.module.css";
 
 interface RequestPaymentButtonProps {
   clientSecret: string;
@@ -65,15 +66,25 @@ export const RequestPaymentForm = (
   return (
     <ElementsConsumer>
       {() => (
-        <form>
-          <LinkAuthenticationElement onChange={(e) => handleEmailChange(e)} />
+        <form className={style["payment-form"]}>
+          <LinkAuthenticationElement
+            onChange={(e) => handleEmailChange(e)}
+            className={style["payment-element"]}
+          />
           <AddressElement
+            className={style["payment-element"]}
             options={{
               mode: "shipping",
             }}
           />
-          <PaymentElement options={{ business: { name: "Ve" } }} />
-          <FormButton onClick={(e) => handlePaymentRequest(e)}>
+          <PaymentElement
+            options={{ business: { name: "Ve" } }}
+            className={style["payment-element"]}
+          />
+          <FormButton
+            additionalClasses={style["payment-submit-button"]}
+            onClick={(e) => handlePaymentRequest(e)}
+          >
             submit
           </FormButton>
         </form>

@@ -1,3 +1,9 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .page section {
   margin-block: 1rem;
 }
@@ -14,11 +20,7 @@
   padding: 1rem 1.5rem;
 }
 
-@media (min-width: 1000px) {
-  .page {
-    display: flex;
-  }
-
+@media (min-width: 768px) {
   .orderDetails {
     width: 55%;
     padding: 1rem 2rem 2rem 0;
