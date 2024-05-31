@@ -86,6 +86,7 @@ function App() {
         "A Clean, Simple, Luxe, Versatile, Minimalist, All-Occasion Elegance series",
       buttonText: "Explore the series",
       img: testCtaImage,
+      link: "/products/ProductIntro/choker?serie=pure",
     },
     {
       title: "Classic",
@@ -95,6 +96,7 @@ function App() {
       buttonText: "Explore the series",
       img: textImg,
       swap: true,
+      link: "/products/ProductIntro/choker?serie=classic",
     },
     {
       title: "Rabbit",
@@ -103,6 +105,7 @@ function App() {
         "A Luxurious, 100% Handcrafted Python Leather Accessories Series",
       buttonText: "Explore the series",
       img: textImg,
+      link: "/products/ProductIntro/accessory",
     },
   ];
 

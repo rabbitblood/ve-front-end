@@ -1,6 +1,7 @@
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import "./CtaSectionRow.css";
 import { HtmlHTMLAttributes } from "react";
+import { Link } from "react-router-dom";
 
 export interface CtaSectionRowProps extends HtmlHTMLAttributes<HTMLDivElement> {
   title: string;
@@ -9,6 +10,7 @@ export interface CtaSectionRowProps extends HtmlHTMLAttributes<HTMLDivElement> {
   buttonText: string;
   img: string;
   swap?: boolean;
+  link: string;
 }
 
 export default function CtaSectionRow(props: CtaSectionRowProps) {
@@ -23,7 +25,9 @@ export default function CtaSectionRow(props: CtaSectionRowProps) {
           <h3 className="cta-sub-title">{props.subTitle}</h3>
           <p className="cta-desc">{props.description}</p>
           <div className="button-container">
-            <FormButton>{props.buttonText}</FormButton>
+            <Link to={props.link}>
+              <FormButton>{props.buttonText}</FormButton>
+            </Link>
           </div>
         </div>
       </div>
