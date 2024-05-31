@@ -59,7 +59,7 @@ function App() {
                       x5-video-player-type="h5"
                       x5-video-player-fullscreen="true"
                       x5-video-orientation="portrait"
-                      poster={textImg}
+                      poster={item.videoPoster}
                     >
                       <source src={item.slideImage} type="video/mp4" />
                     </video>
