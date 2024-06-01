@@ -24,7 +24,7 @@ function App() {
 
       setSlideData(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        data.bannerSlides.map((item: any) => {
+        data.bannerSlides.map((item: any, idx) => {
           return {
             original: item.slideImage,
             thumbnail: item.slideImage,
@@ -43,7 +43,7 @@ function App() {
                 return (
                   <>
                     <video
-                      className=""
+                      className={`video${idx}`}
                       style={{
                         width: "100%",
                         height: "100%",
@@ -66,6 +66,21 @@ function App() {
                     <script>
                       {`
                       setTimeout(() => {
+                        function doPlay(){
+                          WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+                            var $video1 = $(".video${idx}")
+                            $video1[0].play()
+                          })
+                        }
+                              
+                        if (window.WeixinJSBridge) {
+                          doPlay()
+                        } else {
+                          document.addEventListener("WeixinJSBridgeReady", function(){
+                            doPlay()
+                          }, false);
+                        }
+
                       var video = document.querySelector('video');
                       video.play();
                       
