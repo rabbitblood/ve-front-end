@@ -23,6 +23,8 @@ export default function Banner({
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [displayingElement, setDisplayingElement] = useState<boolean>(true);
 
+  console.log(props.slideData);
+
   function changeSlideHandler(index: number) {
     setCurrentSlideIndex(index);
     setDisplayingElement(true);

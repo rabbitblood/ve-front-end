@@ -65,6 +65,7 @@ function App() {
                     </video>
                     <script>
                       {`
+                      setTimeout(() => {
                       var video = document.querySelector('video');
                       video.play();
                       
@@ -75,6 +76,36 @@ function App() {
                         },
                         false
                       );
+                      document.addEventListener(
+                        'YixinJSBridgeReady',
+                        function() {
+                          video.play();
+                        },
+                        false
+                      );
+                      document.addEventListener(
+                        'touchstart',
+                        function() {
+                          video.play();
+                        },
+                        false
+                      );
+                      document.addEventListener(
+                        'click',
+                        function() {
+                          video.play();
+                        },
+                        false
+                      );
+                      document.addEventListener(
+                        'touchend',
+                        function() {
+                          video.play();
+                        },
+                        false
+                      );
+                      }
+                      , 1000);
                     `}
                     </script>
                   </>
@@ -84,7 +115,7 @@ function App() {
         })
       );
     });
-  }, []);
+  }, [isMobile]);
 
   const ctaData = [
     {
