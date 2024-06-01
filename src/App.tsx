@@ -24,7 +24,7 @@ function App() {
 
       setSlideData(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        data.bannerSlides.map((item: any, idx) => {
+        data.bannerSlides.map((item: any, idx: number) => {
           return {
             original: item.slideImage,
             thumbnail: item.slideImage,
