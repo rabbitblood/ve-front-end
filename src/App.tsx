@@ -67,6 +67,14 @@ function App() {
                       {`
                       var video = document.querySelector('video');
                       video.play();
+                      
+                      document.addEventListener(
+                        'WeixinJSBridgeReady',
+                        function() {
+                          video.play();
+                        },
+                        false
+                      );
                     `}
                     </script>
                   </>
