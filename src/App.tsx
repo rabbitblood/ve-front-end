@@ -14,6 +14,9 @@ import { useIsMobile } from "./hooks/pageUtil";
 //test image
 import testCtaImage from "@/assets/testFiles/testCTA.jpg";
 
+//jquery
+import $ from "jquery";
+
 function App() {
   const isMobile = useIsMobile();
   const [slideData, setSlideData] = useState();
@@ -66,7 +69,9 @@ function App() {
                 setTimeout(() => {
                   function doPlay() {
                     WeixinJSBridge.invoke("getNetworkType", {}, function (e) {
-                      const $video: JQuery<HTMLVideoElement> = $(`video${idx}`);
+                      const $video: JQuery<HTMLVideoElement> = $(
+                        `.video${idx}`
+                      );
                       $video[0].play();
                       console.log("invoke getNetworkType");
 
@@ -98,6 +103,23 @@ function App() {
                       },
                       false
                     );
+
+                    const $video: JQuery<HTMLVideoElement> = $(`.video${idx}`);
+                    $video[0].play();
+
+                    setTimeout(() => {
+                      setTimeout(() => {
+                        const isVideoPlaying =
+                          $video[0].currentTime > 0 &&
+                          !$video[0].paused &&
+                          !$video[0].ended &&
+                          $video[0].readyState > 2;
+                        console.log(isVideoPlaying);
+                        if (!isVideoPlaying) {
+                          $video[0].play();
+                        }
+                      }, 500);
+                    }, 500);
                   }
                 }, 500);
 
