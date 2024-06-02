@@ -51,7 +51,7 @@ function App() {
                       height: "100%",
                       objectFit: "cover",
                     }}
-                    //controls={isMobile}
+                    controls={false}
                     autoPlay
                     muted
                     loop
