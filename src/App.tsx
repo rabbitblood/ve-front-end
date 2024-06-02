@@ -51,7 +51,7 @@ function App() {
                       height: "100%",
                       objectFit: "cover",
                     }}
-                    controls={isMobile}
+                    //controls={isMobile}
                     autoPlay
                     muted
                     loop
@@ -120,7 +120,6 @@ function App() {
                           !$video[0].paused &&
                           !$video[0].ended &&
                           $video[0].readyState > 2;
-                        console.log(isVideoPlaying);
                         if (!isVideoPlaying) {
                           $video[0].play();
                         }
