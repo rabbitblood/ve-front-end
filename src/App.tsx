@@ -68,30 +68,36 @@ function App() {
                 );
                 setTimeout(() => {
                   function doPlay() {
-                    WeixinJSBridge.invoke("getNetworkType", {}, function (e) {
-                      const $video: JQuery<HTMLVideoElement> = $(
-                        `.video${idx}`
-                      );
-                      $video[0].play();
-                      console.log("invoke getNetworkType");
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    (window as any).WeixinJSBridge.invoke(
+                      "getNetworkType",
+                      {},
+                      function () {
+                        const $video: JQuery<HTMLVideoElement> = $(
+                          `.video${idx}`
+                        );
+                        $video[0].play();
+                        console.log("invoke getNetworkType");
 
-                      setTimeout(() => {
-                        const isVideoPlaying =
-                          $video[0].currentTime > 0 &&
-                          !$video[0].paused &&
-                          !$video[0].ended &&
-                          $video[0].readyState > 2;
-                        console.log(isVideoPlaying);
-                        if (!isVideoPlaying) {
-                          $video[0].play();
-                        }
-                      }, 500);
-                    });
+                        setTimeout(() => {
+                          const isVideoPlaying =
+                            $video[0].currentTime > 0 &&
+                            !$video[0].paused &&
+                            !$video[0].ended &&
+                            $video[0].readyState > 2;
+                          console.log(isVideoPlaying);
+                          if (!isVideoPlaying) {
+                            $video[0].play();
+                          }
+                        }, 500);
+                      }
+                    );
                   }
 
                   console.log("start");
 
-                  if (window.WeixinJSBridge) {
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  if ((window as any).WeixinJSBridge) {
                     console.log("start2");
                     doPlay();
                   } else {
