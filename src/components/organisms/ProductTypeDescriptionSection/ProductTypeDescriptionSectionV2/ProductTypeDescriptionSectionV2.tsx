@@ -62,6 +62,7 @@ export default function ProductTypeDescriptionSectionV1(props: Props) {
         };
       }
     }) ?? [];
+  console.log("ProductTypeDescriptionSectionV1 props: ", descData);
 
   return (
     <div ref={descArea} id="desc" className="product-type-desc" {...props}>
