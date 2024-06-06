@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import CtaSectionRow from "./components/organisms/CtaSectionRow/CtaSectionRow";
 import textImg from "@/assets/chocker-demo.webp";
 import { useIsMobile } from "./hooks/pageUtil";
+import DocumentMeta from "react-document-meta";
 
 //test image
 import testCtaImage from "@/assets/testFiles/testCTA.jpg";
@@ -18,6 +19,19 @@ import testCtaImage from "@/assets/testFiles/testCTA.jpg";
 import $ from "jquery";
 
 function App() {
+  // meta data
+  const meta = {
+    title: "Vé | Canada BC Vanvouver Handmade Leather Products | Home Page",
+    description: "Vé Home Page",
+    meta: {
+      charset: "utf-8",
+      name: {
+        keywords:
+          "Vé, Handmade, Leather, Products, Canada, BC, Vancouver, Assesoires, Choker, Bracelet, Earrings, Necklace, Ring, Wallet, Bag, Belt, Keychain, Mask, Phone Case, Pouch, Sunglasses Case, Watch Strap, Gift Card, Gift Set, Gift Wrap",
+      },
+    },
+  };
+
   const isMobile = useIsMobile();
   const [slideData, setSlideData] = useState();
 
@@ -168,7 +182,7 @@ function App() {
   ];
 
   return (
-    <>
+    <DocumentMeta {...meta}>
       <Header />
       <main>
         {slideData && <Banner slideData={slideData} />}
@@ -178,7 +192,7 @@ function App() {
         <CtaSectionRow {...ctaData[2]} />
       </main>
       <Footer />
-    </>
+    </DocumentMeta>
   );
 }
 

@@ -9,8 +9,22 @@ import CardContainer from "@/components/layout/CardContainerLayout/CardContainer
 import Banner, { SlideData } from "@/components/organisms/Banner/Banner";
 import { Link } from "react-router-dom";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
+import DocumentMeta from "react-document-meta";
 
 export default function Products() {
+  const meta = {
+    title:
+      "All Products | Vé | Handmade Leather Products Canada BC Vanvouver Handmade",
+    description: "Vé All Products",
+    meta: {
+      charset: "utf-8",
+      name: {
+        keywords:
+          "Vé, Handmade, Leather, Products, Canada, BC, Vancouver, Assesoires, Choker, Bracelet, Earrings, Necklace, Ring, Wallet, Bag, Belt, Keychain, Mask, Phone Case, Pouch, Sunglasses Case, Watch Strap, Gift Card, Gift Set, Gift Wrap",
+      },
+    },
+  };
+
   const [products, setProducts] = useState<VeProduct[]>([]);
   const [slideData, setSlideData] = useState<SlideData[]>();
 
@@ -45,20 +59,22 @@ export default function Products() {
   }, [products]);
 
   return (
-    <BasicLayout>
-      {products && (
-        <div className="product-type-page products-page">
-          <Banner slideData={slideData}></Banner>
-          <h1 className="page-title">All Products</h1>
-          <div id="products-section" className="products-section">
-            <CardContainer>
-              {products.map((product, idx) => {
-                return <ProductCard key={idx} product={product} />;
-              })}
-            </CardContainer>
+    <DocumentMeta {...meta}>
+      <BasicLayout>
+        {products && (
+          <div className="product-type-page products-page">
+            <Banner slideData={slideData}></Banner>
+            <h1 className="page-title">All Products</h1>
+            <div id="products-section" className="products-section">
+              <CardContainer>
+                {products.map((product, idx) => {
+                  return <ProductCard key={idx} product={product} />;
+                })}
+              </CardContainer>
+            </div>
           </div>
-        </div>
-      )}
-    </BasicLayout>
+        )}
+      </BasicLayout>
+    </DocumentMeta>
   );
 }

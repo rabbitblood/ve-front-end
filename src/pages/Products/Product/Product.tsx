@@ -19,6 +19,7 @@ import Banner from "@/components/organisms/Banner/Banner";
 import CardContainer from "@/components/layout/CardContainerLayout/CardContainerLayout";
 import { getSimmilarProducts } from "@/lib/VeProduct/VeproductUtil";
 import ProductCard from "@/components/atoms/ProductCard/ProductCard";
+import DocumentMeta from "react-document-meta";
 // import ProductCard from "@/components/atoms/ProductCard/ProductCard";
 // import arrowImage from "@/assets/icons/arrow.svg";
 
@@ -160,60 +161,73 @@ export default function Product() {
     }
   }
 
+  //meta data
+  const meta = {
+    title: `${product?.name}| ${product?.series} | ${product?.type} | Vé | Canada BC Vanvouver Handmade Leather Products `,
+    description: "Vé Product Type",
+    meta: {
+      charset: "utf-8",
+      name: {
+        keywords: ` ${product?.name}, Vé, Handmade, Leather, Products, Canada, BC, Vancouver, Gift Set, Gift Wrap,`,
+      },
+    },
+  };
+
   return (
-    <BasicLayout>
-      {
-        <>
-          <div className="product-page">
-            {isMobile ? (
-              <div className="display">
-                <Banner
-                  fullScreen={false}
-                  bulletType="bottomLine"
-                  slideData={
-                    product?.images.map((image) => ({
-                      original: image,
-                      thumbnail: image,
-                    })) ?? []
-                  }
-                />
-              </div>
-            ) : (
-              <div className="display">
-                {getImageToDisplay().map((image, idx) => {
-                  return (
-                    <img
-                      className="image"
-                      src={image}
-                      alt={product?.name}
-                      key={idx}
-                    />
-                  );
-                })}
-              </div>
-            )}
-            <div className="detail">
-              <div className="info-container">
-                <h2 className="title">{getProductName()}</h2>
-                <h3 className="sub-title">
-                  {product?.series.SerieName !== "None"
-                    ? `${product?.series.SerieName} series`
-                    : ""}
-                </h3>
-
-                <div className="color-section">
-                  {product &&
-                    product.options.colorOptions &&
-                    product.options.colorOptions.length > 0 && (
-                      <ColorSelection
-                        product={product as VeProduct}
-                        currentColor={currentColor}
-                        setCurrentColor={setCurrentColor}
-                      />
-                    )}
+    <DocumentMeta {...meta}>
+      <BasicLayout>
+        {
+          <>
+            <div className="product-page">
+              {isMobile ? (
+                <div className="display">
+                  <Banner
+                    fullScreen={false}
+                    bulletType="bottomLine"
+                    slideData={
+                      product?.images.map((image) => ({
+                        original: image,
+                        thumbnail: image,
+                      })) ?? []
+                    }
+                  />
                 </div>
+              ) : (
+                <div className="display">
+                  {getImageToDisplay().map((image, idx) => {
+                    return (
+                      <img
+                        className="image"
+                        src={image}
+                        alt={product?.name}
+                        key={idx}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+              <div className="detail">
+                <div className="info-container">
+                  <h2 className="title">{getProductName()}</h2>
+                  <h3 className="sub-title">
+                    {product?.series.SerieName !== "None"
+                      ? `${product?.series.SerieName} series`
+                      : ""}
+                  </h3>
 
-                {/* {product &&
+                  <div className="color-section">
+                    {product &&
+                      product.options.colorOptions &&
+                      product.options.colorOptions.length > 0 && (
+                        <ColorSelection
+                          product={product as VeProduct}
+                          currentColor={currentColor}
+                          setCurrentColor={setCurrentColor}
+                        />
+                      )}
+                  </div>
+
+                  {/* {product &&
                   product.options.comboOptions &&
                   product.options.comboOptions.length > 0 && (
                     <ComboSelection
@@ -223,54 +237,54 @@ export default function Product() {
                     />
                   )} */}
 
-                <p className="price">{calculatedPrice} CAD</p>
-                <p className="desc">{product?.description}</p>
+                  <p className="price">{calculatedPrice} CAD</p>
+                  <p className="desc">{product?.description}</p>
 
-                {(product &&
-                  product.options.sizeOptions &&
-                  product.options.sizeOptions.length > 0 && (
-                    <SizeSelection
-                      product={product as VeProduct}
-                      currentSize={currentSize}
-                      setCurrentSize={setCurrentSize}
-                    />
-                  )) || (
-                  <p className="size-detail">{product?.sizeDescription}</p>
-                )}
-
-                <div className="form-button-container">
-                  <FormButton
-                    onClick={() => {
-                      addItemToCartHandler();
-                    }}
-                  >
-                    Add to cart
-                  </FormButton>{" "}
-                  {product?.isPreorder && (
-                    <p className="preorder-text">
-                      Preorder. Approximately 10 days in stock
-                    </p>
+                  {(product &&
+                    product.options.sizeOptions &&
+                    product.options.sizeOptions.length > 0 && (
+                      <SizeSelection
+                        product={product as VeProduct}
+                        currentSize={currentSize}
+                        setCurrentSize={setCurrentSize}
+                      />
+                    )) || (
+                    <p className="size-detail">{product?.sizeDescription}</p>
                   )}
+
+                  <div className="form-button-container">
+                    <FormButton
+                      onClick={() => {
+                        addItemToCartHandler();
+                      }}
+                    >
+                      Add to cart
+                    </FormButton>{" "}
+                    {product?.isPreorder && (
+                      <p className="preorder-text">
+                        Preorder. Approximately 10 days in stock
+                      </p>
+                    )}
+                  </div>
                 </div>
+              </div>{" "}
+              <div>
+                {isMobile && simmilarProducts.length > 0 && (
+                  <div>
+                    <h2>people also bought:</h2>
+                    <CardContainer>
+                      {simmilarProducts.map((product, key) => (
+                        <ProductCard key={key} product={product} />
+                      ))}
+                    </CardContainer>
+                  </div>
+                )}
               </div>
-            </div>{" "}
-            <div>
-              {isMobile && simmilarProducts.length > 0 && (
-                <div>
-                  <h2>people also bought:</h2>
-                  <CardContainer>
-                    {simmilarProducts.map((product, key) => (
-                      <ProductCard key={key} product={product} />
-                    ))}
-                  </CardContainer>
-                </div>
-              )}
-            </div>
-            {/* <a href="#product-additional-info-section">
+              {/* <a href="#product-additional-info-section">
               <img className="more-arrow" src={arrowImage} alt="" />
             </a> */}
-          </div>
-          {/* <div
+            </div>
+            {/* <div
             id="product-additional-info-section"
             className="product-additional-info-section"
           >
@@ -300,8 +314,9 @@ export default function Product() {
               )}
             </div>
           </div> */}
-        </>
-      }
-    </BasicLayout>
+          </>
+        }
+      </BasicLayout>
+    </DocumentMeta>
   );
 }

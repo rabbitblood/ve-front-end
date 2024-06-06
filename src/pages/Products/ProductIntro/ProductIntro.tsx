@@ -7,6 +7,7 @@ import { setNav } from "@/lib/redux/store/navSlice";
 import { getDataByName } from "@/lib/builderio/builderDataUtil";
 import { VeAllTypeInfo } from "@/types/builderio";
 import { HorizontalMoveImageViewerRef } from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
+import DocumentMeta from "react-document-meta";
 
 export default function ProductIntro() {
   //get url param
@@ -106,29 +107,43 @@ export default function ProductIntro() {
     );
   }, [dispatch, type]);
 
+  //meta data
+  const meta = {
+    title: `${type} | Vé | Canada BC Vanvouver Handmade Leather Products `,
+    description: "Vé Product Type",
+    meta: {
+      charset: "utf-8",
+      name: {
+        keywords: ` ${type}, Vé, Handmade, Leather, Products, Canada, BC, Vancouver, Gift Set, Gift Wrap,`,
+      },
+    },
+  };
+
   return (
-    <BasicLayout noFooter>
-      {typeInfo && seriesDisplay && (
-        <IntroSection
-          ref={imageGallery}
-          title={
-            serie
-              ? serie.SerieName !== "None"
-                ? `${serie.SerieName}`
-                : type?.toUpperCase() ?? ""
-              : ""
-          }
-          subTitle={serie.SerieName !== "None" ? "Series" : ""}
-          images={seriesDisplay.map((serie) => serie.image)}
-          description={
-            seriesDisplay.find(
-              (serieDisplay) => serieDisplay.seriesName === serie.SerieName
-            )?.description ?? "No description available"
-          }
-          exploreUrl={`/products/${type}/${serie.SerieName}`}
-          onImageChange={(index) => changeSerieHandler(index)}
-        />
-      )}
-    </BasicLayout>
+    <DocumentMeta {...meta}>
+      <BasicLayout noFooter>
+        {typeInfo && seriesDisplay && (
+          <IntroSection
+            ref={imageGallery}
+            title={
+              serie
+                ? serie.SerieName !== "None"
+                  ? `${serie.SerieName}`
+                  : type?.toUpperCase() ?? ""
+                : ""
+            }
+            subTitle={serie.SerieName !== "None" ? "Series" : ""}
+            images={seriesDisplay.map((serie) => serie.image)}
+            description={
+              seriesDisplay.find(
+                (serieDisplay) => serieDisplay.seriesName === serie.SerieName
+              )?.description ?? "No description available"
+            }
+            exploreUrl={`/products/${type}/${serie.SerieName}`}
+            onImageChange={(index) => changeSerieHandler(index)}
+          />
+        )}
+      </BasicLayout>
+    </DocumentMeta>
   );
 }

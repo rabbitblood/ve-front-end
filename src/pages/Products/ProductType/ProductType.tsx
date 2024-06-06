@@ -20,6 +20,7 @@ import ToElementArrow from "@/components/atoms/ToElementArrow/ToElementArrow";
 import { StringToUppercasedFirstLetterParagraphElement } from "@/lib/util/paragraphUtil";
 
 import { useIsMobile } from "@/hooks/pageUtil";
+import DocumentMeta from "react-document-meta";
 
 export default function ProductType() {
   const isMobile = useIsMobile();
@@ -99,88 +100,102 @@ export default function ProductType() {
     // ),
   }));
 
+  //meta data
+  const meta = {
+    title: `${type}| ${series} | Vé | Canada BC Vanvouver Handmade Leather Products `,
+    description: "Vé Product Type",
+    meta: {
+      charset: "utf-8",
+      name: {
+        keywords: `${type}, ${series}, Vé, Handmade, Leather, Products, Canada, BC, Vancouver, Gift Set, Gift Wrap,`,
+      },
+    },
+  };
+
   return (
-    <BasicLayout>
-      <div className="product-type-page">
-        <Banner slideData={slideData} />
-        <motion.div
-          className="section-desc"
-          variants={descSectionAnimationVariant}
-          initial="hidden"
-          whileInView={descSectionAnimationVariant.visible}
-        >
-          <h2 className="section-name">
-            {series !== "None"
-              ? `The ${series} Series`
-              : type?.toUpperCase() ?? ""}
-          </h2>{" "}
-          <div className="section-desc-text">
-            {currentSeriesInfo && (
-              <StringToUppercasedFirstLetterParagraphElement
-                str={currentSeriesInfo?.serieShortDescription as string}
-                spanClassName="first-letter"
-                elementClassName="paragraph text"
-              />
-            )}
-          </div>
-        </motion.div>{" "}
-        <div className="section-before-feature">
-          {" "}
-          <ToElementArrow
-            horizontalPosition={isMobile ? "h-center" : "right"}
-            verticalPosition={isMobile ? "bottom" : "top"}
-            toElementId="desc"
-            buttonText="To Feature"
-          />
-          <div id="products-section" className="products-section">
+    <DocumentMeta {...meta}>
+      <BasicLayout>
+        <div className="product-type-page">
+          <Banner slideData={slideData} />
+          <motion.div
+            className="section-desc"
+            variants={descSectionAnimationVariant}
+            initial="hidden"
+            whileInView={descSectionAnimationVariant.visible}
+          >
+            <h2 className="section-name">
+              {series !== "None"
+                ? `The ${series} Series`
+                : type?.toUpperCase() ?? ""}
+            </h2>{" "}
+            <div className="section-desc-text">
+              {currentSeriesInfo && (
+                <StringToUppercasedFirstLetterParagraphElement
+                  str={currentSeriesInfo?.serieShortDescription as string}
+                  spanClassName="first-letter"
+                  elementClassName="paragraph text"
+                />
+              )}
+            </div>
+          </motion.div>{" "}
+          <div className="section-before-feature">
             {" "}
-            <CardContainer>
-              {products &&
-                type &&
-                series &&
-                products
-                  .filter((value) => {
-                    return (
-                      value.type.typeName.toLowerCase() ===
-                        type.toLowerCase() &&
-                      value.series.SerieName.toLowerCase() ===
-                        series.toLowerCase()
-                    );
-                  })
-                  .map((product, idx) => {
-                    return <ProductCard key={idx} product={product} />;
-                  })}
-            </CardContainer>
+            <ToElementArrow
+              horizontalPosition={isMobile ? "h-center" : "right"}
+              verticalPosition={isMobile ? "bottom" : "top"}
+              toElementId="desc"
+              buttonText="To Feature"
+            />
+            <div id="products-section" className="products-section">
+              {" "}
+              <CardContainer>
+                {products &&
+                  type &&
+                  series &&
+                  products
+                    .filter((value) => {
+                      return (
+                        value.type.typeName.toLowerCase() ===
+                          type.toLowerCase() &&
+                        value.series.SerieName.toLowerCase() ===
+                          series.toLowerCase()
+                      );
+                    })
+                    .map((product, idx) => {
+                      return <ProductCard key={idx} product={product} />;
+                    })}
+              </CardContainer>
+            </div>
+            <div className="middle-banner-container">
+              <video
+                controls={isMobile}
+                autoPlay
+                muted
+                loop
+                playsInline
+                webkit-playsinline="true"
+                x-webkit-airplay="true"
+                x5-video-player-type="h5"
+                x5-video-player-fullscreen="true"
+                x5-video-orientation="portrait"
+                className="middle-banner"
+                src={currentSeriesInfo?.middleBannerShow}
+                poster={currentSeriesInfo?.middleBannerShow}
+              ></video>
+            </div>
           </div>
-          <div className="middle-banner-container">
-            <video
-              controls={isMobile}
-              autoPlay
-              muted
-              loop
-              playsInline
-              webkit-playsinline="true"
-              x-webkit-airplay="true"
-              x5-video-player-type="h5"
-              x5-video-player-fullscreen="true"
-              x5-video-orientation="portrait"
-              className="middle-banner"
-              src={currentSeriesInfo?.middleBannerShow}
-              poster={currentSeriesInfo?.middleBannerShow}
-            ></video>
-          </div>
-        </div>
-        <ProductTypeDescriptionSectionV2
-          type={type as string}
-          series={series as string}
-        />
-        {/* <div className="customize-cta">
+          <ProductTypeDescriptionSectionV2
+            type={type as string}
+            series={series as string}
+          />
+          {/* <div className="customize-cta">
           <p>
             HAVE SOME CUSTOMIZE DESIGN IDEA WITH THIS SERIES ? <br />
             CONTACT US THROUGH INSTAGRAM OR EMAIL
           </p>
         </div> */}
-      </div>
-    </BasicLayout>
+        </div>
+      </BasicLayout>
+    </DocumentMeta>
   );
 }
