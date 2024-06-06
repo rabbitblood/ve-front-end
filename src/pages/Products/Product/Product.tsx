@@ -20,6 +20,11 @@ import CardContainer from "@/components/layout/CardContainerLayout/CardContainer
 import { getSimmilarProducts } from "@/lib/VeProduct/VeproductUtil";
 import ProductCard from "@/components/atoms/ProductCard/ProductCard";
 import DocumentMeta from "react-document-meta";
+import {
+  generalTitleMetaData,
+  generalDescriptionMetaData,
+  generalKeywordsMetaData,
+} from "@/data/SEOData";
 // import ProductCard from "@/components/atoms/ProductCard/ProductCard";
 // import arrowImage from "@/assets/icons/arrow.svg";
 
@@ -161,14 +166,14 @@ export default function Product() {
     }
   }
 
-  //meta data
+  // meta data
   const meta = {
-    title: `${product?.name}| ${product?.series} | ${product?.type} | Vé | Canada BC Vanvouver Handmade Leather Products `,
-    description: "Vé Product Type",
+    title: `${product?.name} | ${product?.series} | ${product?.type} | ${generalTitleMetaData}`,
+    description: `${product?.name} ${product?.series} ${product?.type} ${generalDescriptionMetaData}`,
     meta: {
       charset: "utf-8",
       name: {
-        keywords: ` ${product?.name}, Vé, Handmade, Leather, Products, Canada, BC, Vancouver, Gift Set, Gift Wrap,`,
+        keywords: `${product?.name}, ${product?.series}, ${product?.type}, ${generalKeywordsMetaData}`,
       },
     },
   };

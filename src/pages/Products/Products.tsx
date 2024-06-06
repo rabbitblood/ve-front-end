@@ -10,21 +10,13 @@ import Banner, { SlideData } from "@/components/organisms/Banner/Banner";
 import { Link } from "react-router-dom";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import DocumentMeta from "react-document-meta";
+import {
+  generalDescriptionMetaData,
+  generalKeywordsMetaData,
+  generalTitleMetaData,
+} from "@/data/SEOData";
 
 export default function Products() {
-  const meta = {
-    title:
-      "All Products | Vé | Handmade Leather Products Canada BC Vanvouver Handmade",
-    description: "Vé All Products",
-    meta: {
-      charset: "utf-8",
-      name: {
-        keywords:
-          "Vé, Handmade, Leather, Products, Canada, BC, Vancouver, Assesoires, Choker, Bracelet, Earrings, Necklace, Ring, Wallet, Bag, Belt, Keychain, Mask, Phone Case, Pouch, Sunglasses Case, Watch Strap, Gift Card, Gift Set, Gift Wrap",
-      },
-    },
-  };
-
   const [products, setProducts] = useState<VeProduct[]>([]);
   const [slideData, setSlideData] = useState<SlideData[]>();
 
@@ -57,6 +49,18 @@ export default function Products() {
 
     setSlideData(slideData);
   }, [products]);
+
+  // meta data
+  const meta = {
+    title: `All Products | ${generalTitleMetaData}`,
+    description: `Vé All Products. ${generalDescriptionMetaData}`,
+    meta: {
+      charset: "utf-8",
+      name: {
+        keywords: `All Products, products, catagories ${generalKeywordsMetaData}`,
+      },
+    },
+  };
 
   return (
     <DocumentMeta {...meta}>

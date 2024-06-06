@@ -11,6 +11,11 @@ import CtaSectionRow from "./components/organisms/CtaSectionRow/CtaSectionRow";
 import textImg from "@/assets/chocker-demo.webp";
 import { useIsMobile } from "./hooks/pageUtil";
 import DocumentMeta from "react-document-meta";
+import {
+  generalKeywordsMetaData,
+  generalTitleMetaData,
+  generalDescriptionMetaData,
+} from "./data/SEOData";
 
 //test image
 import testCtaImage from "@/assets/testFiles/testCTA.jpg";
@@ -21,17 +26,15 @@ import $ from "jquery";
 function App() {
   // meta data
   const meta = {
-    title: "Vé | Canada BC Vanvouver Handmade Leather Products | Home Page",
-    description: "Vé Home Page",
+    title: `${generalTitleMetaData} | Home Page`,
+    description: `Vé Home Page. ${generalDescriptionMetaData}`,
     meta: {
       charset: "utf-8",
       name: {
-        keywords:
-          "Vé, Handmade, Leather, Products, Canada, BC, Vancouver, Assesoires, Choker, Bracelet, Earrings, Necklace, Ring, Wallet, Bag, Belt, Keychain, Mask, Phone Case, Pouch, Sunglasses Case, Watch Strap, Gift Card, Gift Set, Gift Wrap",
+        keywords: generalKeywordsMetaData,
       },
     },
   };
-
   const isMobile = useIsMobile();
   const [slideData, setSlideData] = useState();
 

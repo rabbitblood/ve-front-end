@@ -8,6 +8,11 @@ import { getDataByName } from "@/lib/builderio/builderDataUtil";
 import { VeAllTypeInfo } from "@/types/builderio";
 import { HorizontalMoveImageViewerRef } from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
 import DocumentMeta from "react-document-meta";
+import {
+  generalTitleMetaData,
+  generalDescriptionMetaData,
+  generalKeywordsMetaData,
+} from "@/data/SEOData";
 
 export default function ProductIntro() {
   //get url param
@@ -107,14 +112,14 @@ export default function ProductIntro() {
     );
   }, [dispatch, type]);
 
-  //meta data
+  // meta data
   const meta = {
-    title: `${type} | Vé | Canada BC Vanvouver Handmade Leather Products `,
-    description: "Vé Product Type",
+    title: `${type} | ${generalTitleMetaData}`,
+    description: `${type} ${generalDescriptionMetaData}`,
     meta: {
       charset: "utf-8",
       name: {
-        keywords: ` ${type}, Vé, Handmade, Leather, Products, Canada, BC, Vancouver, Gift Set, Gift Wrap,`,
+        keywords: `${type}, ${generalKeywordsMetaData}`,
       },
     },
   };

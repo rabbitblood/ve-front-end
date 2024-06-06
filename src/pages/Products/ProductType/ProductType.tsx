@@ -21,6 +21,11 @@ import { StringToUppercasedFirstLetterParagraphElement } from "@/lib/util/paragr
 
 import { useIsMobile } from "@/hooks/pageUtil";
 import DocumentMeta from "react-document-meta";
+import {
+  generalDescriptionMetaData,
+  generalKeywordsMetaData,
+  generalTitleMetaData,
+} from "@/data/SEOData";
 
 export default function ProductType() {
   const isMobile = useIsMobile();
@@ -100,14 +105,14 @@ export default function ProductType() {
     // ),
   }));
 
-  //meta data
+  // meta data
   const meta = {
-    title: `${type}| ${series} | Vé | Canada BC Vanvouver Handmade Leather Products `,
-    description: "Vé Product Type",
+    title: `${type} | ${series} | ${generalTitleMetaData}`,
+    description: `${type} ${series} ${generalDescriptionMetaData}`,
     meta: {
       charset: "utf-8",
       name: {
-        keywords: `${type}, ${series}, Vé, Handmade, Leather, Products, Canada, BC, Vancouver, Gift Set, Gift Wrap,`,
+        keywords: `${type}, ${series}, ${generalKeywordsMetaData}`,
       },
     },
   };
