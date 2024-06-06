@@ -7,7 +7,26 @@ import mkcert from "vite-plugin-mkcert";
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths(), mkcert()],
-  assetsInclude: ["**/*.glb"],
+  assetsInclude: [
+    "**/*.glb",
+    "**/*.gltf",
+    "**/*.txt",
+    "**/*.xml",
+    "**/*.glb",
+    "**/*.aac",
+    "**/*.opus",
+    "**/*.mov",
+    "**/*.m4a",
+    "**/*.vtt",
+    "**/*.woff",
+    "**/*.woff2",
+    "**/*.eot",
+    "**/*.ttf",
+    "**/*.otf",
+    "**/*.webmanifest",
+    "**/*.pdf",
+    "**/*.txt",
+  ],
   server: {
     headers: {
       "Access-Control-Allow-Origin": "*",

@@ -12,6 +12,8 @@ import ProductType from "./pages/Products/ProductType/ProductType.tsx";
 import { OrderSummary } from "./pages/OrderSummary/OrderSummary/OrderSummary.tsx";
 import PaymentSuccess from "./pages/Checkout/PaymentSuccessPage/PamentSuccess.tsx";
 import PureTextInfoPage from "./pages/PureTextInfoPage/PureTextInfoPage.tsx";
+import siteMapXML from "@/data/sitemap.xml";
+import robotTxt from "@/data/robots.txt";
 
 const router = createBrowserRouter([
   {

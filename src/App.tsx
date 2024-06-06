@@ -111,14 +111,10 @@ function App() {
                     );
                   }
 
-                  console.log("start");
-
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   if ((window as any).WeixinJSBridge) {
-                    console.log("start2");
                     doPlay();
                   } else {
-                    console.log("start3");
                     document.addEventListener(
                       "WeixinJSBridgeReady",
                       function () {

@@ -22,6 +22,9 @@ export default function Products() {
 
   useEffect(() => {
     getAllProductsAsVeProducts().then((data) => {
+      console.log(data);
+      //generate sitemap for /products/view/:productid
+
       setProducts(data);
     });
   }, []);
@@ -48,6 +51,23 @@ export default function Products() {
       });
 
     setSlideData(slideData);
+
+    // console.log(
+    //   `
+    //   ${products
+    //     .map((product) => {
+    //       return `
+    //       <url>
+    //         <loc>
+    //           ${`https://vestudio.ca/products/view/${product.productId}`}
+    //         </loc>
+    //         <lastmod>${new Date().toISOString()}</lastmod>
+    //       </url>
+    //       `;
+    //     })
+    //     .join("")}
+    //   `
+    // );
   }, [products]);
 
   // meta data
