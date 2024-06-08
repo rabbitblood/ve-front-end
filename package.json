@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@builder.io/dev-tools": "^1.0.10",
@@ -15,7 +14,7 @@
     "@builder.io/sdk": "^2.2.2",
     "@google/model-viewer": "^3.4.0",
     "@hookform/resolvers": "^3.3.4",
-    "@reduxjs/toolkit": "^2.2.3",
+    "@reduxjs/toolkit": "^2.2.5",
     "@stripe/react-stripe-js": "^2.7.1",
     "@stripe/stripe-js": "^3.4.0",
     "builder.io": "^1.0.0",
@@ -25,6 +24,7 @@
     "jquery": "^3.7.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
+    "next": "^14.2.3",
     "npm": "^10.5.0",
     "react": "^18.2.0",
     "react-document-meta": "^3.0.0-beta.2",
@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@types/jquery": "^3.5.30",
+    "@types/node": "^20.14.2",
     "@types/react": "^18.3.2",
     "@types/react-document-meta": "^3.0.5",
     "@types/react-dom": "^18.2.19",

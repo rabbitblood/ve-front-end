@@ -10,7 +10,7 @@ import { useAppSelector } from "@/lib/redux/reduxDispatcher";
 
 export const Checkout = () => {
   const cart = useAppSelector((state) => state.cart);
-  const apiUrl = import.meta.env.VITE_API_URL;
+  const apiUrl = process.env.VITE_API_URL;
   const [clientSecret, setClientSecret] = useState<string>("");
   const [paymentIntentId, setPaymentIntentId] = useState<string>("");
   const [total, setTotal] = useState<number>(0);

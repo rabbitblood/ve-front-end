@@ -25,3 +25,8 @@ dist-ssr
 
 #sass
 *.css.map
+
+#next.js
+.next
+next-env.d.ts
+dist
