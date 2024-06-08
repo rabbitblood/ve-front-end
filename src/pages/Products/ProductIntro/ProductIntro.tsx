@@ -1,5 +1,5 @@
 import { useParams, useSearchParams } from "react-router-dom";
-import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
 import IntroSection from "@/components/organisms/IntroSection/IntroSection";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";

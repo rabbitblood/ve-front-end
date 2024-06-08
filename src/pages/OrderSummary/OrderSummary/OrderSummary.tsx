@@ -13,7 +13,7 @@ import {
   getProductById,
 } from "@/lib/VeProduct/VeproductUtil";
 import { Link } from "react-router-dom";
-import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
 import { getStoreData } from "@/lib/builderio/builderDataUtil";
 import { HTMLAttributes, useEffect, useState } from "react";
 import CardContainer from "@/components/layout/CardContainerLayout/CardContainerLayout";

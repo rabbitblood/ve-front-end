@@ -1,4 +1,4 @@
-import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
 import { useParams } from "react-router-dom";
 import "./ProductType.css";
 

@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { clearCart } from "@/lib/redux/store/cartSlice";
-import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
 import { useEffect, useState } from "react";
 import { getServerData } from "@/lib/VeProduct/retrieveServerData";
 

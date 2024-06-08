@@ -1,6 +1,10 @@
 import React from "react";
 import PopUp from "@/components/atoms/PopUp/PopUp";
 import StoreProvider from "@/components/redux/StoreProvider";
+import "@/css/overwrite/react-image-gallery/react-image-gallery.css";
+
+import { builder } from "@builder.io/sdk";
+builder.init(process.env.NEXT_PUBLIC_BUILDER_PUBLIC_KEY ?? "");
 
 export default function RootLayout({
   children,
@@ -27,7 +31,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <main>{children}</main>
+        {children}
         <StoreProvider>
           <PopUp />
         </StoreProvider>

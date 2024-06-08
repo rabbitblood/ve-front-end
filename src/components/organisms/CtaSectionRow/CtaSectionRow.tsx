@@ -1,7 +1,7 @@
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import "./CtaSectionRow.css";
 import { HtmlHTMLAttributes } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 export interface CtaSectionRowProps extends HtmlHTMLAttributes<HTMLDivElement> {
   title: string;
@@ -25,7 +25,7 @@ export default function CtaSectionRow(props: CtaSectionRowProps) {
           <h3 className="cta-sub-title">{props.subTitle}</h3>
           <p className="cta-desc">{props.description}</p>
           <div className="button-container">
-            <Link to={props.link}>
+            <Link href={props.link}>
               <FormButton>{props.buttonText}</FormButton>
             </Link>
           </div>

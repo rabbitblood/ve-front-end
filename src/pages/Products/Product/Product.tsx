@@ -6,7 +6,7 @@ import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { addItemToCart } from "@/lib/redux/store/cartSlice";
 import { useIsMobile } from "@/hooks/pageUtil";
-import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { setNav } from "@/lib/redux/store/navSlice";
 import ColorSelection from "@/components/atoms/VeProductSelections/ColorSelection/ColorSelection";

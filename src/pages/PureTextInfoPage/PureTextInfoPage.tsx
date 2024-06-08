@@ -1,4 +1,4 @@
-import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { setNav } from "@/lib/redux/store/navSlice";
 import builder, { BuilderComponent } from "@builder.io/react";

@@ -2,7 +2,7 @@
 // import { Delivery } from "./Delivery/Delivery";
 // import { Payment } from "./Payment/Payment";
 import styles from "./Checkout.module.css";
-import BasicLayout from "@/components/layout/BasicLayout/BasicLayout";
+import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
 import CheckOutFromContainer from "@/components/Stripe/CheckOutContainer/CheckOutContainer";
 import { useEffect, useState } from "react";
 import { RequestPaymentForm } from "@/components/Stripe/RequestPaymentForm/RequestPaymentForm";

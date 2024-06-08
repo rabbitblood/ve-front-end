@@ -1,7 +1,7 @@
-import { HTMLAttributes, useEffect } from "react";
+import { HTMLAttributes } from "react";
 import Footer from "@/components/organisms/Footer/Footer";
 import Header from "@/components/organisms/Header/Header";
-import { useLocation } from "react-router-dom";
+import StoreProvider from "@/components/redux/StoreProvider";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -9,17 +9,19 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export default function BasicLayout({ children, noFooter = false }: Props) {
-  const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
-
   return (
     <>
-      <Header />
+      <StoreProvider>
+        <Header />
+      </StoreProvider>
       <main>{children}</main>
-      {noFooter ? "" : <Footer />}
+      {noFooter ? (
+        ""
+      ) : (
+        <StoreProvider>
+          <Footer />
+        </StoreProvider>
+      )}
     </>
   );
 }

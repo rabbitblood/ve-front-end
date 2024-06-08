@@ -31,8 +31,14 @@
   align-items: center;
   justify-content: center;
   font-weight: 100;
-  margin-top: 6rem;
-  margin-bottom: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .product-type-page .section-desc {
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+  }
 }
 .product-type-page .section-desc .section-name {
   font-size: 1.3rem;

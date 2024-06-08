@@ -1,9 +1,10 @@
+"use client";
 //import user from "@/assets/user.png";
 //import search from "@/assets/search.png";
 import cartIcon from "@/assets/cart.png";
 // import menu from "@/assets/menu.svg";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import MenuButton from "../../atoms/MenuButton/MenuButton";
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store/store";
@@ -70,11 +71,11 @@ export default function Header() {
                 <img className="icon" src={user} alt="user" />
               </Link>
             </div> */}
-            <Link to={"/checkout/order-summary"}>
+            <Link href={"/checkout/order-summary"}>
               <div className="icon-container">
                 <img
                   className={"icon" + (highlightCart ? " highlight" : "")}
-                  src={cartIcon}
+                  src={cartIcon.src}
                   alt="shopping cart"
                 />
                 <span className="cart-amount">{cartAmount}</span>
@@ -86,7 +87,7 @@ export default function Header() {
             </div> */}
           </div>{" "}
           <h1 className="brand-name">
-            <Link to={"/"}>VÉ </Link>
+            <Link href={"/"}>VÉ </Link>
           </h1>
         </div>
 
@@ -97,7 +98,7 @@ export default function Header() {
                 return (
                   <li key={idx} className="nav-link">
                     {idx !== 0 && <div className="custom-marker"></div>}
-                    <Link to={value.url}>{value.name}</Link>
+                    <Link href={value.url}>{value.name}</Link>
                   </li>
                 );
               })}
@@ -106,7 +107,7 @@ export default function Header() {
         )}
 
         <nav className={`nav ${openNav ? "open" : ""}`}>
-          <Link to={"/products/ProductIntro/" + "choker"}>
+          <Link href={"/products/ProductIntro/" + "choker"}>
             <div
               className="nav-link"
               onClick={() => {
@@ -117,7 +118,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link to={"/products/ProductIntro/" + "bracelet"}>
+          <Link href={"/products/ProductIntro/" + "bracelet"}>
             <div
               className="nav-link"
               onClick={() => {
@@ -128,7 +129,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link to={"/products/ProductIntro/" + "accessory"}>
+          <Link href={"/products/ProductIntro/" + "accessory"}>
             <div
               className="nav-link"
               onClick={() => {
@@ -139,7 +140,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link to={"/products"}>
+          <Link href={"/products"}>
             <div
               className="nav-link"
               onClick={() => {
@@ -150,7 +151,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link to={"/info/our-stories"}>
+          <Link href={"/info/our-stories"}>
             <div
               className="nav-link"
               onClick={() => {
@@ -161,7 +162,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link to={"/info/contact-us"}>
+          <Link href={"/info/contact-us"}>
             <div
               className="nav-link"
               onClick={() => {
