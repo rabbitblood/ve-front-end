@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 import "./ProductCard.css";
 import { useCallback, useState } from "react";
 import React from "react";
@@ -42,7 +43,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <div className="product-card">
       <Link
         className="product-image-container"
-        to={`/products/view/${product.productId}`}
+        href={`/products/view/${product.productId}`}
       >
         <img
           className="product-image"

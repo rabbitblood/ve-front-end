@@ -11,8 +11,6 @@ import {
 import testCtaImage from "@/assets/testFiles/testCTA.jpg";
 import textImg from "@/assets/chocker-demo.webp";
 
-import "@/css/home.css";
-
 export const metadata: Metadata = {
   title: `${generalTitleMetaData} | Home Page`,
   description: `Vé Home Page. ${generalDescriptionMetaData}`,

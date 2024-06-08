@@ -2,15 +2,16 @@ import React from "react";
 import PopUp from "@/components/atoms/PopUp/PopUp";
 import StoreProvider from "@/components/redux/StoreProvider";
 import "@/css/overwrite/react-image-gallery/react-image-gallery.css";
-
-import { builder } from "@builder.io/sdk";
 import {
   generalTitleMetaData,
   generalDescriptionMetaData,
   generalKeywordsMetaData,
 } from "@/data/SEOData";
 import { Metadata } from "next";
+import { builder } from "@builder.io/sdk";
 builder.init(process.env.NEXT_PUBLIC_BUILDER_PUBLIC_KEY ?? "");
+
+import "@/css/home.css";
 
 export const metadata: Metadata = {
   title: `${generalTitleMetaData}`,
@@ -33,7 +34,6 @@ export default function RootLayout({
           name="p:domain_verify"
           content="7e1cf25294ccc72af6f7d6c9213634e5"
         />
-
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
