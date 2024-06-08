@@ -1,11 +1,23 @@
 import HomePageBanner from "@/components/layout/HomePageBanner/HomePageBanner";
 import CtaSectionRow from "@/components/organisms/CtaSectionRow/CtaSectionRow";
 import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
+import { Metadata } from "next";
+import {
+  generalKeywordsMetaData,
+  generalTitleMetaData,
+  generalDescriptionMetaData,
+} from "@/data/SEOData";
 
 import testCtaImage from "@/assets/testFiles/testCTA.jpg";
 import textImg from "@/assets/chocker-demo.webp";
 
 import "@/css/home.css";
+
+export const metadata: Metadata = {
+  title: `${generalTitleMetaData} | Home Page`,
+  description: `Vé Home Page. ${generalDescriptionMetaData}`,
+  keywords: generalKeywordsMetaData,
+};
 
 export default function Page() {
   const ctaData = [

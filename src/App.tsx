@@ -9,7 +9,7 @@ import {
   generalKeywordsMetaData,
   generalTitleMetaData,
   generalDescriptionMetaData,
-} from "./data/SEOData";
+} from "@/data/SEOData";
 
 //test image
 import testCtaImage from "@/assets/testFiles/testCTA.jpg";
