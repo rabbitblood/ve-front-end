@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import styles from "./Login.module.css";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Header from "@/components/organisms/Header/Header";
 
 const LoginSchema = z.object({
@@ -43,7 +43,7 @@ export const Login = () => {
             <FormButton type="submit">Login</FormButton>
             <div className={styles.footer}>
               <p>Don't have an account?</p>
-              <Link to="/account/register">Create One</Link>
+              <Link href="/account/register">Create One</Link>
             </div>
           </Form>
         </FormProvider>

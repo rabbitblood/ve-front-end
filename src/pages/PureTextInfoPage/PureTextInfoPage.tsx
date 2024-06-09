@@ -3,10 +3,15 @@ import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { setNav } from "@/lib/redux/store/navSlice";
 import builder, { BuilderComponent } from "@builder.io/react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 
-export default function PureTextInfoPage() {
-  const { pagename } = useParams<{ pagename: string }>();
+interface Prop {
+  params: {
+    pagename: string;
+  };
+}
+
+export default function PureTextInfoPage({ params }: Prop) {
+  const { pagename } = params;
   const dispatch = useAppDispatch();
 
   useEffect(() => {

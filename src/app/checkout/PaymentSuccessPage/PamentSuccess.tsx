@@ -1,13 +1,13 @@
-import { useSearchParams } from "react-router-dom";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { clearCart } from "@/lib/redux/store/cartSlice";
 import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
 import { useEffect, useState } from "react";
 import { getServerData } from "@/lib/VeProduct/retrieveServerData";
+import { useSearchParams } from "next/navigation";
 
 export default function PaymentSuccess() {
   const dispatch = useAppDispatch();
-  const [searchParams] = useSearchParams();
+  const searchParams = useSearchParams();
   //eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [paymentData, setPaymentData] = useState<any>({});
 

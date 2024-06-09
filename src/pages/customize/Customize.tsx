@@ -1,5 +1,5 @@
 import { useState, Dispatch, SetStateAction } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "@/css/customize/customize.css";
 
 //display components
@@ -65,7 +65,7 @@ export default function Customize() {
 
   return (
     <div className="customize">
-      <Link to={"/"} className="brand-name">
+      <Link href={"/"} className="brand-name">
         <h2>Vé</h2>
       </Link>
       <nav className="customize-step-nav">

@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "next/navigation";
 import { useAppDispatch } from "@/lib/redux/reduxDispatcher";
 import { clearCart } from "@/lib/redux/store/cartSlice";
 import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
@@ -7,11 +7,14 @@ import { getServerData } from "@/lib/VeProduct/retrieveServerData";
 
 export default function PaymentSuccess() {
   const dispatch = useAppDispatch();
-  const [searchParams] = useSearchParams();
+  const searchParams = useSearchParams();
   //eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [paymentData, setPaymentData] = useState<any>({});
 
   useEffect(() => {
+    if (!searchParams) {
+      return;
+    }
     getServerData(
       "/stripe/get-payment-data-by-id?paymentid=" +
         searchParams.get("paymentid")
