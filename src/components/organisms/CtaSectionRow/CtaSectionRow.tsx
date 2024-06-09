@@ -25,7 +25,7 @@ export default function CtaSectionRow(props: CtaSectionRowProps) {
             width={1024}
             height={1024}
             alt={props.title}
-            loading="lazy"
+            priority
           />
         </div>
         <div className="cta-text-area">

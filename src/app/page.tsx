@@ -10,6 +10,7 @@ import {
 
 import testCtaImage from "@/assets/testFiles/testCTA.jpg";
 import textImg from "@/assets/chocker-demo.webp";
+import { getDataByName } from "@/lib/builderio/builderDataUtil";
 
 export const metadata: Metadata = {
   title: `${generalTitleMetaData} | Home Page`,
@@ -17,7 +18,10 @@ export const metadata: Metadata = {
   keywords: generalKeywordsMetaData,
 };
 
-export default function Page() {
+export default async function Page() {
+  const bannerData = await getDataByName("home-page-banner");
+  console.log(bannerData);
+
   const ctaData = [
     {
       title: "Pure",
@@ -50,7 +54,20 @@ export default function Page() {
   ];
   return (
     <BasicLayout>
-      {" "}
+      <div className="hide">
+        <h1>Ve studio</h1>
+        {
+          // eslint-disable-next-line
+          bannerData.bannerSlides.map((data: any, idx: number) => {
+            return (
+              <div key={idx}>
+                <h2>{data.title}</h2>
+                <p>{data.subTitle}</p>
+              </div>
+            );
+          })
+        }
+      </div>
       <HomePageBanner />
       <h2 className="new-collection-section-title">New Collections</h2>
       <CtaSectionRow {...ctaData[0]} />
