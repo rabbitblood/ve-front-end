@@ -10,7 +10,7 @@ import Banner from "@/components/organisms/Banner/Banner";
 import { useIsMobile } from "@/hooks/pageUtil";
 
 import { builder } from "@builder.io/sdk";
-import { original } from "@reduxjs/toolkit";
+
 builder.init(process.env.NEXT_PUBLIC_BUILDER_PUBLIC_KEY ?? "");
 
 export default function HomePageBanner() {
