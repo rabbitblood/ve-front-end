@@ -6,9 +6,11 @@ import {
   generalTitleMetaData,
   generalDescriptionMetaData,
   generalKeywordsMetaData,
+  featureImageUrl,
 } from "@/data/SEOData";
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { builder } from "@builder.io/sdk";
+
 builder.init(process.env.NEXT_PUBLIC_BUILDER_PUBLIC_KEY ?? "");
 
 import "@/css/home.css";
@@ -17,6 +19,21 @@ export const metadata: Metadata = {
   title: `${generalTitleMetaData}`,
   description: `${generalDescriptionMetaData}`,
   keywords: generalKeywordsMetaData,
+  openGraph: {
+    type: "website",
+    locale: "en_IE",
+    url: "https://vestudio.ca/",
+    siteName: `${generalTitleMetaData}`,
+    description: `${generalDescriptionMetaData}`,
+    images: [`${featureImageUrl}`],
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  userScalable: false,
+  minimumScale: 1.0,
 };
 
 export default function RootLayout({
@@ -30,10 +47,6 @@ export default function RootLayout({
         <head>
           <meta charSet="UTF-8" />
           <link rel="icon" type="image/svg+xml" href="/icon.png" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
           <meta
             name="p:domain_verify"
             content="7e1cf25294ccc72af6f7d6c9213634e5"
