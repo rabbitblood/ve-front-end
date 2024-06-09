@@ -1,4 +1,3 @@
-import StoreProvider from "@/components/redux/StoreProvider";
 import ProductType from "./ClientContent";
 import { Metadata } from "next";
 import {
@@ -29,9 +28,5 @@ export async function generateMetadata({ params }: Prop): Promise<Metadata> {
 }
 
 export default function ProductTypeWrapper({ params }: Prop) {
-  return (
-    <StoreProvider>
-      <ProductType params={params} />
-    </StoreProvider>
-  );
+  return <ProductType params={params} />;
 }

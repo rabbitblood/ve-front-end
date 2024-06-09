@@ -23,6 +23,9 @@ export default function Header() {
   const isMobile = useIsMobile();
   const dispatch = useAppDispatch();
 
+  console.log(cartAmount);
+  console.log(pageNav);
+
   useEffect(() => {
     // openMenuButton.current?.addEventListener("click", () => {
     //   setHeaderOpen(true);

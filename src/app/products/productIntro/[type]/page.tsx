@@ -3,8 +3,6 @@ import {
   generalDescriptionMetaData,
   generalKeywordsMetaData,
 } from "@/data/SEOData";
-import StoreProvider from "@/components/redux/StoreProvider";
-
 import { Metadata } from "next";
 import ProductIntro from "./ClientContent";
 import { builder } from "@builder.io/sdk";
@@ -27,9 +25,5 @@ export async function generateMetadata({ params }: Prop): Promise<Metadata> {
 }
 
 export default function ProductIntroWrapper({ params }: Prop) {
-  return (
-    <StoreProvider>
-      <ProductIntro params={params} />
-    </StoreProvider>
-  );
+  return <ProductIntro params={params} />;
 }
