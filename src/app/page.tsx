@@ -52,7 +52,7 @@ export default function Page() {
     <BasicLayout>
       {" "}
       <HomePageBanner />
-      <h1 className="new-collection-section-title">New Collections</h1>
+      <h2 className="new-collection-section-title">New Collections</h2>
       <CtaSectionRow {...ctaData[0]} />
       <CtaSectionRow {...ctaData[1]} />
       <CtaSectionRow {...ctaData[2]} />
