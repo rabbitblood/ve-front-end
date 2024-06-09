@@ -20,7 +20,6 @@ interface Prop {
 }
 export default function ProductIntro({ params }: Prop) {
   const { type } = params;
-  console.log(type);
   //get url param
   const searchParams = useSearchParams();
 

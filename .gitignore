@@ -24,7 +24,6 @@ dist-ssr
 *.sw?
 
 #sass
-*.css.map
 
 #next.js
 .next
