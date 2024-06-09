@@ -12,6 +12,9 @@ export default function PaymentSuccess() {
   const [paymentData, setPaymentData] = useState<any>({});
 
   useEffect(() => {
+    if (!searchParams) {
+      return;
+    }
     getServerData(
       "/stripe/get-payment-data-by-id?paymentid=" +
         searchParams.get("paymentid")

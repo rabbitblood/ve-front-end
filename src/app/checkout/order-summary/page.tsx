@@ -16,10 +16,8 @@ import {
 import Link from "next/link";
 import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
 import { getStoreData } from "@/lib/builderio/builderDataUtil";
-import { HTMLAttributes, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CardContainer from "@/components/layout/CardContainerLayout/CardContainerLayout";
-
-interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 // const CouponSchema = z.object({
 //   code: z.string().min(1, "Code is required"),
@@ -27,7 +25,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 // type CouponData = z.infer<typeof CouponSchema>;
 
-export default function OrderSummary(props: Props) {
+export default function OrderSummary() {
   // const methods = useForm<CouponData>({
   //   resolver: zodResolver(CouponSchema),
   // });
@@ -74,7 +72,7 @@ export default function OrderSummary(props: Props) {
     <BasicLayout>
       {subtotal > 0 ? (
         storeData && (
-          <div className={clsx(styles.orderSummary, props.className)}>
+          <div className={clsx(styles.orderSummary)}>
             <h3>Order Summary</h3>
             <div className={styles.wrapper}>
               <div className={styles.cartItems}>
@@ -138,7 +136,7 @@ export default function OrderSummary(props: Props) {
           </div>
         )
       ) : (
-        <div className={clsx(styles.orderSummary, props.className)}>
+        <div className={clsx(styles.orderSummary)}>
           <p>No Item In Cart</p>
         </div>
       )}

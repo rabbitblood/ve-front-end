@@ -20,7 +20,6 @@
     "forceConsistentCasingInFileNames": true,
     "incremental": true,
     "plugins": [{ "name": "next" }],
-    "rootDir": "./src",
     "paths": {
       "@/*": ["./src/*"]
     }
