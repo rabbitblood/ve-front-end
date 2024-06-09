@@ -51,12 +51,14 @@ export default function RootLayout({
             name="p:domain_verify"
             content="7e1cf25294ccc72af6f7d6c9213634e5"
           />
+          <link rel="apple-touch-icon" href="icon.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
             href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Hahmlet:wght@100..900&family=Oranienbaum&display=swap"
             rel="stylesheet"
           />
+          <link rel="canonical" href="https://vestudio.ca/" />
         </head>
         <body>
           {children}

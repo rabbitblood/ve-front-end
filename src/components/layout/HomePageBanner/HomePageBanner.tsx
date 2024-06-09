@@ -10,6 +10,7 @@ import Banner from "@/components/organisms/Banner/Banner";
 import { useIsMobile } from "@/hooks/pageUtil";
 
 import { builder } from "@builder.io/sdk";
+import { original } from "@reduxjs/toolkit";
 builder.init(process.env.NEXT_PUBLIC_BUILDER_PUBLIC_KEY ?? "");
 
 export default function HomePageBanner() {
@@ -25,6 +26,8 @@ export default function HomePageBanner() {
         data.bannerSlides.map((item: any, idx: number) => {
           return {
             original: item.slideImage,
+            thumbnailAlt: item.title,
+            originalAlt: item.title,
             thumbnail: item.slideImage,
             displayElement: (
               <div className="banner-text-container">

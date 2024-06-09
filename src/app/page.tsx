@@ -20,7 +20,6 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const bannerData = await getDataByName("home-page-banner");
-  console.log(bannerData);
 
   const ctaData = [
     {
@@ -55,7 +54,8 @@ export default async function Page() {
   return (
     <BasicLayout>
       <div className="hide">
-        <h1>Ve studio</h1>
+        <h1>{generalTitleMetaData}</h1>
+        <p>{generalDescriptionMetaData}</p>
         {
           // eslint-disable-next-line
           bannerData.bannerSlides.map((data: any, idx: number) => {
