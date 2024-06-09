@@ -21,6 +21,7 @@ type Props = {
   onChange: (value: string) => void;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const hasHeader = (option: any): option is { header: ReactNode } => {
   return "header" in option;
 };

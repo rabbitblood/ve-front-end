@@ -1,3 +1,4 @@
+"use client";
 import style from "./HorizontalMoveImageViewer.module.css";
 import {
   forwardRef,
@@ -134,7 +135,7 @@ const HorizontalMoveImageViewer = forwardRef<
             onClick={() => prevImageHandler()}
           >
             {props.showArrow && (
-              <img src={arrowIcon} className={style["arrow"]}></img>
+              <img src={arrowIcon.src} className={style["arrow"]}></img>
             )}
           </div>
         )}
@@ -144,7 +145,7 @@ const HorizontalMoveImageViewer = forwardRef<
             onClick={() => nextImageHandler()}
           >
             {props.showArrow && (
-              <img src={arrowIcon} className={style["arrow"]}></img>
+              <img src={arrowIcon.src} className={style["arrow"]}></img>
             )}
           </div>
         )}

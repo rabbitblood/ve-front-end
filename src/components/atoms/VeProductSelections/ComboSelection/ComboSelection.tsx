@@ -38,7 +38,7 @@ export default function ComboSelection(prop: Prop) {
         message: (
           <>
             <p>Design For More Possibilities</p>
-            <img src={comboimage} alt="" />
+            <img src={comboimage.src} alt="" />
           </>
         ),
         info: "normal",

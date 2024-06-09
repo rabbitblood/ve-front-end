@@ -3,15 +3,20 @@ import cartSlice from "./cartSlice";
 import navSlice from "./navSlice";
 import popUpSlice from "./popUpSlice";
 
-const store = configureStore({
-  reducer: {
-    cart: cartSlice.reducer,
-    nav: navSlice.reducer,
-    popUp: popUpSlice.reducer,
-  },
-});
+export const makeStore = () => {
+  return configureStore({
+    reducer: {
+      cart: cartSlice.reducer,
+      nav: navSlice.reducer,
+      popUp: popUpSlice.reducer,
+    },
+  });
+};
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+// Infer the type of makeStore
+export type AppStore = ReturnType<typeof makeStore>;
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
 
-export default store;
+export default makeStore();

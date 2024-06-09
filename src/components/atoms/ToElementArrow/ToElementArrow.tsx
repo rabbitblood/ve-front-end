@@ -20,7 +20,7 @@ export default function ToElementArrow({
       onClick={() => scrollToElement(props.toElementId)}
     >
       {props.buttonText && <p className="text">{props.buttonText}</p>}
-      <img className="arrow-icon" src={arrowIcon} />
+      <img className="arrow-icon" src={arrowIcon.src} />
     </div>
   );
 }

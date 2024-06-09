@@ -1,3 +1,4 @@
+"use client";
 import "./PopUp.css";
 import { useAppDispatch, useAppSelector } from "@/lib/redux/reduxDispatcher";
 import { closePopUp } from "@/lib/redux/store/popUpSlice";

@@ -1,3 +1,4 @@
+"use client";
 import {
   HtmlHTMLAttributes,
   LegacyRef,
@@ -9,10 +10,12 @@ import HorizontalMoveImageViewer, {
 } from "@/components/atoms/HorizontalMoveImageViewer/HorizontalMoveImageViewer";
 import "./IntroSection.css";
 import { FormButton } from "@/components/atoms/FormButton/FormButton";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { StringToUppercasedFirstLetterParagraphElement } from "@/lib/util/paragraphUtil";
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/pageUtil";
+import { builder } from "@builder.io/sdk";
+builder.init(process.env.NEXT_PUBLIC_BUILDER_PUBLIC_KEY ?? "");
 
 interface IntroSectionProps extends HtmlHTMLAttributes<HTMLElement> {
   title: string;
@@ -137,7 +140,7 @@ const IntroSection = forwardRef(
             className="form-button-container"
             //variants={detailChildrenAnimationVariant}
           >
-            <Link to={props.exploreUrl as string}>
+            <Link href={props.exploreUrl as string}>
               <FormButton>Explore More</FormButton>{" "}
             </Link>
           </motion.div>

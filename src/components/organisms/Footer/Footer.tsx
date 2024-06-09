@@ -1,6 +1,6 @@
 // import facebookIcon from "@/assets/social-media-icon/facebook.svg";
 // import { FormButton } from "./atoms/FormButton/FormButton";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "./Footer.css";
 
 export default function Footer() {
@@ -11,13 +11,13 @@ export default function Footer() {
           <h3 className="title">Help</h3>
           <div className="items-group">
             <div className="footer__item">
-              <Link to={"/info/care-instructions"}>Care Instructions</Link>
+              <Link href={"/info/care-instructions"}>Care Instructions</Link>
             </div>
 
             <div className="footer__item">
               <div>
                 {" "}
-                <Link to={"/info/privacy-policy"}>Privacy Policy</Link>
+                <Link href={"/info/privacy-policy"}>Privacy Policy</Link>
               </div>
             </div>
           </div>
@@ -27,12 +27,12 @@ export default function Footer() {
           <h3 className="title">Service</h3>
           <div className="items-group">
             <div className="footer__item">
-              <Link to={"/info/return-and-refund"}>Return and Refund</Link>
+              <Link href={"/info/return-and-refund"}>Return and Refund</Link>
             </div>
           </div>
           <div className="items-group">
             <div className="footer__item">
-              <Link to={"/info/customize"}>Customize</Link>
+              <Link href={"/info/customize"}>Customize</Link>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@ export default function Footer() {
           <h3 className="title">About Ve</h3>
           <div className="items-group">
             <div className="footer__item">
-              <Link to={"/info/our-stories"}>Ve Story</Link>
+              <Link href={"/info/our-stories"}>Ve Story</Link>
             </div>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function Footer() {
           <h3 className="title">Contact Us</h3>
           <div className="items-group">
             <div className="footer__item">
-              <Link to={"/info/contact-us"}>Instagram and email</Link>
+              <Link href={"/info/contact-us"}>Instagram and email</Link>
             </div>
           </div>
         </div>
@@ -71,11 +71,9 @@ export default function Footer() {
         </div> */}
       </div>
       <div className="brand-name-container">
-        <h1>
-          <Link className="brand-name" to={"/"}>
-            VÉ{" "}
-          </Link>
-        </h1>
+        <Link className="brand-name" href={"/"}>
+          VÉ{" "}
+        </Link>
       </div>
       <div className="copyright">
         <p>© 2024 Vé. All Rights Reserved.</p>

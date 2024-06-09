@@ -1,6 +1,6 @@
 .banner {
   position: relative;
-  height: calc(100vh - 15rem);
+  height: calc(100lvh - 15rem);
 }
 .banner.parent-size {
   height: 100%;
@@ -8,10 +8,11 @@
 }
 @media (min-width: 768px) {
   .banner {
-    height: calc(100vh - 5rem);
+    height: calc(100lvh - 5rem);
   }
 }
 .banner .banner-text-container {
+  pointer-events: none;
   color: white;
   position: absolute;
   bottom: 3rem;
