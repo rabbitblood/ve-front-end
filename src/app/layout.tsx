@@ -27,6 +27,11 @@ export const metadata: Metadata = {
     description: `${generalDescriptionMetaData}`,
     images: [`${featureImageUrl}`],
   },
+  icons: {
+    icon: "https://cdn.builder.io/api/v1/image/assets%2F37ce5e0c9af24b75813430f31b21364f%2Fea085d9e1e7644fbb104add1f35bb02e",
+    apple:
+      "https://cdn.builder.io/api/v1/image/assets%2F37ce5e0c9af24b75813430f31b21364f%2Fea085d9e1e7644fbb104add1f35bb02e",
+  },
 };
 
 export const viewport: Viewport = {
@@ -51,7 +56,6 @@ export default function RootLayout({
             name="p:domain_verify"
             content="7e1cf25294ccc72af6f7d6c9213634e5"
           />
-          <link rel="apple-touch-icon" href="icon.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
