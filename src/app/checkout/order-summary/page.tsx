@@ -1,3 +1,4 @@
+"use client";
 import styles from "./OrderSummary.module.css";
 import { CartItem } from "./CartItem/CartItem";
 import clsx from "clsx";
@@ -12,7 +13,7 @@ import {
   getAllSimmilarProducts,
   getProductById,
 } from "@/lib/VeProduct/VeproductUtil";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
 import { getStoreData } from "@/lib/builderio/builderDataUtil";
 import { HTMLAttributes, useEffect, useState } from "react";
@@ -26,7 +27,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {}
 
 // type CouponData = z.infer<typeof CouponSchema>;
 
-export const OrderSummary = (props: Props) => {
+export default function OrderSummary(props: Props) {
   // const methods = useForm<CouponData>({
   //   resolver: zodResolver(CouponSchema),
   // });
@@ -102,7 +103,7 @@ export const OrderSummary = (props: Props) => {
                     <p>$ {total.toFixed(2)}</p>
                   </div>
                 </div>
-                <Link to={`/checkout`}>
+                <Link href={`/checkout`}>
                   <button className={styles.payButton}>Pay Now</button>
                 </Link>
               </div>
@@ -112,7 +113,10 @@ export const OrderSummary = (props: Props) => {
                 <h3>People also bought:</h3>
                 <CardContainer>
                   {simmilarProducts.map((product, key) => (
-                    <Link to={`/products/view/${product.productId}`} key={key}>
+                    <Link
+                      href={`/products/view/${product.productId}`}
+                      key={key}
+                    >
                       <div key={key} className={styles.simmilarProduct}>
                         <img
                           className={styles.simmilarProductImage}
@@ -140,4 +144,4 @@ export const OrderSummary = (props: Props) => {
       )}
     </BasicLayout>
   );
-};
+}
