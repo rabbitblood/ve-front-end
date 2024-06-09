@@ -1,9 +1,5 @@
 import "./Products.css";
 import BasicLayout from "@/components/page/BasicLayout/BasicLayout";
-import ProductCard from "@/components/atoms/ProductCard/ProductCard";
-import { getAllProductsAsVeProducts } from "@/lib/builderio/builderDataUtil";
-import { Key } from "react";
-import CardContainer from "@/components/layout/CardContainerLayout/CardContainerLayout";
 import {
   generalDescriptionMetaData,
   generalKeywordsMetaData,
