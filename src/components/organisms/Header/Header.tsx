@@ -89,9 +89,9 @@ export default function Header() {
               <img className="icon" src={search} alt="search" />
             </div> */}
           </div>{" "}
-          <h1 className="brand-name">
+          <h3 className="brand-name">
             <Link href={"/"}>VÉ </Link>
-          </h1>
+          </h3>
         </div>
 
         {pageNav && !isMobile && pageNav.nav.length > 0 && (

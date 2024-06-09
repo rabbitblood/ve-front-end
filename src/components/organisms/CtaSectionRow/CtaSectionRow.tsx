@@ -2,6 +2,7 @@ import { FormButton } from "@/components/atoms/FormButton/FormButton";
 import "./CtaSectionRow.css";
 import { HtmlHTMLAttributes } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export interface CtaSectionRowProps extends HtmlHTMLAttributes<HTMLDivElement> {
   title: string;
@@ -18,12 +19,20 @@ export default function CtaSectionRow(props: CtaSectionRowProps) {
     <div className={`cta-section-row-container${props.swap ? " swap" : ""}`}>
       <div className="cta-section-row">
         <div className="cta-image-container">
-          <img className="cta-image" src={props.img} />
+          <Image
+            className="cta-image"
+            src={props.img}
+            width={1024}
+            height={1024}
+            alt={props.title}
+          />
         </div>
         <div className="cta-text-area">
-          <h2 className="cta-title">{props.title}</h2>
-          <h3 className="cta-sub-title">{props.subTitle}</h3>
-          <p className="cta-desc">{props.description}</p>
+          <h2 className="cta-title">
+            {props.title}
+            <span className="cta-sub-title">{props.subTitle}</span>
+          </h2>
+          <h3 className="cta-desc">{props.description}</h3>
           <div className="button-container">
             <Link href={props.link}>
               <FormButton>{props.buttonText}</FormButton>

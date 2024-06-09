@@ -28,7 +28,7 @@ export default function HomePageBanner() {
             thumbnail: item.slideImage,
             displayElement: (
               <div className="banner-text-container">
-                <h3 className="sub-title">{item.subTitle}</h3>
+                <p className="sub-title">{item.subTitle}</p>
                 <h2 className="title">{item.title}</h2>
                 <Link href={item.buttonUrl}>
                   <FormButton>{item.buttonText}</FormButton>{" "}

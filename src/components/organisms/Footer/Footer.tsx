@@ -71,11 +71,9 @@ export default function Footer() {
         </div> */}
       </div>
       <div className="brand-name-container">
-        <h1>
-          <Link className="brand-name" href={"/"}>
-            VÉ{" "}
-          </Link>
-        </h1>
+        <Link className="brand-name" href={"/"}>
+          VÉ{" "}
+        </Link>
       </div>
       <div className="copyright">
         <p>© 2024 Vé. All Rights Reserved.</p>
