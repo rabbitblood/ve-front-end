@@ -11,7 +11,7 @@ import { useAppSelector } from "@/lib/redux/reduxDispatcher";
 
 export default function Checkout() {
   const cart = useAppSelector((state) => state.cart);
-  const apiUrl = process.env.VITE_API_URL;
+  const apiUrl = process.env.NEXT_PUBLIC_VITE_API_URL;
   const [clientSecret, setClientSecret] = useState<string>("");
   const [paymentIntentId, setPaymentIntentId] = useState<string>("");
   const [total, setTotal] = useState<number>(0);
