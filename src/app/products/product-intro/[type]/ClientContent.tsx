@@ -110,7 +110,7 @@ export default function ProductIntro({ params }: Prop) {
           { name: "Home", url: "/" },
           {
             name: type as string,
-            url: `/products/productIntro/${type}`,
+            url: `/products/product-intro/${type}`,
           },
         ],
       })

@@ -107,7 +107,7 @@ export default function Header() {
         )}
 
         <nav className={`nav ${openNav ? "open" : ""}`}>
-          <Link href={"/products/productIntro/" + "choker"}>
+          <Link href={"/products/product-intro/" + "choker"}>
             <div
               className="nav-link"
               onClick={() => {
@@ -118,7 +118,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link href={"/products/productIntro/" + "bracelet"}>
+          <Link href={"/products/product-intro/" + "bracelet"}>
             <div
               className="nav-link"
               onClick={() => {
@@ -129,7 +129,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <Link href={"/products/productIntro/" + "accessory"}>
+          <Link href={"/products/product-intro/" + "accessory"}>
             <div
               className="nav-link"
               onClick={() => {

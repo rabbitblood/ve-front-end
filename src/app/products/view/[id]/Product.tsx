@@ -118,7 +118,7 @@ export default function Product({ params }: Prop) {
           { name: "Home", url: "/" },
           {
             name: product?.type.typeName as string,
-            url: `/products/ProductIntro/${product?.type.typeName}`,
+            url: `/products/product-intro/${product?.type.typeName}`,
           },
           {
             name: (product?.series.SerieName !== "None"

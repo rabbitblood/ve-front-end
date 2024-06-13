@@ -29,7 +29,7 @@ export default async function Page() {
         "A Clean, Simple, Luxe, Versatile, Minimalist, All-Occasion Elegance series",
       buttonText: "Explore the series",
       img: testCtaImage.src,
-      link: "/products/ProductIntro/choker?serie=pure",
+      link: "/products/product-intro/choker?serie=pure",
     },
     {
       title: "Classic",
@@ -39,7 +39,7 @@ export default async function Page() {
       buttonText: "Explore the series",
       img: textImg.src,
       swap: true,
-      link: "/products/ProductIntro/choker?serie=classic",
+      link: "/products/product-intro/choker?serie=classic",
     },
     {
       title: "Rabbit",
@@ -48,7 +48,7 @@ export default async function Page() {
         "A Luxurious, 100% Handcrafted Python Leather Accessories Series",
       buttonText: "Explore the series",
       img: textImg.src,
-      link: "/products/ProductIntro/accessory",
+      link: "/products/product-intro/accessory",
     },
   ];
   return (
